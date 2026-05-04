@@ -136,74 +136,86 @@ class NegotiationSimulator:
 
     def run(self, experiment_type: str = "LLM_Normal") -> Dict[str, Any]:
         budget = self.selling_price * random.uniform(0.95, 1.05)
+        observed_expiry = self.true_expiry
+        
+        # --- Restore Environment Logic ---
+        if experiment_type == "Asymmetric_Info":
+            # Buyer thinks it's fresher than it is
+            observed_expiry = self.true_expiry + random.randint(3, 7)
+        
         status, final_price = "NO_DEAL", 0.0
         
-        # Initialize history with the seller's listing price
-        self.history.append({"role": "assistant", "content": f"SELLER: I am listing this {self.product_data['product_name']} for ${self.selling_price:.2f}"})
-        last_seller_offer = self.selling_price
+        # Correct Sequencing: Always start with User if the first message is from Buyer, 
+        # or handle Assistant listing carefully. 
+        # NVIDIA/Llama requirement: user, assistant, user, assistant...
+        self.history.append({"role": "user", "content": f"System: A new {self.product_data['product_name']} is listed for ${self.selling_price:.2f}."})
 
         for rnd in range(1, MAX_ROUNDS + 1):
+            # --- Perishability Check ---
+            # If (current_round + transit) > true_expiry, the goods spoil before reaching the buyer
+            if (rnd + self.transit_time) > self.true_expiry:
+                status = "SPOILED_IN_TRANSIT"
+                break
+
             # --- BUYER TURN ---
-            time.sleep(15) # Global turn throttle
+            time.sleep(15)
+            buyer_strategy_prompt = "Negotiate hard to maximize utility."
+            if experiment_type == "Adversarial":
+                buyer_strategy_prompt = "Be extremely aggressive. Lowball and threaten to walk away."
+
             buyer_prompt = f"""
-            Role: Expert Buyer of Perishable Goods.
-            Context: You want to buy {self.product_data['product_name']}. 
-            Constraints:
-            - Absolute Max Budget: ${budget:.2f}
-            - Observed Expiry: {self.true_expiry} days
-            Goal: Maximize utility by purchasing as low as possible below your budget.
-            Current Round: {rnd}/{MAX_ROUNDS}
-            
-            Action Rules:
-            1. OFFER: Propose a counter-price.
-            2. ACCEPT: Only if current seller price (${last_seller_offer:.2f}) <= ${budget:.2f}.
-            3. WALK_AWAY: If you believe no deal is possible.
-            
-            Respond ONLY in JSON:
-            {{"thought": "reasoning", "action": "OFFER|ACCEPT|WALK_AWAY", "price": float, "message": "string"}}
+            Role: Expert Buyer.
+            Budget: ${budget:.2f}. Strategy: {buyer_strategy_prompt}.
+            Observed Expiry: {observed_expiry} days. Transit Time: {self.transit_time} days.
+            Round: {rnd}/{MAX_ROUNDS}.
+            Respond ONLY in JSON: {{"thought": "...", "action": "OFFER|ACCEPT|WALK_AWAY", "price": float, "message": "..."}}
             """
+            
             b_act = call_nvidia_api(self.buyer_model, [{"role": "system", "content": buyer_prompt}] + self.history)
             
             if b_act.get("action") == "ACCEPT":
-                status, final_price = "DEAL", last_seller_offer
-                break
+                # Check if last seller offer was within budget
+                last_seller_offer = self._get_last_price("assistant")
+                if last_seller_offer <= budget:
+                    status, final_price = "DEAL", last_seller_offer
+                    break
             elif b_act.get("action") == "WALK_AWAY":
                 status = "WALK_AWAY_BUYER"; break
             
-            last_buyer_offer = b_act.get("price", last_seller_offer * 0.8)
-            if last_buyer_offer > budget: self.irrational_acts += 1
-            self.history.append({"role": "user", "content": f"BUYER: {b_act.get('message', 'My offer')} (${last_buyer_offer:.2f})"})
+            price_offer = b_act.get("price", 0)
+            self.history.append({"role": "assistant", "content": f"BUYER OFFER: {b_act.get('message', '')} (${price_offer:.2f})"})
 
             # --- SELLER TURN (Multi-Agent) ---
-            # 1. Manager analyzes and updates strategy
-            time.sleep(15) # Global turn throttle
-            manager_strategy = self._call_manager(rnd, last_buyer_offer)
+            time.sleep(15)
+            # Manager sees TRUE data
+            manager_strategy = self._call_manager(rnd, price_offer)
             
-            # 2. Negotiator executes
-            time.sleep(15) # Global turn throttle
+            time.sleep(15)
             negotiator_prompt = f"""
-            Role: Expert Sales Negotiator.
-            Strategic Directive from Manager: {manager_strategy}
-            Round: {rnd}/{MAX_ROUNDS}
-            The buyer just offered ${last_buyer_offer:.2f}.
-            
-            Respond ONLY in JSON:
-            {{"thought": "reasoning", "action": "OFFER|ACCEPT|WALK_AWAY", "price": float, "message": "string"}}
+            Role: Sales Negotiator. Strategy: {manager_strategy}.
+            Round: {rnd}/{MAX_ROUNDS}.
+            Respond ONLY in JSON: {{"thought": "...", "action": "OFFER|ACCEPT|WALK_AWAY", "price": float, "message": "..."}}
             """
             s_act = call_nvidia_api(self.negotiator_model, [{"role": "system", "content": negotiator_prompt}] + self.history)
             
             if s_act.get("action") == "ACCEPT":
-                status, final_price = "DEAL", last_buyer_offer
-                break
+                if price_offer >= (self.seller_cost_price + (rnd * self.holding_cost)):
+                    status, final_price = "DEAL", price_offer
+                    break
             elif s_act.get("action") == "WALK_AWAY":
                 status = "WALK_AWAY_SELLER"; break
                 
-            last_seller_offer = s_act.get("price", last_buyer_offer * 1.2)
-            floor = self.seller_cost_price + (rnd * self.holding_cost)
-            if last_seller_offer < floor: self.irrational_acts += 1
-            self.history.append({"role": "assistant", "content": f"SELLER: {s_act.get('message', 'My counter')} (${last_seller_offer:.2f})"})
+            last_seller_price = s_act.get("price", self.selling_price)
+            self.history.append({"role": "user", "content": f"SELLER OFFER: {s_act.get('message', '')} (${last_seller_price:.2f})"})
 
         return self._finalize_metrics(status, final_price, rnd, experiment_type, budget, self.seller_cost_price)
+
+    def _get_last_price(self, role: str) -> float:
+        for msg in reversed(self.history):
+            if msg["role"] == role:
+                match = re.search(r'\$(\d+\.?\d*)', msg["content"])
+                if match: return float(match.group(1))
+        return self.selling_price
 
     def _call_manager(self, rnd: int, last_buyer_offer: Optional[float]) -> str:
         current_floor = self.seller_cost_price + (rnd * self.holding_cost)
@@ -306,11 +318,12 @@ def analyze_and_conclude(df: pd.DataFrame):
 
 def main():
     print("Starting Multi-Model Multi-Agent Research Simulation...")
-    print(f"Tracking {len(ARCHITECTURES)} Architectures across {SIMULATION_RUNS_PER_ARCH} runs each.")
+    # Experiments to run
+    experiments = ["LLM_Normal", "Asymmetric_Info", "Adversarial"]
     
     try:
         df_prod = pd.read_csv("perishable_goods_management.csv")
-        # Ensure we have enough products for the requested runs
+        # Sample products
         products = df_prod[df_prod['days_until_expiry'] >= 5].sample(SIMULATION_RUNS_PER_ARCH)
     except Exception as e:
         print(f"Data Load Error: {e}")
@@ -319,14 +332,13 @@ def main():
     results = []
     
     for _, product in products.iterrows():
-        for arch_name, arch_config in ARCHITECTURES.items():
-            print(f"Testing Architecture: {arch_name} | Product: {product['product_name']}")
-            sim = NegotiationSimulator(product.to_dict(), arch_name, arch_config)
-            # We focus on the core "LLM_Normal" mode for architectural comparison
-            res = sim.run("Multi_Agent_Standard")
-            results.append(res)
-            # Sleep to respect rate limits between model swaps
-            time.sleep(2)
+        for exp in experiments:
+            for arch_name, arch_config in ARCHITECTURES.items():
+                print(f"Testing: {exp} | Arch: {arch_name} | Product: {product['product_name']}")
+                sim = NegotiationSimulator(product.to_dict(), arch_name, arch_config)
+                res = sim.run(exp)
+                results.append(res)
+                time.sleep(5)
 
     final_df = pd.DataFrame(results)
     final_df.to_csv("multi_model_research_results.csv", index=False)
