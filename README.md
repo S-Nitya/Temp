@@ -1,4 +1,4 @@
-# Research Project: True Agentic Agency in Perishable Goods Negotiation
+# True Agentic Agency in Perishable Goods Negotiation
 
 ## 1. Introduction: Why We Did This
 Most "agentic" simulations suffer from a **Structural Flaw**: the decision-making logic (pricing, concession curves, and accept/reject thresholds) is hardcoded in Python heuristics. In these setups, the LLM is merely a "parrot" formatting pre-determined math into text. 
