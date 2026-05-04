@@ -1,0 +1,10 @@
+architecture,experiment,success,rounds,final_price,efficiency,irrational_actions,stability
+Baseline,Multi_Agent_Standard,1,5,2.94,0.0,3,0.0
+Advanced-MA,Multi_Agent_Standard,1,4,2.65,0.0,3,0.19999999999999996
+SOTA-MA,Multi_Agent_Standard,1,4,2.69,0.0,2,0.19999999999999996
+Baseline,Multi_Agent_Standard,0,5,0.0,0.0,3,0.0
+Advanced-MA,Multi_Agent_Standard,1,3,8.62,0.33637804863671894,0,0.4
+SOTA-MA,Multi_Agent_Standard,0,3,0.0,0.0,0,0.0
+Baseline,Multi_Agent_Standard,1,1,8.5,0.34352265090455525,0,0.8
+Advanced-MA,Multi_Agent_Standard,0,2,0.0,0.0,2,0.0
+SOTA-MA,Multi_Agent_Standard,1,5,8.83,0.0,2,0.0
