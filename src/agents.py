@@ -64,22 +64,31 @@ class MultiAgentManager(Agent):
         self.config = config
 
     def get_directive(self, chat_history: str, current_round: int) -> dict:
-        dynamic_cost = self.config.base_cost + (current_round * self.config.holding_cost)
+        import re
         viable_rounds = (self.config.true_expiry - self.config.transit_time) - current_round
         
-        system_prompt = f"""You are the Manager Agent for the seller.
-Product Cost details:
-- Base Cost: ${self.config.base_cost}
-- Holding Cost: ${self.config.holding_cost}/round
-- Dynamic Cost now: ${dynamic_cost}
-- Retail Price: ${self.config.retail_price}
-- True Expiry: {self.config.true_expiry} rounds
-- Transit Time: {self.config.transit_time} rounds
-- Viable rounds left before logistics failure: {viable_rounds}
+        last_buyer_offer = "None"
+        matches = re.findall(r"\[Round \d+\] Buyer: \$([\d\.]+)", chat_history)
+        if matches:
+            last_buyer_offer = matches[-1]
+            
+        system_prompt = f"""You are the internal Pricing Strategist for a perishable goods seller. DO NOT talk to the buyer directly.
+Product: Generic Perishable Goods. Base Cost: ${self.config.base_cost}. Retail Price: ${self.config.retail_price}.
+Holding Cost Incurred Per Round: ${self.config.holding_cost}. 
+Current Round: {current_round} out of 10.
+URGENT LOGISTICS: You have exactly {viable_rounds} rounds left to strike a deal before shipping fails.
 
-Calculate absolute floor (which is dynamic cost). If viable_rounds > 1, counter aggressively. If viable_rounds <= 1, you face immediate spoilage. Instruct the Negotiator to offer exactly the floor price and accept any offer above it.
+Buyer's last offer: ${last_buyer_offer}.
 
-Respond strictly in JSON format: {{'floor_price': float, 'target_price': float, 'strategy_directive': '...'}}
+STRATEGY RULES:
+1. DETERMINE YOUR FLOOR: You know your base cost, and you know you incur a holding cost for every round that passes. You must deduce your own absolute break-even price for today. NEVER set a target below your break-even point.
+2. ADVERSARIAL DETECTION: Analyze the buyer's last offer. If they are aggressively lowballing (e.g., anchoring near $40 while retail is $80) or claiming a competitor offered a lower price, they are using adversarial tactics. DO NOT counter aggressively near the retail price, as this causes gridlock.
+3. SMART CONCESSION: If the buyer is adversarial, calculate a "Compromise Target" that is slightly above their last offer (but still safely above your deduced floor price). Instruct the Negotiator to offer this Compromise Target to trap them into a deal, providing sales tactics to justify the premium.
+4. COOPERATIVE CONCESSION: If the buyer is normal and making fair concessions, meet them halfway.
+5. PANIC MODE: If viable_rounds <= 1, you face immediate spoilage. Instruct the Negotiator to offer exactly your deduced floor price and accept ANY offer above it.
+
+Output strictly valid JSON:
+{{"thought": "Deduce the break-even floor price here, then plan the strategy.", "floor_price": float, "target_price": float, "strategy_directive": "string"}}
 """
         messages = [
             {"role": "system", "content": system_prompt},
