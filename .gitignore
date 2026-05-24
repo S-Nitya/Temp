@@ -28,3 +28,8 @@ Thumbs.db
 
 # Gemini agent
 .gemini/
+
+# BMAD framework
+_bmad/
+_bmad-output/
+.agent/
