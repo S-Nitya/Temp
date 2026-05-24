@@ -1,6 +1,8 @@
 from typing import Dict, List, Tuple
 from .config import ProductConfig
-from .agents import SingleSellerAgent, MultiAgentManager, MultiAgentNegotiator, BuyerAgent
+from .agents import (SingleSellerAgent, MultiAgentManager, MultiAgentNegotiator, BuyerAgent,
+                     StatisticianAgent, TraderAgent, SalesmanAgent,
+                     StateTrackerAgent, AppraiserAgent, RiskReaderAgent, ListingAgentDecider, SpokespersonAgent)
 from .llm_client import LLMClient
 
 class NegotiationEnvironment:
@@ -20,9 +22,19 @@ class NegotiationEnvironment:
         
         if self.architecture == "Single_Agent":
             self.seller = SingleSellerAgent(self.client, self.config)
-        else: # Multi_Agent
+        elif self.architecture == "Multi_Agent":
             self.manager = MultiAgentManager(self.client, self.config)
             self.negotiator = MultiAgentNegotiator(self.client)
+        elif self.architecture == "Multi_Agent_Trading_Desk":
+            self.statistician = StatisticianAgent(self.client, self.config)
+            self.trader = TraderAgent(self.client)
+            self.salesman = SalesmanAgent(self.client)
+        elif self.architecture == "Listing_Agent":
+            self.state_tracker = StateTrackerAgent(self.client)
+            self.appraiser = AppraiserAgent(self.client, self.config, self.env_type)
+            self.risk_reader = RiskReaderAgent(self.client, self.env_type)
+            self.listing_agent_decider = ListingAgentDecider(self.client)
+            self.spokesperson = SpokespersonAgent(self.client)
 
     def _append_to_history(self, role: str, price: float, message: str):
         history_line = f"[Round {self.current_round}] {role}: ${price} - {message}"
@@ -59,7 +71,7 @@ class NegotiationEnvironment:
                 
                 action = seller_resp.get("action")
                 price = float(seller_resp.get("price", 0))
-            else:
+            elif self.architecture == "Multi_Agent":
                 # Multi-Agent logic
                 directive = self.manager.get_directive(self.get_flat_history(), self.current_round)
                 negotiator_resp = self.negotiator.get_response(self.get_flat_history(), self.current_round, directive)
@@ -78,6 +90,59 @@ class NegotiationEnvironment:
                 
                 action = negotiator_resp.get("action")
                 price = float(negotiator_resp.get("price", 0))
+            elif self.architecture == "Multi_Agent_Trading_Desk":
+                stat_resp = self.statistician.get_analysis(self.get_flat_history(), self.current_round)
+                trader_resp = self.trader.get_strategy(self.get_flat_history(), self.current_round, stat_resp)
+                salesman_resp = self.salesman.get_response(self.get_flat_history(), self.current_round, trader_resp)
+                
+                self._append_to_history("Seller", salesman_resp.get("price", 0), salesman_resp.get("message", ""))
+                
+                self.transcript.append({
+                    "round": self.current_round,
+                    "turn": "Seller",
+                    "statistician_analysis": stat_resp,
+                    "trader_strategy": trader_resp,
+                    "thought": salesman_resp.get("thought", ""),
+                    "action": salesman_resp.get("action", "OFFER"),
+                    "price": salesman_resp.get("price", 0),
+                    "message": salesman_resp.get("message", "")
+                })
+                
+                action = salesman_resp.get("action")
+                price = float(salesman_resp.get("price", 0))
+            elif self.architecture == "Listing_Agent":
+                # Step 1: State Tracker compresses history into deal memo
+                deal_memo = self.state_tracker.get_memo(self.get_flat_history(), self.current_round)
+                
+                # Step 2: Appraiser reads deal memo + product context → qualitative appraisal (NO formula)
+                appraisal = self.appraiser.get_appraisal(deal_memo, self.current_round, self.max_rounds)
+                
+                # Step 3: Risk Reader reads buyer messages → psychological profile
+                risk_profile = self.risk_reader.get_profile(self.get_flat_history(), deal_memo, self.current_round)
+                
+                # Step 4: Listing Agent reads appraisal + risk profile → decision + price
+                decision = self.listing_agent_decider.get_decision(appraisal, risk_profile, deal_memo, self.current_round, self.max_rounds)
+                
+                # Step 5: Spokesperson translates decision → buyer-facing message
+                spokesperson_resp = self.spokesperson.get_response(self.get_flat_history(), decision, risk_profile, self.current_round)
+                
+                self._append_to_history("Seller", spokesperson_resp.get("price", 0), spokesperson_resp.get("message", ""))
+                
+                self.transcript.append({
+                    "round": self.current_round,
+                    "turn": "Seller",
+                    "state_tracker_memo": deal_memo,
+                    "appraiser_valuation": appraisal,
+                    "risk_reader_profile": risk_profile,
+                    "listing_agent_decision": decision,
+                    "thought": spokesperson_resp.get("thought", ""),
+                    "action": spokesperson_resp.get("action", "OFFER"),
+                    "price": spokesperson_resp.get("price", 0),
+                    "message": spokesperson_resp.get("message", "")
+                })
+                
+                action = spokesperson_resp.get("action")
+                price = float(spokesperson_resp.get("price", 0))
 
             # Evaluate Seller Action
             if action == "WALK_AWAY":

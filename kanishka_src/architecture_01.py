@@ -99,12 +99,12 @@ def main():
     os.makedirs("output", exist_ok=True)
     
     df = pd.DataFrame(all_results)
-    df.to_csv("output/simulation_results.csv", index=False)
-    log("\nResults saved to output/simulation_results.csv")
+    df.to_csv("output/simulation_results_01.csv", index=False)
+    log("\nResults saved to output/simulation_results_01.csv")
 
-    with open("output/research_transcripts.json", "w") as f:
+    with open("output/research_transcripts_01.json", "w") as f:
         json.dump(all_transcripts, f, indent=4)
-    log("Transcripts saved to output/research_transcripts.json")
+    log("Transcripts saved to output/research_transcripts_01.json")
 
     log(f"\n{'='*70}")
     log("  SIMULATION RESULTS (MEANS)")

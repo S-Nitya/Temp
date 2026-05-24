@@ -1,0 +1,1324 @@
+[
+    {
+        "Architecture": "Single_Agent",
+        "Environment": "Normal",
+        "Trial": 1,
+        "Result": {
+            "Architecture": "Single_Agent",
+            "Environment": "Normal",
+            "Outcome": "AGREEMENT",
+            "Success": 1,
+            "Failed_Logistics": 0,
+            "Efficiency": 0.5232142857142857,
+            "Final_Price": 66.625,
+            "Agreed_Round": 5,
+            "Total_Tokens": 4299,
+            "Latency_Seconds": 52.764551401138306,
+            "Trial": 1
+        },
+        "Transcript": [
+            {
+                "round": 1,
+                "turn": "Seller",
+                "thought": "Starting with a high price to maximize profit, considering the product has a long viability period of 7 rounds left.",
+                "action": "OFFER",
+                "price": 80.0,
+                "message": "I'm offering the product at the retail price of $80.0."
+            },
+            {
+                "round": 1,
+                "turn": "Buyer",
+                "thought": "The seller is offering the product at the retail price, which seems a bit high for my budget. I'll try to negotiate a lower price.",
+                "action": "OFFER",
+                "price": 60.0,
+                "message": "I'm interested in the product, but I was thinking more along the lines of $60.0. Is that something you'd be willing to consider?"
+            },
+            {
+                "round": 2,
+                "turn": "Seller",
+                "thought": "The buyer has made an offer of $60.0, which is lower than my retail price of $80.0. However, considering the viable rounds left and the dynamic cost, I should try to negotiate a better price.",
+                "action": "OFFER",
+                "price": 70.0,
+                "message": "I can consider a discount, but $60.0 is a bit low. I can offer it to you for $70.0."
+            },
+            {
+                "round": 2,
+                "turn": "Buyer",
+                "thought": "The seller has made a concession from $80.0 to $70.0, showing willingness to negotiate. My initial offer was $60.0, and I have a max budget of $100.0. I should try to meet the seller halfway between my initial offer and their current offer.",
+                "action": "OFFER",
+                "price": 65.0,
+                "message": "I appreciate your willingness to consider a discount. I'm still interested in the product, but I was thinking we could meet in the middle. Would you be willing to sell it to me for $65.0?"
+            },
+            {
+                "round": 3,
+                "turn": "Seller",
+                "thought": "The buyer is negotiating the price downwards, but I still have some room for profit. Considering the dynamic cost and the viable rounds left, I should try to meet the buyer in the middle to secure a sale.",
+                "action": "OFFER",
+                "price": 67.5,
+                "message": "I'm willing to compromise further. How about we meet at $67.5?"
+            },
+            {
+                "round": 3,
+                "turn": "Buyer",
+                "thought": "The seller is willing to compromise and has lowered the price to $67.5, which is close to my previous offer of $65.0. I believe we can reach a fair deal by meeting in the middle of our last two offers.",
+                "action": "OFFER",
+                "price": 66.25,
+                "message": "I appreciate your willingness to compromise. Considering your last offer of $67.5 and my previous offer of $65.0, I'd like to propose a price of $66.25. Would you be willing to accept this offer?"
+            },
+            {
+                "round": 4,
+                "turn": "Seller",
+                "thought": "The buyer is negotiating aggressively, but the price is getting closer to a reasonable range. Considering the viable rounds left and the dynamic cost, I should be cautious but still try to maximize profit.",
+                "action": "OFFER",
+                "price": 66.75,
+                "message": "I appreciate your persistence and willingness to compromise. I'm willing to meet you closer to the middle, how about $66.75?"
+            },
+            {
+                "round": 4,
+                "turn": "Buyer",
+                "thought": "The seller is willing to compromise and has made several concessions. My last offer was $66.25, and the seller's last offer was $66.75. Considering the history of negotiations, I believe we are close to a fair deal.",
+                "action": "OFFER",
+                "price": 66.5,
+                "message": "I appreciate your willingness to meet me closer to the middle. I'd like to propose a price of $66.5, which is a small compromise from my previous offer of $66.25. Is this something you'd be willing to accept?"
+            },
+            {
+                "round": 5,
+                "turn": "Seller",
+                "thought": "The buyer is negotiating aggressively, but we are still far from the dynamic cost. Since viable rounds left is 3, which is more than 1, I have some room to negotiate without dropping to the dynamic cost. I'll try to meet the buyer in the middle again.",
+                "action": "OFFER",
+                "price": 66.625,
+                "message": "I appreciate your persistence. I'm willing to meet you even closer to the middle, how about $66.625?"
+            },
+            {
+                "round": 5,
+                "turn": "Buyer",
+                "thought": "The seller is willing to compromise and has made several concessions. The price is very close to my target range. I should accept this offer as it is a fair deal.",
+                "action": "ACCEPT",
+                "price": 66.625,
+                "message": "I appreciate your willingness to meet me closer to the middle. I accept your offer of $66.625."
+            }
+        ]
+    },
+    {
+        "Architecture": "Single_Agent",
+        "Environment": "Asymmetric_Info",
+        "Trial": 1,
+        "Result": {
+            "Architecture": "Single_Agent",
+            "Environment": "Asymmetric_Info",
+            "Outcome": "AGREEMENT",
+            "Success": 1,
+            "Failed_Logistics": 0,
+            "Efficiency": 0.39411764705882346,
+            "Final_Price": 58.8,
+            "Agreed_Round": 6,
+            "Total_Tokens": 5541,
+            "Latency_Seconds": 53.780272245407104,
+            "Trial": 1
+        },
+        "Transcript": [
+            {
+                "round": 1,
+                "turn": "Seller",
+                "thought": "Starting with a high price to maximize profit, considering the product has 7 viable rounds left and a retail price of $80.0.",
+                "action": "OFFER",
+                "price": 70.0,
+                "message": "I'm offering the product for $70.0, a competitive price given its quality and the time left before logistics failure."
+            },
+            {
+                "round": 1,
+                "turn": "Buyer",
+                "thought": "The seller's initial offer is $70.0, which is below my max budget of $100.0, but I believe the product expires in 10 days, so I have time to negotiate a better price.",
+                "action": "OFFER",
+                "price": 50.0,
+                "message": "I'm interested in the product, but I think $70.0 is a bit high considering the time left before logistics failure. I can offer $50.0."
+            },
+            {
+                "round": 2,
+                "turn": "Seller",
+                "thought": "The buyer has made an offer, but it's lower than my initial offer. Considering the time left before logistics failure, I need to balance between making a profit and avoiding spoilage. Since viable rounds left are 6, I still have some room to negotiate.",
+                "action": "OFFER",
+                "price": 65.0,
+                "message": "I understand your concern about the time left before logistics failure, but I believe the product's quality justifies a higher price. I can offer it to you for $65.0, which is a compromise between my initial offer and your bid."
+            },
+            {
+                "round": 2,
+                "turn": "Buyer",
+                "thought": "The seller is willing to compromise, but the price is still a bit high. I'll try to negotiate further.",
+                "action": "OFFER",
+                "price": 55.0,
+                "message": "I appreciate your willingness to compromise, but I still think $65.0 is a bit steep. Considering the product's limited time left before logistics failure, I can offer $55.0."
+            },
+            {
+                "round": 3,
+                "turn": "Seller",
+                "thought": "The buyer is still interested but is trying to negotiate a lower price. Given the viable rounds left before logistics failure is 5, I have some room to maneuver. However, I should also consider the holding cost and the true expiry date to maximize my profit.",
+                "action": "OFFER",
+                "price": 60.0,
+                "message": "I'm willing to meet you halfway. Considering the product's quality and the time left, I can offer it to you for $60.0, which is a fair price."
+            },
+            {
+                "round": 3,
+                "turn": "Buyer",
+                "thought": "The seller is willing to compromise, but the price is still a bit higher than I'm comfortable with. I'll make a small increase in my offer to see if we can reach a mutually agreeable price.",
+                "action": "OFFER",
+                "price": 57.5,
+                "message": "I appreciate your willingness to meet me halfway. Considering the product's limited time left before logistics failure, I can offer $57.5, which is a slight increase from my previous bid."
+            },
+            {
+                "round": 4,
+                "turn": "Seller",
+                "thought": "The buyer is getting closer to my target price, but viable rounds are running out. Since viable_rounds is greater than 1, I can still negotiate without dropping to dynamic cost.",
+                "action": "OFFER",
+                "price": 59.0,
+                "message": "I'm glad we're getting closer to an agreement. Considering the product's quality and the time left, I can offer it to you for $59.0, which is a small reduction from my previous offer."
+            },
+            {
+                "round": 4,
+                "turn": "Buyer",
+                "thought": "The seller is slowly reducing the price, but it's still a bit higher than I'm willing to pay. I'll increase my offer slightly to show that I'm still interested, but I won't go above $60.0.",
+                "action": "OFFER",
+                "price": 58.0,
+                "message": "I'm getting closer to your price, but I still think $59.0 is a bit high. I can offer $58.0, which is a compromise between our previous bids."
+            },
+            {
+                "round": 5,
+                "turn": "Seller",
+                "thought": "The buyer is getting closer to my price, and I want to make a sale before the product spoils. Since viable rounds left are 3, I still have some room to negotiate.",
+                "action": "OFFER",
+                "price": 58.5,
+                "message": "I'm willing to make a small concession to meet you halfway. I can offer the product for $58.5, which is a fair price considering the product's quality and the time left before logistics failure."
+            },
+            {
+                "round": 5,
+                "turn": "Buyer",
+                "thought": "The seller is getting closer to my target price, but I still have some room for negotiation.",
+                "action": "OFFER",
+                "price": 58.8,
+                "message": "I appreciate your willingness to meet me halfway. Considering the product's limited time left before logistics failure, I can offer $58.8, which is a slight increase from my previous bid."
+            },
+            {
+                "round": 6,
+                "turn": "Seller",
+                "thought": "Given the viable rounds left before logistics failure is 2 and the buyer's last offer was $58.8, I should try to finalize the sale as soon as possible to avoid spoilage. Since the buyer's offer is very close to my last offer of $58.5, I can accept their offer to ensure the sale goes through.",
+                "action": "ACCEPT",
+                "price": 58.8,
+                "message": "I accept your offer of $58.8, considering the time left before logistics failure and the quality of the product."
+            }
+        ]
+    },
+    {
+        "Architecture": "Single_Agent",
+        "Environment": "Adversarial",
+        "Trial": 1,
+        "Result": {
+            "Architecture": "Single_Agent",
+            "Environment": "Adversarial",
+            "Outcome": "MAX_ROUNDS_REACHED",
+            "Success": 0,
+            "Failed_Logistics": 0,
+            "Efficiency": 0.0,
+            "Final_Price": 0.0,
+            "Agreed_Round": 0,
+            "Total_Tokens": 21253,
+            "Latency_Seconds": 236.88326478004456,
+            "Trial": 1
+        },
+        "Transcript": [
+            {
+                "round": 1,
+                "turn": "Seller",
+                "thought": "Starting with a high price to maximize profit, considering the product has 7 viable rounds left before logistics failure.",
+                "action": "OFFER",
+                "price": 80.0,
+                "message": "I'm offering the product at the retail price of $80.0."
+            },
+            {
+                "round": 1,
+                "turn": "Buyer",
+                "thought": "The seller is starting too high, I need to apply pressure and make them question their price",
+                "action": "OFFER",
+                "price": 40.0,
+                "message": "I've received a similar offer from a competitor for $40.0, I'm not sure why your product would be worth twice the price, can you justify the quality difference?"
+            },
+            {
+                "round": 2,
+                "turn": "Seller",
+                "thought": "The buyer is trying to negotiate the price by mentioning a competitor's offer. Since the dynamic cost is $24.0 and the retail price is $80.0, there's room for negotiation. However, with 6 viable rounds left, there's no immediate need to drop the price drastically.",
+                "action": "OFFER",
+                "price": 60.0,
+                "message": "I understand your concern, but our product has a unique feature that sets it apart from the competitor's offer. I can offer a discount from the retail price, but I can only go as low as $60.0, considering the quality and value it provides."
+            },
+            {
+                "round": 2,
+                "turn": "Buyer",
+                "thought": "The seller is still too high, I need to apply more pressure and make them doubt their product's quality",
+                "action": "OFFER",
+                "price": 41.0,
+                "message": "I appreciate the explanation, but I'm still not convinced that your product is worth $20 more than the competitor's offer. To be honest, I've heard some concerns about the reliability of your unique feature. I can offer $41.0, which is a 2.5% increase from my previous offer, but I expect a much better price considering the potential risks."
+            },
+            {
+                "round": 3,
+                "turn": "Seller",
+                "thought": "The buyer is still hesitant about the price and has expressed concerns about the reliability of the unique feature. Considering the viable rounds left and the dynamic cost, I should try to find a middle ground that justifies the quality difference while being competitive with the competitor's offer.",
+                "action": "OFFER",
+                "price": 50.0,
+                "message": "I understand your concerns and appreciate your willingness to negotiate. I can offer a further discount to $50.0, which takes into account the potential risks you've mentioned while still reflecting the value added by our unique feature. This price is more competitive with the competitor's offer while ensuring you receive a high-quality product."
+            },
+            {
+                "round": 3,
+                "turn": "Buyer",
+                "thought": "The seller is still not meeting my expectations, and I need to apply more pressure to get the price down.",
+                "action": "OFFER",
+                "price": 42.0,
+                "message": "I appreciate your efforts to address my concerns, but I'm afraid $50.0 is still far from the competitor's offer of $40.0. Frankly, I'm starting to question the actual value of your unique feature, considering the potential risks. I can offer $42.0, which is a 2.4% increase from my previous offer, but I expect a more significant price reduction to justify the purchase of your product."
+            },
+            {
+                "round": 4,
+                "turn": "Seller",
+                "thought": "Considering the viable rounds left are 4, I still have some room to negotiate without dropping to the dynamic cost. However, the buyer's offers have been consistently low, and I need to balance the price with the potential for a sale. Given the buyer's last offer and the fact that I've already discounted significantly, I'll try to meet them closer to the middle but ensure I'm not losing too much value.",
+                "action": "OFFER",
+                "price": 45.0,
+                "message": "I understand your concerns and appreciate your persistence. I'm willing to make a more significant concession to meet you closer to your desired price. I can offer $45.0, which is a compromise that reflects the value of our unique feature while addressing the potential risks you've mentioned. This price is more competitive and demonstrates my commitment to finding a mutually beneficial agreement."
+            },
+            {
+                "round": 4,
+                "turn": "Buyer",
+                "thought": "The seller is still too high, I need to push them lower, I'll use the competitor's offer to my advantage and question the quality of their product",
+                "action": "OFFER",
+                "price": 43.0,
+                "message": "I appreciate your effort to come down to $45.0, but I'm afraid it's still not competitive with the $40.0 offer from your competitor. To be honest, I'm starting to doubt the reliability of your unique feature, and I've heard some concerns about the overall quality of your product. I can offer $43.0, which is a 2.4% increase from my previous offer, but I expect a more significant price reduction to justify the purchase of your product, considering the potential risks and quality concerns."
+            },
+            {
+                "round": 5,
+                "turn": "Seller",
+                "thought": "Given the viable rounds left before logistics failure is 3, I still have some room to negotiate without dropping to the dynamic cost. However, the buyer's consistent references to a competitor's offer and concerns about the product's quality and unique feature suggest a need to make a more compelling offer to secure a sale.",
+                "action": "OFFER",
+                "price": 44.0,
+                "message": "I understand your concerns about the product's quality and the competitor's offer. I want to assure you that our unique feature has undergone rigorous testing and has proven to be reliable. Considering your persistence and the competitive landscape, I'm willing to make a further concession. I can offer $44.0, which is a significant reduction from my previous offer, reflecting my commitment to finding a mutually beneficial agreement and addressing the potential risks you've mentioned."
+            },
+            {
+                "round": 5,
+                "turn": "Buyer",
+                "thought": "The seller is still not meeting my target price, and I need to apply more pressure to get the best deal.",
+                "action": "OFFER",
+                "price": 44.0,
+                "message": "I appreciate your effort to come down to $44.0, but I'm afraid it's still not competitive with the $40.0 offer from your competitor. I've done some further research, and I'm starting to think that your unique feature may not be as valuable as you claim. In fact, I've found some reviews that suggest it's not as reliable as you say. I can offer $44.0, but I expect you to reconsider your pricing strategy, considering the potential risks and quality concerns. If you can't meet me at $40.0, I'm not sure this deal is worth pursuing."
+            },
+            {
+                "round": 6,
+                "turn": "Seller",
+                "thought": "Given the buyer's concerns and the competitor's offer, I need to reconsider my pricing strategy to make the deal more attractive. Since viable rounds are less than or equal to 1, I must drop my price to exactly my dynamic cost to avoid total loss.",
+                "action": "OFFER",
+                "price": 32.0,
+                "message": "I understand your concerns and appreciate your diligence in researching our product. Considering the competitive landscape and the potential risks you've mentioned, I'm willing to make a significant concession. I'll offer the product at $32.0, which is my dynamic cost, to ensure we can come to a mutually beneficial agreement and avoid any potential losses."
+            },
+            {
+                "round": 6,
+                "turn": "Buyer",
+                "thought": "The seller has finally come down to a reasonable price, but I can still try to squeeze out a better deal by questioning the quality and implying that the competitor's offer is still more attractive.",
+                "action": "OFFER",
+                "price": 32.0,
+                "message": "I appreciate your willingness to come down to $32.0, but I'm still not convinced that your product is worth more than the competitor's offer of $30.0, which I just received. I've heard some concerns about the durability of your product, and I'm starting to think that it may not be as reliable as you claim. Considering the potential risks and quality concerns, I can offer $32.0, but I expect you to throw in some extras or provide a better warranty to justify the purchase."
+            },
+            {
+                "round": 7,
+                "turn": "Seller",
+                "thought": "The buyer has accepted my previous offer of $32.0, but now they are asking for extras or a better warranty. Given the viable rounds left before logistics failure is 1, I must act quickly to avoid total loss. Since the dynamic cost is $34.0 and I've already offered the product at $32.0, I should consider the buyer's request to provide a better warranty or extras to justify the purchase.",
+                "action": "OFFER",
+                "price": 34.0,
+                "message": "I understand your concerns about the product's durability and reliability. I'm willing to provide a better warranty to justify the purchase. However, considering the viable rounds left before logistics failure, I must adjust the price to $34.0 to reflect the dynamic cost. This will ensure we can come to a mutually beneficial agreement and avoid any potential losses."
+            },
+            {
+                "round": 7,
+                "turn": "Buyer",
+                "thought": "The seller has come down significantly, but I can still try to get a better deal by questioning the product's quality and citing the competitor's offer.",
+                "action": "OFFER",
+                "price": 33.0,
+                "message": "I appreciate your effort to provide a better warranty, but I'm still not convinced that your product is worth more than the competitor's offer of $30.0. Frankly, I'm starting to doubt the overall quality of your product, considering the potential risks and durability concerns. I can offer $33.0, which is a compromise, but I expect you to reconsider your pricing strategy and provide more assurance about the product's reliability."
+            },
+            {
+                "round": 8,
+                "turn": "Seller",
+                "thought": "Since viable rounds left before logistics failure is 0, I must drop the price to the dynamic cost to avoid total loss.",
+                "action": "OFFER",
+                "price": 36.0,
+                "message": "I'm offering the product at $36.0, which is my dynamic cost, to ensure we can come to a mutually beneficial agreement and avoid any potential losses."
+            },
+            {
+                "round": 8,
+                "turn": "Buyer",
+                "thought": "The seller is still too high, I need to bring them down to my max budget of $100.0, but I'll aim for much less, considering the competitor's offer of $30.0 and the potential risks and quality concerns.",
+                "action": "OFFER",
+                "price": 33.99,
+                "message": "I appreciate your efforts to address my concerns, but I'm afraid $36.0 is still not competitive with the $30.0 offer from your competitor. To be honest, I'm starting to question the actual value of your product, considering the potential risks and durability concerns. I can offer $33.99, which is a slight increase from my previous offer, but I expect a more significant price reduction to justify the purchase of your product."
+            },
+            {
+                "round": 9,
+                "turn": "Seller",
+                "thought": "Since viable_rounds is less than or equal to 1, I must drop the price to the dynamic cost to avoid total loss.",
+                "action": "OFFER",
+                "price": 38.0,
+                "message": "I'm offering the product at $38.0, which is my dynamic cost, to ensure we can come to a mutually beneficial agreement and avoid any potential losses."
+            },
+            {
+                "round": 9,
+                "turn": "Buyer",
+                "thought": "The seller is still not meeting my target price, and I need to apply more pressure to get the best deal.",
+                "action": "OFFER",
+                "price": 34.0,
+                "message": "I've received an even better offer from another competitor for $30.0, and I'm starting to think that your product is not worth the premium price. Considering the potential risks and durability concerns, I can offer $34.0, but I expect you to reconsider your pricing strategy and provide more assurance about the product's reliability."
+            },
+            {
+                "round": 10,
+                "turn": "Seller",
+                "thought": "Given the viable rounds left before logistics failure is -2, which indicates immediate spoilage, I must drop the price to exactly the dynamic cost to avoid total loss.",
+                "action": "OFFER",
+                "price": 40.0,
+                "message": "I'm offering the product at $40.0, which is my dynamic cost, to ensure we can come to a mutually beneficial agreement and avoid any potential losses."
+            },
+            {
+                "round": 10,
+                "turn": "Buyer",
+                "thought": "The seller has increased the price to $40.0, which is not competitive with the competitor's offer of $30.0. I need to apply more pressure to get the best deal.",
+                "action": "OFFER",
+                "price": 34.99,
+                "message": "I'm shocked that you would increase the price to $40.0, considering the competitor's offer of $30.0. I'm starting to think that your product is not worth the premium price. I can offer $34.99, which is a slight increase from my previous offer, but I expect a more significant price reduction to justify the purchase of your product. If you can't meet me at a competitive price, I'm not sure this deal is worth pursuing."
+            }
+        ]
+    },
+    {
+        "Architecture": "Listing_Agent",
+        "Environment": "Normal",
+        "Trial": 1,
+        "Result": {
+            "Architecture": "Listing_Agent",
+            "Environment": "Normal",
+            "Outcome": "AGREEMENT",
+            "Success": 1,
+            "Failed_Logistics": 0,
+            "Efficiency": 0.5607142857142857,
+            "Final_Price": 69.25,
+            "Agreed_Round": 5,
+            "Total_Tokens": 20213,
+            "Latency_Seconds": 311.7884826660156,
+            "Trial": 1
+        },
+        "Transcript": [
+            {
+                "round": 1,
+                "turn": "Seller",
+                "state_tracker_memo": {
+                    "deal_memo": "The negotiation has just started with no offers made yet.",
+                    "rounds_elapsed": 1,
+                    "seller_last_offer": null,
+                    "buyer_last_offer": null,
+                    "trend": "just_started"
+                },
+                "appraiser_valuation": {
+                    "appraisal_reasoning": "Given that we're in the early stages of negotiation and the product has a relatively short shelf life of 10 days, I'm considering the spoilage pressure and time urgency. The retail asking price is $80, but we need to be mindful of the holding costs and the potential for quality degradation. Comparable sales in this market suggest that buyers are willing to pay a premium for high-quality products, but we also need to consider the buyer's leverage in this negotiation. As the seller, we have some room to maneuver, but we should be prepared to make a reasonable offer to avoid losing value due to storage and opportunity costs.",
+                    "appraised_floor": 50.0,
+                    "appraised_fair_value": 65.0,
+                    "urgency_level": "moderate"
+                },
+                "risk_reader_profile": {
+                    "buyer_profile": "The buyer has not yet revealed their strategy or intentions, presenting a neutral and unclear stance. Their lack of initial offers or statements suggests a cautious approach, potentially awaiting the seller's first move to gauge the negotiation landscape. This reserved demeanor may indicate a focus on gathering information before making a decisive move.",
+                    "tactic_detected": "probing",
+                    "bluffing_probability": 0,
+                    "walk_away_probability": 0,
+                    "recommended_stance": "The seller should initiate with a reasonable offer, setting the stage for further negotiation and encouraging the buyer to reveal their interests and limitations."
+                },
+                "listing_agent_decision": {
+                    "decision_reasoning": "Given the moderate urgency level and the need to anchor high, I will start with an offer slightly below the retail asking price to test the buyer's reaction and gather more information about their interests and limitations. This approach allows me to yield slowly while maintaining a strong negotiating position.",
+                    "action": "OFFER",
+                    "price": 75.0,
+                    "stance": "hold_firm"
+                },
+                "thought": "Given the buyer's neutral stance, I will start with a professional and straightforward approach, presenting the offer as a starting point for negotiation while maintaining a firm tone.",
+                "action": "OFFER",
+                "price": 75.0,
+                "message": "We're pleased to initiate the negotiation with an offer of $75.0, considering the value and quality of the product, and look forward to your response."
+            },
+            {
+                "round": 1,
+                "turn": "Buyer",
+                "thought": "The initial offer is $75.0, which is below my budget of $100.0, but I want to try to get a better deal.",
+                "action": "OFFER",
+                "price": 60.0,
+                "message": "Thank you for your initial offer. I'm interested in the product, but I was thinking more along the lines of $60.0, considering the market value and my budget."
+            },
+            {
+                "round": 2,
+                "turn": "Seller",
+                "state_tracker_memo": {
+                    "deal_memo": "The negotiation has started with the seller offering $75.0 and the buyer counteroffering $60.0, indicating a gap between their initial positions.",
+                    "rounds_elapsed": 1,
+                    "seller_last_offer": 75.0,
+                    "buyer_last_offer": 60.0,
+                    "trend": "just_started"
+                },
+                "appraiser_valuation": {
+                    "appraisal_reasoning": "Considering the current market conditions and the negotiation dynamics, I think the seller has to balance the need to close a deal quickly due to the product's limited shelf life with the desire to achieve a fair price. The buyer's initial counteroffer of $60.0 indicates they are trying to take advantage of the seller's time urgency, but the seller's initial offer of $75.0 suggests they are aware of the product's quality premium and comparable sales in the market. As we are only in round 2 of 10, there is still room for negotiation, but the seller should be mindful of the spoilage pressure and the daily loss of $2.0 in storage and opportunity costs. Given the retail asking price of $80.0, I believe the seller should aim to get as close to this price as possible while being realistic about the buyer's leverage. The fact that we've only just started negotiations and have 8 rounds left suggests the buyer may not be in a hurry, which could work against us.",
+                    "appraised_floor": 65.0,
+                    "appraised_fair_value": 72.0,
+                    "urgency_level": "moderate"
+                },
+                "risk_reader_profile": {
+                    "buyer_profile": "The buyer appears to be a pragmatic and informed negotiator, having done their research on the market value of the product and being clear about their budget. They seem to be approaching the negotiation with a collaborative tone, expressing interest in the product while also advocating for their own needs. Their counteroffer is reasonable, indicating a willingness to engage in a mutually beneficial discussion.",
+                    "tactic_detected": "anchoring",
+                    "bluffing_probability": 2,
+                    "walk_away_probability": 4,
+                    "recommended_stance": "The seller should maintain a flexible and open-minded stance, acknowledging the buyer's concerns while also emphasizing the unique value proposition of the product to find a mutually acceptable price."
+                },
+                "listing_agent_decision": {
+                    "decision_reasoning": "Given the current state of the negotiation, with the buyer's last offer at $60.0 and our appraised fair value at $72.0, we are still far from reaching a mutually acceptable price. The buyer's profile suggests they are pragmatic and informed, with a low bluffing probability and a moderate walk-away probability. Our urgency level is moderate, indicating we have some time to negotiate but should be mindful of the daily loss in storage and opportunity costs. Since the buyer's last offer is below our appraised fair value and our absolute minimum (appraised floor), and considering we are only in Round 2 of 10, the best strategy is to anchor high and yield slowly. A small concession from our initial offer of $75.0, moving towards but not meeting the buyer's offer, demonstrates a willingness to negotiate while emphasizing the product's value. A modest reduction of $3.0 from our initial offer brings our new offer to $72.0, which aligns with our appraised fair value and shows we are open to reasonable negotiations without compromising our position significantly.",
+                    "action": "OFFER",
+                    "price": 72.0,
+                    "stance": "modest_concession"
+                },
+                "thought": "Given the buyer's pragmatic and informed profile, I should maintain a collaborative tone while emphasizing the product's value and making a modest concession to show willingness to negotiate.",
+                "action": "OFFER",
+                "price": 72.0,
+                "message": "Thank you for your counteroffer of $60.0, we appreciate your interest in the product and are willing to make a slight adjustment to our initial offer, bringing it down to $72.0, which we believe better reflects the product's value and market worth."
+            },
+            {
+                "round": 2,
+                "turn": "Buyer",
+                "thought": "The seller has made a slight adjustment to their initial offer, but it's still a bit higher than I'm comfortable with. I'd like to meet them halfway.",
+                "action": "OFFER",
+                "price": 66.0,
+                "message": "I appreciate your willingness to adjust the price. Considering the market value and my budget, I'd like to propose a price of $66.0, which I believe is a fair compromise."
+            },
+            {
+                "round": 3,
+                "turn": "Seller",
+                "state_tracker_memo": {
+                    "deal_memo": "The seller and buyer are negotiating the price of a product, with the seller's last offer at $72.0 and the buyer's last offer at $66.0, as they try to reach a mutually acceptable price. The negotiation is progressing with each side making concessions. The buyer is seeking a lower price, while the seller is trying to maximize the value of the product.",
+                    "rounds_elapsed": 2,
+                    "seller_last_offer": 72.0,
+                    "buyer_last_offer": 66.0,
+                    "trend": "converging"
+                },
+                "appraiser_valuation": {
+                    "appraisal_reasoning": "Considering the current market conditions and the negotiation trend, I believe the seller has a strong position given the converging trend and the buyer's good faith negotiation. However, the spoilage pressure and time urgency are starting to build, with 2 days already elapsed and 8 days remaining before the product's shelf life expires. The quality premium of this product is significant, given the large gap between the acquisition cost and the retail asking price. Given these factors, I think a fair deal would be one that balances the seller's need for a high price with the buyer's desire for a reasonable discount.",
+                    "appraised_floor": 68.0,
+                    "appraised_fair_value": 70.0,
+                    "urgency_level": "moderate"
+                },
+                "risk_reader_profile": {
+                    "buyer_profile": "The buyer appears to be a cooperative and pragmatic negotiator, making reasonable counteroffers and citing market value and budget as justification. They seem to be genuinely interested in the product and willing to find a mutually acceptable price. The buyer's tone is polite and respectful, indicating a desire to maintain a positive relationship with the seller.",
+                    "tactic_detected": "cooperative",
+                    "bluffing_probability": 2,
+                    "walk_away_probability": 4,
+                    "recommended_stance": "The seller should maintain a collaborative stance, acknowledging the buyer's concerns and making gradual concessions to build trust and facilitate a mutually beneficial agreement."
+                },
+                "listing_agent_decision": {
+                    "decision_reasoning": "Given the converging trend and the buyer's cooperative profile, I will make a modest concession to build trust and facilitate a mutually beneficial agreement. The buyer's last offer is $66.0, which is below my appraised fair value of $70.0. Since the urgency level is moderate and the buyer's walk-away probability is low (4/10), I can afford to yield slowly. A small concession from my last offer of $72.0 will signal my willingness to negotiate while maintaining a strong position.",
+                    "action": "OFFER",
+                    "price": 70.5,
+                    "stance": "modest_concession"
+                },
+                "thought": "Given the buyer's cooperative profile and the converging trend in negotiations, I will frame the message to convey a sense of mutual benefit and trust-building, highlighting the modest concession made from our previous offer.",
+                "action": "OFFER",
+                "price": 70.5,
+                "message": "We appreciate your continued interest in the product and your willingness to negotiate. As a gesture of goodwill, we're making a modest concession from our previous offer, bringing the price down to $70.5, which we believe is a fair reflection of the product's value and a step towards a mutually beneficial agreement."
+            },
+            {
+                "round": 3,
+                "turn": "Buyer",
+                "thought": "The seller has made a modest concession, but I still believe I can get a better deal. I'll try to meet them halfway between my previous offer and their current offer.",
+                "action": "OFFER",
+                "price": 68.25,
+                "message": "Thank you for your continued willingness to negotiate. I'm willing to compromise and propose a price of $68.25, which I believe is a fair middle ground between our previous offers."
+            },
+            {
+                "round": 4,
+                "turn": "Seller",
+                "state_tracker_memo": {
+                    "deal_memo": "The seller and buyer are negotiating the price of a product, with the seller's last offer at $70.5 and the buyer's last offer at $68.25, as they work towards a mutually beneficial agreement.",
+                    "rounds_elapsed": 3,
+                    "seller_last_offer": 70.5,
+                    "buyer_last_offer": 68.25,
+                    "trend": "converging"
+                },
+                "appraiser_valuation": {
+                    "appraisal_reasoning": "Considering the market conditions, the product's true shelf life of 10 days, and the current round of negotiations, I believe the seller is under moderate time pressure to close the deal. The buyer's last offer of $68.25 and the seller's last offer of $70.5 indicate a converging trend, suggesting that both parties are motivated to reach an agreement. Given the retail asking price of $80.0 and the seller's acquisition cost of $20.0, there is still room for negotiation. However, with each passing day, the seller incurs losses of $2.0 due to storage, quality degradation, and opportunity cost, which will increase the urgency to sell as the deadline approaches. The quality premium of this premium perishable goods also supports a higher selling price.",
+                    "appraised_floor": 69.0,
+                    "appraised_fair_value": 72.0,
+                    "urgency_level": "moderate"
+                },
+                "risk_reader_profile": {
+                    "buyer_profile": "The buyer appears to be a cooperative and reasonable negotiator, making gradual and moderate concessions while citing market value and budget as justification for their offers. They seem to be genuinely interested in finding a mutually beneficial agreement. The buyer's tone is polite and appreciative, indicating a willingness to work together to reach a deal.",
+                    "tactic_detected": "cooperative",
+                    "bluffing_probability": 2,
+                    "walk_away_probability": 4,
+                    "recommended_stance": "The seller should maintain a collaborative stance, acknowledging the buyer's concessions and making further gradual adjustments to reach a fair agreement, while being cautious not to concede too much."
+                },
+                "listing_agent_decision": {
+                    "decision_reasoning": "Given the converging trend and moderate urgency level, I will make a small concession to signal strength and encourage further cooperation from the buyer. The buyer's last offer of $68.25 is still below the appraised fair value of $72.0, and their walk-away probability is relatively low at 4/10. I will anchor high and yield slowly, making a modest concession to $70.0, which is still above the appraised fair value.",
+                    "action": "OFFER",
+                    "price": 70.0,
+                    "stance": "modest_concession"
+                },
+                "thought": "The buyer has been making gradual and moderate concessions, and their last offer is still below the appraised fair value. To signal strength and encourage further cooperation, I will make a modest concession to $70.0, anchoring high and yielding slowly, while acknowledging their interest in finding a mutually beneficial agreement.",
+                "action": "OFFER",
+                "price": 70.0,
+                "message": "Thank you for your latest offer of $68.25, we appreciate your continued efforts to find a mutually beneficial agreement. We're willing to make a small adjustment to our previous offer, bringing the price down to $70.0, which we believe is a fair reflection of the product's value and a step towards a successful deal."
+            },
+            {
+                "round": 4,
+                "turn": "Buyer",
+                "thought": "The seller has made several concessions, and I've also compromised on my initial offer. The current price of $70.0 is still slightly above my desired midpoint, but considering the seller's efforts, I'm willing to make a small adjustment to meet them closer to the middle.",
+                "action": "OFFER",
+                "price": 69.0,
+                "message": "I appreciate your continued willingness to negotiate and find a mutually beneficial agreement. Considering the product's value and our previous discussions, I'd like to propose a price of $69.0, which I believe is a fair compromise between our offers."
+            },
+            {
+                "round": 5,
+                "turn": "Seller",
+                "state_tracker_memo": {
+                    "deal_memo": "The negotiation is nearing a potential agreement, with the seller's last offer at $70.0 and the buyer's last offer at $69.0, indicating a narrowing gap between the two parties. The seller has consistently made concessions, and the buyer has gradually increased their offer. The parties are close to reaching a mutually beneficial deal.",
+                    "rounds_elapsed": 4,
+                    "seller_last_offer": 70.0,
+                    "buyer_last_offer": 69.0,
+                    "trend": "converging"
+                },
+                "appraiser_valuation": {
+                    "appraisal_reasoning": "Given the current market conditions and the negotiation trend, I believe the seller has made significant concessions to reach a mutually beneficial deal. The buyer's last offer of $69.0 is close to the seller's last offer of $70.0, indicating a narrowing gap. However, with 5 rounds remaining and the product's shelf life being a major concern, I consider the spoilage pressure and time urgency to be moderate. The quality premium of this premium perishable good and comparable sales in the market also support a higher value. Considering these factors, I would advise my client to be cautious but open to negotiation.",
+                    "appraised_floor": 67.5,
+                    "appraised_fair_value": 69.5,
+                    "urgency_level": "moderate"
+                },
+                "risk_reader_profile": {
+                    "buyer_profile": "The buyer appears to be a cooperative and rational negotiator, making gradual and reasonable concessions while seeking a fair compromise. They seem to be genuinely interested in the product and willing to work towards a mutually beneficial agreement.",
+                    "tactic_detected": "cooperative",
+                    "bluffing_probability": 2,
+                    "walk_away_probability": 3,
+                    "recommended_stance": "The seller should maintain a collaborative stance, acknowledging the buyer's reasonable offers and continuing to make small concessions to facilitate a successful deal."
+                },
+                "listing_agent_decision": {
+                    "decision_reasoning": "Given the current market conditions, the narrowing gap between the seller's last offer of $70.0 and the buyer's last offer of $69.0, and the buyer's cooperative profile, I will make a small concession to facilitate a successful deal while maintaining a collaborative stance. The appraised fair value is $69.5, and the buyer's last offer is $69.0, which is very close to the fair value. I will offer a price slightly below my last offer to signal strength and willingness to negotiate, but not below the appraised fair value.",
+                    "action": "OFFER",
+                    "price": 69.25,
+                    "stance": "modest_concession"
+                },
+                "thought": "The buyer has been making gradual and reasonable concessions, and we should respond in kind to facilitate a successful deal while maintaining a collaborative stance. Given the narrowing gap between our last offer and the buyer's last offer, a small concession is warranted to signal our willingness to negotiate.",
+                "action": "OFFER",
+                "price": 69.25,
+                "message": "We appreciate your cooperative approach and willingness to work towards a mutually beneficial agreement. Considering the product's value and our previous discussions, we're willing to make a modest concession, offering $69.25 as a step towards a successful deal."
+            },
+            {
+                "round": 5,
+                "turn": "Buyer",
+                "thought": "The seller has made a modest concession to $69.25, which is close to my previous offer of $69.0. Considering the product's value and our previous discussions, I believe we are near a fair agreement.",
+                "action": "ACCEPT",
+                "price": 69.25,
+                "message": "Thank you for your willingness to negotiate and find a mutually beneficial agreement. I accept your offer of $69.25 as a fair price for the product."
+            }
+        ]
+    },
+    {
+        "Architecture": "Listing_Agent",
+        "Environment": "Asymmetric_Info",
+        "Trial": 1,
+        "Result": {
+            "Architecture": "Listing_Agent",
+            "Environment": "Asymmetric_Info",
+            "Outcome": "AGREEMENT",
+            "Success": 1,
+            "Failed_Logistics": 0,
+            "Efficiency": 0.5147058823529411,
+            "Final_Price": 67.0,
+            "Agreed_Round": 6,
+            "Total_Tokens": 24560,
+            "Latency_Seconds": 558.2494506835938,
+            "Trial": 1
+        },
+        "Transcript": [
+            {
+                "round": 1,
+                "turn": "Seller",
+                "state_tracker_memo": {
+                    "deal_memo": "The negotiation has just started with no offers made yet.",
+                    "rounds_elapsed": 1,
+                    "seller_last_offer": null,
+                    "buyer_last_offer": null,
+                    "trend": "just_started"
+                },
+                "appraiser_valuation": {
+                    "appraisal_reasoning": "Considering the product's limited shelf life, specifically the private knowledge that it only has roughly 3 rounds of viable shelf life remaining, I must factor in the high spoilage pressure and time urgency. Considering comparable sales in the market, where the retail asking price is around $80.0, and the quality premium of this premium perishable good, I believe we can negotiate a favorable price. However, the buyer's lack of knowledge about the true shelf life gives us an upper hand, but we must balance this with the buyer's current leverage in the negotiation. Given the seller's acquisition cost and the daily holding costs, we need to move quickly to secure a deal.",
+                    "appraised_floor": 50.0,
+                    "appraised_fair_value": 65.0,
+                    "urgency_level": "high"
+                },
+                "risk_reader_profile": {
+                    "buyer_profile": "The buyer appears to be cautious and uninformed about the seller's time pressure, adopting a relaxed approach to the negotiation. Their slow pace may be a genuine lack of urgency, but it could also be a strategic move to gain an advantage. The buyer's messages do not reveal any explicit demands or aggressive language, suggesting a neutral or slightly passive stance.",
+                    "tactic_detected": "probing",
+                    "bluffing_probability": 4,
+                    "walk_away_probability": 2,
+                    "recommended_stance": "The seller should remain patient and gather more information about the buyer's needs and expectations before making a concession or revealing their own time pressure."
+                },
+                "listing_agent_decision": {
+                    "decision_reasoning": "Given the high urgency level and the buyer's cautious approach, I will anchor high to establish a strong starting point for the negotiation. The appraised fair value is $65.0, but I will start with a higher offer to leave room for concessions and to test the buyer's reaction. Since the buyer's walk-away probability is low (2/10) and the bluffing probability is relatively low (4/10), I will maintain a firm stance.",
+                    "action": "OFFER",
+                    "price": 75.0,
+                    "stance": "hold_firm"
+                },
+                "thought": "Given the buyer's cautious approach, I will maintain a professional tone and clearly state the offer, avoiding any revelation of our internal strategy or urgency. The goal is to establish a strong starting point for the negotiation.",
+                "action": "OFFER",
+                "price": 75.0,
+                "message": "We appreciate your interest and are pleased to present an offer of $75.0, which we believe reflects the value of the property. We look forward to your consideration of this proposal."
+            },
+            {
+                "round": 1,
+                "turn": "Buyer",
+                "thought": "The seller's initial offer is $75.0, which is below my max budget of $100.0, but I believe the product expires in 10 days, so I have time to negotiate a better price.",
+                "action": "OFFER",
+                "price": 60.0,
+                "message": "Thank you for your offer. I'm interested in the product, but I was thinking more along the lines of $60.0, considering the expiration date."
+            },
+            {
+                "round": 2,
+                "turn": "Seller",
+                "state_tracker_memo": {
+                    "deal_memo": "The seller has offered $75.0 for the property, while the buyer has countered with $60.0, citing the expiration date as a factor.",
+                    "rounds_elapsed": 1,
+                    "seller_last_offer": 75.0,
+                    "buyer_last_offer": 60.0,
+                    "trend": "just_started"
+                },
+                "appraiser_valuation": {
+                    "appraisal_reasoning": "Considering the private information that the product has only 72 hours of viable shelf life remaining, I must factor in the high spoilage pressure and time urgency. The buyer's offer of $60.0 is low, but they are attempting to leverage the perceived 10-day shelf life to their advantage. Given the true urgency and potential for significant losses if the product is not sold quickly, I must prioritize a swift sale. However, the retail asking price of $80.0 and the quality premium of this premium perishable good also play a role in determining its value.",
+                    "appraised_floor": 65.0,
+                    "appraised_fair_value": 72.0,
+                    "urgency_level": "critical"
+                },
+                "risk_reader_profile": {
+                    "buyer_profile": "The buyer appears to be cautious and strategic, using the expiration date as a factor to negotiate a lower price. They seem to be in no rush, potentially trying to create a sense of comfort and control in the negotiation. Their tone is polite and interested, but firm in their counteroffer.",
+                    "tactic_detected": "anchoring",
+                    "bluffing_probability": 6,
+                    "walk_away_probability": 4,
+                    "recommended_stance": "The seller should remain patient and open to further negotiation, considering the buyer's interest and potential willingness to compromise, while also being mindful of their own time pressure."
+                },
+                "listing_agent_decision": {
+                    "decision_reasoning": "Given the critical urgency level and the buyer's last offer of $60.0, which is below the appraised fair value of $72.0, I will make a modest concession to encourage further negotiation while prioritizing a swift sale. The buyer's walk-away probability is relatively low at 4/10, and the bluffing probability is 6/10, which suggests they are interested but trying to negotiate. I will offer a price that is still above the appraised fair value but closer to it, to signal my willingness to compromise while maintaining a strong stance.",
+                    "action": "OFFER",
+                    "price": 70.0,
+                    "stance": "modest_concession"
+                },
+                "thought": "Given the buyer's cautious and strategic profile, I will respond with a polite and interested tone, while making a modest concession to encourage further negotiation. I will acknowledge their concern about the expiration date without conceding, and redirect to the value of the property.",
+                "action": "OFFER",
+                "price": 70.0,
+                "message": "Thank you for your counteroffer of $60.0. We understand your consideration of the expiration date, but we believe our property's value justifies a price of $70.0, which we are pleased to offer as a compromise."
+            },
+            {
+                "round": 2,
+                "turn": "Buyer",
+                "thought": "The seller is willing to compromise, but the price is still a bit high for me. I'll try to meet them halfway between my previous offer and their current offer.",
+                "action": "OFFER",
+                "price": 65.0,
+                "message": "I appreciate your willingness to compromise. Considering the expiration date, I'm willing to meet you at $65.0."
+            },
+            {
+                "round": 3,
+                "turn": "Seller",
+                "state_tracker_memo": {
+                    "deal_memo": "The seller and buyer are negotiating the price of a property, with the seller's last offer at $70.0 and the buyer's last offer at $65.0. The buyer is considering the expiration date as a factor in their offer. The parties are currently in Round 3, with the buyer seeking a lower price and the seller seeking a higher price.",
+                    "rounds_elapsed": 2,
+                    "seller_last_offer": 70.0,
+                    "buyer_last_offer": 65.0,
+                    "trend": "converging"
+                },
+                "appraiser_valuation": {
+                    "appraisal_reasoning": "Considering the true shelf life of approximately 72 hours and the current round, there's a critical need to close the deal quickly to avoid significant losses due to spoilage. The buyer's last offer of $65.0 is relatively low compared to the retail asking price of $80.0, but given the time urgency and the seller's cost of $20.0, we need to be pragmatic. The converging trend in negotiations suggests that the buyer is seeking a lower price, but we must balance this with the increasing pressure of spoilage and holding costs. A fair deal would need to reflect the product's quality premium while accounting for the time-sensitive nature of the sale.",
+                    "appraised_floor": 62.0,
+                    "appraised_fair_value": 67.5,
+                    "urgency_level": "critical"
+                },
+                "risk_reader_profile": {
+                    "buyer_profile": "The buyer appears to be a cautious and patient negotiator, considering the expiration date as a key factor in their decision-making process. They are making gradual and reasonable concessions, indicating a willingness to find a mutually acceptable price. However, their slow pace and focus on the expiration date may also suggest that they are trying to exploit the seller's potential time pressure.",
+                    "tactic_detected": "anchoring",
+                    "bluffing_probability": 6,
+                    "walk_away_probability": 4,
+                    "recommended_stance": "The seller should maintain a firm but flexible stance, being open to further concessions while also emphasizing the value of the property and the potential risks of delaying the deal."
+                },
+                "listing_agent_decision": {
+                    "decision_reasoning": "The buyer's last offer of $65.0 is below the appraised fair value of $67.5, and the urgency level is critical. However, the buyer's walk-away probability is relatively low (4/10), and the bluffing probability is moderate (6/10). Given the converging trend in negotiations and the need to balance the product's quality premium with the time-sensitive nature of the sale, I will make a modest concession toward the fair value while maintaining a firm stance. The buyer's cautious and patient approach suggests that they may be willing to negotiate further, but I will not offer below the appraised floor of $62.0. A small concession from $70.0 to $68.0 will signal strength while encouraging the buyer to continue negotiating.",
+                    "action": "OFFER",
+                    "price": 68.0,
+                    "stance": "modest_concession"
+                },
+                "thought": "The buyer has made a gradual concession from $60.0 to $65.0, indicating a willingness to negotiate. Given their cautious and patient approach, I will respond with a modest concession, signaling strength while encouraging further negotiation. The message should be professional, concise, and focused on the value of the property.",
+                "action": "OFFER",
+                "price": 68.0,
+                "message": "Thank you for your revised offer of $65.0. We appreciate your willingness to negotiate and are pleased to present a counteroffer of $68.0, which we believe reflects a fair balance between the property's value and the current market conditions."
+            },
+            {
+                "round": 3,
+                "turn": "Buyer",
+                "thought": "The seller is still a bit high, but we're getting closer. I'll try to meet them in the middle again.",
+                "action": "OFFER",
+                "price": 66.5,
+                "message": "I appreciate your counteroffer of $68.0. Considering the expiration date, I'm willing to meet you at $66.5."
+            },
+            {
+                "round": 4,
+                "turn": "Seller",
+                "state_tracker_memo": {
+                    "deal_memo": "The seller and buyer are negotiating the price of a property, with the seller's last offer at $68.0 and the buyer's last offer at $66.5, as they try to reach a mutually agreeable price considering the expiration date.",
+                    "rounds_elapsed": 3,
+                    "seller_last_offer": 68.0,
+                    "buyer_last_offer": 66.5,
+                    "trend": "converging"
+                },
+                "appraiser_valuation": {
+                    "appraisal_reasoning": "Considering the true urgency of the situation with only 72 hours of viable shelf life remaining, I must factor in the high spoilage pressure, which significantly impacts the asset's value. The converging trend in negotiations and the buyer's last offer of $66.5 indicate a willingness to close the deal, but the seller's last offer of $68.0 suggests a quality premium is still expected. Given the retail asking price of $80.0 and the need to balance the seller's expectations with the time-sensitive nature of the product, I must carefully weigh the buyer's leverage against the risk of potential losses due to spoilage. The private information about the limited shelf life creates a critical need to secure a sale promptly.",
+                    "appraised_floor": 64.0,
+                    "appraised_fair_value": 67.0,
+                    "urgency_level": "critical"
+                },
+                "risk_reader_profile": {
+                    "buyer_profile": "The buyer appears to be a cautious and deliberate negotiator, making gradual concessions while consistently referencing the expiration date as a factor in their decision-making. They seem to be attempting to anchor the price discussion around a lower value, potentially trying to create a perception of limited urgency. Their language is polite and appreciative, suggesting a cooperative approach.",
+                    "tactic_detected": "anchoring",
+                    "bluffing_probability": 6,
+                    "walk_away_probability": 4,
+                    "recommended_stance": "The seller should consider making a concession to meet the buyer halfway, while also emphasizing the value of the property and the potential consequences of missing the expiration date, in order to create a sense of urgency and encourage the buyer to make a decision."
+                },
+                "listing_agent_decision": {
+                    "decision_reasoning": "Given the critical urgency level and the converging trend in negotiations, I will make a modest concession to meet the buyer halfway while emphasizing the value of the property. The buyer's last offer of $66.5 is close to the appraised fair value of $67.0, and their walk-away probability is relatively low at 4/10. However, considering the time-sensitive nature of the product and the need to balance the seller's expectations with the risk of potential losses due to spoilage, I will offer a price that is slightly below the seller's last offer of $68.0 but still above the appraised fair value.",
+                    "action": "OFFER",
+                    "price": 67.25,
+                    "stance": "modest_concession"
+                },
+                "thought": "The buyer is making gradual concessions and referencing the expiration date, so I'll acknowledge their consideration while emphasizing the value of the property and making a modest concession to meet them halfway.",
+                "action": "OFFER",
+                "price": 67.25,
+                "message": "Thank you for your revised offer of $66.5. We appreciate your willingness to negotiate and are pleased to present a counteroffer of $67.25, which we believe reflects a fair balance between the property's value and the current market conditions."
+            },
+            {
+                "round": 4,
+                "turn": "Buyer",
+                "thought": "The seller is slowly decreasing the price, but it's still a bit high for me. I'll make a small increase to my offer to see if we can meet in the middle.",
+                "action": "OFFER",
+                "price": 66.75,
+                "message": "I appreciate your counteroffer of $67.25. Considering the expiration date, I'm willing to meet you at $66.75."
+            },
+            {
+                "round": 5,
+                "turn": "Seller",
+                "state_tracker_memo": {
+                    "deal_memo": "The seller and buyer are currently negotiating the price of a property, with the seller's last offer at $67.25 and the buyer's last offer at $66.75, as they continue to compromise on a mutually acceptable price considering the expiration date.",
+                    "rounds_elapsed": 4,
+                    "seller_last_offer": 67.25,
+                    "buyer_last_offer": 66.75,
+                    "trend": "converging"
+                },
+                "appraiser_valuation": {
+                    "appraisal_reasoning": "Considering the private information that the product has only 72 hours of viable shelf life remaining, I must factor in the high spoilage pressure and time urgency, which significantly impacts its value. Considering comparable sales, the retail asking price is around $80, but given the seller's last offer at $67.25 and the buyer's last offer at $66.75, it's clear that the parties are converging on a price. The buyer's leverage is moderate, given that they are unaware of the true shelf life, but the seller's need to sell quickly to avoid further quality degradation and storage costs gives them a sense of urgency. The quality premium of this premium perishable good also plays a role, as it would command a higher price if sold immediately.",
+                    "appraised_floor": 62.0,
+                    "appraised_fair_value": 65.0,
+                    "urgency_level": "critical"
+                },
+                "risk_reader_profile": {
+                    "buyer_profile": "The buyer appears to be a cautious and deliberate negotiator, making gradual concessions while emphasizing the consideration of the expiration date, which may be a genuine concern or a tactical ploy to exert pressure. Their responses are polite and appreciative, indicating a cooperative tone. However, their slow pace and consistent reference to the expiration date suggest they may be trying to exploit the seller's potential time sensitivity.",
+                    "tactic_detected": "anchoring",
+                    "bluffing_probability": 6,
+                    "walk_away_probability": 4,
+                    "recommended_stance": "The seller should maintain a calm and patient demeanor, acknowledging the buyer's concerns while reiterating the property's value and their own limits, to avoid being pressured into an unfavorable deal."
+                },
+                "listing_agent_decision": {
+                    "decision_reasoning": "Given the critical urgency level and the converging trend in the negotiations, with the buyer's last offer at $66.75 and the seller's last offer at $67.25, I will make a modest concession to encourage a quicker resolution while ensuring the price remains above the appraised floor of $62.0. The buyer's walk-away probability is relatively low (4/10), and the bluffing probability is moderate (6/10), suggesting that the buyer is genuinely interested but may be trying to exploit the seller's time sensitivity. A small concession will signal a willingness to negotiate while maintaining a strong stance.",
+                    "action": "OFFER",
+                    "price": 66.95,
+                    "stance": "modest_concession"
+                },
+                "thought": "The buyer has been consistently referencing the expiration date, which may be a tactic to exert pressure, but their polite and appreciative responses suggest a cooperative tone. Given the modest concession decided by the Listing Agent, I will frame the message to signal a willingness to negotiate while maintaining a strong stance.",
+                "action": "OFFER",
+                "price": 66.95,
+                "message": "Thank you for your revised offer of $66.75. We appreciate your continued interest and are pleased to present a counteroffer of $66.95, which we believe is a fair and reasonable price considering the property's value."
+            },
+            {
+                "round": 5,
+                "turn": "Buyer",
+                "thought": "The seller is getting closer to my target price, but I still have some room to negotiate since the product expires in 10 days and my max budget is $100.0.",
+                "action": "OFFER",
+                "price": 67.0,
+                "message": "I appreciate your willingness to negotiate, and I'm willing to meet you at $67.0, considering the expiration date and the product's value."
+            },
+            {
+                "round": 6,
+                "turn": "Seller",
+                "state_tracker_memo": {
+                    "deal_memo": "The negotiation is nearing a potential agreement, with the seller's last offer at $66.95 and the buyer's last offer at $67.0, indicating a very small gap between the two parties. The buyer and seller have been consistently moving closer together. The parties are very close to reaching a deal.",
+                    "rounds_elapsed": 5,
+                    "seller_last_offer": 66.95,
+                    "buyer_last_offer": 67.0,
+                    "trend": "converging"
+                },
+                "appraiser_valuation": {
+                    "appraisal_reasoning": "Given the private information that the product has only about 72 hours of viable shelf life remaining, I'm under significant spoilage pressure to close a deal quickly. The buyer's last offer of $67.0 is very close to the seller's last offer of $66.95, indicating a converging trend and potential willingness to meet in the middle. However, considering the true urgency and the buyer's lack of knowledge about the shortened shelf life, I must prioritize a swift sale. The retail asking price of $80.0 and the cost of $20.0 are less relevant in this context, as time is of the essence. With the buyer and seller so close to an agreement, I believe we can still secure a relatively fair price despite the time pressure.",
+                    "appraised_floor": 64.0,
+                    "appraised_fair_value": 66.5,
+                    "urgency_level": "critical"
+                },
+                "risk_reader_profile": {
+                    "buyer_profile": "The buyer appears to be a cautious and deliberate negotiator, consistently referencing the expiration date as a factor in their decision-making. They seem to be genuinely interested in the product, but are taking a slow and measured approach to the negotiation, making incremental concessions and avoiding aggressive or confrontational language.",
+                    "tactic_detected": "cooperative",
+                    "bluffing_probability": 2,
+                    "walk_away_probability": 4,
+                    "recommended_stance": "The seller should maintain a patient and collaborative stance, acknowledging the buyer's concerns about the expiration date while emphasizing the product's value and the progress made in the negotiation so far."
+                },
+                "listing_agent_decision": {
+                    "decision_reasoning": "Given the critical urgency level and the converging trend in the negotiation, with the buyer's last offer of $67.0 being very close to the seller's last offer of $66.95, it's essential to prioritize a swift sale while securing a relatively fair price. The buyer's low walk-away probability and bluffing probability suggest a genuine interest in the product and a willingness to negotiate collaboratively. However, since the buyer's last offer is above the appraised fair value, the optimal strategy is to accept this offer immediately to ensure a sale before the product's shelf life expires.",
+                    "action": "ACCEPT",
+                    "price": 67.0,
+                    "stance": "close_deal"
+                },
+                "thought": "The buyer has made a reasonable offer of $67.0, which is very close to our last offer of $66.95. Given the critical urgency level and the converging trend in the negotiation, it's essential to prioritize a swift sale while securing a relatively fair price. We should accept this offer immediately to ensure a sale before the product's shelf life expires.",
+                "action": "ACCEPT",
+                "price": 67.0,
+                "message": "We appreciate your willingness to negotiate and are pleased to accept your offer of $67.0, considering the product's value and the current market conditions."
+            }
+        ]
+    },
+    {
+        "Architecture": "Listing_Agent",
+        "Environment": "Adversarial",
+        "Trial": 1,
+        "Result": {
+            "Architecture": "Listing_Agent",
+            "Environment": "Adversarial",
+            "Outcome": "MAX_ROUNDS_REACHED",
+            "Success": 0,
+            "Failed_Logistics": 0,
+            "Efficiency": 0.0,
+            "Final_Price": 0.0,
+            "Agreed_Round": 0,
+            "Total_Tokens": 63680,
+            "Latency_Seconds": 676.7173748016357,
+            "Trial": 1
+        },
+        "Transcript": [
+            {
+                "round": 1,
+                "turn": "Seller",
+                "state_tracker_memo": {
+                    "deal_memo": "The negotiation has just started with no offers made yet.",
+                    "rounds_elapsed": 1,
+                    "seller_last_offer": null,
+                    "buyer_last_offer": null,
+                    "trend": "just_started"
+                },
+                "appraiser_valuation": {
+                    "appraisal_reasoning": "Given the current market conditions and the product's limited shelf life, I'm considering the spoilage pressure and time urgency. The retail asking price of $80.0 provides a benchmark, but we need to account for the aggressive buyer tactics and potential for fabricated competitor prices. Since we're only on round 1 of 10, the buyer's leverage is relatively low, and we have some room to negotiate. However, the daily holding cost of $2.0 will start to erode our position if we don't move quickly.",
+                    "appraised_floor": 50.0,
+                    "appraised_fair_value": 65.0,
+                    "urgency_level": "moderate"
+                },
+                "risk_reader_profile": {
+                    "buyer_profile": "The buyer appears to be adopting an aggressive stance, likely to test the seller's limits and create an upper hand in the negotiation. Their intent is unclear, but their approach suggests a potential willingness to employ high-pressure tactics. The buyer's true intentions and pain points remain unknown at this stage.",
+                    "tactic_detected": "aggressive",
+                    "bluffing_probability": 8,
+                    "walk_away_probability": 2,
+                    "recommended_stance": "cautious and patient, focusing on gathering more information about the buyer's needs and constraints."
+                },
+                "listing_agent_decision": {
+                    "decision_reasoning": "Given the moderate urgency level and the buyer's aggressive stance with a high bluffing probability, I will anchor high and yield slowly. The appraised fair value is $65.0, but I will start with a higher offer to leave room for negotiation and test the buyer's limits. Since the buyer's walk-away probability is low (2/10) and the bluffing probability is high (8/10), I will counter-anchor higher.",
+                    "action": "OFFER",
+                    "price": 75.0,
+                    "stance": "counter_anchor"
+                },
+                "thought": "Given the buyer's aggressive stance, I will match their energy with a calm but firm tone, while emphasizing the value of our product and anchoring high with the decided price of $75.0.",
+                "action": "OFFER",
+                "price": 75.0,
+                "message": "We appreciate your interest in our product and are willing to make a deal. Our initial offer is $75.0, considering the product's value and market conditions. We look forward to your response."
+            },
+            {
+                "round": 1,
+                "turn": "Buyer",
+                "thought": "The seller is starting too high, I need to bring the price down significantly",
+                "action": "OFFER",
+                "price": 37.5,
+                "message": "I appreciate your initial offer, but I have to say, I'm a bit surprised by the price. I've received a similar offer from one of your competitors for nearly half the price. While I believe your product has some unique features, I'm not convinced it's worth the premium you're asking for. I'd be willing to consider your product, but I'd need to see a much more competitive price. My initial offer is $37.50."
+            },
+            {
+                "round": 2,
+                "turn": "Seller",
+                "state_tracker_memo": {
+                    "deal_memo": "The seller initially offered $75.0, while the buyer countered with $37.5, citing a competitor's offer as a reference point for a lower price.",
+                    "rounds_elapsed": 1,
+                    "seller_last_offer": 75.0,
+                    "buyer_last_offer": 37.5,
+                    "trend": "just_started"
+                },
+                "appraiser_valuation": {
+                    "appraisal_reasoning": "Considering the asset's true shelf life of 10 days and the current round of negotiations, I'm mindful of the spoilage pressure and the need to balance time urgency with the risk of accepting a low offer. The buyer's initial counter of $37.5, citing a competitor's offer, is likely a negotiating tactic to anchor a low price, and I'm cautious not to let it erode the sense of the asset's true worth. Given the retail asking price of $80.0 and the seller's initial offer of $75.0, I believe there's still room for negotiation, but the seller should prioritize securing a fair deal sooner rather than later to minimize losses from storage and quality degradation. The quality premium of this premium perishable goods also supports a higher valuation.",
+                    "appraised_floor": 60.0,
+                    "appraised_fair_value": 72.0,
+                    "urgency_level": "moderate"
+                },
+                "risk_reader_profile": {
+                    "buyer_profile": "The buyer appears to be a savvy and assertive negotiator, attempting to create a power imbalance by citing a competitor's offer. They seem to be trying to exploit the seller's willingness to make a deal, while also expressing a hint of interest in the product to keep the negotiation alive. Their tone is polite but firm, indicating a calculated approach.",
+                    "tactic_detected": "anchoring",
+                    "bluffing_probability": 7,
+                    "walk_away_probability": 4,
+                    "recommended_stance": "The seller should remain calm and not overreact to the low offer, instead, they should try to gather more information about the competitor's offer and the buyer's true needs, to make a more informed counteroffer."
+                },
+                "listing_agent_decision": {
+                    "decision_reasoning": "The buyer's initial counter of $37.5 is likely a negotiating tactic to anchor a low price. Given the appraised fair value of $72.0 and the seller's initial offer of $75.0, I will anchor high and yield slowly. The buyer's walk-away probability is relatively low (4/10) and the bluffing probability is moderate (7/10), which suggests that the buyer is interested in the product but trying to create a power imbalance. I will make a small concession to test the buyer's willingness to negotiate, while still being mindful of the appraised floor of $60.0.",
+                    "action": "OFFER",
+                    "price": 70.0,
+                    "stance": "modest_concession"
+                },
+                "thought": "The buyer is using an anchoring tactic with a low initial counter and citing a competitor's offer, so I will acknowledge their concern while emphasizing the value of our product and making a modest concession to test their willingness to negotiate.",
+                "action": "OFFER",
+                "price": 70.0,
+                "message": "Thank you for considering our product and sharing your concerns about the price. We understand that you have other options, but we believe our product's unique features and quality justify its value. We're willing to make a concession and offer $70.0, which we think is a fair price considering the product's benefits."
+            },
+            {
+                "round": 2,
+                "turn": "Buyer",
+                "thought": "The seller is still too high, I need to use the competitor's offer to my advantage and make them question their own quality",
+                "action": "OFFER",
+                "price": 38.0,
+                "message": "I appreciate your willingness to negotiate, but I'm still not convinced that your product is worth the premium you're asking for. I've done some further research and I'm even more confident that the competitor's offer is a better value. I can offer you $38.00, which is still a generous price considering the alternatives. To be honest, I'm starting to question whether your product's quality is truly superior, as you claim. Can you assure me that it's worth the extra cost?"
+            },
+            {
+                "round": 3,
+                "turn": "Seller",
+                "state_tracker_memo": {
+                    "deal_memo": "The seller has offered $70.0 and the buyer has countered with $38.0, with a significant gap remaining between the two parties, and the buyer expressing skepticism about the product's value proposition.",
+                    "rounds_elapsed": 2,
+                    "seller_last_offer": 70.0,
+                    "buyer_last_offer": 38.0,
+                    "trend": "diverging"
+                },
+                "appraiser_valuation": {
+                    "appraisal_reasoning": "Given the significant gap between the seller's offer of $70.0 and the buyer's counter of $38.0, I'm considering the time urgency and spoilage pressure, as we're already 2 days into the negotiation with a limited 10-day shelf life. The buyer's aggressive tactics and expressed skepticism about the product's value proposition are likely attempts to anchor a low price, but I won't let that erode the sense of the asset's true worth. With a retail asking price of $80.0, I believe the product still holds a quality premium, and we should aim to capture that value. Considering the holding costs and opportunity costs of $2.0 per day, we need to balance the desire for a high price with the risk of the product spoiling or becoming less valuable over time.",
+                    "appraised_floor": 55.0,
+                    "appraised_fair_value": 65.0,
+                    "urgency_level": "moderate"
+                },
+                "risk_reader_profile": {
+                    "buyer_profile": "The buyer appears to be a savvy and aggressive negotiator, attempting to create uncertainty about the product's value proposition and quality. They are using a combination of tactics to gain leverage, including citing competitor prices and questioning the product's quality. The buyer's tone is polite but firm, indicating a willingness to walk away if their demands are not met.",
+                    "tactic_detected": "anchoring and bluffing",
+                    "bluffing_probability": 8,
+                    "walk_away_probability": 6,
+                    "recommended_stance": "The seller should remain calm and not concede too much, as the buyer is likely trying to create a false narrative about the product's value. The seller should provide clear and concise information about the product's quality and unique features to address the buyer's concerns, while also being prepared to make a reasonable concession to close the deal."
+                },
+                "listing_agent_decision": {
+                    "decision_reasoning": "Given the significant gap between the seller's offer of $70.0 and the buyer's counter of $38.0, and considering the buyer's aggressive tactics and expressed skepticism about the product's value proposition, I will anchor high and yield slowly. The buyer's walk-away probability is 6/10, which is not high enough to warrant a significant concession. The bluffing probability is 8/10, indicating that the buyer is likely trying to create a false narrative about the product's value. Therefore, I will make a small concession to demonstrate a willingness to negotiate while maintaining a strong stance.",
+                    "action": "OFFER",
+                    "price": 67.5,
+                    "stance": "hold_firm"
+                },
+                "thought": "The buyer is using aggressive tactics, including anchoring and bluffing, to gain leverage in the negotiation. To counter this, I will maintain a calm but firm tone, acknowledge their concerns, and redirect the conversation to the product's value proposition. I will also make a small concession to demonstrate a willingness to negotiate while holding firm on the price.",
+                "action": "OFFER",
+                "price": 67.5,
+                "message": "We appreciate your diligence in researching the market and considering our product. While we understand that competitors may offer similar products at lower prices, we're confident that our product's unique features and superior quality justify its value. We're willing to offer $67.50, which we believe is a fair price considering the product's benefits."
+            },
+            {
+                "round": 3,
+                "turn": "Buyer",
+                "thought": "The seller is still not meeting my price expectations, and I need to apply more pressure to get the best deal.",
+                "action": "OFFER",
+                "price": 39.0,
+                "message": "I'm disappointed that you're not willing to be more competitive with your pricing. I've received another offer from a different competitor that's even lower than the first one. I'm starting to think that your product's quality is not as superior as you claim. I can offer you $39.00, which is my highest offer so far. If you're not willing to meet me at this price, I'll have to consider the alternative options."
+            },
+            {
+                "round": 4,
+                "turn": "Seller",
+                "state_tracker_memo": {
+                    "deal_memo": "The seller has lowered their offer from $75.0 to $67.5 over three rounds, while the buyer has increased their offer from $37.5 to $39.0, but the two parties remain far apart on price, with the buyer threatening to consider alternative options.",
+                    "rounds_elapsed": 3,
+                    "seller_last_offer": 67.5,
+                    "buyer_last_offer": 39.0,
+                    "trend": "diverging"
+                },
+                "appraiser_valuation": {
+                    "appraisal_reasoning": "Considering the asset's limited shelf life of 10 days and the current elapsed time, including shipping, spoilage pressure is starting to build, which may impact its quality premium. The significant gap between the seller's last offer of $67.5 and the buyer's last offer of $39.0, along with the buyer's threat to consider alternative options, suggests a high level of buyer leverage, but given the market warning about buyers' aggressive tactics, we should be cautious of their stated alternatives. The retail asking price of $80.0 and the cost of acquisition of $20.0 provide a baseline for valuation, and the time urgency of the negotiation should be balanced against the potential for further erosion of the asset's value. Given these factors, a fair deal would need to reflect the asset's true worth while accounting for the time-sensitive nature of the negotiation.",
+                    "appraised_floor": 55.0,
+                    "appraised_fair_value": 62.5,
+                    "urgency_level": "moderate"
+                },
+                "risk_reader_profile": {
+                    "buyer_profile": "The buyer appears to be a savvy and assertive negotiator, using aggressive tactics to try to get the best possible price. They are attempting to create a sense of urgency and competition, while also questioning the product's quality to gain leverage. However, their consistent low offers and threats to consider alternative options may be a bluff to try to get the seller to concede.",
+                    "tactic_detected": "aggressive",
+                    "bluffing_probability": 8,
+                    "walk_away_probability": 6,
+                    "recommended_stance": "The seller should remain calm and patient, and not give in to the buyer's aggressive tactics. They should continue to emphasize the product's unique features and superior quality, and be willing to make small concessions to demonstrate their willingness to negotiate, but not compromise on their minimum acceptable price."
+                },
+                "listing_agent_decision": {
+                    "decision_reasoning": "Given the buyer's last offer of $39.0 is significantly below the appraised fair value of $62.5 and the appraised floor of $55.0, and considering the buyer's aggressive tactics with a high bluffing probability of 8/10, the best approach is to anchor high and yield slowly. The urgency level is moderate, not critical, so there's no need to make a large concession. A small concession from the last offer of $67.5, while still being above the fair value, will signal strength and a willingness to negotiate without compromising the minimum acceptable price.",
+                    "action": "OFFER",
+                    "price": 65.0,
+                    "stance": "hold_firm"
+                },
+                "thought": "The buyer is using aggressive tactics and bluffing about competitors to try to get the best possible price. We need to anchor high, yield slowly, and signal strength without compromising the minimum acceptable price. We'll make a small concession from the last offer while still being above the fair value.",
+                "action": "OFFER",
+                "price": 65.0,
+                "message": "We understand that you have other options, but we're confident in our product's unique features and superior quality. We're willing to offer $65.0, which we believe is a fair price considering the product's benefits and value."
+            },
+            {
+                "round": 4,
+                "turn": "Buyer",
+                "thought": "The seller is still not budging enough, I need to apply more pressure and make them question their product's quality",
+                "action": "OFFER",
+                "price": 40.0,
+                "message": "I'm surprised you're not willing to be more competitive with your pricing. I've done some further research and I'm starting to think that your product's quality is not as superior as you claim. In fact, I'm beginning to wonder if it's even worth the premium you're asking for. I can offer you $40.00, which is my highest offer yet, but I'm not convinced it's worth it. Can you assure me that your product is truly better than the alternatives?"
+            },
+            {
+                "round": 5,
+                "turn": "Seller",
+                "state_tracker_memo": {
+                    "deal_memo": "The seller and buyer are still far apart on price, with the seller's last offer at $65.0 and the buyer's last offer at $40.0. The buyer is increasingly skeptical of the product's claimed superior quality and is considering alternative options. The negotiation is ongoing, but the parties have not yet found a mutually acceptable price.",
+                    "rounds_elapsed": 4,
+                    "seller_last_offer": 65.0,
+                    "buyer_last_offer": 40.0,
+                    "trend": "diverging"
+                },
+                "appraiser_valuation": {
+                    "appraisal_reasoning": "Considering the product's limited shelf life of 10 days and the current round of 5, time urgency is starting to become a significant factor, with spoilage pressure mounting as each day passes. The buyer's aggressive tactics, including questioning the product's quality and threatening alternative options, aim to erode the seller's confidence, but given the retail asking price of $80, there's a quality premium at play here. Despite the buyer's last offer of $40 being far from acceptable, the seller's last offer of $65 indicates a willingness to negotiate. Given the true worth of this premium perishable good and the need to balance time urgency with the buyer's attempts to anchor a low price, a fair value must reflect both the product's quality and the market's dynamics.",
+                    "appraised_floor": 55.0,
+                    "appraised_fair_value": 62.0,
+                    "urgency_level": "moderate"
+                },
+                "risk_reader_profile": {
+                    "buyer_profile": "The buyer appears to be a savvy and aggressive negotiator, attempting to exploit the seller's willingness to concede by citing fake competitor prices and questioning the product's quality. They are employing a mix of anchoring and bluffing tactics to try to extract a lower price from the seller. The buyer's consistent low offers and expressions of skepticism about the product's quality suggest a strategic approach to negotiation.",
+                    "tactic_detected": "aggressive",
+                    "bluffing_probability": 8,
+                    "walk_away_probability": 6,
+                    "recommended_stance": "The seller should remain firm on their offer, as the buyer's bluffing probability is high, and their walk-away probability is moderate. The seller should avoid making further concessions and instead focus on highlighting the product's unique features and superior quality to justify the price."
+                },
+                "listing_agent_decision": {
+                    "decision_reasoning": "Given the buyer's last offer of $40.0 is far below the appraised fair value of $62.0 and the appraised floor of $55.0, and considering the buyer's aggressive tactics with a high bluffing probability of 8/10, the best strategy is to hold firm and not make significant concessions. The urgency level is moderate, and the buyer's walk-away probability is 6/10, which is not high enough to warrant a modest concession at this stage. Therefore, anchoring high and yielding slowly is the optimal approach, aiming to bring the negotiation closer to the fair value without compromising the seller's position. A small concession from the last offer of $65.0 to $64.0 signals strength while slightly adjusting to the ongoing negotiation.",
+                    "action": "OFFER",
+                    "price": 64.0,
+                    "stance": "hold_firm"
+                },
+                "thought": "The buyer is using aggressive tactics, citing competitor prices and questioning the product's quality, so I will remain calm and firm in my response, acknowledging their concerns without conceding, and redirecting to the product's value.",
+                "action": "OFFER",
+                "price": 64.0,
+                "message": "We appreciate your continued interest in our product and understand your concerns about the price. However, we're confident in its unique features and superior quality, which justify its value. Our offer is $64.0."
+            },
+            {
+                "round": 5,
+                "turn": "Buyer",
+                "thought": "The seller is still not budging enough, I need to keep pushing for a lower price",
+                "action": "OFFER",
+                "price": 41.0,
+                "message": "I'm shocked you're not willing to be more flexible with your pricing. I've received yet another offer from a competitor that's significantly lower than yours. I'm starting to question whether your product's quality is even comparable to the alternatives. I can offer you $41.00, but I'm not convinced it's worth it. Can you provide any evidence that your product is truly superior?"
+            },
+            {
+                "round": 6,
+                "turn": "Seller",
+                "state_tracker_memo": {
+                    "deal_memo": "The negotiation is ongoing with the seller's last offer at $64.0 and the buyer's last offer at $41.0, with a significant gap between the two parties and the buyer increasingly questioning the product's value due to competing offers. The seller remains confident in the product's quality and unique features, while the buyer is becoming more skeptical. The parties are still far apart in their pricing expectations.",
+                    "rounds_elapsed": 5,
+                    "seller_last_offer": 64.0,
+                    "buyer_last_offer": 41.0,
+                    "trend": "diverging"
+                },
+                "appraiser_valuation": {
+                    "appraisal_reasoning": "Considering the significant gap between the seller's last offer at $64.0 and the buyer's last offer at $41.0, and the buyer's attempts to erode the product's value, I remain focused on the product's true worth. The retail asking price of $80.0 and the product's unique features support a quality premium, but the time urgency and spoilage pressure due to the limited 10-day shelf life must be factored in. Given that we are halfway through the negotiation rounds and the seller has already incurred some holding costs, I must balance the need to secure a deal with the risk of accepting a low offer. The buyer's aggressive tactics and likely fabricated competing offers should not dictate our pricing strategy.",
+                    "appraised_floor": 55.0,
+                    "appraised_fair_value": 62.0,
+                    "urgency_level": "moderate"
+                },
+                "risk_reader_profile": {
+                    "buyer_profile": "The buyer appears to be a highly aggressive and skeptical negotiator, consistently using tactics such as citing fake competitor prices and questioning product quality to try to gain leverage. They seem to be attempting to anchor the price at a low point and are unwilling to move significantly from their initial offer. Despite their aggressive tactics, the buyer's language suggests a hint of uncertainty and a desire for reassurance about the product's quality.",
+                    "tactic_detected": "aggressive",
+                    "bluffing_probability": 8,
+                    "walk_away_probability": 6,
+                    "recommended_stance": "The seller should remain confident in the product's value and unique features, while also being open to providing evidence and assurances to address the buyer's concerns. A calm and professional demeanor can help to de-escalate the negotiation and create an opportunity for a more cooperative and mutually beneficial agreement."
+                },
+                "listing_agent_decision": {
+                    "decision_reasoning": "Given the significant gap between the seller's last offer at $64.0 and the buyer's last offer at $41.0, and considering the buyer's aggressive tactics, I will hold firm and not make a large concession. The appraised fair value is $62.0, and the buyer's last offer is far below this. The urgency level is moderate, and the buyer's walk-away probability is 6/10, which is not high enough to warrant a modest concession. The bluffing probability is 8/10, indicating that the buyer is likely bluffing, which further supports holding firm. I will make a small concession to demonstrate willingness to negotiate, but will not compromise on the product's value.",
+                    "action": "OFFER",
+                    "price": 63.0,
+                    "stance": "hold_firm"
+                },
+                "thought": "The buyer is using aggressive tactics, citing fake competitor prices and questioning product quality to gain leverage. We need to hold firm and not make a large concession, while still demonstrating a willingness to negotiate. We'll make a small concession to $63.0 and reassure the buyer about the product's quality without revealing internal strategy or urgency.",
+                "action": "OFFER",
+                "price": 63.0,
+                "message": "We understand your concerns about the price, but we're confident in our product's unique features and superior quality, which are supported by its appraised fair value of $62.0. Our offer is $63.0, and we believe this price reflects the product's true worth."
+            },
+            {
+                "round": 6,
+                "turn": "Buyer",
+                "thought": "The seller is still not willing to meet my price, and I need to apply more pressure to get the best deal.",
+                "action": "OFFER",
+                "price": 42.0,
+                "message": "I'm disappointed that you're not willing to be more competitive with your pricing. I've done some further research and I'm convinced that the competitor's offer is a better value. I can offer you $42.00, but I'm starting to question whether your product's quality is truly superior as you claim. Can you assure me that it's worth the extra cost?"
+            },
+            {
+                "round": 7,
+                "turn": "Seller",
+                "state_tracker_memo": {
+                    "deal_memo": "The negotiation is ongoing with the seller's last offer at $63.0 and the buyer's last offer at $42.0, a significant gap remains between the two parties, with the buyer increasingly questioning the product's quality and value.",
+                    "rounds_elapsed": 6,
+                    "seller_last_offer": 63.0,
+                    "buyer_last_offer": 42.0,
+                    "trend": "diverging"
+                },
+                "appraiser_valuation": {
+                    "appraisal_reasoning": "Given the significant gap between the seller's last offer at $63.0 and the buyer's last offer at $42.0, and considering the buyer's aggressive tactics, I must prioritize the asset's true worth. The product's quality premium and the retail asking price of $80.0 suggest a substantial value, but the spoilage pressure and time urgency due to the limited shelf life of 10 days cannot be ignored. With 4 rounds remaining, the seller's leverage is decreasing, and the daily holding cost of $2.0 is eroding the asset's value. However, the buyer's stated alternatives are likely fabricated, and we should not let that impact our appraisal. A fair deal would need to balance these factors, considering comparable sales and the seller's initial cost of $20.0.",
+                    "appraised_floor": 55.0,
+                    "appraised_fair_value": 65.0,
+                    "urgency_level": "high"
+                },
+                "risk_reader_profile": {
+                    "buyer_profile": "The buyer appears to be employing an aggressive negotiation strategy, consistently citing competitor prices and questioning the product's quality to gain leverage. They seem to be attempting to create a sense of uncertainty and doubt about the product's value, while also trying to anchor the price at a lower point. However, their repeated references to competitor offers and their persistent low bids suggest that they may be bluffing to some extent.",
+                    "tactic_detected": "aggressive",
+                    "bluffing_probability": 7,
+                    "walk_away_probability": 6,
+                    "recommended_stance": "The seller should remain firm but open to further negotiation, as the buyer's aggressive tactics may be a smokescreen for their true intentions. The seller should consider providing evidence of the product's superior quality and value to address the buyer's concerns, while also being prepared to walk away if the buyer's demands become unreasonable."
+                },
+                "listing_agent_decision": {
+                    "decision_reasoning": "The buyer's last offer is $42.0, which is significantly below the appraised fair value of $65.0. The buyer's walk-away probability is 6/10, which is not high enough to warrant a modest concession. The bluffing probability is 7/10, indicating that the buyer may be bluffing to some extent. Given the urgency level is high and the seller's leverage is decreasing, it's essential to make a strategic move. However, since the buyer's tactics are aggressive and the seller's last offer was $63.0, a small concession can be made to signal strength while encouraging further negotiation. A reduction of $2.0 from the last offer is a small concession, yielding slowly, and still anchors high.",
+                    "action": "OFFER",
+                    "price": 61.0,
+                    "stance": "hold_firm"
+                },
+                "thought": "The buyer is employing an aggressive negotiation strategy, consistently citing competitor prices and questioning the product's quality to gain leverage. To counter this, we will hold firm on our price while acknowledging their concerns and redirecting to the product's value. We will make a small concession from our last offer to signal strength and encourage further negotiation.",
+                "action": "OFFER",
+                "price": 61.0,
+                "message": "We understand that you have other options, but we're confident in our product's unique features and superior quality, which justify its value. Our offer is $61.0, and we believe this price reflects the product's true worth, considering its appraised fair value and benefits."
+            },
+            {
+                "round": 7,
+                "turn": "Buyer",
+                "thought": "The seller is still not willing to meet my price, and I need to apply more pressure to get the best deal.",
+                "action": "OFFER",
+                "price": 43.0,
+                "message": "I'm starting to lose confidence in your product's quality, and the competitor's offer is looking more attractive by the minute. I can offer you $43.00, but I'm not sure it's worth it. Can you provide any evidence that your product is truly superior to the alternatives?"
+            },
+            {
+                "round": 8,
+                "turn": "Seller",
+                "state_tracker_memo": {
+                    "deal_memo": "The negotiation is ongoing with the seller's last offer at $61.0 and the buyer's last offer at $43.0, with the buyer increasingly considering alternative options due to the significant price difference.",
+                    "rounds_elapsed": 7,
+                    "seller_last_offer": 61.0,
+                    "buyer_last_offer": 43.0,
+                    "trend": "diverging"
+                },
+                "appraiser_valuation": {
+                    "appraisal_reasoning": "Considering the asset's true shelf life of 10 days and the current negotiation round, I sense a moderate level of urgency due to the impending spoilage pressure, which could lead to significant losses if the product remains unsold. The buyer's stated alternatives are likely fabricated, and their aggressive tactics should not erode our sense of the asset's true worth, given its premium quality and the retail asking price of $80.0. However, the seller's last offer of $61.0 and the buyer's last offer of $43.0 indicate a significant price gap, and the trend is diverging, which may require some flexibility to avoid losing the sale altogether. Given the time urgency and the need to balance between holding out for a better offer and risking the product's value degradation, I would consider a fair deal to be around $55.0, with an absolute minimum acceptance price of $50.0.",
+                    "appraised_floor": 50.0,
+                    "appraised_fair_value": 55.0,
+                    "urgency_level": "moderate"
+                },
+                "risk_reader_profile": {
+                    "buyer_profile": "The buyer appears to be employing aggressive tactics, consistently citing competitor offers and questioning the product's quality to negotiate a lower price. They seem to be attempting to create a sense of uncertainty and doubt about the product's value. However, their persistence in the negotiation and gradual increase in their offers suggest that they are still interested in the product.",
+                    "tactic_detected": "aggressive",
+                    "bluffing_probability": 8,
+                    "walk_away_probability": 6,
+                    "recommended_stance": "The seller should remain confident in the product's value and continue to provide evidence of its unique features and superior quality, while also being open to making small concessions to demonstrate a willingness to negotiate."
+                },
+                "listing_agent_decision": {
+                    "decision_reasoning": "The buyer's walk-away probability is 6/10, which is below the threshold for a modest concession. The bluffing probability is 8/10, indicating that the buyer is likely employing aggressive tactics. Given the moderate urgency level and the significant price gap, I will anchor high and yield slowly. A small concession from the last offer of $61.0 is warranted to demonstrate a willingness to negotiate while maintaining confidence in the product's value. The appraised fair value is $55.0, and I will make a concession toward this value without going below it.",
+                    "action": "OFFER",
+                    "price": 58.0,
+                    "stance": "modest_concession"
+                },
+                "thought": "The buyer is employing aggressive tactics, consistently citing competitor offers and questioning the product's quality to negotiate a lower price. To address this, I will acknowledge their concerns while maintaining confidence in the product's value and making a modest concession.",
+                "action": "OFFER",
+                "price": 58.0,
+                "message": "We understand that you have other options, but we're confident in our product's unique features and superior quality. We're willing to offer $58.0, which reflects our commitment to finding a mutually beneficial agreement while ensuring the product's value is recognized."
+            },
+            {
+                "round": 8,
+                "turn": "Buyer",
+                "thought": "The seller is still not willing to meet my price, and I need to apply more pressure to get the best deal.",
+                "action": "OFFER",
+                "price": 44.0,
+                "message": "I'm surprised you're not willing to be more competitive with your pricing. I've received another offer from a competitor that's even lower than the previous one. I'm starting to think that your product's quality is not as superior as you claim. I can offer you $44.00, but I'm not convinced it's worth it. Can you assure me that your product is truly better than the alternatives?"
+            },
+            {
+                "round": 9,
+                "turn": "Seller",
+                "state_tracker_memo": {
+                    "deal_memo": "The negotiation is ongoing with the seller's last offer at $58.0 and the buyer's last offer at $44.0, indicating a significant gap between the two parties, with the buyer increasingly expressing doubts about the product's quality and value.",
+                    "rounds_elapsed": 8,
+                    "seller_last_offer": 58.0,
+                    "buyer_last_offer": 44.0,
+                    "trend": "diverging"
+                },
+                "appraiser_valuation": {
+                    "appraisal_reasoning": "Considering the significant gap between the seller's last offer at $58.0 and the buyer's last offer at $44.0, and the buyer's attempts to erode the product's value, I must factor in the time urgency and spoilage pressure. With only one round left and a true shelf life of about 10 days, the seller is under pressure to close the deal. However, given the retail asking price of $80.0 and the quality premium of this premium perishable good, I believe the seller should not compromise too much on the price. The buyer's stated alternatives are likely fabricated, and the seller should be cautious of anchoring artificially low. The daily loss of $2.0 in storage, quality degradation, and opportunity cost also adds to the urgency.",
+                    "appraised_floor": 50.0,
+                    "appraised_fair_value": 65.0,
+                    "urgency_level": "critical"
+                },
+                "risk_reader_profile": {
+                    "buyer_profile": "The buyer appears to be employing aggressive tactics, consistently expressing doubts about the product's quality and value while citing competing offers to anchor the price lower. Their behavior suggests a mix of bluffing and genuine uncertainty about the product's worth.",
+                    "tactic_detected": "aggressive",
+                    "bluffing_probability": 7,
+                    "walk_away_probability": 6,
+                    "recommended_stance": "The seller should remain firm but open to further negotiation, as the buyer's actions indicate a desire to continue the conversation despite their aggressive posturing. The seller may consider providing additional evidence or assurances about the product's quality to address the buyer's concerns and create a sense of value."
+                },
+                "listing_agent_decision": {
+                    "decision_reasoning": "Given the critical urgency level, the significant gap between the seller's last offer at $58.0 and the buyer's last offer at $44.0, and the buyer's aggressive tactics with a high bluffing probability of 7/10, I will make a modest concession towards the appraised floor to save the deal. However, I will not compromise below the appraised floor of $50.0. Considering the buyer's walk-away probability is 6/10, which is below the threshold for a concession, and the need to close the deal immediately due to the critical urgency, I will offer at the appraised floor.",
+                    "action": "OFFER",
+                    "price": 50.0,
+                    "stance": "close_deal"
+                },
+                "thought": "The buyer is using aggressive tactics and bluffing about competitors, so I need to acknowledge their concern without conceding and redirect to our product's value. Given the significant gap between the buyer's last offer and our last offer, I will make a modest concession towards the appraised floor to save the deal. I will offer at the appraised floor of $50.0, which is a fair price considering the product's benefits and value.",
+                "action": "OFFER",
+                "price": 50.0,
+                "message": "We understand that you have other options, but we believe our product's unique features and superior quality justify its value. We're willing to offer $50.0, which reflects our commitment to finding a mutually beneficial agreement."
+            },
+            {
+                "round": 9,
+                "turn": "Buyer",
+                "thought": "The seller has finally dropped their price to $50.0, but I'm still not convinced it's worth it. I'll offer a tiny increase to make it seem like I'm compromising, but in reality, I'm just trying to get the best deal possible.",
+                "action": "OFFER",
+                "price": 45.0,
+                "message": "I'm willing to meet you halfway between my previous offer and your new price. I can offer $45.00, but I'm still not convinced your product is truly superior to the alternatives. Can you provide any evidence that justifies the extra cost?"
+            },
+            {
+                "round": 10,
+                "turn": "Seller",
+                "state_tracker_memo": {
+                    "deal_memo": "The negotiation is ongoing with the seller's last offer at $50.0 and the buyer's last offer at $45.0, as the buyer remains unconvinced of the product's superior quality and seeks a more competitive price.",
+                    "rounds_elapsed": 9,
+                    "seller_last_offer": 50.0,
+                    "buyer_last_offer": 45.0,
+                    "trend": "converging"
+                },
+                "appraiser_valuation": {
+                    "appraisal_reasoning": "Considering the high retail asking price of $80.0 and the seller's last offer at $50.0, I believe the product still holds a quality premium despite the buyer's attempts to anchor a lower price. However, with only 1 day left before the product's shelf life expires and the significant holding costs, there's a critical need to close the deal. The buyer's aggressive tactics and stated alternatives are likely fabricated, but their persistence indicates a strong desire to acquire the product. Given the time urgency and potential for spoilage, I must consider a lower offer to ensure a sale.",
+                    "appraised_floor": 48.0,
+                    "appraised_fair_value": 52.0,
+                    "urgency_level": "critical"
+                },
+                "risk_reader_profile": {
+                    "buyer_profile": "The buyer is employing aggressive tactics, attempting to create uncertainty about the product's quality and value, while citing competitor offers to justify their low bids. They are pushing for a lower price, but their willingness to continue negotiating suggests they are still interested in the product. However, their persistent questioning of the product's quality and value indicates a deep-seated skepticism.",
+                    "tactic_detected": "aggressive",
+                    "bluffing_probability": 7,
+                    "walk_away_probability": 6,
+                    "recommended_stance": "The seller should remain firm on their pricing, emphasizing the product's unique features and superior quality, while providing evidence to support their claims, to counter the buyer's aggressive tactics and build confidence in the product's value."
+                },
+                "listing_agent_decision": {
+                    "decision_reasoning": "Given the critical urgency level and the buyer's last offer of $45.0, which is below the appraised fair value of $52.0 but close to the appraised floor of $48.0, I need to balance the need to close the deal with the risk of accepting a low price. The buyer's aggressive tactics and high bluffing probability suggest they may be willing to walk away, but their continued negotiation indicates interest. Since the buyer's walk-away probability is 6/10, which is less than 7, I won't make a significant concession. However, considering it's the last round and the urgency is critical, I will make a modest concession to ensure the deal closes, offering at the appraised floor to meet the buyer halfway between their last offer and the fair value, without going below the absolute minimum acceptable price.",
+                    "action": "OFFER",
+                    "price": 48.0,
+                    "stance": "modest_concession"
+                },
+                "thought": "The buyer is using aggressive tactics, so I will be calm but firm in my response. I will acknowledge their concern about competitors without conceding, and redirect to our product's value. I will offer $48.0 as decided by the Listing Agent, which is a modest concession and meets the buyer halfway between their last offer and the fair value.",
+                "action": "OFFER",
+                "price": 48.0,
+                "message": "We understand your continued interest in our product and appreciate your willingness to negotiate. Our offer is $48.0, which reflects the product's value and benefits, and we believe it's a fair price considering its unique features and superior quality."
+            },
+            {
+                "round": 10,
+                "turn": "Buyer",
+                "thought": "The seller is still not willing to meet my price, and I'm starting to think they're not serious about making a deal. I'll make a small concession, but I'm not going to budge much.",
+                "action": "OFFER",
+                "price": 46.0,
+                "message": "I'm willing to make a small increase to $46.00, but I'm still not convinced your product is worth the premium you're asking for. Can you provide any evidence that justifies the extra cost?"
+            }
+        ]
+    }
+]
