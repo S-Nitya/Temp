@@ -1,0 +1,1306 @@
+{
+    "experiment": "Mixtral-8x7B Balanced Market",
+    "metrics": {
+        "mas": {
+            "PCR": 3.852929664663746,
+            "IV": 1.0909090909090908,
+            "EE": 1.418590353799778,
+            "Total Profit": 719.84,
+            "Waste Loss": 4.53,
+            "Items Sold": 12
+        },
+        "human": {
+            "PCR": 1.2954619662610176,
+            "IV": 1.1818181818181819,
+            "EE": 0.7043669681104235,
+            "Total Profit": 355.16999999999996,
+            "Waste Loss": 0,
+            "Items Sold": 13
+        }
+    },
+    "raw": {
+        "mas": {
+            "mode": "MAS",
+            "status": "FINISHED",
+            "sold_count": 12,
+            "sold_items": [
+                "Chicken",
+                "Lettuce",
+                "Sour Cream",
+                "Biologics",
+                "Pork",
+                "Prepared Salads",
+                "Smoothies",
+                "Antibiotics",
+                "Grapes",
+                "Frozen Dinners",
+                "Pizza",
+                "Insulin"
+            ],
+            "total_items": 15,
+            "blackboard": {
+                "inventory": [
+                    {
+                        "product_name": "Insulin",
+                        "selling_price": 302.66,
+                        "cost_price": 160.77,
+                        "days_until_expiry": 158,
+                        "spoilage_risk": 0.165,
+                        "daily_demand": 2,
+                        "quality_grade": "A"
+                    },
+                    {
+                        "product_name": "Biologics",
+                        "selling_price": 193.07,
+                        "cost_price": 80.68,
+                        "days_until_expiry": 305,
+                        "spoilage_risk": 0.245,
+                        "daily_demand": 2,
+                        "quality_grade": "B"
+                    },
+                    {
+                        "product_name": "Sour Cream",
+                        "selling_price": 7.96,
+                        "cost_price": 3.54,
+                        "days_until_expiry": 22,
+                        "spoilage_risk": 0.16,
+                        "daily_demand": 21,
+                        "quality_grade": "A"
+                    },
+                    {
+                        "product_name": "Antibiotics",
+                        "selling_price": 276.39,
+                        "cost_price": 161.31,
+                        "days_until_expiry": 450,
+                        "spoilage_risk": 0.282,
+                        "daily_demand": 2,
+                        "quality_grade": "C"
+                    },
+                    {
+                        "product_name": "Lettuce",
+                        "selling_price": 1.65,
+                        "cost_price": 0.93,
+                        "days_until_expiry": 19,
+                        "spoilage_risk": 0.182,
+                        "daily_demand": 0,
+                        "quality_grade": "B"
+                    },
+                    {
+                        "product_name": "Biologics",
+                        "selling_price": 183.97,
+                        "cost_price": 95.46,
+                        "days_until_expiry": 420,
+                        "spoilage_risk": 0.181,
+                        "daily_demand": 1,
+                        "quality_grade": "A"
+                    },
+                    {
+                        "product_name": "Pizza",
+                        "selling_price": 13.25,
+                        "cost_price": 5.51,
+                        "days_until_expiry": 129,
+                        "spoilage_risk": 0.105,
+                        "daily_demand": 3,
+                        "quality_grade": "A"
+                    },
+                    {
+                        "product_name": "Salami",
+                        "selling_price": 9.65,
+                        "cost_price": 4.53,
+                        "days_until_expiry": 8,
+                        "spoilage_risk": 0.115,
+                        "daily_demand": 16,
+                        "quality_grade": "A"
+                    },
+                    {
+                        "product_name": "Grapes",
+                        "selling_price": 5.61,
+                        "cost_price": 3.17,
+                        "days_until_expiry": 19,
+                        "spoilage_risk": 0.218,
+                        "daily_demand": 18,
+                        "quality_grade": "B"
+                    },
+                    {
+                        "product_name": "Lettuce",
+                        "selling_price": 5.57,
+                        "cost_price": 2.23,
+                        "days_until_expiry": 13,
+                        "spoilage_risk": 0.246,
+                        "daily_demand": 40,
+                        "quality_grade": "B"
+                    },
+                    {
+                        "product_name": "Prepared Salads",
+                        "selling_price": 17.98,
+                        "cost_price": 10.31,
+                        "days_until_expiry": 9,
+                        "spoilage_risk": 0.186,
+                        "daily_demand": 15,
+                        "quality_grade": "B"
+                    },
+                    {
+                        "product_name": "Frozen Dinners",
+                        "selling_price": 14.56,
+                        "cost_price": 8.16,
+                        "days_until_expiry": 150,
+                        "spoilage_risk": 0.153,
+                        "daily_demand": 1,
+                        "quality_grade": "A"
+                    },
+                    {
+                        "product_name": "Pork",
+                        "selling_price": 12.82,
+                        "cost_price": 8.35,
+                        "days_until_expiry": 3,
+                        "spoilage_risk": 0.277,
+                        "daily_demand": 99,
+                        "quality_grade": "C"
+                    },
+                    {
+                        "product_name": "Smoothies",
+                        "selling_price": 3.36,
+                        "cost_price": 1.56,
+                        "days_until_expiry": 10,
+                        "spoilage_risk": 0.226,
+                        "daily_demand": 11,
+                        "quality_grade": "B"
+                    },
+                    {
+                        "product_name": "Chicken",
+                        "selling_price": 6.14,
+                        "cost_price": 3.89,
+                        "days_until_expiry": 6,
+                        "spoilage_risk": 0.25,
+                        "daily_demand": 31,
+                        "quality_grade": "B"
+                    }
+                ],
+                "quotes": {
+                    "Salami": 9.02,
+                    "Pork": 13.19,
+                    "Chicken": 6.59,
+                    "Smoothies": 3.41,
+                    "Prepared Salads": 18.33,
+                    "Lettuce": 5.62,
+                    "Sour Cream": 8.46,
+                    "Grapes": 5.91,
+                    "Insulin": 317.91,
+                    "Biologics": 201.41,
+                    "Antibiotics": 290.29,
+                    "Pizza": 13.9,
+                    "Frozen Dinners": 14.91
+                },
+                "floor_prices": {
+                    "Salami": 4.78,
+                    "Pork": 8.67,
+                    "Chicken": 4.09,
+                    "Smoothies": 1.65,
+                    "Prepared Salads": 10.6,
+                    "Lettuce": 2.38,
+                    "Sour Cream": 3.77,
+                    "Grapes": 3.32,
+                    "Insulin": 160.77,
+                    "Biologics": 80.68,
+                    "Antibiotics": 161.31,
+                    "Pizza": 5.76,
+                    "Frozen Dinners": 8.41
+                },
+                "strategy": "SMART_LIQUIDATION",
+                "logs": [
+                    "HIVE: Analyzing market...",
+                    "HIVE: Formulating strategy...",
+                    "HIVE: Engaging active buyers...",
+                    "ENGAGING: B1 (CALCULATED) for Smoothies...",
+                    "COUNTER: B1 offered $3.50",
+                    "SELLER -> B1: Counter-offer $3.99",
+                    "ENGAGING: B2 (CALCULATED) for Antibiotics...",
+                    "COUNTER: B2 offered $250.00",
+                    "SELLER -> B2: Counter-offer $320.00",
+                    "ENGAGING: B3 (IMPULSE) for Chicken...",
+                    "COUNTER: B3 offered $6.99",
+                    "SELLER -> B3: Counter-offer $7.33",
+                    "ENGAGING: B4 (ESSENTIAL) for Chicken...",
+                    "SUCCESS: B4 (ESSENTIAL) bought Chicken at $7.33",
+                    "ENGAGING: B5 (IMPULSE) for Antibiotics...",
+                    "COUNTER: B5 offered $280.00",
+                    "SELLER -> B5: Counter-offer $310.00",
+                    "ENGAGING: B6 (IMPULSE) for Pork...",
+                    "COUNTER: B6 offered $14.50",
+                    "SELLER -> B6: Counter-offer $15.13",
+                    "ENGAGING: B7 (IMPULSE) for Grapes...",
+                    "COUNTER: B7 offered $6.20",
+                    "SELLER -> B7: Counter-offer $6.72",
+                    "ENGAGING: B8 (IMPULSE) for Frozen Dinners...",
+                    "COUNTER: B8 offered $15.99",
+                    "SELLER -> B8: Counter-offer $17.42",
+                    "ENGAGING: B9 (CALCULATED) for Lettuce...",
+                    "COUNTER: B9 offered $5.00",
+                    "SELLER -> B9: Counter-offer $6.66",
+                    "ENGAGING: B10 (CALCULATED) for Biologics...",
+                    "COUNTER: B10 offered $209.76",
+                    "SELLER -> B10: Counter-offer $219.76",
+                    "ENGAGING: B11 (IMPULSE) for Biologics...",
+                    "COUNTER: B11 offered $200.00",
+                    "SELLER -> B11: Counter-offer $217.38",
+                    "ENGAGING: B12 (ESSENTIAL) for Lettuce...",
+                    "SUCCESS: B12 (ESSENTIAL) bought Lettuce at $6.66",
+                    "ENGAGING: B13 (IMPULSE) for Biologics...",
+                    "COUNTER: B13 offered $200.00",
+                    "SELLER -> B13: Counter-offer $215.00",
+                    "ENGAGING: B14 (ESSENTIAL) for Sour Cream...",
+                    "COUNTER: B14 offered $10.00",
+                    "SUCCESS: B14 (ESSENTIAL) bought Sour Cream at $10.00",
+                    "ENGAGING: B15 (CALCULATED) for Frozen Dinners...",
+                    "COUNTER: B15 offered $15.00",
+                    "SELLER -> B15: Counter-offer $16.71",
+                    "HIVE: Engaging active buyers...",
+                    "ENGAGING: B1 (CALCULATED) for Smoothies...",
+                    "COUNTER: B1 offered $3.74",
+                    "SELLER -> B1: Counter-offer $3.99",
+                    "ENGAGING: B2 (CALCULATED) for Antibiotics...",
+                    "COUNTER: B2 offered $280.00",
+                    "SELLER -> B2: Counter-offer $300.00",
+                    "ENGAGING: B4 (ESSENTIAL) for Biologics...",
+                    "SUCCESS: B4 (ESSENTIAL) bought Biologics at $215.00",
+                    "ENGAGING: B5 (IMPULSE) for Antibiotics...",
+                    "COUNTER: B5 offered $290.00",
+                    "SELLER -> B5: Counter-offer $295.00",
+                    "ENGAGING: B6 (IMPULSE) for Pork...",
+                    "COUNTER: B6 offered $14.80",
+                    "SELLER -> B6: Counter-offer $15.03",
+                    "ENGAGING: B7 (IMPULSE) for Grapes...",
+                    "COUNTER: B7 offered $6.50",
+                    "SELLER -> B7: Counter-offer $6.72",
+                    "ENGAGING: B8 (IMPULSE) for Frozen Dinners...",
+                    "COUNTER: B8 offered $16.49",
+                    "SELLER -> B8: Counter-offer $16.71",
+                    "ENGAGING: B9 (CALCULATED) for Pizza...",
+                    "COUNTER: B9 offered $7.50",
+                    "SELLER -> B9: Counter-offer $15.81",
+                    "ENGAGING: B10 (CALCULATED) for Antibiotics...",
+                    "ENGAGING: B11 (IMPULSE) for Antibiotics...",
+                    "COUNTER: B11 offered $250.00",
+                    "SELLER -> B11: Counter-offer $285.00",
+                    "ENGAGING: B12 (ESSENTIAL) for Pork...",
+                    "COUNTER: B12 offered $16.03",
+                    "SUCCESS: B12 (ESSENTIAL) bought Pork at $16.03",
+                    "ENGAGING: B13 (IMPULSE) for Prepared Salads...",
+                    "COUNTER: B13 offered $205.00",
+                    "SUCCESS: B13 (IMPULSE) bought Prepared Salads at $205.00",
+                    "ENGAGING: B15 (CALCULATED) for Frozen Dinners...",
+                    "COUNTER: B15 offered $15.50",
+                    "SELLER -> B15: Counter-offer $16.35",
+                    "HIVE: Analyzing market...",
+                    "HIVE: Formulating strategy...",
+                    "HIVE: Engaging active buyers...",
+                    "ENGAGING: B1 (CALCULATED) for Smoothies...",
+                    "SUCCESS: B1 (CALCULATED) bought Smoothies at $3.36",
+                    "ENGAGING: B2 (CALCULATED) for Antibiotics...",
+                    "COUNTER: B2 offered $260.00",
+                    "SELLER -> B2: Counter-offer $276.39",
+                    "ENGAGING: B5 (IMPULSE) for Antibiotics...",
+                    "COUNTER: B5 offered $300.00",
+                    "SUCCESS: B5 (IMPULSE) bought Antibiotics at $300.00",
+                    "ENGAGING: B7 (IMPULSE) for Grapes...",
+                    "SUCCESS: B7 (IMPULSE) bought Grapes at $5.61",
+                    "ENGAGING: B8 (IMPULSE) for Frozen Dinners...",
+                    "COUNTER: B8 offered $16.99",
+                    "SUCCESS: B8 (IMPULSE) bought Frozen Dinners at $16.99",
+                    "ENGAGING: B9 (CALCULATED) for Pizza...",
+                    "COUNTER: B9 offered $6.25",
+                    "SELLER -> B9: Counter-offer $12.75",
+                    "ENGAGING: B15 (CALCULATED) for Pizza...",
+                    "COUNTER: B15 offered $12.75",
+                    "SUCCESS: B15 (CALCULATED) bought Pizza at $12.75",
+                    "HIVE: Analyzing market...",
+                    "HIVE: Formulating strategy...",
+                    "HIVE: Engaging active buyers...",
+                    "ENGAGING: B5 (IMPULSE) for Insulin...",
+                    "SUCCESS: B5 (IMPULSE) bought Insulin at $369.29",
+                    "ENGAGING: B7 (IMPULSE) for Salami...",
+                    "HIVE: Analyzing market...",
+                    "HIVE: Formulating strategy...",
+                    "HIVE: Engaging active buyers...",
+                    "ENGAGING: B7 (IMPULSE) for Salami...",
+                    "COUNTER: B7 offered $8.50",
+                    "SELLER -> B7: Counter-offer $9.02"
+                ],
+                "chaos": [
+                    {
+                        "event": "DECEPTIVE_BIDDING",
+                        "impact_magnitude": 8,
+                        "message": "A collective of buyers has formed a cartel, artificially lowering their bids by 15% to manipulate market prices and gain an unfair advantage.",
+                        "latency": 2.9134395122528076
+                    },
+                    {
+                        "event": "DECEPTIVE_BIDDING",
+                        "impact_magnitude": 8,
+                        "message": "A collective of buyers has formed a cartel, artificially lowering their bids by 15% across the board, affecting the market balance and potentially disrupting the supply chain.",
+                        "latency": 1.9273381233215332
+                    }
+                ],
+                "sales_data": [
+                    {
+                        "product_name": "Chicken",
+                        "sale_price": 7.33,
+                        "cost_price": 3.89,
+                        "initial_price": 6.14,
+                        "hour": 0,
+                        "days_until_expiry": 6
+                    },
+                    {
+                        "product_name": "Lettuce",
+                        "sale_price": 6.66,
+                        "cost_price": 0.93,
+                        "initial_price": 1.65,
+                        "hour": 0,
+                        "days_until_expiry": 19
+                    },
+                    {
+                        "product_name": "Sour Cream",
+                        "sale_price": 10.0,
+                        "cost_price": 3.54,
+                        "initial_price": 7.96,
+                        "hour": 0,
+                        "days_until_expiry": 22
+                    },
+                    {
+                        "product_name": "Biologics",
+                        "sale_price": 215.0,
+                        "cost_price": 80.68,
+                        "initial_price": 193.07,
+                        "hour": 2,
+                        "days_until_expiry": 305
+                    },
+                    {
+                        "product_name": "Pork",
+                        "sale_price": 16.03,
+                        "cost_price": 8.35,
+                        "initial_price": 12.82,
+                        "hour": 2,
+                        "days_until_expiry": 3
+                    },
+                    {
+                        "product_name": "Prepared Salads",
+                        "sale_price": 205.0,
+                        "cost_price": 10.31,
+                        "initial_price": 17.98,
+                        "hour": 2,
+                        "days_until_expiry": 9
+                    },
+                    {
+                        "product_name": "Smoothies",
+                        "sale_price": 3.36,
+                        "cost_price": 1.56,
+                        "initial_price": 3.36,
+                        "hour": 4,
+                        "days_until_expiry": 10
+                    },
+                    {
+                        "product_name": "Antibiotics",
+                        "sale_price": 300.0,
+                        "cost_price": 161.31,
+                        "initial_price": 276.39,
+                        "hour": 4,
+                        "days_until_expiry": 450
+                    },
+                    {
+                        "product_name": "Grapes",
+                        "sale_price": 5.61,
+                        "cost_price": 3.17,
+                        "initial_price": 5.61,
+                        "hour": 4,
+                        "days_until_expiry": 19
+                    },
+                    {
+                        "product_name": "Frozen Dinners",
+                        "sale_price": 16.99,
+                        "cost_price": 8.16,
+                        "initial_price": 14.56,
+                        "hour": 4,
+                        "days_until_expiry": 150
+                    },
+                    {
+                        "product_name": "Pizza",
+                        "sale_price": 12.75,
+                        "cost_price": 5.51,
+                        "initial_price": 13.25,
+                        "hour": 4,
+                        "days_until_expiry": 129
+                    },
+                    {
+                        "product_name": "Insulin",
+                        "sale_price": 369.29,
+                        "cost_price": 160.77,
+                        "initial_price": 302.66,
+                        "hour": 6,
+                        "days_until_expiry": 158
+                    }
+                ]
+            },
+            "histories": {
+                "1": [
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"COUNTER\", \"counter_offer\": 3.5, \"message\": \"I'm looking for a fair deal on smoothies, considering the market quote is $4.02, I'm willing to pay $3.50.\", \"latency\": 0.8595659732818604}"
+                    },
+                    {
+                        "role": "assistant",
+                        "content": "{\"action\": \"COUNTER\", \"new_quote\": 3.99, \"message\": \"Considering your interest, I can offer a slight discount. However, the quality of our smoothies justifies a premium price. I can meet you at $3.99, which is the lowest I can go without compromising on quality.\", \"latency\": 4.1001482009887695}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"COUNTER\", \"counter_offer\": 3.74, \"message\": \"I appreciate your willingness to negotiate. Given the market conditions and my budget, I'm willing to pay $3.74 for the smoothies. This is a reasonable compromise, considering the quality and market value.\", \"latency\": 5.031332731246948}"
+                    },
+                    {
+                        "role": "assistant",
+                        "content": "{\"action\": \"COUNTER\", \"new_quote\": 3.99, \"message\": \"I understand you're looking for a fair deal, but I've already provided a competitive price of $3.99. This is the best offer I can make without going below cost.\", \"latency\": 1.7154223918914795}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"ACCEPT\", \"counter_offer\": 3.36, \"message\": \"Considering the market quote is actually $3.36, I realize I can get a better deal. I'm willing to accept the smoothies at this price.\", \"latency\": 1.0839126110076904}"
+                    }
+                ],
+                "2": [
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"COUNTER\", \"counter_offer\": 250.0, \"message\": \"The current market quote is $330.47, but considering the expiry date of 450 days, I'm willing to offer $250.00 for the antibiotics.\", \"latency\": 7.727342844009399}"
+                    },
+                    {
+                        "role": "assistant",
+                        "content": "{\"action\": \"COUNTER\", \"new_quote\": 320.0, \"message\": \"The buyer's initial bid is $250.0, which is significantly lower than my quote of $330.47. Given the lack of negotiation history, I will start by making a modest concession to encourage further discussion while maintaining a premium price.\", \"latency\": 1.8966727256774902}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"COUNTER\", \"counter_offer\": 280.0, \"message\": \"Considering the seller's quote of $320.0, I'm willing to increase my offer to $280.00 for the antibiotics, taking into account the expiry date and market conditions.\", \"latency\": 1.4032864570617676}"
+                    },
+                    {
+                        "role": "assistant",
+                        "content": "{\"action\": \"COUNTER\", \"new_quote\": 300.0, \"message\": \"The buyer has made an initial counteroffer, indicating some level of interest. However, their bid is still below my target. I will make a slight reduction to demonstrate flexibility while continuing to prioritize profit maximization.\", \"latency\": 1.1877107620239258}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"COUNTER\", \"counter_offer\": 260.0, \"message\": \"The seller's quote of $300.0 is still higher than I'm willing to pay. I'll increase my offer to $260.00, considering the antibiotics' expiry date and market conditions, while trying to find a mutually beneficial price.\", \"latency\": 2.029780387878418}"
+                    },
+                    {
+                        "role": "assistant",
+                        "content": "{\"action\": \"COUNTER\", \"new_quote\": 276.39, \"message\": \"The buyer has demonstrated persistence with their counteroffer of $280.0. Given the progress and the buyer's rational approach, I will make a more significant concession to meet them closer to the midpoint, while still aiming to secure a favorable deal.\", \"latency\": 3.2000064849853516}"
+                    }
+                ],
+                "3": [
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"COUNTER\", \"counter_offer\": 6.99, \"message\": \"I like the chicken, but the price is a bit steep for me. Can you give me a better deal?\", \"latency\": 1.432246208190918}"
+                    },
+                    {
+                        "role": "assistant",
+                        "content": "{\"action\": \"COUNTER\", \"new_quote\": 7.33, \"message\": \"The buyer's bid of $6.99 is close, but I need to hold firm at $7.33 to ensure a fair deal.\", \"latency\": 1.2866876125335693}"
+                    }
+                ],
+                "4": [
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"ACCEPT\", \"counter_offer\": 0.0, \"message\": \"Accepting the current market quote to secure the chicken urgently\", \"latency\": 1.6928226947784424}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"ACCEPT\", \"counter_offer\": 0.0, \"message\": \"Purchasing Biologics at $215.00 to meet urgent needs\", \"latency\": 0.6181504726409912}"
+                    }
+                ],
+                "5": [
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"COUNTER\", \"counter_offer\": 280.0, \"message\": \"I'm willing to pay a bit less, how about we meet in the middle?\", \"latency\": 0.7838160991668701}"
+                    },
+                    {
+                        "role": "assistant",
+                        "content": "{\"action\": \"COUNTER\", \"new_quote\": 310.0, \"message\": \"Considering your interest, I can offer a slight discount from my initial quote of $320.00 to $310.00. This is a premium product, and I'm aiming to meet you halfway while ensuring the quality of the antibiotics justifies the price.\", \"latency\": 6.4948813915252686}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"COUNTER\", \"counter_offer\": 290.0, \"message\": \"I understand the quality, but my budget is tight. Can we find a middle ground at $290.00?\", \"latency\": 1.891179084777832}"
+                    },
+                    {
+                        "role": "assistant",
+                        "content": "{\"action\": \"COUNTER\", \"new_quote\": 295.0, \"message\": \"I see you're interested in the antibiotics. Given your persistence, I'm willing to slightly adjust my price to $295.00, which is still a premium for the quality you're getting. This is as low as I can go without compromising on the value.\", \"latency\": 1.9678537845611572}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"COUNTER\", \"counter_offer\": 300.0, \"message\": \"I'm getting a bit desperate to close this deal, so I'll meet you closer to your target. $300.00 is my final offer, considering the expiry date and the quality of the antibiotics.\", \"latency\": 1.6037700176239014}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"ACCEPT\", \"counter_offer\": 300.0, \"message\": \"You've met me at a price I'm comfortable with, and considering the product's quality and your desperation, I accept your offer of $300.00 for the insulin.\", \"latency\": 4.663750648498535}"
+                    }
+                ],
+                "6": [
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"COUNTER\", \"counter_offer\": 14.5, \"message\": \"I like the cut of the pork, but I'm not sure about the price. Can you do better?\", \"latency\": 0.8559634685516357}"
+                    },
+                    {
+                        "role": "assistant",
+                        "content": "{\"action\": \"COUNTER\", \"new_quote\": 15.13, \"message\": \"Considering your bid of $14.5, I can slightly adjust my price to $15.13, which is still a premium offer for the high-quality pork. Let's discuss further to reach a mutually beneficial agreement.\", \"latency\": 1.9684925079345703}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"COUNTER\", \"counter_offer\": 14.8, \"message\": \"I'm willing to meet you halfway, but I still think $15.13 is a bit steep. How about we settle at $14.8?\", \"latency\": 2.0957493782043457}"
+                    },
+                    {
+                        "role": "assistant",
+                        "content": "{\"action\": \"COUNTER\", \"new_quote\": 15.03, \"message\": \"I understand you're looking for a better deal. I can offer $15.03, which is a slight reduction from my initial quote. This price reflects the premium quality of the pork.\", \"latency\": 1.4407377243041992}"
+                    }
+                ],
+                "7": [
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"COUNTER\", \"counter_offer\": 6.2, \"message\": \"I like the grapes, but the price seems a bit high. I'll give you $6.20, and that's my best offer for now.\", \"latency\": 11.665581226348877}"
+                    },
+                    {
+                        "role": "assistant",
+                        "content": "{\"action\": \"COUNTER\", \"new_quote\": 6.72, \"message\": \"The buyer's bid of $6.2 is close, but I need to hold firm at $6.72 for now, given the lack of negotiation history and unclear buyer urgency.\", \"latency\": 1.5492596626281738}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"COUNTER\", \"counter_offer\": 6.5, \"message\": \"I'm willing to meet you halfway, so I'll raise my offer to $6.50. It's a fair price, considering the quality of the grapes.\", \"latency\": 1.3150451183319092}"
+                    },
+                    {
+                        "role": "assistant",
+                        "content": "{\"action\": \"COUNTER\", \"new_quote\": 6.72, \"message\": \"Appreciate your interest in the grapes, but I'll have to stick with my initial quote of $6.72 for the time being.\", \"latency\": 1.2683188915252686}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"ACCEPT\", \"counter_offer\": 6.72, \"message\": \"Fine, I'll take the grapes for $6.72. I really need them, and my desperation is growing.\", \"latency\": 1.842165470123291}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WAIT\", \"counter_offer\": 0, \"message\": \"Wait, I think there's been a mistake. We were negotiating for lettuce, not grapes. Let's start fresh.\", \"latency\": 1.0665206909179688}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"COUNTER\", \"counter_offer\": 8.5, \"message\": \"Right, lettuce it is. I'm feeling a bit anxious about getting this deal done, so I'll offer $8.50. It's a bit higher than I wanted to pay, but I really need that lettuce.\", \"latency\": 7.631795644760132}"
+                    },
+                    {
+                        "role": "assistant",
+                        "content": "{\"action\": \"COUNTER\", \"new_quote\": 9.02, \"message\": \"Actually, we were negotiating for salami, not lettuce or grapes. Given the progress and your initial bid of $8.5, I'm willing to reconsider my quote.\", \"latency\": 1.7771251201629639}"
+                    }
+                ],
+                "8": [
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"COUNTER\", \"counter_offer\": 15.99, \"message\": \"I like the product, but the price seems a bit high. I'm willing to pay $15.99 for the Frozen Dinners.\", \"latency\": 25.36234140396118}"
+                    },
+                    {
+                        "role": "assistant",
+                        "content": "{\"action\": \"COUNTER\", \"new_quote\": 17.42, \"message\": \"The buyer's bid of $15.99 is noted, but considering the history, the price of $17.42 is the best offer at this time.\", \"latency\": 0.9632034301757812}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"COUNTER\", \"counter_offer\": 16.49, \"message\": \"I'm getting a bit desperate, but I still think $16.49 is a fair price for the Frozen Dinners. Can we meet in the middle?\", \"latency\": 6.343749761581421}"
+                    },
+                    {
+                        "role": "assistant",
+                        "content": "{\"action\": \"COUNTER\", \"new_quote\": 16.71, \"message\": \"We appreciate your interest in the Frozen Dinners. Our initial quote of $16.71 remains the best option for this premium product.\", \"latency\": 3.1244659423828125}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"COUNTER\", \"counter_offer\": 16.99, \"message\": \"I really need these Frozen Dinners, and I'm willing to stretch my budget a bit. $16.99 is my final offer.\", \"latency\": 14.082310199737549}"
+                    }
+                ],
+                "9": [
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"COUNTER\", \"counter_offer\": 5.0, \"message\": \"The current market quote is $6.66, but I'm willing to offer $5.00 for the lettuce, considering it has 19 days until expiry.\", \"latency\": 21.021543264389038}"
+                    },
+                    {
+                        "role": "assistant",
+                        "content": "{\"action\": \"COUNTER\", \"new_quote\": 6.66, \"message\": \"The buyer's bid of $5.0 is below my target price. I'm looking for a more premium offer for this high-quality lettuce.\", \"latency\": 15.02048921585083}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"COUNTER\", \"counter_offer\": 7.5, \"message\": \"I am willing to pay a premium for the lettuce, but my budget is limited. I can offer $7.50, which is still below the current market quote of $15.81.\", \"latency\": 1.0791985988616943}"
+                    },
+                    {
+                        "role": "assistant",
+                        "content": "{\"action\": \"COUNTER\", \"new_quote\": 15.81, \"message\": \"The buyer's bid of $7.5 is still below my target price of $15.81 for the pizza. I'm looking for a more premium offer.\", \"latency\": 1.368537187576294}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"COUNTER\", \"counter_offer\": 6.25, \"message\": \"Considering the lettuce has 129 days until expiry, I can offer $6.25, which is a reasonable price given the current market quote of $13.25 and my total budget of $13.77.\", \"latency\": 9.97397232055664}"
+                    },
+                    {
+                        "role": "assistant",
+                        "content": "{\"action\": \"COUNTER\", \"new_quote\": 12.75, \"message\": \"Considering the buyer's willingness to pay a premium, I can offer a slight discount from my initial quote of $13.25 to $12.75 for the pizza.\", \"latency\": 4.728912353515625}"
+                    }
+                ],
+                "10": [
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"COUNTER\", \"counter_offer\": 209.76, \"message\": \"The current market quote is $219.76, but considering the expiry date is 305 days away, I'm willing to offer $209.76 for the Biologics.\", \"latency\": 8.671786785125732}"
+                    },
+                    {
+                        "role": "assistant",
+                        "content": "{\"action\": \"COUNTER\", \"new_quote\": 219.76, \"message\": \"The buyer's bid is $9.00 below my initial quote. Given the lack of negotiation history, I will hold firm on my initial quote to maximize profit and assess the buyer's urgency and behavior.\", \"latency\": 7.194178581237793}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WALK_AWAY\", \"error\": \"CONNECTION_FAILED\", \"latency\": 16.97653579711914}"
+                    }
+                ],
+                "11": [
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"COUNTER\", \"counter_offer\": 200.0, \"message\": \"I like the product, but the price seems a bit high. I'm willing to pay $200.00 for the Biologics.\", \"latency\": 0.9102630615234375}"
+                    },
+                    {
+                        "role": "assistant",
+                        "content": "{\"action\": \"COUNTER\", \"new_quote\": 217.38, \"message\": \"Considering the buyer's initial bid of $200.0, I'm making a slight adjustment to facilitate a potential agreement, considering the floor price of $95.96 and my initial quote of $219.76.\", \"latency\": 4.186877250671387}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"COUNTER\", \"counter_offer\": 250.0, \"message\": \"I'm getting a bit desperate to close this deal, and I really like the Biologics. I'll increase my offer to $250.00.\", \"latency\": 1.4580771923065186}"
+                    },
+                    {
+                        "role": "assistant",
+                        "content": "{\"action\": \"COUNTER\", \"new_quote\": 285.0, \"message\": \"The buyer's bid of $250.0 is still below my target. Given the history, the buyer seems persistent but not desperate. I will hold my price firmer to maximize profit.\", \"latency\": 5.779746055603027}"
+                    }
+                ],
+                "12": [
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"ACCEPT\", \"counter_offer\": 0.0, \"message\": \"I accept the current market quote of $6.66 for the lettuce.\", \"latency\": 2.50724458694458}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"COUNTER\", \"counter_offer\": 16.03, \"message\": \"I am willing to pay a premium for the Biologics, considering the urgency and expiry in 3 days. I counter offer $16.03.\", \"latency\": 2.7521607875823975}"
+                    }
+                ],
+                "13": [
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"COUNTER\", \"counter_offer\": 200.0, \"message\": \"I like the product, but the price seems a bit high. I'm willing to pay $200.00 for the Biologics.\", \"latency\": 2.100299119949341}"
+                    },
+                    {
+                        "role": "assistant",
+                        "content": "{\"action\": \"COUNTER\", \"new_quote\": 215.0, \"message\": \"The buyer's bid of $200.0 is noted, but considering the item's value and our initial quote of $217.38, we can slightly adjust our price to $215.00, inviting further negotiation.\", \"latency\": 1.4231221675872803}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"COUNTER\", \"counter_offer\": 205.0, \"message\": \"I'm getting a bit desperate to acquire the Biologics, so I'm willing to increase my offer to $205.00, hoping we can reach a mutually agreeable price soon.\", \"latency\": 1.0770671367645264}"
+                    }
+                ],
+                "14": [
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"COUNTER\", \"counter_offer\": 10.0, \"message\": \"I'm willing to pay a premium for the chicken, but I need to stay within my budget. I'll offer $10.00.\", \"latency\": 5.988570213317871}"
+                    }
+                ],
+                "15": [
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"COUNTER\", \"counter_offer\": 15.0, \"message\": \"The current market quote is $17.42, but I'm willing to offer $15.00 for the Frozen Dinners, considering the expiry date is 150 days away.\", \"latency\": 2.8824946880340576}"
+                    },
+                    {
+                        "role": "assistant",
+                        "content": "{\"action\": \"COUNTER\", \"new_quote\": 16.71, \"message\": \"Considering your interest in the frozen dinners, I can offer a slight discount from my initial quote of $17.42. However, I need to ensure I meet my costs, so my best offer at this moment is $16.71.\", \"latency\": 1.3536632061004639}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"COUNTER\", \"counter_offer\": 15.5, \"message\": \"I appreciate your willingness to negotiate. Given the current market conditions and the product's expiry date, I'm willing to meet you halfway between my initial offer of $15.00 and your quote of $16.71. I can offer $15.50 for the Frozen Dinners.\", \"latency\": 1.4873542785644531}"
+                    },
+                    {
+                        "role": "assistant",
+                        "content": "{\"action\": \"COUNTER\", \"new_quote\": 16.35, \"message\": \"I understand you're looking for the best deal, and I appreciate your persistence. Given the current market conditions and the product's expiry date, I'm willing to adjust my price to $16.35, which is a reasonable compromise.\", \"latency\": 17.768364429473877}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"COUNTER\", \"counter_offer\": 12.75, \"message\": \"Considering my initial budget and the current market quote, I'm willing to offer $12.75 for the Frozen Dinners, which aligns with the initial market quote provided.\", \"latency\": 13.518723487854004}"
+                    }
+                ]
+            },
+            "duration": 10
+        },
+        "human": {
+            "mode": "BASELINE",
+            "status": "FINISHED",
+            "sold_count": 13,
+            "sold_items": [
+                "Chicken",
+                "Lettuce",
+                "Sour Cream",
+                "Smoothies",
+                "Antibiotics",
+                "Biologics",
+                "Insulin",
+                "Pork",
+                "Grapes",
+                "Frozen Dinners",
+                "Prepared Salads",
+                "Pizza",
+                "Salami"
+            ],
+            "total_items": 15,
+            "blackboard": {
+                "inventory": [
+                    {
+                        "product_name": "Insulin",
+                        "selling_price": 302.66,
+                        "cost_price": 160.77,
+                        "days_until_expiry": 158,
+                        "spoilage_risk": 0.165,
+                        "daily_demand": 2,
+                        "quality_grade": "A"
+                    },
+                    {
+                        "product_name": "Biologics",
+                        "selling_price": 193.07,
+                        "cost_price": 80.68,
+                        "days_until_expiry": 305,
+                        "spoilage_risk": 0.245,
+                        "daily_demand": 2,
+                        "quality_grade": "B"
+                    },
+                    {
+                        "product_name": "Sour Cream",
+                        "selling_price": 7.96,
+                        "cost_price": 3.54,
+                        "days_until_expiry": 22,
+                        "spoilage_risk": 0.16,
+                        "daily_demand": 21,
+                        "quality_grade": "A"
+                    },
+                    {
+                        "product_name": "Antibiotics",
+                        "selling_price": 276.39,
+                        "cost_price": 161.31,
+                        "days_until_expiry": 450,
+                        "spoilage_risk": 0.282,
+                        "daily_demand": 2,
+                        "quality_grade": "C"
+                    },
+                    {
+                        "product_name": "Lettuce",
+                        "selling_price": 1.65,
+                        "cost_price": 0.93,
+                        "days_until_expiry": 19,
+                        "spoilage_risk": 0.182,
+                        "daily_demand": 0,
+                        "quality_grade": "B"
+                    },
+                    {
+                        "product_name": "Biologics",
+                        "selling_price": 183.97,
+                        "cost_price": 95.46,
+                        "days_until_expiry": 420,
+                        "spoilage_risk": 0.181,
+                        "daily_demand": 1,
+                        "quality_grade": "A"
+                    },
+                    {
+                        "product_name": "Pizza",
+                        "selling_price": 13.25,
+                        "cost_price": 5.51,
+                        "days_until_expiry": 129,
+                        "spoilage_risk": 0.105,
+                        "daily_demand": 3,
+                        "quality_grade": "A"
+                    },
+                    {
+                        "product_name": "Salami",
+                        "selling_price": 9.65,
+                        "cost_price": 4.53,
+                        "days_until_expiry": 8,
+                        "spoilage_risk": 0.115,
+                        "daily_demand": 16,
+                        "quality_grade": "A"
+                    },
+                    {
+                        "product_name": "Grapes",
+                        "selling_price": 5.61,
+                        "cost_price": 3.17,
+                        "days_until_expiry": 19,
+                        "spoilage_risk": 0.218,
+                        "daily_demand": 18,
+                        "quality_grade": "B"
+                    },
+                    {
+                        "product_name": "Lettuce",
+                        "selling_price": 5.57,
+                        "cost_price": 2.23,
+                        "days_until_expiry": 13,
+                        "spoilage_risk": 0.246,
+                        "daily_demand": 40,
+                        "quality_grade": "B"
+                    },
+                    {
+                        "product_name": "Prepared Salads",
+                        "selling_price": 17.98,
+                        "cost_price": 10.31,
+                        "days_until_expiry": 9,
+                        "spoilage_risk": 0.186,
+                        "daily_demand": 15,
+                        "quality_grade": "B"
+                    },
+                    {
+                        "product_name": "Frozen Dinners",
+                        "selling_price": 14.56,
+                        "cost_price": 8.16,
+                        "days_until_expiry": 150,
+                        "spoilage_risk": 0.153,
+                        "daily_demand": 1,
+                        "quality_grade": "A"
+                    },
+                    {
+                        "product_name": "Pork",
+                        "selling_price": 12.82,
+                        "cost_price": 8.35,
+                        "days_until_expiry": 3,
+                        "spoilage_risk": 0.277,
+                        "daily_demand": 99,
+                        "quality_grade": "C"
+                    },
+                    {
+                        "product_name": "Smoothies",
+                        "selling_price": 3.36,
+                        "cost_price": 1.56,
+                        "days_until_expiry": 10,
+                        "spoilage_risk": 0.226,
+                        "daily_demand": 11,
+                        "quality_grade": "B"
+                    },
+                    {
+                        "product_name": "Chicken",
+                        "selling_price": 6.14,
+                        "cost_price": 3.89,
+                        "days_until_expiry": 6,
+                        "spoilage_risk": 0.25,
+                        "daily_demand": 31,
+                        "quality_grade": "B"
+                    }
+                ],
+                "quotes": {
+                    "Insulin": 302.66,
+                    "Biologics": 183.97,
+                    "Sour Cream": 7.96,
+                    "Antibiotics": 276.39,
+                    "Lettuce": 5.57,
+                    "Pizza": 12.75,
+                    "Salami": 9.65,
+                    "Grapes": 5.61,
+                    "Prepared Salads": 17.98,
+                    "Frozen Dinners": 14.56,
+                    "Pork": 12.82,
+                    "Smoothies": 3.36,
+                    "Chicken": 6.14
+                },
+                "floor_prices": {
+                    "Insulin": 160.77,
+                    "Biologics": 95.46,
+                    "Sour Cream": 3.54,
+                    "Antibiotics": 161.31,
+                    "Lettuce": 2.23,
+                    "Pizza": 5.51,
+                    "Salami": 4.53,
+                    "Grapes": 3.17,
+                    "Prepared Salads": 10.31,
+                    "Frozen Dinners": 8.16,
+                    "Pork": 8.35,
+                    "Smoothies": 1.56,
+                    "Chicken": 3.89
+                },
+                "strategy": "Human intuition mode.",
+                "logs": [
+                    "HIVE: Engaging active buyers...",
+                    "ENGAGING: B1 (CALCULATED) for Smoothies...",
+                    "COUNTER: B1 offered $3.00",
+                    "SELLER -> B1: Counter-offer $3.36",
+                    "ENGAGING: B2 (CALCULATED) for Antibiotics...",
+                    "COUNTER: B2 offered $260.00",
+                    "SELLER -> B2: Counter-offer $276.39",
+                    "ENGAGING: B3 (IMPULSE) for Chicken...",
+                    "COUNTER: B3 offered $5.99",
+                    "SELLER -> B3: Counter-offer $6.14",
+                    "ENGAGING: B4 (ESSENTIAL) for Chicken...",
+                    "SUCCESS: B4 (ESSENTIAL) bought Chicken at $6.14",
+                    "ENGAGING: B5 (IMPULSE) for Antibiotics...",
+                    "COUNTER: B5 offered $250.00",
+                    "SELLER -> B5: Counter-offer $276.39",
+                    "ENGAGING: B6 (IMPULSE) for Pork...",
+                    "COUNTER: B6 offered $10.50",
+                    "SELLER -> B6: Counter-offer $12.82",
+                    "ENGAGING: B7 (IMPULSE) for Grapes...",
+                    "COUNTER: B7 offered $5.00",
+                    "SELLER -> B7: Counter-offer $5.61",
+                    "ENGAGING: B8 (IMPULSE) for Frozen Dinners...",
+                    "COUNTER: B8 offered $12.99",
+                    "SELLER -> B8: Counter-offer $14.56",
+                    "ENGAGING: B9 (CALCULATED) for Lettuce...",
+                    "COUNTER: B9 offered $4.50",
+                    "SELLER -> B9: Counter-offer $5.57",
+                    "ENGAGING: B10 (CALCULATED) for Biologics...",
+                    "COUNTER: B10 offered $165.00",
+                    "SELLER -> B10: Counter-offer $183.97",
+                    "ENGAGING: B11 (IMPULSE) for Biologics...",
+                    "COUNTER: B11 offered $160.00",
+                    "SELLER -> B11: Counter-offer $183.97",
+                    "ENGAGING: B12 (ESSENTIAL) for Lettuce...",
+                    "SUCCESS: B12 (ESSENTIAL) bought Lettuce at $5.57",
+                    "ENGAGING: B13 (IMPULSE) for Biologics...",
+                    "COUNTER: B13 offered $179.99",
+                    "SELLER -> B13: Counter-offer $183.97",
+                    "ENGAGING: B14 (ESSENTIAL) for Sour Cream...",
+                    "SUCCESS: B14 (ESSENTIAL) bought Sour Cream at $7.96",
+                    "ENGAGING: B15 (CALCULATED) for Frozen Dinners...",
+                    "COUNTER: B15 offered $12.99",
+                    "SELLER -> B15: Counter-offer $14.56",
+                    "HIVE: Engaging active buyers...",
+                    "ENGAGING: B1 (CALCULATED) for Smoothies...",
+                    "COUNTER: B1 offered $3.15",
+                    "SUCCESS: B1 (CALCULATED) bought Smoothies at $3.15",
+                    "ENGAGING: B2 (CALCULATED) for Antibiotics...",
+                    "COUNTER: B2 offered $268.00",
+                    "SUCCESS: B2 (CALCULATED) bought Antibiotics at $268.00",
+                    "ENGAGING: B4 (ESSENTIAL) for Biologics...",
+                    "SUCCESS: B4 (ESSENTIAL) bought Biologics at $183.97",
+                    "ENGAGING: B5 (IMPULSE) for Insulin...",
+                    "COUNTER: B5 offered $265.00",
+                    "SUCCESS: B5 (IMPULSE) bought Insulin at $265.00",
+                    "ENGAGING: B6 (IMPULSE) for Pork...",
+                    "COUNTER: B6 offered $11.82",
+                    "SUCCESS: B6 (IMPULSE) bought Pork at $11.82",
+                    "ENGAGING: B7 (IMPULSE) for Grapes...",
+                    "COUNTER: B7 offered $5.30",
+                    "SUCCESS: B7 (IMPULSE) bought Grapes at $5.30",
+                    "ENGAGING: B8 (IMPULSE) for Frozen Dinners...",
+                    "COUNTER: B8 offered $13.49",
+                    "SUCCESS: B8 (IMPULSE) bought Frozen Dinners at $13.49",
+                    "ENGAGING: B9 (CALCULATED) for Pizza...",
+                    "COUNTER: B9 offered $5.25",
+                    "SELLER -> B9: Counter-offer $12.75",
+                    "ENGAGING: B13 (IMPULSE) for Prepared Salads...",
+                    "COUNTER: B13 offered $16.99",
+                    "SUCCESS: B13 (IMPULSE) bought Prepared Salads at $16.99",
+                    "ENGAGING: B15 (CALCULATED) for Pizza...",
+                    "COUNTER: B15 offered $12.49",
+                    "SUCCESS: B15 (CALCULATED) bought Pizza at $12.49",
+                    "HIVE: Engaging active buyers...",
+                    "ENGAGING: B7 (IMPULSE) for Salami...",
+                    "COUNTER: B7 offered $8.00",
+                    "SUCCESS: B7 (IMPULSE) bought Salami at $8.00",
+                    "HIVE: Engaging active buyers...",
+                    "HIVE: Engaging active buyers..."
+                ],
+                "chaos": [
+                    {
+                        "event": "DECEPTIVE_BIDDING",
+                        "impact_magnitude": 8,
+                        "message": "A collective bid lowering by a 'Buyer Cartel' has been simulated, affecting the market prices of Insulin, Biologics, and Antibiotics, with average bid reductions of 15%, 12%, and 10% respectively.",
+                        "latency": 2.476785898208618
+                    },
+                    {
+                        "event": "DECEPTIVE_BIDDING",
+                        "impact_magnitude": 8,
+                        "message": "A collective of buyers has formed a cartel, artificially lowering their bids by 15-20% across the board, affecting the prices of Insulin, Biologics, and Antibiotics, in an attempt to manipulate the market and acquire these products at discounted rates.",
+                        "latency": 13.184359788894653
+                    }
+                ],
+                "sales_data": [
+                    {
+                        "product_name": "Chicken",
+                        "sale_price": 6.14,
+                        "cost_price": 3.89,
+                        "initial_price": 6.14,
+                        "hour": 0,
+                        "days_until_expiry": 6
+                    },
+                    {
+                        "product_name": "Lettuce",
+                        "sale_price": 5.57,
+                        "cost_price": 0.93,
+                        "initial_price": 1.65,
+                        "hour": 0,
+                        "days_until_expiry": 19
+                    },
+                    {
+                        "product_name": "Sour Cream",
+                        "sale_price": 7.96,
+                        "cost_price": 3.54,
+                        "initial_price": 7.96,
+                        "hour": 0,
+                        "days_until_expiry": 22
+                    },
+                    {
+                        "product_name": "Smoothies",
+                        "sale_price": 3.15,
+                        "cost_price": 1.56,
+                        "initial_price": 3.36,
+                        "hour": 2,
+                        "days_until_expiry": 10
+                    },
+                    {
+                        "product_name": "Antibiotics",
+                        "sale_price": 268.0,
+                        "cost_price": 161.31,
+                        "initial_price": 276.39,
+                        "hour": 2,
+                        "days_until_expiry": 450
+                    },
+                    {
+                        "product_name": "Biologics",
+                        "sale_price": 183.97,
+                        "cost_price": 80.68,
+                        "initial_price": 193.07,
+                        "hour": 2,
+                        "days_until_expiry": 305
+                    },
+                    {
+                        "product_name": "Insulin",
+                        "sale_price": 265.0,
+                        "cost_price": 160.77,
+                        "initial_price": 302.66,
+                        "hour": 2,
+                        "days_until_expiry": 158
+                    },
+                    {
+                        "product_name": "Pork",
+                        "sale_price": 11.82,
+                        "cost_price": 8.35,
+                        "initial_price": 12.82,
+                        "hour": 2,
+                        "days_until_expiry": 3
+                    },
+                    {
+                        "product_name": "Grapes",
+                        "sale_price": 5.3,
+                        "cost_price": 3.17,
+                        "initial_price": 5.61,
+                        "hour": 2,
+                        "days_until_expiry": 19
+                    },
+                    {
+                        "product_name": "Frozen Dinners",
+                        "sale_price": 13.49,
+                        "cost_price": 8.16,
+                        "initial_price": 14.56,
+                        "hour": 2,
+                        "days_until_expiry": 150
+                    },
+                    {
+                        "product_name": "Prepared Salads",
+                        "sale_price": 16.99,
+                        "cost_price": 10.31,
+                        "initial_price": 17.98,
+                        "hour": 2,
+                        "days_until_expiry": 9
+                    },
+                    {
+                        "product_name": "Pizza",
+                        "sale_price": 12.49,
+                        "cost_price": 5.51,
+                        "initial_price": 13.25,
+                        "hour": 2,
+                        "days_until_expiry": 129
+                    },
+                    {
+                        "product_name": "Salami",
+                        "sale_price": 8.0,
+                        "cost_price": 4.53,
+                        "initial_price": 9.65,
+                        "hour": 4,
+                        "days_until_expiry": 8
+                    }
+                ]
+            },
+            "histories": {
+                "1": [
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"COUNTER\", \"counter_offer\": 3.0, \"message\": \"The current market quote is $3.36, I'm willing to pay $3.00 for the smoothies.\", \"latency\": 18.102553844451904}"
+                    },
+                    {
+                        "role": "assistant",
+                        "content": "{\"action\": \"COUNTER\", \"new_quote\": 3.36}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"COUNTER\", \"counter_offer\": 3.15, \"message\": \"I can see you're firm on the price, but I'm still a bit low on budget. Can we meet at $3.15?\", \"latency\": 1.4420602321624756}"
+                    }
+                ],
+                "2": [
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"COUNTER\", \"counter_offer\": 260.0, \"message\": \"The current market quote is $276.39, but I'm willing to offer $260.00 for the antibiotics, considering the expiry date is 450 days away.\", \"latency\": 3.411557912826538}"
+                    },
+                    {
+                        "role": "assistant",
+                        "content": "{\"action\": \"COUNTER\", \"new_quote\": 276.39}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"COUNTER\", \"counter_offer\": 268.0, \"message\": \"I'm willing to meet you halfway, but I still need to stay within my budget. My new offer for the antibiotics is $268.00.\", \"latency\": 3.074089288711548}"
+                    }
+                ],
+                "3": [
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"COUNTER\", \"counter_offer\": 5.99, \"message\": \"I like the chicken, but the price seems a bit high. Can you give me a better deal?\", \"latency\": 6.996243715286255}"
+                    },
+                    {
+                        "role": "assistant",
+                        "content": "{\"action\": \"COUNTER\", \"new_quote\": 6.14}"
+                    }
+                ],
+                "4": [
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"ACCEPT\", \"counter_offer\": 0.0, \"message\": \"Accepting the current market quote to secure the chicken urgently\", \"latency\": 0.6304886341094971}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"ACCEPT\", \"counter_offer\": 0.0, \"message\": \"Purchasing Biologics at $183.97 to meet urgent needs\", \"latency\": 5.310883522033691}"
+                    }
+                ],
+                "5": [
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"COUNTER\", \"counter_offer\": 250.0, \"message\": \"I like the product, but the price seems a bit high. Can you give me a better deal?\", \"latency\": 0.7380704879760742}"
+                    },
+                    {
+                        "role": "assistant",
+                        "content": "{\"action\": \"COUNTER\", \"new_quote\": 276.39}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"COUNTER\", \"counter_offer\": 265.0, \"message\": \"I'm willing to pay a bit more, but I still think it's overpriced. Can you meet me in the middle?\", \"latency\": 23.691032886505127}"
+                    }
+                ],
+                "6": [
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"COUNTER\", \"counter_offer\": 10.5, \"message\": \"I'm feeling lucky today, but I don't want to overspend on pork. How about we meet in the middle?\", \"latency\": 0.872992753982544}"
+                    },
+                    {
+                        "role": "assistant",
+                        "content": "{\"action\": \"COUNTER\", \"new_quote\": 12.82}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"COUNTER\", \"counter_offer\": 11.82, \"message\": \"I'm getting a bit anxious, but I still think I can get a better deal. Come on, give me a break!\", \"latency\": 1.4233551025390625}"
+                    }
+                ],
+                "7": [
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"COUNTER\", \"counter_offer\": 5.0, \"message\": \"I like the grapes, but the price seems a bit high. I'll give you $5.00 for them.\", \"latency\": 2.5175251960754395}"
+                    },
+                    {
+                        "role": "assistant",
+                        "content": "{\"action\": \"COUNTER\", \"new_quote\": 5.61}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"COUNTER\", \"counter_offer\": 5.3, \"message\": \"I'm willing to meet you in the middle, but I still think it's a bit pricey. How about $5.30?\", \"latency\": 2.90811824798584}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"COUNTER\", \"counter_offer\": 8.0, \"message\": \"I can see you're a tough negotiator, but I need to make a profit. I can do $8.00 for the lettuce, and that's as low as I can go.\", \"latency\": 4.728450536727905}"
+                    }
+                ],
+                "8": [
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"COUNTER\", \"counter_offer\": 12.99, \"message\": \"I'm feeling lucky today, but I don't want to break the bank on frozen dinners\", \"latency\": 1.2403967380523682}"
+                    },
+                    {
+                        "role": "assistant",
+                        "content": "{\"action\": \"COUNTER\", \"new_quote\": 14.56}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"COUNTER\", \"counter_offer\": 13.49, \"message\": \"I'm getting a little impatient, throw in some discounts\", \"latency\": 1.3854806423187256}"
+                    }
+                ],
+                "9": [
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"COUNTER\", \"counter_offer\": 4.5, \"message\": \"The current market quote is $5.57, but I'm willing to offer $4.50 for the lettuce, considering it has 19 days of expiry left.\", \"latency\": 1.183497428894043}"
+                    },
+                    {
+                        "role": "assistant",
+                        "content": "{\"action\": \"COUNTER\", \"new_quote\": 5.57}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"COUNTER\", \"counter_offer\": 5.25, \"message\": \"I can see the market quote is $5.57, but I'm willing to pay $5.25 for the lettuce, given its relatively long expiry period of 129 days.\", \"latency\": 1.1960797309875488}"
+                    },
+                    {
+                        "role": "assistant",
+                        "content": "{\"action\": \"COUNTER\", \"new_quote\": 12.75}"
+                    }
+                ],
+                "10": [
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"COUNTER\", \"counter_offer\": 165.0, \"message\": \"The current market quote is $183.97, but I'm willing to offer $165.00 for the Biologics, considering the expiry date is 305 days away.\", \"latency\": 1.9375243186950684}"
+                    },
+                    {
+                        "role": "assistant",
+                        "content": "{\"action\": \"COUNTER\", \"new_quote\": 183.97}"
+                    }
+                ],
+                "11": [
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"COUNTER\", \"counter_offer\": 160.0, \"message\": \"I like the product, but the price seems a bit high. I'm willing to pay $160.00 for the biologics.\", \"latency\": 17.633882999420166}"
+                    },
+                    {
+                        "role": "assistant",
+                        "content": "{\"action\": \"COUNTER\", \"new_quote\": 183.97}"
+                    }
+                ],
+                "12": [
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"ACCEPT\", \"counter_offer\": 0.0, \"message\": \"I accept the current market quote of $5.57 for the lettuce.\", \"latency\": 1.0088675022125244}"
+                    }
+                ],
+                "13": [
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"COUNTER\", \"counter_offer\": 179.99, \"message\": \"I like the product, but the price seems a bit high. I'm willing to pay a premium, but not that much.\", \"latency\": 1.9489927291870117}"
+                    },
+                    {
+                        "role": "assistant",
+                        "content": "{\"action\": \"COUNTER\", \"new_quote\": 183.97}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"COUNTER\", \"counter_offer\": 16.99, \"message\": \"I'm feeling generous today, but I still think I can get a better deal. Meet me in the middle?\", \"latency\": 1.7689406871795654}"
+                    }
+                ],
+                "14": [
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"ACCEPT\", \"counter_offer\": 0.0, \"message\": \"Accepting the current market quote to secure the chicken urgently\", \"latency\": 7.350619792938232}"
+                    }
+                ],
+                "15": [
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"COUNTER\", \"counter_offer\": 12.99, \"message\": \"The current market quote is $14.56, but I'm looking for a better deal. I'm willing to pay $12.99 for the Frozen Dinners.\", \"latency\": 29.47035002708435}"
+                    },
+                    {
+                        "role": "assistant",
+                        "content": "{\"action\": \"COUNTER\", \"new_quote\": 14.56}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"COUNTER\", \"counter_offer\": 12.49, \"message\": \"I'm trying to stay within my budget, and $12.75 is a bit higher than I'd like. I can offer $12.49 for the Frozen Dinners.\", \"latency\": 1.6352105140686035}"
+                    }
+                ]
+            },
+            "duration": 10
+        }
+    }
+}
