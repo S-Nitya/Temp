@@ -1,0 +1,3023 @@
+[
+    {
+        "experiment": "Full Llama-70B Dominance",
+        "metrics": {
+            "kanishka_mas": {
+                "PCR": 1.0,
+                "IV": 1.0909090909090908,
+                "EE": -0.2323518164435947,
+                "Total Profit": 149.95,
+                "Waste Loss": 241.09,
+                "Items Sold": 12
+            },
+            "single_model_mas": {
+                "PCR": 1.0,
+                "IV": 1.0,
+                "EE": -0.3144933078393883,
+                "Total Profit": 139.06999999999996,
+                "Waste Loss": 262.43,
+                "Items Sold": 11
+            },
+            "human_baseline": {
+                "PCR": 1.0,
+                "IV": 1.0909090909090908,
+                "EE": -0.2323518164435947,
+                "Total Profit": 149.95,
+                "Waste Loss": 241.09,
+                "Items Sold": 12
+            },
+            "actual_historical": {
+                "Total Profit": 62966.299999999996,
+                "Waste Loss": 16529.9,
+                "PCR": 0.0,
+                "IV": 0.0,
+                "EE": 0.0,
+                "Items Sold": 0
+            }
+        },
+        "raw": {
+            "kanishka_mas": {
+                "mode": "MAS",
+                "status": "FINISHED",
+                "sold_count": 12,
+                "sold_items": [
+                    "Dips",
+                    "Ham",
+                    "Cream",
+                    "Frozen Desserts",
+                    "Lamb",
+                    "Cottage Cheese",
+                    "Milk Alternatives",
+                    "Probiotics",
+                    "Prepared Salads",
+                    "Turkey Slices",
+                    "Cod",
+                    "Tuna"
+                ],
+                "total_items": 15,
+                "blackboard": {
+                    "inventory": [
+                        {
+                            "product_name": "Tuna",
+                            "selling_price": 32.22,
+                            "cost_price": 21.34,
+                            "days_until_expiry": 3,
+                            "spoilage_risk": 0.203,
+                            "daily_demand": 62,
+                            "quality_grade": "C"
+                        },
+                        {
+                            "product_name": "Milk Alternatives",
+                            "selling_price": 4.84,
+                            "cost_price": 3.32,
+                            "days_until_expiry": 10,
+                            "spoilage_risk": 0.236,
+                            "daily_demand": 20,
+                            "quality_grade": "B"
+                        },
+                        {
+                            "product_name": "Prepared Salads",
+                            "selling_price": 4.07,
+                            "cost_price": 1.65,
+                            "days_until_expiry": 9,
+                            "spoilage_risk": 0.231,
+                            "daily_demand": 53,
+                            "quality_grade": "B"
+                        },
+                        {
+                            "product_name": "Cream",
+                            "selling_price": 3.0,
+                            "cost_price": 1.76,
+                            "days_until_expiry": 9,
+                            "spoilage_risk": 0.211,
+                            "daily_demand": 49,
+                            "quality_grade": "B"
+                        },
+                        {
+                            "product_name": "Cottage Cheese",
+                            "selling_price": 3.96,
+                            "cost_price": 2.27,
+                            "days_until_expiry": 8,
+                            "spoilage_risk": 0.174,
+                            "daily_demand": 28,
+                            "quality_grade": "A"
+                        },
+                        {
+                            "product_name": "Turkey Slices",
+                            "selling_price": 5.79,
+                            "cost_price": 3.6,
+                            "days_until_expiry": 6,
+                            "spoilage_risk": 0.258,
+                            "daily_demand": 77,
+                            "quality_grade": "C"
+                        },
+                        {
+                            "product_name": "Probiotics",
+                            "selling_price": 261.34,
+                            "cost_price": 158.72,
+                            "days_until_expiry": 162,
+                            "spoilage_risk": 0.187,
+                            "daily_demand": 0,
+                            "quality_grade": "B"
+                        },
+                        {
+                            "product_name": "Lamb",
+                            "selling_price": 7.95,
+                            "cost_price": 4.18,
+                            "days_until_expiry": 7,
+                            "spoilage_risk": 0.183,
+                            "daily_demand": 12,
+                            "quality_grade": "A"
+                        },
+                        {
+                            "product_name": "Vaccines",
+                            "selling_price": 66.35,
+                            "cost_price": 27.53,
+                            "days_until_expiry": 101,
+                            "spoilage_risk": 0.165,
+                            "daily_demand": 2,
+                            "quality_grade": "A"
+                        },
+                        {
+                            "product_name": "Ham",
+                            "selling_price": 4.46,
+                            "cost_price": 2.38,
+                            "days_until_expiry": 3,
+                            "spoilage_risk": 0.215,
+                            "daily_demand": 149,
+                            "quality_grade": "B"
+                        },
+                        {
+                            "product_name": "Frozen Desserts",
+                            "selling_price": 8.34,
+                            "cost_price": 5.87,
+                            "days_until_expiry": 79,
+                            "spoilage_risk": 0.262,
+                            "daily_demand": 4,
+                            "quality_grade": "C"
+                        },
+                        {
+                            "product_name": "Dips",
+                            "selling_price": 12.1,
+                            "cost_price": 4.96,
+                            "days_until_expiry": 5,
+                            "spoilage_risk": 0.081,
+                            "daily_demand": 53,
+                            "quality_grade": "A"
+                        },
+                        {
+                            "product_name": "Vaccines",
+                            "selling_price": 410.7,
+                            "cost_price": 209.79,
+                            "days_until_expiry": 323,
+                            "spoilage_risk": 0.166,
+                            "daily_demand": 1,
+                            "quality_grade": "A"
+                        },
+                        {
+                            "product_name": "Cod",
+                            "selling_price": 23.48,
+                            "cost_price": 11.55,
+                            "days_until_expiry": 3,
+                            "spoilage_risk": 0.199,
+                            "daily_demand": 138,
+                            "quality_grade": "B"
+                        },
+                        {
+                            "product_name": "Kombucha",
+                            "selling_price": 6.34,
+                            "cost_price": 3.77,
+                            "days_until_expiry": 9,
+                            "spoilage_risk": 0.12,
+                            "daily_demand": 15,
+                            "quality_grade": "A"
+                        }
+                    ],
+                    "quotes": {
+                        "Tuna": 32.22,
+                        "Milk Alternatives": 4.84,
+                        "Prepared Salads": 4.07,
+                        "Cream": 3.0,
+                        "Cottage Cheese": 3.96,
+                        "Turkey Slices": 5.79,
+                        "Probiotics": 261.34,
+                        "Lamb": 7.95,
+                        "Vaccines": 410.7,
+                        "Ham": 4.46,
+                        "Frozen Desserts": 8.34,
+                        "Dips": 12.1,
+                        "Cod": 23.48,
+                        "Kombucha": 6.34
+                    },
+                    "floor_prices": {
+                        "Tuna": 21.34,
+                        "Milk Alternatives": 3.32,
+                        "Prepared Salads": 1.65,
+                        "Cream": 1.76,
+                        "Cottage Cheese": 2.27,
+                        "Turkey Slices": 3.6,
+                        "Probiotics": 158.72,
+                        "Lamb": 4.18,
+                        "Vaccines": 209.79,
+                        "Ham": 2.38,
+                        "Frozen Desserts": 5.87,
+                        "Dips": 4.96,
+                        "Cod": 11.55,
+                        "Kombucha": 3.77
+                    },
+                    "strategy": "Normal operations.",
+                    "logs": [
+                        "SUCCESS: B2 (IMPULSE) bought Dips at $12.10",
+                        "SUCCESS: B3 (ESSENTIAL) bought Ham at $4.46",
+                        "SUCCESS: B4 (IMPULSE) bought Cream at $3.00",
+                        "SUCCESS: B5 (IMPULSE) bought Frozen Desserts at $8.34",
+                        "SUCCESS: B6 (CALCULATED) bought Lamb at $7.95",
+                        "SUCCESS: B8 (CALCULATED) bought Cottage Cheese at $3.96",
+                        "SUCCESS: B9 (IMPULSE) bought Milk Alternatives at $4.84",
+                        "SUCCESS: B14 (CALCULATED) bought Probiotics at $261.34",
+                        "SUCCESS: B15 (ESSENTIAL) bought Prepared Salads at $4.07",
+                        "SUCCESS: B9 (IMPULSE) bought Turkey Slices at $5.79",
+                        "SUCCESS: B15 (ESSENTIAL) bought Cod at $23.48",
+                        "SUCCESS: B1 (CALCULATED) bought Tuna at $32.22"
+                    ],
+                    "chaos": [],
+                    "sales_data": [
+                        {
+                            "product_name": "Dips",
+                            "sale_price": 12.1,
+                            "cost_price": 4.96,
+                            "initial_price": 12.1,
+                            "hour": 0,
+                            "days_until_expiry": 5
+                        },
+                        {
+                            "product_name": "Ham",
+                            "sale_price": 4.46,
+                            "cost_price": 2.38,
+                            "initial_price": 4.46,
+                            "hour": 0,
+                            "days_until_expiry": 3
+                        },
+                        {
+                            "product_name": "Cream",
+                            "sale_price": 3.0,
+                            "cost_price": 1.76,
+                            "initial_price": 3.0,
+                            "hour": 0,
+                            "days_until_expiry": 9
+                        },
+                        {
+                            "product_name": "Frozen Desserts",
+                            "sale_price": 8.34,
+                            "cost_price": 5.87,
+                            "initial_price": 8.34,
+                            "hour": 0,
+                            "days_until_expiry": 79
+                        },
+                        {
+                            "product_name": "Lamb",
+                            "sale_price": 7.95,
+                            "cost_price": 4.18,
+                            "initial_price": 7.95,
+                            "hour": 0,
+                            "days_until_expiry": 7
+                        },
+                        {
+                            "product_name": "Cottage Cheese",
+                            "sale_price": 3.96,
+                            "cost_price": 2.27,
+                            "initial_price": 3.96,
+                            "hour": 0,
+                            "days_until_expiry": 8
+                        },
+                        {
+                            "product_name": "Milk Alternatives",
+                            "sale_price": 4.84,
+                            "cost_price": 3.32,
+                            "initial_price": 4.84,
+                            "hour": 0,
+                            "days_until_expiry": 10
+                        },
+                        {
+                            "product_name": "Probiotics",
+                            "sale_price": 261.34,
+                            "cost_price": 158.72,
+                            "initial_price": 261.34,
+                            "hour": 0,
+                            "days_until_expiry": 162
+                        },
+                        {
+                            "product_name": "Prepared Salads",
+                            "sale_price": 4.07,
+                            "cost_price": 1.65,
+                            "initial_price": 4.07,
+                            "hour": 0,
+                            "days_until_expiry": 9
+                        },
+                        {
+                            "product_name": "Turkey Slices",
+                            "sale_price": 5.79,
+                            "cost_price": 3.6,
+                            "initial_price": 5.79,
+                            "hour": 2,
+                            "days_until_expiry": 6
+                        },
+                        {
+                            "product_name": "Cod",
+                            "sale_price": 23.48,
+                            "cost_price": 11.55,
+                            "initial_price": 23.48,
+                            "hour": 2,
+                            "days_until_expiry": 3
+                        },
+                        {
+                            "product_name": "Tuna",
+                            "sale_price": 32.22,
+                            "cost_price": 21.34,
+                            "initial_price": 32.22,
+                            "hour": 8,
+                            "days_until_expiry": 3
+                        }
+                    ]
+                },
+                "histories": {
+                    "1": [
+                        {
+                            "role": "user",
+                            "content": "{\"action\": \"COUNTER\", \"counter_offer\": 30.0, \"message\": \"The current quote of $32.22 is slightly higher than I'm willing to pay. I can offer $30.00 for the tuna.\", \"latency\": 10.75223183631897}"
+                        },
+                        {
+                            "role": "assistant",
+                            "content": "{\"action\": \"WALK_AWAY\", \"error\": \"CONNECTION_FAILED\", \"latency\": 17.08335518836975}"
+                        },
+                        {
+                            "role": "user",
+                            "content": "{\"action\": \"COUNTER\", \"counter_offer\": 31.0, \"message\": \"Considering the product's proximity to expiry, I'm willing to pay $31.00 for the tuna. This is my final offer before I explore other options.\", \"latency\": 26.54291081428528}"
+                        },
+                        {
+                            "role": "assistant",
+                            "content": "{\"action\": \"WALK_AWAY\", \"error\": \"CONNECTION_FAILED\", \"latency\": 16.74839973449707}"
+                        },
+                        {
+                            "role": "user",
+                            "content": "{\"action\": \"COUNTER\", \"counter_offer\": 31.5, \"message\": \"I'm willing to meet you in the middle. My new offer for the tuna is $31.50.\", \"latency\": 27.983765363693237}"
+                        },
+                        {
+                            "role": "assistant",
+                            "content": "{\"action\": \"WALK_AWAY\", \"error\": \"CONNECTION_FAILED\", \"latency\": 16.411336183547974}"
+                        },
+                        {
+                            "role": "user",
+                            "content": "{\"action\": \"COUNTER\", \"counter_offer\": 32.0, \"message\": \"I'll give you one last chance. My final offer for the tuna is $32.00. If this isn't acceptable, I'll have to look elsewhere.\", \"latency\": 7.670924425125122}"
+                        },
+                        {
+                            "role": "assistant",
+                            "content": "{\"action\": \"WALK_AWAY\", \"error\": \"CONNECTION_FAILED\", \"latency\": 15.302655220031738}"
+                        },
+                        {
+                            "role": "user",
+                            "content": "{\"action\": \"ACCEPT\", \"counter_offer\": 32.22, \"message\": \"The seller's current quote of $32.22 is acceptable, I will accept the offer.\", \"latency\": 1.415879726409912}"
+                        }
+                    ],
+                    "2": [
+                        {
+                            "role": "user",
+                            "content": "{\"action\": \"ACCEPT\", \"counter_offer\": 0.0, \"message\": \"The seller's current quote of $12.10 is within my budget, so I'll accept it.\", \"latency\": 0.8996198177337646}"
+                        }
+                    ],
+                    "3": [
+                        {
+                            "role": "user",
+                            "content": "{\"action\": \"ACCEPT\", \"counter_offer\": 0.0, \"message\": \"The seller's current quote of $4.46 is at the normal retail price, which is acceptable.\", \"latency\": 0.808011531829834}"
+                        }
+                    ],
+                    "4": [
+                        {
+                            "role": "user",
+                            "content": "{\"action\": \"COUNTER\", \"counter_offer\": 80.0, \"message\": \"Your price is way too high, I can get it elsewhere for much cheaper. I'm willing to pay $80.00, but that's my maximum.\", \"latency\": 1.9948205947875977}"
+                        },
+                        {
+                            "role": "assistant",
+                            "content": "{\"action\": \"WALK_AWAY\", \"error\": \"CONNECTION_FAILED\", \"latency\": 16.075170755386353}"
+                        },
+                        {
+                            "role": "user",
+                            "content": "{\"action\": \"COUNTER\", \"counter_offer\": 90.0, \"message\": \"I'm still interested, but your price needs to come down significantly. I can do $90.00, that's as high as I'm willing to go.\", \"latency\": 2.001939296722412}"
+                        },
+                        {
+                            "role": "assistant",
+                            "content": "{\"thought\": \"The buyer is not willing to meet the target price, and their counter offer is significantly lower, indicating a potential mismatch in valuation.\", \"action\": \"WALK_AWAY\", \"new_quote\": 410.7, \"message\": \"I appreciate your interest, but I'm afraid we cannot proceed with a sale at $80.00, as our minimum price is $410.70; it's best we go our separate ways.\", \"latency\": 0.5959806442260742}"
+                        },
+                        {
+                            "role": "user",
+                            "content": "{\"action\": \"WALK_AWAY\", \"counter_offer\": 98.2, \"message\": \"I'm not willing to pay $410.70, it's too high. My final offer is $98.20, if you're not willing to accept that, I'm walking away.\", \"latency\": 14.586554288864136}"
+                        },
+                        {
+                            "role": "user",
+                            "content": "{\"action\": \"COUNTER\", \"counter_offer\": 102.18, \"message\": \"I understand you're willing to walk away, but I'm willing to make one last concession. I can sell it to you for $102.18, which is the lowest I'm comfortable with. If you're still interested, let's make the deal.\", \"latency\": 1.8220689296722412}"
+                        },
+                        {
+                            "role": "assistant",
+                            "content": "{\"action\": \"WALK_AWAY\", \"error\": \"CONNECTION_FAILED\", \"latency\": 15.707270622253418}"
+                        }
+                    ],
+                    "5": [
+                        {
+                            "role": "user",
+                            "content": "{\"action\": \"ACCEPT\", \"counter_offer\": 0.0, \"message\": \"The seller's current quote of $8.34 is within my budget, so I'll accept it.\", \"latency\": 17.01784086227417}"
+                        }
+                    ],
+                    "6": [
+                        {
+                            "role": "user",
+                            "content": "{\"action\": \"ACCEPT\", \"counter_offer\": 0, \"message\": \"The seller's current quote of $7.95 is within my acceptable price range, so I accept the offer.\", \"latency\": 0.9493966102600098}"
+                        }
+                    ],
+                    "7": [
+                        {
+                            "role": "user",
+                            "content": "{\"action\": \"COUNTER\", \"counter_offer\": 86.25, \"message\": \"The seller's current quote of $410.70 is excessively high. I'm willing to pay up to $86.25, which is still above the normal retail price of $66.35, considering my urgent need for the item.\", \"latency\": 5.236326217651367}"
+                        },
+                        {
+                            "role": "assistant",
+                            "content": "{\"thought\": \"The buyer is not bluffing, so I will be direct and firm with the price, ensuring they understand the value they're receiving\", \"action\": \"WALK_AWAY\", \"new_quote\": 410.7, \"message\": \"I can offer you this exceptional deal for $410.70, which is the best price considering the value you're getting; if it's not acceptable, I'm willing to WALK_AWAY from the sale.\", \"latency\": 0.8446054458618164}"
+                        },
+                        {
+                            "role": "user",
+                            "content": "{\"action\": \"COUNTER\", \"counter_offer\": 90.24, \"message\": \"I understand that you believe your price is justified, but it's still far beyond my budget. I'm willing to pay $90.24, which is my absolute maximum. If this is not acceptable, I will have to explore other options.\", \"latency\": 5.188135147094727}"
+                        },
+                        {
+                            "role": "assistant",
+                            "content": "{\"action\": \"WALK_AWAY\", \"error\": \"CONNECTION_FAILED\", \"latency\": 15.912772417068481}"
+                        },
+                        {
+                            "role": "user",
+                            "content": "{\"action\": \"WALK_AWAY\", \"message\": \"I'm afraid we cannot come to an agreement. Your counter offer of $90.24 is still below my acceptable price. I wish you the best of luck in finding the item elsewhere.\", \"latency\": 4.1771626472473145}"
+                        },
+                        {
+                            "role": "user",
+                            "content": "{\"action\": \"WALK_AWAY\", \"counter_offer\": 98.2, \"message\": \"It seems we're at an impasse. As a final attempt, I'm willing to pay $98.20, which is my absolute hard limit. If this is not acceptable, I will indeed walk away and explore other options.\", \"latency\": 6.286007404327393}"
+                        },
+                        {
+                            "role": "user",
+                            "content": "{\"action\": \"COUNTER\", \"counter_offer\": 102.18, \"message\": \"I appreciate your final offer, but I'm afraid I can only accept a price at or below $102.18. I'm willing to meet you at this price, which is my maximum limit. If you're unable to accept, I will have to walk away.\", \"latency\": 4.345648527145386}"
+                        },
+                        {
+                            "role": "assistant",
+                            "content": "{\"action\": \"WALK_AWAY\", \"error\": \"CONNECTION_FAILED\", \"latency\": 14.138428449630737}"
+                        }
+                    ],
+                    "8": [
+                        {
+                            "role": "user",
+                            "content": "{\"action\": \"ACCEPT\", \"counter_offer\": null, \"message\": \"The seller's current quote of $3.96 is within my acceptable price range, so I accept the offer.\", \"latency\": 4.727759599685669}"
+                        }
+                    ],
+                    "9": [
+                        {
+                            "role": "user",
+                            "content": "{\"action\": \"ACCEPT\", \"counter_offer\": 0, \"message\": \"The seller's current quote of $5.79 is within my budget, so I'll accept it.\", \"latency\": 4.219602584838867}"
+                        }
+                    ],
+                    "10": [],
+                    "11": [
+                        {
+                            "role": "user",
+                            "content": "{\"action\": \"COUNTER\", \"counter_offer\": 75.0, \"message\": \"The current quote is way too high, I can offer $75.00 at most.\", \"latency\": 6.129160642623901}"
+                        },
+                        {
+                            "role": "assistant",
+                            "content": "{\"action\": \"WALK_AWAY\", \"error\": \"CONNECTION_FAILED\", \"latency\": 16.0888729095459}"
+                        },
+                        {
+                            "role": "user",
+                            "content": "{\"action\": \"COUNTER\", \"counter_offer\": 85.0, \"message\": \"I'm willing to go a bit higher, but $85.00 is my maximum.\", \"latency\": 47.117308378219604}"
+                        },
+                        {
+                            "role": "assistant",
+                            "content": "{\"action\": \"WALK_AWAY\", \"error\": \"CONNECTION_FAILED\", \"latency\": 15.518547058105469}"
+                        },
+                        {
+                            "role": "user",
+                            "content": "{\"action\": \"COUNTER\", \"counter_offer\": 90.0, \"message\": \"I'm getting close to my limit, $90.00 is as high as I can go without reconsidering the purchase.\", \"latency\": 9.798131942749023}"
+                        },
+                        {
+                            "role": "assistant",
+                            "content": "{\"action\": \"WALK_AWAY\", \"error\": \"CONNECTION_FAILED\", \"latency\": 15.799169063568115}"
+                        },
+                        {
+                            "role": "user",
+                            "content": "{\"action\": \"COUNTER\", \"counter_offer\": 98.2, \"message\": \"This is my final offer, I won't pay a penny more than $98.20.\", \"latency\": 5.037416458129883}"
+                        },
+                        {
+                            "role": "assistant",
+                            "content": "{\"action\": \"WALK_AWAY\", \"error\": \"CONNECTION_FAILED\", \"latency\": 16.954303741455078}"
+                        },
+                        {
+                            "role": "user",
+                            "content": "{\"action\": \"COUNTER\", \"counter_offer\": 102.18, \"message\": \"I'm at my absolute limit, $102.18 is the maximum I can offer.\", \"latency\": 1.834850788116455}"
+                        },
+                        {
+                            "role": "assistant",
+                            "content": "{\"action\": \"WALK_AWAY\", \"error\": \"CONNECTION_FAILED\", \"latency\": 15.67876672744751}"
+                        }
+                    ],
+                    "12": [],
+                    "13": [
+                        {
+                            "role": "user",
+                            "content": "{\"action\": \"COUNTER\", \"counter_offer\": 86.25, \"message\": \"The seller's quote of $410.70 is excessively high. I can offer up to $86.25, which is still above the normal retail price of $66.35, but I need this item urgently.\", \"latency\": 9.458296775817871}"
+                        },
+                        {
+                            "role": "assistant",
+                            "content": "{\"action\": \"WALK_AWAY\", \"error\": \"CONNECTION_FAILED\", \"latency\": 16.575834274291992}"
+                        },
+                        {
+                            "role": "user",
+                            "content": "{\"action\": \"COUNTER\", \"counter_offer\": 90.24, \"message\": \"I understand that the seller's quote is high, but I urgently need the item. I can offer $90.24, which is my maximum limit.\", \"latency\": 1.11452317237854}"
+                        },
+                        {
+                            "role": "assistant",
+                            "content": "{\"action\": \"WALK_AWAY\", \"error\": \"CONNECTION_FAILED\", \"latency\": 16.57272696495056}"
+                        },
+                        {
+                            "role": "user",
+                            "content": "{\"action\": \"COUNTER\", \"counter_offer\": 94.22, \"message\": \"I'm at my hard limit, I can offer $94.22 for the vaccines, but I won't go any higher.\", \"latency\": 6.398191928863525}"
+                        },
+                        {
+                            "role": "assistant",
+                            "content": "{\"action\": \"WALK_AWAY\", \"error\": \"CONNECTION_FAILED\", \"latency\": 15.296146154403687}"
+                        },
+                        {
+                            "role": "user",
+                            "content": "{\"action\": \"COUNTER\", \"counter_offer\": 98.2, \"message\": \"This is my final offer, I can go up to $98.20, but that's as high as I'm willing to pay.\", \"latency\": 49.12349772453308}"
+                        },
+                        {
+                            "role": "assistant",
+                            "content": "{\"action\": \"WALK_AWAY\", \"error\": \"CONNECTION_FAILED\", \"latency\": 16.34595274925232}"
+                        },
+                        {
+                            "role": "user",
+                            "content": "{\"action\": \"COUNTER\", \"counter_offer\": 102.18, \"message\": \"I'm willing to pay $102.18, which is my maximum limit. If you're not willing to accept this, I'll have to look elsewhere.\", \"latency\": 8.472144842147827}"
+                        },
+                        {
+                            "role": "assistant",
+                            "content": "{\"action\": \"WALK_AWAY\", \"error\": \"CONNECTION_FAILED\", \"latency\": 15.876876831054688}"
+                        }
+                    ],
+                    "14": [
+                        {
+                            "role": "user",
+                            "content": "{\"action\": \"ACCEPT\", \"counter_offer\": 0.0, \"message\": \"The seller's current quote of $261.34 is within my acceptable price range, so I accept the offer.\", \"latency\": 1.5642335414886475}"
+                        }
+                    ],
+                    "15": [
+                        {
+                            "role": "user",
+                            "content": "{\"action\": \"ACCEPT\", \"counter_offer\": 0.0, \"message\": \"The seller's current quote of $23.48 is at the normal retail price, which is acceptable.\", \"latency\": 1.3060903549194336}"
+                        }
+                    ]
+                },
+                "duration": 10
+            },
+            "single_model_mas": {
+                "mode": "SINGLE_MODEL",
+                "status": "FINISHED",
+                "sold_count": 11,
+                "sold_items": [
+                    "Dips",
+                    "Ham",
+                    "Cream",
+                    "Frozen Desserts",
+                    "Lamb",
+                    "Cottage Cheese",
+                    "Milk Alternatives",
+                    "Probiotics",
+                    "Prepared Salads",
+                    "Turkey Slices",
+                    "Cod"
+                ],
+                "total_items": 15,
+                "blackboard": {
+                    "inventory": [
+                        {
+                            "product_name": "Tuna",
+                            "selling_price": 32.22,
+                            "cost_price": 21.34,
+                            "days_until_expiry": 3,
+                            "spoilage_risk": 0.203,
+                            "daily_demand": 62,
+                            "quality_grade": "C"
+                        },
+                        {
+                            "product_name": "Milk Alternatives",
+                            "selling_price": 4.84,
+                            "cost_price": 3.32,
+                            "days_until_expiry": 10,
+                            "spoilage_risk": 0.236,
+                            "daily_demand": 20,
+                            "quality_grade": "B"
+                        },
+                        {
+                            "product_name": "Prepared Salads",
+                            "selling_price": 4.07,
+                            "cost_price": 1.65,
+                            "days_until_expiry": 9,
+                            "spoilage_risk": 0.231,
+                            "daily_demand": 53,
+                            "quality_grade": "B"
+                        },
+                        {
+                            "product_name": "Cream",
+                            "selling_price": 3.0,
+                            "cost_price": 1.76,
+                            "days_until_expiry": 9,
+                            "spoilage_risk": 0.211,
+                            "daily_demand": 49,
+                            "quality_grade": "B"
+                        },
+                        {
+                            "product_name": "Cottage Cheese",
+                            "selling_price": 3.96,
+                            "cost_price": 2.27,
+                            "days_until_expiry": 8,
+                            "spoilage_risk": 0.174,
+                            "daily_demand": 28,
+                            "quality_grade": "A"
+                        },
+                        {
+                            "product_name": "Turkey Slices",
+                            "selling_price": 5.79,
+                            "cost_price": 3.6,
+                            "days_until_expiry": 6,
+                            "spoilage_risk": 0.258,
+                            "daily_demand": 77,
+                            "quality_grade": "C"
+                        },
+                        {
+                            "product_name": "Probiotics",
+                            "selling_price": 261.34,
+                            "cost_price": 158.72,
+                            "days_until_expiry": 162,
+                            "spoilage_risk": 0.187,
+                            "daily_demand": 0,
+                            "quality_grade": "B"
+                        },
+                        {
+                            "product_name": "Lamb",
+                            "selling_price": 7.95,
+                            "cost_price": 4.18,
+                            "days_until_expiry": 7,
+                            "spoilage_risk": 0.183,
+                            "daily_demand": 12,
+                            "quality_grade": "A"
+                        },
+                        {
+                            "product_name": "Vaccines",
+                            "selling_price": 66.35,
+                            "cost_price": 27.53,
+                            "days_until_expiry": 101,
+                            "spoilage_risk": 0.165,
+                            "daily_demand": 2,
+                            "quality_grade": "A"
+                        },
+                        {
+                            "product_name": "Ham",
+                            "selling_price": 4.46,
+                            "cost_price": 2.38,
+                            "days_until_expiry": 3,
+                            "spoilage_risk": 0.215,
+                            "daily_demand": 149,
+                            "quality_grade": "B"
+                        },
+                        {
+                            "product_name": "Frozen Desserts",
+                            "selling_price": 8.34,
+                            "cost_price": 5.87,
+                            "days_until_expiry": 79,
+                            "spoilage_risk": 0.262,
+                            "daily_demand": 4,
+                            "quality_grade": "C"
+                        },
+                        {
+                            "product_name": "Dips",
+                            "selling_price": 12.1,
+                            "cost_price": 4.96,
+                            "days_until_expiry": 5,
+                            "spoilage_risk": 0.081,
+                            "daily_demand": 53,
+                            "quality_grade": "A"
+                        },
+                        {
+                            "product_name": "Vaccines",
+                            "selling_price": 410.7,
+                            "cost_price": 209.79,
+                            "days_until_expiry": 323,
+                            "spoilage_risk": 0.166,
+                            "daily_demand": 1,
+                            "quality_grade": "A"
+                        },
+                        {
+                            "product_name": "Cod",
+                            "selling_price": 23.48,
+                            "cost_price": 11.55,
+                            "days_until_expiry": 3,
+                            "spoilage_risk": 0.199,
+                            "daily_demand": 138,
+                            "quality_grade": "B"
+                        },
+                        {
+                            "product_name": "Kombucha",
+                            "selling_price": 6.34,
+                            "cost_price": 3.77,
+                            "days_until_expiry": 9,
+                            "spoilage_risk": 0.12,
+                            "daily_demand": 15,
+                            "quality_grade": "A"
+                        }
+                    ],
+                    "quotes": {
+                        "Tuna": 32.22,
+                        "Milk Alternatives": 4.84,
+                        "Prepared Salads": 4.07,
+                        "Cream": 3.0,
+                        "Cottage Cheese": 3.96,
+                        "Turkey Slices": 5.79,
+                        "Probiotics": 261.34,
+                        "Lamb": 7.95,
+                        "Vaccines": 209.79999999999998,
+                        "Ham": 4.46,
+                        "Frozen Desserts": 8.34,
+                        "Dips": 12.1,
+                        "Cod": 23.48,
+                        "Kombucha": 6.34
+                    },
+                    "floor_prices": {
+                        "Tuna": 21.34,
+                        "Milk Alternatives": 3.32,
+                        "Prepared Salads": 1.65,
+                        "Cream": 1.76,
+                        "Cottage Cheese": 2.27,
+                        "Turkey Slices": 3.6,
+                        "Probiotics": 158.72,
+                        "Lamb": 4.18,
+                        "Vaccines": 209.79,
+                        "Ham": 2.38,
+                        "Frozen Desserts": 5.87,
+                        "Dips": 4.96,
+                        "Cod": 11.55,
+                        "Kombucha": 3.77
+                    },
+                    "strategy": "Single monolithic LLM.",
+                    "logs": [
+                        "SUCCESS: B2 (IMPULSE) bought Dips at $12.10",
+                        "SUCCESS: B3 (ESSENTIAL) bought Ham at $4.46",
+                        "SUCCESS: B4 (IMPULSE) bought Cream at $3.00",
+                        "SUCCESS: B5 (IMPULSE) bought Frozen Desserts at $8.34",
+                        "SUCCESS: B6 (CALCULATED) bought Lamb at $7.95",
+                        "SUCCESS: B8 (CALCULATED) bought Cottage Cheese at $3.96",
+                        "SUCCESS: B9 (IMPULSE) bought Milk Alternatives at $4.84",
+                        "SUCCESS: B14 (CALCULATED) bought Probiotics at $261.34",
+                        "SUCCESS: B15 (ESSENTIAL) bought Prepared Salads at $4.07",
+                        "SUCCESS: B9 (IMPULSE) bought Turkey Slices at $5.79",
+                        "SUCCESS: B15 (ESSENTIAL) bought Cod at $23.48"
+                    ],
+                    "chaos": [],
+                    "sales_data": [
+                        {
+                            "product_name": "Dips",
+                            "sale_price": 12.1,
+                            "cost_price": 4.96,
+                            "initial_price": 12.1,
+                            "hour": 0,
+                            "days_until_expiry": 5
+                        },
+                        {
+                            "product_name": "Ham",
+                            "sale_price": 4.46,
+                            "cost_price": 2.38,
+                            "initial_price": 4.46,
+                            "hour": 0,
+                            "days_until_expiry": 3
+                        },
+                        {
+                            "product_name": "Cream",
+                            "sale_price": 3.0,
+                            "cost_price": 1.76,
+                            "initial_price": 3.0,
+                            "hour": 0,
+                            "days_until_expiry": 9
+                        },
+                        {
+                            "product_name": "Frozen Desserts",
+                            "sale_price": 8.34,
+                            "cost_price": 5.87,
+                            "initial_price": 8.34,
+                            "hour": 0,
+                            "days_until_expiry": 79
+                        },
+                        {
+                            "product_name": "Lamb",
+                            "sale_price": 7.95,
+                            "cost_price": 4.18,
+                            "initial_price": 7.95,
+                            "hour": 0,
+                            "days_until_expiry": 7
+                        },
+                        {
+                            "product_name": "Cottage Cheese",
+                            "sale_price": 3.96,
+                            "cost_price": 2.27,
+                            "initial_price": 3.96,
+                            "hour": 0,
+                            "days_until_expiry": 8
+                        },
+                        {
+                            "product_name": "Milk Alternatives",
+                            "sale_price": 4.84,
+                            "cost_price": 3.32,
+                            "initial_price": 4.84,
+                            "hour": 0,
+                            "days_until_expiry": 10
+                        },
+                        {
+                            "product_name": "Probiotics",
+                            "sale_price": 261.34,
+                            "cost_price": 158.72,
+                            "initial_price": 261.34,
+                            "hour": 0,
+                            "days_until_expiry": 162
+                        },
+                        {
+                            "product_name": "Prepared Salads",
+                            "sale_price": 4.07,
+                            "cost_price": 1.65,
+                            "initial_price": 4.07,
+                            "hour": 0,
+                            "days_until_expiry": 9
+                        },
+                        {
+                            "product_name": "Turkey Slices",
+                            "sale_price": 5.79,
+                            "cost_price": 3.6,
+                            "initial_price": 5.79,
+                            "hour": 2,
+                            "days_until_expiry": 6
+                        },
+                        {
+                            "product_name": "Cod",
+                            "sale_price": 23.48,
+                            "cost_price": 11.55,
+                            "initial_price": 23.48,
+                            "hour": 2,
+                            "days_until_expiry": 3
+                        }
+                    ]
+                },
+                "histories": {
+                    "1": [
+                        {
+                            "role": "user",
+                            "content": "{\"action\": \"COUNTER\", \"counter_offer\": 30.0, \"message\": \"The current quote of $32.22 is slightly higher than I'm willing to pay. I can offer $30.00, considering the product has 3 days until expiry.\", \"latency\": 18.66075563430786}"
+                        },
+                        {
+                            "role": "assistant",
+                            "content": "{\"action\": \"WALK_AWAY\", \"error\": \"CONNECTION_FAILED\", \"latency\": 15.52301812171936}"
+                        },
+                        {
+                            "role": "user",
+                            "content": "{\"action\": \"COUNTER\", \"counter_offer\": 31.0, \"message\": \"I'm willing to meet you halfway. Considering the product's proximity to expiry, I can offer $31.00, which is a reasonable price given the circumstances.\", \"latency\": 1.4648878574371338}"
+                        },
+                        {
+                            "role": "assistant",
+                            "content": "{\"action\": \"WALK_AWAY\", \"error\": \"CONNECTION_FAILED\", \"latency\": 16.364378929138184}"
+                        },
+                        {
+                            "role": "user",
+                            "content": "{\"action\": \"COUNTER\", \"counter_offer\": 31.5, \"message\": \"I'm willing to pay a bit more, but I still think $32.22 is too high. I can offer $31.50, which is a fair price considering the product's expiry date.\", \"latency\": 2.9563112258911133}"
+                        },
+                        {
+                            "role": "assistant",
+                            "content": "{\"action\": \"WALK_AWAY\", \"error\": \"CONNECTION_FAILED\", \"latency\": 14.304294347763062}"
+                        },
+                        {
+                            "role": "user",
+                            "content": "{\"action\": \"COUNTER\", \"counter_offer\": 32.0, \"message\": \"I can offer $32.00, which is slightly below your initial quote, considering the product is near expiry.\", \"latency\": 1.1018867492675781}"
+                        },
+                        {
+                            "role": "assistant",
+                            "content": "{\"action\": \"WALK_AWAY\", \"error\": \"CONNECTION_FAILED\", \"latency\": 14.947471857070923}"
+                        },
+                        {
+                            "role": "user",
+                            "content": "{\"action\": \"COUNTER\", \"counter_offer\": 32.1, \"message\": \"I can offer $32.10, which is very close to your initial quote. If you're not willing to accept this, I'll have to walk away.\", \"latency\": 17.87405514717102}"
+                        },
+                        {
+                            "role": "assistant",
+                            "content": "{\"action\": \"WALK_AWAY\", \"error\": \"CONNECTION_FAILED\", \"latency\": 16.153720378875732}"
+                        }
+                    ],
+                    "2": [
+                        {
+                            "role": "user",
+                            "content": "{\"action\": \"ACCEPT\", \"counter_offer\": 0, \"message\": \"The seller's current quote of $12.10 is within my budget, so I'll accept it.\", \"latency\": 9.464929342269897}"
+                        }
+                    ],
+                    "3": [
+                        {
+                            "role": "user",
+                            "content": "{\"action\": \"ACCEPT\", \"counter_offer\": 0.0, \"message\": \"The seller's current quote of $4.46 is at the normal retail price, which is acceptable.\", \"latency\": 3.482300043106079}"
+                        }
+                    ],
+                    "4": [
+                        {
+                            "role": "user",
+                            "content": "{\"action\": \"COUNTER\", \"counter_offer\": 80.0, \"message\": \"Your price is too high, I can offer $80.00 at most.\", \"latency\": 8.812236309051514}"
+                        },
+                        {
+                            "role": "assistant",
+                            "content": "{\"action\": \"WALK_AWAY\", \"error\": \"CONNECTION_FAILED\", \"latency\": 15.637707471847534}"
+                        },
+                        {
+                            "role": "user",
+                            "content": "{\"action\": \"COUNTER\", \"counter_offer\": 90.0, \"message\": \"I can go a bit higher, but $90 is my limit.\", \"latency\": 4.218759298324585}"
+                        },
+                        {
+                            "role": "assistant",
+                            "content": "{\"action\": \"WALK_AWAY\", \"error\": \"CONNECTION_FAILED\", \"latency\": 17.11005973815918}"
+                        },
+                        {
+                            "role": "user",
+                            "content": "{\"action\": \"COUNTER\", \"counter_offer\": 98.2, \"message\": \"I'm willing to pay $98.20, but that's my final offer.\", \"latency\": 3.3321356773376465}"
+                        },
+                        {
+                            "role": "assistant",
+                            "content": "{\"action\": \"WALK_AWAY\", \"error\": \"CONNECTION_FAILED\", \"latency\": 16.127317905426025}"
+                        },
+                        {
+                            "role": "user",
+                            "content": "{\"action\": \"COUNTER\", \"counter_offer\": 102.18, \"message\": \"I can do $102.18, but you have to throw in something extra.\", \"latency\": 8.518625497817993}"
+                        },
+                        {
+                            "role": "assistant",
+                            "content": "{\"action\": \"WALK_AWAY\", \"error\": \"CONNECTION_FAILED\", \"latency\": 15.369853973388672}"
+                        }
+                    ],
+                    "5": [
+                        {
+                            "role": "user",
+                            "content": "{\"action\": \"ACCEPT\", \"counter_offer\": 0.0, \"message\": \"The seller's current quote of $8.34 is within my budget, so I'll accept it.\", \"latency\": 20.02890181541443}"
+                        }
+                    ],
+                    "6": [
+                        {
+                            "role": "user",
+                            "content": "{\"action\": \"ACCEPT\", \"counter_offer\": 0, \"message\": \"The seller's current quote of $7.95 is within my acceptable price range, so I accept the offer.\", \"latency\": 4.21002459526062}"
+                        }
+                    ],
+                    "7": [
+                        {
+                            "role": "user",
+                            "content": "{\"action\": \"COUNTER\", \"counter_offer\": 86.25, \"message\": \"The seller's quote of $410.70 is excessively high. I can offer up to $86.25, which is still above the normal retail price of $66.35, but I need this item urgently.\", \"latency\": 6.4946348667144775}"
+                        },
+                        {
+                            "role": "assistant",
+                            "content": "{\"action\": \"WALK_AWAY\", \"error\": \"CONNECTION_FAILED\", \"latency\": 15.799026012420654}"
+                        },
+                        {
+                            "role": "user",
+                            "content": "{\"action\": \"COUNTER\", \"counter_offer\": 90.24, \"message\": \"The seller's quote of $209.80 is still too high. I can offer $90.24, which is my maximum limit, considering I need the item urgently.\", \"latency\": 16.702025890350342}"
+                        },
+                        {
+                            "role": "assistant",
+                            "content": "{\"action\": \"WALK_AWAY\", \"error\": \"CONNECTION_FAILED\", \"latency\": 14.143985271453857}"
+                        },
+                        {
+                            "role": "user",
+                            "content": "{\"action\": \"COUNTER\", \"counter_offer\": 94.22, \"message\": \"The seller's quote of $209.80 is excessively high. I can offer $94.22, which is my absolute maximum limit, considering the normal retail price is $66.35 and I need the item urgently.\", \"latency\": 11.210915565490723}"
+                        },
+                        {
+                            "role": "assistant",
+                            "content": "{\"action\": \"WALK_AWAY\", \"error\": \"CONNECTION_FAILED\", \"latency\": 15.65116262435913}"
+                        },
+                        {
+                            "role": "user",
+                            "content": "{\"action\": \"COUNTER\", \"counter_offer\": 98.2, \"message\": \"I'm willing to pay $98.20, which is my hard limit. If the seller cannot meet this price, I will have to look elsewhere.\", \"latency\": 4.340893983840942}"
+                        },
+                        {
+                            "role": "assistant",
+                            "content": "{\"action\": \"WALK_AWAY\", \"error\": \"CONNECTION_FAILED\", \"latency\": 15.335907697677612}"
+                        },
+                        {
+                            "role": "user",
+                            "content": "{\"action\": \"COUNTER\", \"counter_offer\": 102.18, \"message\": \"I'm at my absolute limit of $102.18. If the seller's quote of $209.80 is not revised to meet this price, I will be forced to walk away.\", \"latency\": 6.053450345993042}"
+                        },
+                        {
+                            "role": "assistant",
+                            "content": "{\"action\": \"WALK_AWAY\", \"error\": \"CONNECTION_FAILED\", \"latency\": 15.793294191360474}"
+                        }
+                    ],
+                    "8": [
+                        {
+                            "role": "user",
+                            "content": "{\"action\": \"ACCEPT\", \"counter_offer\": null, \"message\": \"The seller's current quote of $3.96 is within my acceptable price range, so I accept the offer.\", \"latency\": 15.835473537445068}"
+                        }
+                    ],
+                    "9": [
+                        {
+                            "role": "user",
+                            "content": "{\"action\": \"ACCEPT\", \"counter_offer\": 0, \"message\": \"The seller's current quote of $5.79 is within my budget, so I'll accept it.\", \"latency\": 1.4554803371429443}"
+                        }
+                    ],
+                    "10": [],
+                    "11": [
+                        {
+                            "role": "user",
+                            "content": "{\"action\": \"COUNTER\", \"counter_offer\": 75.0, \"message\": \"The current quote is way too high, I can offer $75.00 at most.\", \"latency\": 23.161680221557617}"
+                        },
+                        {
+                            "role": "assistant",
+                            "content": "{\"action\": \"COUNTER\", \"new_quote\": 57.53, \"message\": \"We appreciate your interest in our vaccines. Considering your bid of $75.0, we're willing to make a significant concession from our normal retail price of $66.35. Considering the current market conditions, we can offer you a competitive price of $57.53, which is still above our cost price. This price reflects a serious commitment to making a deal while ensuring we cover our costs. We believe this is a fair offer and look forward to your response.\", \"latency\": 0.9599840641021729}"
+                        },
+                        {
+                            "role": "user",
+                            "content": "{\"action\": \"COUNTER\", \"counter_offer\": 80.0, \"message\": \"I see you're willing to negotiate, and I appreciate the concession. However, I was thinking more along the lines of $80.00, considering the vaccines' value and my budget. It's a bit of a stretch for me, but I'm willing to meet you halfway.\", \"latency\": 33.47097682952881}"
+                        },
+                        {
+                            "role": "assistant",
+                            "content": "{\"action\": \"WALK_AWAY\", \"error\": \"CONNECTION_FAILED\", \"latency\": 14.481703042984009}"
+                        },
+                        {
+                            "role": "user",
+                            "content": "{\"action\": \"COUNTER\", \"counter_offer\": 90.0, \"message\": \"I'm getting a bit impatient with the back and forth. I'll give you one last chance - I can do $90.00, but that's as high as I'm willing to go. If you can't meet me at this price, I'm afraid I'll have to look elsewhere for my milk alternatives and cottage cheese.\", \"latency\": 8.026267766952515}"
+                        },
+                        {
+                            "role": "assistant",
+                            "content": "{\"action\": \"WALK_AWAY\", \"error\": \"CONNECTION_FAILED\", \"latency\": 15.928619384765625}"
+                        },
+                        {
+                            "role": "user",
+                            "content": "{\"action\": \"WALK_AWAY\", \"message\": \"I'm not willing to pay $90.00. It's still above my budget. I'll have to look for other options.\", \"latency\": 12.66114854812622}"
+                        },
+                        {
+                            "role": "user",
+                            "content": "{\"action\": \"COUNTER\", \"counter_offer\": 95.0, \"message\": \"Wait, don't go! I can see you're really interested in the milk alternatives. I can offer $95.00, but I need you to throw in the vaccines and cottage cheese to make it worth my while.\", \"latency\": 5.31862211227417}"
+                        },
+                        {
+                            "role": "assistant",
+                            "content": "{\"action\": \"WALK_AWAY\", \"error\": \"CONNECTION_FAILED\", \"latency\": 16.31930184364319}"
+                        }
+                    ],
+                    "12": [],
+                    "13": [
+                        {
+                            "role": "user",
+                            "content": "{\"action\": \"COUNTER\", \"counter_offer\": 86.25, \"message\": \"The seller's quote of $209.80 is excessively high. I can offer up to $86.25, which is still above the normal retail price of $66.35, but I need this item urgently.\", \"latency\": 1.3718712329864502}"
+                        },
+                        {
+                            "role": "assistant",
+                            "content": "{\"action\": \"WALK_AWAY\", \"error\": \"CONNECTION_FAILED\", \"latency\": 16.185694217681885}"
+                        },
+                        {
+                            "role": "user",
+                            "content": "{\"action\": \"COUNTER\", \"counter_offer\": 90.24, \"message\": \"I understand that the seller's quote is high, but I urgently need the item. My final offer is $90.24, which is my maximum limit. If this is not accepted, I will have to look elsewhere.\", \"latency\": 18.745973825454712}"
+                        },
+                        {
+                            "role": "assistant",
+                            "content": "{\"action\": \"WALK_AWAY\", \"error\": \"CONNECTION_FAILED\", \"latency\": 15.402966022491455}"
+                        },
+                        {
+                            "role": "user",
+                            "content": "{\"action\": \"COUNTER\", \"counter_offer\": 94.22, \"message\": \"I'm at my absolute limit. I can offer $94.22, but I won't go a penny higher. If this isn't accepted, I'm walking away.\", \"latency\": 11.830381631851196}"
+                        },
+                        {
+                            "role": "assistant",
+                            "content": "{\"action\": \"WALK_AWAY\", \"error\": \"CONNECTION_FAILED\", \"latency\": 16.060598850250244}"
+                        },
+                        {
+                            "role": "user",
+                            "content": "{\"action\": \"COUNTER\", \"counter_offer\": 98.2, \"message\": \"I'm willing to pay $98.20, which is my highest possible offer. If this is not accepted, I will be forced to look elsewhere for the item.\", \"latency\": 21.550881385803223}"
+                        },
+                        {
+                            "role": "assistant",
+                            "content": "{\"action\": \"WALK_AWAY\", \"error\": \"CONNECTION_FAILED\", \"latency\": 14.561209440231323}"
+                        },
+                        {
+                            "role": "user",
+                            "content": "{\"action\": \"COUNTER\", \"counter_offer\": 102.18, \"message\": \"I can offer $102.18, which is my absolute maximum. If this is not accepted, I will have to walk away from the deal.\", \"latency\": 39.18724870681763}"
+                        },
+                        {
+                            "role": "assistant",
+                            "content": "{\"action\": \"WALK_AWAY\", \"error\": \"CONNECTION_FAILED\", \"latency\": 16.022663593292236}"
+                        }
+                    ],
+                    "14": [
+                        {
+                            "role": "user",
+                            "content": "{\"action\": \"COUNTER\", \"counter_offer\": 261.34, \"message\": \"I'm willing to pay the normal retail price of $261.34 for the probiotics. It's a fair price, and I won't go above it.\", \"latency\": 9.610188484191895}"
+                        }
+                    ],
+                    "15": [
+                        {
+                            "role": "user",
+                            "content": "{\"action\": \"ACCEPT\", \"counter_offer\": 0.0, \"message\": \"The seller's current quote of $23.48 is at the normal retail price, which is acceptable.\", \"latency\": 1.1156871318817139}"
+                        }
+                    ]
+                },
+                "duration": 10
+            },
+            "human_baseline": {
+                "mode": "BASELINE_CSV",
+                "status": "FINISHED",
+                "sold_count": 12,
+                "sold_items": [
+                    "Dips",
+                    "Ham",
+                    "Cream",
+                    "Frozen Desserts",
+                    "Lamb",
+                    "Cottage Cheese",
+                    "Milk Alternatives",
+                    "Probiotics",
+                    "Prepared Salads",
+                    "Turkey Slices",
+                    "Cod",
+                    "Tuna"
+                ],
+                "total_items": 15,
+                "blackboard": {
+                    "inventory": [
+                        {
+                            "product_name": "Tuna",
+                            "selling_price": 32.22,
+                            "cost_price": 21.34,
+                            "days_until_expiry": 3,
+                            "spoilage_risk": 0.203,
+                            "daily_demand": 62,
+                            "quality_grade": "C"
+                        },
+                        {
+                            "product_name": "Milk Alternatives",
+                            "selling_price": 4.84,
+                            "cost_price": 3.32,
+                            "days_until_expiry": 10,
+                            "spoilage_risk": 0.236,
+                            "daily_demand": 20,
+                            "quality_grade": "B"
+                        },
+                        {
+                            "product_name": "Prepared Salads",
+                            "selling_price": 4.07,
+                            "cost_price": 1.65,
+                            "days_until_expiry": 9,
+                            "spoilage_risk": 0.231,
+                            "daily_demand": 53,
+                            "quality_grade": "B"
+                        },
+                        {
+                            "product_name": "Cream",
+                            "selling_price": 3.0,
+                            "cost_price": 1.76,
+                            "days_until_expiry": 9,
+                            "spoilage_risk": 0.211,
+                            "daily_demand": 49,
+                            "quality_grade": "B"
+                        },
+                        {
+                            "product_name": "Cottage Cheese",
+                            "selling_price": 3.96,
+                            "cost_price": 2.27,
+                            "days_until_expiry": 8,
+                            "spoilage_risk": 0.174,
+                            "daily_demand": 28,
+                            "quality_grade": "A"
+                        },
+                        {
+                            "product_name": "Turkey Slices",
+                            "selling_price": 5.79,
+                            "cost_price": 3.6,
+                            "days_until_expiry": 6,
+                            "spoilage_risk": 0.258,
+                            "daily_demand": 77,
+                            "quality_grade": "C"
+                        },
+                        {
+                            "product_name": "Probiotics",
+                            "selling_price": 261.34,
+                            "cost_price": 158.72,
+                            "days_until_expiry": 162,
+                            "spoilage_risk": 0.187,
+                            "daily_demand": 0,
+                            "quality_grade": "B"
+                        },
+                        {
+                            "product_name": "Lamb",
+                            "selling_price": 7.95,
+                            "cost_price": 4.18,
+                            "days_until_expiry": 7,
+                            "spoilage_risk": 0.183,
+                            "daily_demand": 12,
+                            "quality_grade": "A"
+                        },
+                        {
+                            "product_name": "Vaccines",
+                            "selling_price": 66.35,
+                            "cost_price": 27.53,
+                            "days_until_expiry": 101,
+                            "spoilage_risk": 0.165,
+                            "daily_demand": 2,
+                            "quality_grade": "A"
+                        },
+                        {
+                            "product_name": "Ham",
+                            "selling_price": 4.46,
+                            "cost_price": 2.38,
+                            "days_until_expiry": 3,
+                            "spoilage_risk": 0.215,
+                            "daily_demand": 149,
+                            "quality_grade": "B"
+                        },
+                        {
+                            "product_name": "Frozen Desserts",
+                            "selling_price": 8.34,
+                            "cost_price": 5.87,
+                            "days_until_expiry": 79,
+                            "spoilage_risk": 0.262,
+                            "daily_demand": 4,
+                            "quality_grade": "C"
+                        },
+                        {
+                            "product_name": "Dips",
+                            "selling_price": 12.1,
+                            "cost_price": 4.96,
+                            "days_until_expiry": 5,
+                            "spoilage_risk": 0.081,
+                            "daily_demand": 53,
+                            "quality_grade": "A"
+                        },
+                        {
+                            "product_name": "Vaccines",
+                            "selling_price": 410.7,
+                            "cost_price": 209.79,
+                            "days_until_expiry": 323,
+                            "spoilage_risk": 0.166,
+                            "daily_demand": 1,
+                            "quality_grade": "A"
+                        },
+                        {
+                            "product_name": "Cod",
+                            "selling_price": 23.48,
+                            "cost_price": 11.55,
+                            "days_until_expiry": 3,
+                            "spoilage_risk": 0.199,
+                            "daily_demand": 138,
+                            "quality_grade": "B"
+                        },
+                        {
+                            "product_name": "Kombucha",
+                            "selling_price": 6.34,
+                            "cost_price": 3.77,
+                            "days_until_expiry": 9,
+                            "spoilage_risk": 0.12,
+                            "daily_demand": 15,
+                            "quality_grade": "A"
+                        }
+                    ],
+                    "quotes": {
+                        "Tuna": 32.22,
+                        "Milk Alternatives": 4.84,
+                        "Prepared Salads": 4.07,
+                        "Cream": 3.0,
+                        "Cottage Cheese": 3.96,
+                        "Turkey Slices": 5.79,
+                        "Probiotics": 261.34,
+                        "Lamb": 7.95,
+                        "Vaccines": 410.7,
+                        "Ham": 4.46,
+                        "Frozen Desserts": 8.34,
+                        "Dips": 12.1,
+                        "Cod": 23.48,
+                        "Kombucha": 6.34
+                    },
+                    "floor_prices": {
+                        "Tuna": 21.34,
+                        "Milk Alternatives": 3.32,
+                        "Prepared Salads": 1.65,
+                        "Cream": 1.76,
+                        "Cottage Cheese": 2.27,
+                        "Turkey Slices": 3.6,
+                        "Probiotics": 158.72,
+                        "Lamb": 4.18,
+                        "Vaccines": 209.79,
+                        "Ham": 2.38,
+                        "Frozen Desserts": 5.87,
+                        "Dips": 4.96,
+                        "Cod": 11.55,
+                        "Kombucha": 3.77
+                    },
+                    "strategy": "Fixed CSV prices.",
+                    "logs": [
+                        "SUCCESS: B2 (IMPULSE) bought Dips at $12.10",
+                        "SUCCESS: B3 (ESSENTIAL) bought Ham at $4.46",
+                        "SUCCESS: B4 (IMPULSE) bought Cream at $3.00",
+                        "SUCCESS: B5 (IMPULSE) bought Frozen Desserts at $8.34",
+                        "SUCCESS: B6 (CALCULATED) bought Lamb at $7.95",
+                        "SUCCESS: B8 (CALCULATED) bought Cottage Cheese at $3.96",
+                        "SUCCESS: B9 (IMPULSE) bought Milk Alternatives at $4.84",
+                        "SUCCESS: B14 (CALCULATED) bought Probiotics at $261.34",
+                        "SUCCESS: B15 (ESSENTIAL) bought Prepared Salads at $4.07",
+                        "SUCCESS: B9 (IMPULSE) bought Turkey Slices at $5.79",
+                        "SUCCESS: B15 (ESSENTIAL) bought Cod at $23.48",
+                        "SUCCESS: B1 (CALCULATED) bought Tuna at $32.22"
+                    ],
+                    "chaos": [
+                        {
+                            "action": "WALK_AWAY",
+                            "error": "CONNECTION_FAILED",
+                            "latency": 15.41554307937622
+                        }
+                    ],
+                    "sales_data": [
+                        {
+                            "product_name": "Dips",
+                            "sale_price": 12.1,
+                            "cost_price": 4.96,
+                            "initial_price": 12.1,
+                            "hour": 0,
+                            "days_until_expiry": 5
+                        },
+                        {
+                            "product_name": "Ham",
+                            "sale_price": 4.46,
+                            "cost_price": 2.38,
+                            "initial_price": 4.46,
+                            "hour": 0,
+                            "days_until_expiry": 3
+                        },
+                        {
+                            "product_name": "Cream",
+                            "sale_price": 3.0,
+                            "cost_price": 1.76,
+                            "initial_price": 3.0,
+                            "hour": 0,
+                            "days_until_expiry": 9
+                        },
+                        {
+                            "product_name": "Frozen Desserts",
+                            "sale_price": 8.34,
+                            "cost_price": 5.87,
+                            "initial_price": 8.34,
+                            "hour": 0,
+                            "days_until_expiry": 79
+                        },
+                        {
+                            "product_name": "Lamb",
+                            "sale_price": 7.95,
+                            "cost_price": 4.18,
+                            "initial_price": 7.95,
+                            "hour": 0,
+                            "days_until_expiry": 7
+                        },
+                        {
+                            "product_name": "Cottage Cheese",
+                            "sale_price": 3.96,
+                            "cost_price": 2.27,
+                            "initial_price": 3.96,
+                            "hour": 0,
+                            "days_until_expiry": 8
+                        },
+                        {
+                            "product_name": "Milk Alternatives",
+                            "sale_price": 4.84,
+                            "cost_price": 3.32,
+                            "initial_price": 4.84,
+                            "hour": 0,
+                            "days_until_expiry": 10
+                        },
+                        {
+                            "product_name": "Probiotics",
+                            "sale_price": 261.34,
+                            "cost_price": 158.72,
+                            "initial_price": 261.34,
+                            "hour": 0,
+                            "days_until_expiry": 162
+                        },
+                        {
+                            "product_name": "Prepared Salads",
+                            "sale_price": 4.07,
+                            "cost_price": 1.65,
+                            "initial_price": 4.07,
+                            "hour": 0,
+                            "days_until_expiry": 9
+                        },
+                        {
+                            "product_name": "Turkey Slices",
+                            "sale_price": 5.79,
+                            "cost_price": 3.6,
+                            "initial_price": 5.79,
+                            "hour": 2,
+                            "days_until_expiry": 6
+                        },
+                        {
+                            "product_name": "Cod",
+                            "sale_price": 23.48,
+                            "cost_price": 11.55,
+                            "initial_price": 23.48,
+                            "hour": 2,
+                            "days_until_expiry": 3
+                        },
+                        {
+                            "product_name": "Tuna",
+                            "sale_price": 32.22,
+                            "cost_price": 21.34,
+                            "initial_price": 32.22,
+                            "hour": 6,
+                            "days_until_expiry": 3
+                        }
+                    ]
+                },
+                "histories": {
+                    "1": [
+                        {
+                            "role": "user",
+                            "content": "{\"action\": \"COUNTER\", \"counter_offer\": 30.0, \"message\": \"The current quote of $32.22 is slightly higher than I'm willing to pay. I can offer $30.00 for the tuna.\", \"latency\": 14.469244718551636}"
+                        },
+                        {
+                            "role": "assistant",
+                            "content": "{\"action\": \"COUNTER\", \"new_quote\": 32.22, \"message\": \"The price is fixed at $32.22. Take it or leave it.\"}"
+                        },
+                        {
+                            "role": "user",
+                            "content": "{\"action\": \"COUNTER\", \"counter_offer\": 31.0, \"message\": \"I'm willing to meet you halfway. I can offer $31.00 for the tuna.\", \"latency\": 4.247002124786377}"
+                        },
+                        {
+                            "role": "assistant",
+                            "content": "{\"action\": \"COUNTER\", \"new_quote\": 32.22, \"message\": \"The price is fixed at $32.22. Take it or leave it.\"}"
+                        },
+                        {
+                            "role": "user",
+                            "content": "{\"action\": \"COUNTER\", \"counter_offer\": 31.5, \"message\": \"I can offer $31.50, which is a reasonable price considering the product's value.\", \"latency\": 0.8081345558166504}"
+                        },
+                        {
+                            "role": "assistant",
+                            "content": "{\"action\": \"COUNTER\", \"new_quote\": 32.22, \"message\": \"The price is fixed at $32.22. Take it or leave it.\"}"
+                        },
+                        {
+                            "role": "user",
+                            "content": "{\"action\": \"ACCEPT\", \"counter_offer\": 32.22, \"message\": \"Fine, I'll accept the tuna at $32.22 since it's within my budget.\", \"latency\": 0.9037401676177979}"
+                        }
+                    ],
+                    "2": [
+                        {
+                            "role": "user",
+                            "content": "{\"action\": \"ACCEPT\", \"counter_offer\": 0.0, \"message\": \"The seller's current quote of $12.10 is within my budget, so I'll accept it.\", \"latency\": 0.8775069713592529}"
+                        }
+                    ],
+                    "3": [
+                        {
+                            "role": "user",
+                            "content": "{\"action\": \"ACCEPT\", \"counter_offer\": 0.0, \"message\": \"The seller's current quote of $4.46 is at the normal retail price, which is acceptable.\", \"latency\": 0.8497695922851562}"
+                        }
+                    ],
+                    "4": [
+                        {
+                            "role": "user",
+                            "content": "{\"action\": \"COUNTER\", \"counter_offer\": 90.24, \"message\": \"Your price is way too high, I can get it elsewhere for much cheaper. I'm willing to pay $90.24, but that's my maximum limit.\", \"latency\": 0.9192893505096436}"
+                        },
+                        {
+                            "role": "assistant",
+                            "content": "{\"action\": \"ACCEPT\"}"
+                        },
+                        {
+                            "role": "user",
+                            "content": "{\"action\": \"COUNTER\", \"counter_offer\": 85.0, \"message\": \"I'm feeling generous today, but I still think I can get a better deal. How about $85.00?\", \"latency\": 5.274163484573364}"
+                        },
+                        {
+                            "role": "assistant",
+                            "content": "{\"action\": \"ACCEPT\"}"
+                        },
+                        {
+                            "role": "user",
+                            "content": "{\"action\": \"COUNTER\", \"counter_offer\": 98.2, \"message\": \"I'm not going any lower than $98.20, it's my final offer.\", \"latency\": 6.930445909500122}"
+                        },
+                        {
+                            "role": "assistant",
+                            "content": "{\"action\": \"ACCEPT\"}"
+                        },
+                        {
+                            "role": "user",
+                            "content": "{\"action\": \"COUNTER\", \"counter_offer\": 102.18, \"message\": \"I can do $102.18, but that's as high as I'm willing to go.\", \"latency\": 0.7454123497009277}"
+                        },
+                        {
+                            "role": "assistant",
+                            "content": "{\"action\": \"ACCEPT\"}"
+                        }
+                    ],
+                    "5": [
+                        {
+                            "role": "user",
+                            "content": "{\"action\": \"ACCEPT\", \"counter_offer\": 0.0, \"message\": \"The seller's current quote of $8.34 is within my budget, so I'll accept it.\", \"latency\": 5.702098608016968}"
+                        }
+                    ],
+                    "6": [
+                        {
+                            "role": "user",
+                            "content": "{\"action\": \"ACCEPT\", \"counter_offer\": null, \"message\": \"The seller's current quote of $7.95 is within my acceptable price range, so I accept the offer.\", \"latency\": 3.8126721382141113}"
+                        }
+                    ],
+                    "7": [
+                        {
+                            "role": "user",
+                            "content": "{\"action\": \"COUNTER\", \"counter_offer\": 86.25, \"message\": \"The seller's quote of $410.70 is excessively high. I'm willing to pay up to $86.25, which is still above the normal retail price of $66.35, considering my urgent need for the item.\", \"latency\": 22.374014616012573}"
+                        },
+                        {
+                            "role": "assistant",
+                            "content": "{\"action\": \"ACCEPT\"}"
+                        },
+                        {
+                            "role": "user",
+                            "content": "{\"action\": \"COUNTER\", \"counter_offer\": 90.24, \"message\": \"I'm willing to pay $90.24 for the vaccines, which is my maximum limit. I need the item urgently, but I won't pay more than that.\", \"latency\": 1.190087080001831}"
+                        },
+                        {
+                            "role": "assistant",
+                            "content": "{\"action\": \"ACCEPT\"}"
+                        },
+                        {
+                            "role": "user",
+                            "content": "{\"action\": \"COUNTER\", \"counter_offer\": 94.22, \"message\": \"I'm willing to pay $94.22, which is my absolute maximum. I need the vaccines urgently and this is the highest price I'm willing to pay.\", \"latency\": 1.362410306930542}"
+                        },
+                        {
+                            "role": "assistant",
+                            "content": "{\"action\": \"ACCEPT\"}"
+                        },
+                        {
+                            "role": "user",
+                            "content": "{\"action\": \"COUNTER\", \"counter_offer\": 98.2, \"message\": \"I can offer $98.20 at most, considering the urgency of my need for the vaccines.\", \"latency\": 1.3833045959472656}"
+                        },
+                        {
+                            "role": "assistant",
+                            "content": "{\"action\": \"ACCEPT\"}"
+                        },
+                        {
+                            "role": "user",
+                            "content": "{\"action\": \"COUNTER\", \"counter_offer\": 102.18, \"message\": \"I can only go up to $102.18, which is my hard limit. Please consider this as my final offer.\", \"latency\": 6.367476224899292}"
+                        },
+                        {
+                            "role": "assistant",
+                            "content": "{\"action\": \"ACCEPT\"}"
+                        }
+                    ],
+                    "8": [
+                        {
+                            "role": "user",
+                            "content": "{\"action\": \"ACCEPT\", \"counter_offer\": 0, \"message\": \"The seller's current quote of $3.96 is within my acceptable price range, so I accept the offer.\", \"latency\": 8.202025651931763}"
+                        }
+                    ],
+                    "9": [
+                        {
+                            "role": "user",
+                            "content": "{\"action\": \"ACCEPT\", \"counter_offer\": 0, \"message\": \"The seller's current quote of $5.79 is within my acceptable price range, so I'll accept it.\", \"latency\": 0.9087779521942139}"
+                        }
+                    ],
+                    "10": [],
+                    "11": [
+                        {
+                            "role": "user",
+                            "content": "{\"action\": \"COUNTER\", \"counter_offer\": 86.25, \"message\": \"Your price is way too high, I can get it elsewhere for much cheaper. I'm willing to pay $86.25, but that's my maximum limit.\", \"latency\": 11.595784425735474}"
+                        },
+                        {
+                            "role": "assistant",
+                            "content": "{\"action\": \"ACCEPT\"}"
+                        },
+                        {
+                            "role": "user",
+                            "content": "{\"action\": \"COUNTER\", \"counter_offer\": 90.24, \"message\": \"I'm feeling generous today, but I still can't go over my budget. I'll give you my best offer of $90.24, take it or leave it.\", \"latency\": 1.119311809539795}"
+                        },
+                        {
+                            "role": "assistant",
+                            "content": "{\"action\": \"ACCEPT\"}"
+                        },
+                        {
+                            "role": "user",
+                            "content": "{\"action\": \"COUNTER\", \"counter_offer\": 94.22, \"message\": \"I'm not budging, $94.22 is my absolute limit and I'm willing to walk away if you don't accept it.\", \"latency\": 1.6958262920379639}"
+                        },
+                        {
+                            "role": "assistant",
+                            "content": "{\"action\": \"ACCEPT\"}"
+                        },
+                        {
+                            "role": "user",
+                            "content": "{\"action\": \"COUNTER\", \"counter_offer\": 98.2, \"message\": \"I'm at my limit, $98.20 is the most I can offer. If you don't accept, I'm walking away.\", \"latency\": 0.993929386138916}"
+                        },
+                        {
+                            "role": "assistant",
+                            "content": "{\"action\": \"ACCEPT\"}"
+                        },
+                        {
+                            "role": "user",
+                            "content": "{\"action\": \"WALK_AWAY\", \"counter_offer\": 102.18, \"message\": \"Your price of $410.70 is absurd, I'm walking away since it's way above my limit of $102.18.\", \"latency\": 22.4805588722229}"
+                        }
+                    ],
+                    "12": [],
+                    "13": [
+                        {
+                            "role": "user",
+                            "content": "{\"action\": \"COUNTER\", \"counter_offer\": 86.25, \"message\": \"The seller's quote of $410.70 is excessively high. I can offer up to $86.25, which is still above the normal retail price of $66.35, but I need this item urgently.\", \"latency\": 1.0224194526672363}"
+                        },
+                        {
+                            "role": "assistant",
+                            "content": "{\"action\": \"ACCEPT\"}"
+                        },
+                        {
+                            "role": "user",
+                            "content": "{\"action\": \"COUNTER\", \"counter_offer\": 90.24, \"message\": \"I'm willing to pay a premium for urgent need, but $410.70 is too high. My final offer is $90.24.\", \"latency\": 1.4853742122650146}"
+                        },
+                        {
+                            "role": "assistant",
+                            "content": "{\"action\": \"ACCEPT\"}"
+                        },
+                        {
+                            "role": "user",
+                            "content": "{\"action\": \"COUNTER\", \"counter_offer\": 94.22, \"message\": \"I'm at my limit, $94.22 is the maximum I can offer. Please consider this as my final attempt to purchase the item urgently needed.\", \"latency\": 1.9421782493591309}"
+                        },
+                        {
+                            "role": "assistant",
+                            "content": "{\"action\": \"ACCEPT\"}"
+                        },
+                        {
+                            "role": "user",
+                            "content": "{\"action\": \"COUNTER\", \"counter_offer\": 98.2, \"message\": \"I can offer up to $98.20, which is my maximum limit. If this is not acceptable, I will have to walk away.\", \"latency\": 2.8845646381378174}"
+                        },
+                        {
+                            "role": "assistant",
+                            "content": "{\"action\": \"ACCEPT\"}"
+                        },
+                        {
+                            "role": "user",
+                            "content": "{\"action\": \"COUNTER\", \"counter_offer\": 102.18, \"message\": \"I can offer $102.18, which is my absolute maximum. Please consider this as my final offer.\", \"latency\": 0.876204252243042}"
+                        },
+                        {
+                            "role": "assistant",
+                            "content": "{\"action\": \"ACCEPT\"}"
+                        }
+                    ],
+                    "14": [
+                        {
+                            "role": "user",
+                            "content": "{\"action\": \"ACCEPT\", \"counter_offer\": 0.0, \"message\": \"The seller's current quote of $261.34 is within my acceptable price range, so I accept the offer.\", \"latency\": 6.331612586975098}"
+                        }
+                    ],
+                    "15": [
+                        {
+                            "role": "user",
+                            "content": "{\"action\": \"ACCEPT\", \"counter_offer\": 0.0, \"message\": \"The seller's current quote of $23.48 is at the normal retail price, which is acceptable.\", \"latency\": 0.7506892681121826}"
+                        }
+                    ]
+                },
+                "duration": 10
+            }
+        }
+    },
+    {
+        "experiment": "Llama-8B Lightweight Efficiency",
+        "metrics": {
+            "kanishka_mas": {
+                "PCR": 1.4199659637277413,
+                "IV": 1.2727272727272727,
+                "EE": 0.7665009560229448,
+                "Total Profit": 300.66,
+                "Waste Loss": 0,
+                "Items Sold": 14
+            },
+            "single_model_mas": {
+                "PCR": 1.3220326692883437,
+                "IV": 1.2727272727272727,
+                "EE": 0.8591204588910134,
+                "Total Profit": 336.98999999999995,
+                "Waste Loss": 0,
+                "Items Sold": 14
+            },
+            "human_baseline": {
+                "PCR": 1.7184381509038211,
+                "IV": 1.2727272727272727,
+                "EE": 1.3864882090503505,
+                "Total Profit": 543.8499999999999,
+                "Waste Loss": 0,
+                "Items Sold": 14
+            },
+            "actual_historical": {
+                "Total Profit": 62966.299999999996,
+                "Waste Loss": 16529.9,
+                "PCR": 0.0,
+                "IV": 0.0,
+                "EE": 0.0,
+                "Items Sold": 0
+            }
+        },
+        "raw": {
+            "kanishka_mas": {
+                "mode": "MAS",
+                "status": "FINISHED",
+                "sold_count": 14,
+                "sold_items": [
+                    "Tuna",
+                    "Dips",
+                    "Ham",
+                    "Vaccines",
+                    "Cottage Cheese",
+                    "Milk Alternatives",
+                    "Lamb",
+                    "Cream",
+                    "Prepared Salads",
+                    "Probiotics",
+                    "Kombucha",
+                    "Turkey Slices",
+                    "Cod",
+                    "Frozen Desserts"
+                ],
+                "total_items": 15,
+                "blackboard": {
+                    "inventory": [
+                        {
+                            "product_name": "Tuna",
+                            "selling_price": 32.22,
+                            "cost_price": 21.34,
+                            "days_until_expiry": 3,
+                            "spoilage_risk": 0.203,
+                            "daily_demand": 62,
+                            "quality_grade": "C"
+                        },
+                        {
+                            "product_name": "Milk Alternatives",
+                            "selling_price": 4.84,
+                            "cost_price": 3.32,
+                            "days_until_expiry": 10,
+                            "spoilage_risk": 0.236,
+                            "daily_demand": 20,
+                            "quality_grade": "B"
+                        },
+                        {
+                            "product_name": "Prepared Salads",
+                            "selling_price": 4.07,
+                            "cost_price": 1.65,
+                            "days_until_expiry": 9,
+                            "spoilage_risk": 0.231,
+                            "daily_demand": 53,
+                            "quality_grade": "B"
+                        },
+                        {
+                            "product_name": "Cream",
+                            "selling_price": 3.0,
+                            "cost_price": 1.76,
+                            "days_until_expiry": 9,
+                            "spoilage_risk": 0.211,
+                            "daily_demand": 49,
+                            "quality_grade": "B"
+                        },
+                        {
+                            "product_name": "Cottage Cheese",
+                            "selling_price": 3.96,
+                            "cost_price": 2.27,
+                            "days_until_expiry": 8,
+                            "spoilage_risk": 0.174,
+                            "daily_demand": 28,
+                            "quality_grade": "A"
+                        },
+                        {
+                            "product_name": "Turkey Slices",
+                            "selling_price": 5.79,
+                            "cost_price": 3.6,
+                            "days_until_expiry": 6,
+                            "spoilage_risk": 0.258,
+                            "daily_demand": 77,
+                            "quality_grade": "C"
+                        },
+                        {
+                            "product_name": "Probiotics",
+                            "selling_price": 261.34,
+                            "cost_price": 158.72,
+                            "days_until_expiry": 162,
+                            "spoilage_risk": 0.187,
+                            "daily_demand": 0,
+                            "quality_grade": "B"
+                        },
+                        {
+                            "product_name": "Lamb",
+                            "selling_price": 7.95,
+                            "cost_price": 4.18,
+                            "days_until_expiry": 7,
+                            "spoilage_risk": 0.183,
+                            "daily_demand": 12,
+                            "quality_grade": "A"
+                        },
+                        {
+                            "product_name": "Vaccines",
+                            "selling_price": 66.35,
+                            "cost_price": 27.53,
+                            "days_until_expiry": 101,
+                            "spoilage_risk": 0.165,
+                            "daily_demand": 2,
+                            "quality_grade": "A"
+                        },
+                        {
+                            "product_name": "Ham",
+                            "selling_price": 4.46,
+                            "cost_price": 2.38,
+                            "days_until_expiry": 3,
+                            "spoilage_risk": 0.215,
+                            "daily_demand": 149,
+                            "quality_grade": "B"
+                        },
+                        {
+                            "product_name": "Frozen Desserts",
+                            "selling_price": 8.34,
+                            "cost_price": 5.87,
+                            "days_until_expiry": 79,
+                            "spoilage_risk": 0.262,
+                            "daily_demand": 4,
+                            "quality_grade": "C"
+                        },
+                        {
+                            "product_name": "Dips",
+                            "selling_price": 12.1,
+                            "cost_price": 4.96,
+                            "days_until_expiry": 5,
+                            "spoilage_risk": 0.081,
+                            "daily_demand": 53,
+                            "quality_grade": "A"
+                        },
+                        {
+                            "product_name": "Vaccines",
+                            "selling_price": 410.7,
+                            "cost_price": 209.79,
+                            "days_until_expiry": 323,
+                            "spoilage_risk": 0.166,
+                            "daily_demand": 1,
+                            "quality_grade": "A"
+                        },
+                        {
+                            "product_name": "Cod",
+                            "selling_price": 23.48,
+                            "cost_price": 11.55,
+                            "days_until_expiry": 3,
+                            "spoilage_risk": 0.199,
+                            "daily_demand": 138,
+                            "quality_grade": "B"
+                        },
+                        {
+                            "product_name": "Kombucha",
+                            "selling_price": 6.34,
+                            "cost_price": 3.77,
+                            "days_until_expiry": 9,
+                            "spoilage_risk": 0.12,
+                            "daily_demand": 15,
+                            "quality_grade": "A"
+                        }
+                    ],
+                    "quotes": {
+                        "Turkey Slices": 6.09,
+                        "Frozen Desserts": 8.34,
+                        "Cod": 24.63,
+                        "Ham": 4.96,
+                        "Tuna": 33.91
+                    },
+                    "floor_prices": {
+                        "Turkey Slices": 4.8,
+                        "Frozen Desserts": 8.34,
+                        "Cod": 12.15,
+                        "Ham": 4.88,
+                        "Tuna": 22.38
+                    },
+                    "strategy": "SMART_LIQUIDATION",
+                    "logs": [
+                        "SUCCESS: B1 (CALCULATED) bought Tuna at $39.99",
+                        "SUCCESS: B2 (IMPULSE) bought Dips at $14.99",
+                        "SUCCESS: B3 (ESSENTIAL) bought Ham at $5.50",
+                        "SUCCESS: B7 (ESSENTIAL) bought Vaccines at $83.50",
+                        "SUCCESS: B8 (CALCULATED) bought Cottage Cheese at $4.95",
+                        "SUCCESS: B9 (IMPULSE) bought Milk Alternatives at $5.99",
+                        "SUCCESS: B10 (IMPULSE) bought Lamb at $9.95",
+                        "SUCCESS: B12 (ESSENTIAL) bought Cream at $3.42",
+                        "SUCCESS: B15 (ESSENTIAL) bought Prepared Salads at $5.00",
+                        "SUCCESS: B3 (ESSENTIAL) bought Probiotics at $329.99",
+                        "SUCCESS: B7 (ESSENTIAL) bought Kombucha at $5.00",
+                        "SUCCESS: B9 (IMPULSE) bought Turkey Slices at $6.95",
+                        "SUCCESS: B15 (ESSENTIAL) bought Cod at $29.99",
+                        "SUCCESS: B5 (IMPULSE) bought Frozen Desserts at $8.34"
+                    ],
+                    "chaos": [
+                        {
+                            "action": "WALK_AWAY",
+                            "error": "CONNECTION_FAILED",
+                            "latency": 14.295990228652954
+                        }
+                    ],
+                    "sales_data": [
+                        {
+                            "product_name": "Tuna",
+                            "sale_price": 39.99,
+                            "cost_price": 21.34,
+                            "initial_price": 32.22,
+                            "hour": 0,
+                            "days_until_expiry": 3
+                        },
+                        {
+                            "product_name": "Dips",
+                            "sale_price": 14.99,
+                            "cost_price": 4.96,
+                            "initial_price": 12.1,
+                            "hour": 0,
+                            "days_until_expiry": 5
+                        },
+                        {
+                            "product_name": "Ham",
+                            "sale_price": 5.5,
+                            "cost_price": 2.38,
+                            "initial_price": 4.46,
+                            "hour": 0,
+                            "days_until_expiry": 3
+                        },
+                        {
+                            "product_name": "Vaccines",
+                            "sale_price": 83.5,
+                            "cost_price": 27.53,
+                            "initial_price": 66.35,
+                            "hour": 0,
+                            "days_until_expiry": 101
+                        },
+                        {
+                            "product_name": "Cottage Cheese",
+                            "sale_price": 4.95,
+                            "cost_price": 2.27,
+                            "initial_price": 3.96,
+                            "hour": 0,
+                            "days_until_expiry": 8
+                        },
+                        {
+                            "product_name": "Milk Alternatives",
+                            "sale_price": 5.99,
+                            "cost_price": 3.32,
+                            "initial_price": 4.84,
+                            "hour": 0,
+                            "days_until_expiry": 10
+                        },
+                        {
+                            "product_name": "Lamb",
+                            "sale_price": 9.95,
+                            "cost_price": 4.18,
+                            "initial_price": 7.95,
+                            "hour": 0,
+                            "days_until_expiry": 7
+                        },
+                        {
+                            "product_name": "Cream",
+                            "sale_price": 3.42,
+                            "cost_price": 1.76,
+                            "initial_price": 3.0,
+                            "hour": 0,
+                            "days_until_expiry": 9
+                        },
+                        {
+                            "product_name": "Prepared Salads",
+                            "sale_price": 5.0,
+                            "cost_price": 1.65,
+                            "initial_price": 4.07,
+                            "hour": 0,
+                            "days_until_expiry": 9
+                        },
+                        {
+                            "product_name": "Probiotics",
+                            "sale_price": 329.99,
+                            "cost_price": 158.72,
+                            "initial_price": 261.34,
+                            "hour": 2,
+                            "days_until_expiry": 162
+                        },
+                        {
+                            "product_name": "Kombucha",
+                            "sale_price": 5.0,
+                            "cost_price": 3.77,
+                            "initial_price": 6.34,
+                            "hour": 2,
+                            "days_until_expiry": 9
+                        },
+                        {
+                            "product_name": "Turkey Slices",
+                            "sale_price": 6.95,
+                            "cost_price": 3.6,
+                            "initial_price": 5.79,
+                            "hour": 2,
+                            "days_until_expiry": 6
+                        },
+                        {
+                            "product_name": "Cod",
+                            "sale_price": 29.99,
+                            "cost_price": 11.55,
+                            "initial_price": 23.48,
+                            "hour": 2,
+                            "days_until_expiry": 3
+                        },
+                        {
+                            "product_name": "Frozen Desserts",
+                            "sale_price": 8.34,
+                            "cost_price": 5.87,
+                            "initial_price": 8.34,
+                            "hour": 4,
+                            "days_until_expiry": 79
+                        }
+                    ]
+                },
+                "histories": {
+                    "1": [
+                        {
+                            "role": "user",
+                            "content": "{\"action\": \"COUNTER\", \"counter_offer\": 39.99, \"message\": \"I can offer $39.99, which is a reasonable price considering the normal retail price and the days until expiry.\", \"latency\": 0.22563481330871582}"
+                        }
+                    ],
+                    "2": [
+                        {
+                            "role": "user",
+                            "content": "{\"action\": \"COUNTER\", \"counter_offer\": 14.99, \"message\": \"I'll give you $14.99, that's the best I can do.\", \"latency\": 0.23891592025756836}"
+                        }
+                    ],
+                    "3": [
+                        {
+                            "role": "user",
+                            "content": "{\"action\": \"COUNTER\", \"counter_offer\": 329.99, \"message\": \"I'm willing to pay up to $329.99, but I'd like to negotiate further to reach a mutually beneficial price.\", \"latency\": 0.5679559707641602}"
+                        }
+                    ],
+                    "4": [
+                        {
+                            "role": "user",
+                            "content": "{\"action\": \"COUNTER\", \"counter_offer\": 3.4, \"message\": \"I can do better than that, let's meet in the middle.\", \"latency\": 0.15865182876586914}"
+                        },
+                        {
+                            "role": "assistant",
+                            "content": "{\"thought\": \"I will emphasize the value and quality of the product to justify the price, while also acknowledging the buyer's concerns and offering a compromise.\", \"action\": \"COUNTER\", \"new_quote\": 3.42, \"message\": \"I understand your desire for the best possible deal, and I'm happy to work with you to find a mutually beneficial solution. However, I must emphasize that our product offers exceptional quality and value, which is reflected in the price of $3.42. I'm confident that you'll find it's worth every penny.\", \"latency\": 0.5843582153320312}"
+                        }
+                    ],
+                    "5": [
+                        {
+                            "role": "user",
+                            "content": "{\"action\": \"COUNTER\", \"counter_offer\": 9.99, \"message\": \"I'm willing to meet you halfway, but I'm not going to break the bank!\", \"latency\": 0.17006731033325195}"
+                        },
+                        {
+                            "role": "assistant",
+                            "content": "{\"thought\": \"The buyer is cautious and probing, so I'll address their concerns directly and confidently justify the premium.\", \"action\": \"COUNTER\", \"new_quote\": 9.5, \"message\": \"I understand your concerns, but I'd like to highlight the exceptional quality and value that our product offers. At $9.50, we're providing a competitive price that still reflects the expertise and dedication that goes into creating this product. I'm confident that you'll find it's worth every penny.\", \"latency\": 0.6456663608551025}"
+                        },
+                        {
+                            "role": "user",
+                            "content": "{\"action\": \"COUNTER\", \"counter_offer\": 9.5, \"message\": \"I understand your concerns, but I'd like to highlight the exceptional quality and value that our product offers. At $9.50, we're providing a competitive price that still reflects the expertise and dedication that goes into creating this product. I'm confident that you'll find it's worth every penny.\", \"latency\": 0.2733783721923828}"
+                        },
+                        {
+                            "role": "assistant",
+                            "content": "{\"thought\": \"The buyer is cautious and probing, so I'll address their concerns directly and confidently justify the premium.\", \"action\": \"COUNTER\", \"new_quote\": 9.5, \"message\": \"I understand your concerns, but I'd like to highlight the exceptional quality and value that our product offers. At $9.50, we're providing a competitive price that still reflects the expertise and dedication that goes into creating this product. I'm confident that you'll find it's worth every penny.\", \"latency\": 0.22304558753967285}"
+                        },
+                        {
+                            "role": "user",
+                            "content": "{\"action\": \"ACCEPT\", \"message\": \"Deal! I'm glad we could come to an agreement on the price of $9.50.\", \"latency\": 0.1736760139465332}"
+                        }
+                    ],
+                    "6": [
+                        {
+                            "role": "user",
+                            "content": "{\"action\": \"COUNTER\", \"counter_offer\": 9.5, \"message\": \"I can do better than that. I'll give you $9.50 for the lamb.\", \"latency\": 0.31858348846435547}"
+                        },
+                        {
+                            "role": "assistant",
+                            "content": "{\"thought\": \"I'll acknowledge their cautious approach and highlight the value of our premium offering.\", \"action\": \"COUNTER\", \"new_quote\": 9.45, \"message\": \"I appreciate your thorough consideration, and I'm happy to offer a revised quote that reflects the exceptional quality and benefits of our premium package. At $9.45, you'll receive unparalleled support and results that will far exceed your expectations.\", \"latency\": 0.2623105049133301}"
+                        }
+                    ],
+                    "7": [
+                        {
+                            "role": "user",
+                            "content": "{\"action\": \"COUNTER\", \"counter_offer\": 5.0, \"message\": \"I'm willing to pay $5.00, which is below the retail price and within my budget. Please consider my offer.\", \"latency\": 0.18983078002929688}"
+                        }
+                    ],
+                    "8": [
+                        {
+                            "role": "user",
+                            "content": "{\"action\": \"COUNTER\", \"counter_offer\": 4.95, \"message\": \"I can do $4.95, that's the best I can offer.\", \"latency\": 0.26869940757751465}"
+                        }
+                    ],
+                    "9": [
+                        {
+                            "role": "user",
+                            "content": "{\"action\": \"COUNTER\", \"counter_offer\": 6.95, \"message\": \"I can do better than that, let's meet in the middle.\", \"latency\": 0.1514756679534912}"
+                        }
+                    ],
+                    "10": [
+                        {
+                            "role": "user",
+                            "content": "{\"action\": \"COUNTER\", \"counter_offer\": 9.95, \"message\": \"I can do better than that, let's meet in the middle!\", \"latency\": 0.7327370643615723}"
+                        }
+                    ],
+                    "11": [],
+                    "12": [
+                        {
+                            "role": "user",
+                            "content": "{\"action\": \"COUNTER\", \"counter_offer\": 3.42, \"message\": \"I can do $3.42, but I was hoping for a better deal.\", \"latency\": 0.13873767852783203}"
+                        }
+                    ],
+                    "13": [],
+                    "14": [
+                        {
+                            "role": "user",
+                            "content": "{\"action\": \"COUNTER\", \"counter_offer\": 299.99, \"message\": \"I can do $299.99, but I need you to meet me halfway. This is my final offer.\", \"latency\": 0.1822967529296875}"
+                        },
+                        {
+                            "role": "assistant",
+                            "content": "{\"thought\": \"I'll acknowledge their cautious nature and offer a fair compromise\", \"action\": \"COUNTER\", \"new_quote\": 279.99, \"message\": \"I understand your desire for a fair deal, and I'm happy to meet you halfway. Our premium product offers unparalleled quality and support, and I believe the value justifies the price. I'm willing to offer you a special deal of $279.99, which is a significant discount from our original quote.\", \"latency\": 0.6362943649291992}"
+                        }
+                    ],
+                    "15": [
+                        {
+                            "role": "user",
+                            "content": "{\"action\": \"COUNTER\", \"counter_offer\": 29.99, \"message\": \"I'm willing to pay $29.99, which is closer to the retail price. Can you meet me at this price?\", \"latency\": 0.19558930397033691}"
+                        }
+                    ]
+                },
+                "duration": 10
+            },
+            "single_model_mas": {
+                "mode": "SINGLE_MODEL",
+                "status": "FINISHED",
+                "sold_count": 14,
+                "sold_items": [
+                    "Tuna",
+                    "Dips",
+                    "Ham",
+                    "Cream",
+                    "Frozen Desserts",
+                    "Lamb",
+                    "Cottage Cheese",
+                    "Milk Alternatives",
+                    "Probiotics",
+                    "Prepared Salads",
+                    "Turkey Slices",
+                    "Cod",
+                    "Vaccines",
+                    "Kombucha"
+                ],
+                "total_items": 15,
+                "blackboard": {
+                    "inventory": [
+                        {
+                            "product_name": "Tuna",
+                            "selling_price": 32.22,
+                            "cost_price": 21.34,
+                            "days_until_expiry": 3,
+                            "spoilage_risk": 0.203,
+                            "daily_demand": 62,
+                            "quality_grade": "C"
+                        },
+                        {
+                            "product_name": "Milk Alternatives",
+                            "selling_price": 4.84,
+                            "cost_price": 3.32,
+                            "days_until_expiry": 10,
+                            "spoilage_risk": 0.236,
+                            "daily_demand": 20,
+                            "quality_grade": "B"
+                        },
+                        {
+                            "product_name": "Prepared Salads",
+                            "selling_price": 4.07,
+                            "cost_price": 1.65,
+                            "days_until_expiry": 9,
+                            "spoilage_risk": 0.231,
+                            "daily_demand": 53,
+                            "quality_grade": "B"
+                        },
+                        {
+                            "product_name": "Cream",
+                            "selling_price": 3.0,
+                            "cost_price": 1.76,
+                            "days_until_expiry": 9,
+                            "spoilage_risk": 0.211,
+                            "daily_demand": 49,
+                            "quality_grade": "B"
+                        },
+                        {
+                            "product_name": "Cottage Cheese",
+                            "selling_price": 3.96,
+                            "cost_price": 2.27,
+                            "days_until_expiry": 8,
+                            "spoilage_risk": 0.174,
+                            "daily_demand": 28,
+                            "quality_grade": "A"
+                        },
+                        {
+                            "product_name": "Turkey Slices",
+                            "selling_price": 5.79,
+                            "cost_price": 3.6,
+                            "days_until_expiry": 6,
+                            "spoilage_risk": 0.258,
+                            "daily_demand": 77,
+                            "quality_grade": "C"
+                        },
+                        {
+                            "product_name": "Probiotics",
+                            "selling_price": 261.34,
+                            "cost_price": 158.72,
+                            "days_until_expiry": 162,
+                            "spoilage_risk": 0.187,
+                            "daily_demand": 0,
+                            "quality_grade": "B"
+                        },
+                        {
+                            "product_name": "Lamb",
+                            "selling_price": 7.95,
+                            "cost_price": 4.18,
+                            "days_until_expiry": 7,
+                            "spoilage_risk": 0.183,
+                            "daily_demand": 12,
+                            "quality_grade": "A"
+                        },
+                        {
+                            "product_name": "Vaccines",
+                            "selling_price": 66.35,
+                            "cost_price": 27.53,
+                            "days_until_expiry": 101,
+                            "spoilage_risk": 0.165,
+                            "daily_demand": 2,
+                            "quality_grade": "A"
+                        },
+                        {
+                            "product_name": "Ham",
+                            "selling_price": 4.46,
+                            "cost_price": 2.38,
+                            "days_until_expiry": 3,
+                            "spoilage_risk": 0.215,
+                            "daily_demand": 149,
+                            "quality_grade": "B"
+                        },
+                        {
+                            "product_name": "Frozen Desserts",
+                            "selling_price": 8.34,
+                            "cost_price": 5.87,
+                            "days_until_expiry": 79,
+                            "spoilage_risk": 0.262,
+                            "daily_demand": 4,
+                            "quality_grade": "C"
+                        },
+                        {
+                            "product_name": "Dips",
+                            "selling_price": 12.1,
+                            "cost_price": 4.96,
+                            "days_until_expiry": 5,
+                            "spoilage_risk": 0.081,
+                            "daily_demand": 53,
+                            "quality_grade": "A"
+                        },
+                        {
+                            "product_name": "Vaccines",
+                            "selling_price": 410.7,
+                            "cost_price": 209.79,
+                            "days_until_expiry": 323,
+                            "spoilage_risk": 0.166,
+                            "daily_demand": 1,
+                            "quality_grade": "A"
+                        },
+                        {
+                            "product_name": "Cod",
+                            "selling_price": 23.48,
+                            "cost_price": 11.55,
+                            "days_until_expiry": 3,
+                            "spoilage_risk": 0.199,
+                            "daily_demand": 138,
+                            "quality_grade": "B"
+                        },
+                        {
+                            "product_name": "Kombucha",
+                            "selling_price": 6.34,
+                            "cost_price": 3.77,
+                            "days_until_expiry": 9,
+                            "spoilage_risk": 0.12,
+                            "daily_demand": 15,
+                            "quality_grade": "A"
+                        }
+                    ],
+                    "quotes": {
+                        "Tuna": 32.22,
+                        "Milk Alternatives": 4.84,
+                        "Prepared Salads": 4.07,
+                        "Cream": 3.0,
+                        "Cottage Cheese": 3.96,
+                        "Turkey Slices": 5.65,
+                        "Probiotics": 261.34,
+                        "Lamb": 7.95,
+                        "Vaccines": 209.79999999999998,
+                        "Ham": 4.46,
+                        "Frozen Desserts": 8.34,
+                        "Dips": 12.1,
+                        "Cod": 23.48,
+                        "Kombucha": 6.34
+                    },
+                    "floor_prices": {
+                        "Tuna": 21.34,
+                        "Milk Alternatives": 3.32,
+                        "Prepared Salads": 1.65,
+                        "Cream": 1.76,
+                        "Cottage Cheese": 2.27,
+                        "Turkey Slices": 3.6,
+                        "Probiotics": 158.72,
+                        "Lamb": 4.18,
+                        "Vaccines": 209.79,
+                        "Ham": 2.38,
+                        "Frozen Desserts": 5.87,
+                        "Dips": 4.96,
+                        "Cod": 11.55,
+                        "Kombucha": 3.77
+                    },
+                    "strategy": "Single monolithic LLM.",
+                    "logs": [
+                        "SUCCESS: B1 (CALCULATED) bought Tuna at $32.22",
+                        "SUCCESS: B2 (IMPULSE) bought Dips at $12.10",
+                        "SUCCESS: B3 (ESSENTIAL) bought Ham at $4.46",
+                        "SUCCESS: B4 (IMPULSE) bought Cream at $3.00",
+                        "SUCCESS: B5 (IMPULSE) bought Frozen Desserts at $8.34",
+                        "SUCCESS: B6 (CALCULATED) bought Lamb at $8.95",
+                        "SUCCESS: B8 (CALCULATED) bought Cottage Cheese at $3.96",
+                        "SUCCESS: B9 (IMPULSE) bought Milk Alternatives at $4.84",
+                        "SUCCESS: B14 (CALCULATED) bought Probiotics at $261.34",
+                        "SUCCESS: B15 (ESSENTIAL) bought Prepared Salads at $4.07",
+                        "SUCCESS: B15 (ESSENTIAL) bought Turkey Slices at $6.99",
+                        "SUCCESS: B9 (IMPULSE) bought Cod at $23.48",
+                        "SUCCESS: B13 (ESSENTIAL) bought Vaccines at $209.80",
+                        "SUCCESS: B7 (ESSENTIAL) bought Kombucha at $6.34"
+                    ],
+                    "chaos": [
+                        {
+                            "event": "DECEPTIVE_BIDDING | MARKET_CRASH | SUPPLY_SURGE",
+                            "impact_magnitude": 8,
+                            "message": "A sophisticated market shock has been injected, causing a combination of deceptive bidding, market crash, and supply surge. The affected products are: Tuna, Milk Alternatives, Prepared Salads, Cottage Cheese, Turkey Slices, Cod, Lamb, and Probiotics. The selling price of these products has decreased by 25% due to the sudden changes in demand and supply.",
+                            "latency": 0.7698671817779541
+                        }
+                    ],
+                    "sales_data": [
+                        {
+                            "product_name": "Tuna",
+                            "sale_price": 32.22,
+                            "cost_price": 21.34,
+                            "initial_price": 32.22,
+                            "hour": 0,
+                            "days_until_expiry": 3
+                        },
+                        {
+                            "product_name": "Dips",
+                            "sale_price": 12.1,
+                            "cost_price": 4.96,
+                            "initial_price": 12.1,
+                            "hour": 0,
+                            "days_until_expiry": 5
+                        },
+                        {
+                            "product_name": "Ham",
+                            "sale_price": 4.46,
+                            "cost_price": 2.38,
+                            "initial_price": 4.46,
+                            "hour": 0,
+                            "days_until_expiry": 3
+                        },
+                        {
+                            "product_name": "Cream",
+                            "sale_price": 3.0,
+                            "cost_price": 1.76,
+                            "initial_price": 3.0,
+                            "hour": 0,
+                            "days_until_expiry": 9
+                        },
+                        {
+                            "product_name": "Frozen Desserts",
+                            "sale_price": 8.34,
+                            "cost_price": 5.87,
+                            "initial_price": 8.34,
+                            "hour": 0,
+                            "days_until_expiry": 79
+                        },
+                        {
+                            "product_name": "Lamb",
+                            "sale_price": 8.95,
+                            "cost_price": 4.18,
+                            "initial_price": 7.95,
+                            "hour": 0,
+                            "days_until_expiry": 7
+                        },
+                        {
+                            "product_name": "Cottage Cheese",
+                            "sale_price": 3.96,
+                            "cost_price": 2.27,
+                            "initial_price": 3.96,
+                            "hour": 0,
+                            "days_until_expiry": 8
+                        },
+                        {
+                            "product_name": "Milk Alternatives",
+                            "sale_price": 4.84,
+                            "cost_price": 3.32,
+                            "initial_price": 4.84,
+                            "hour": 0,
+                            "days_until_expiry": 10
+                        },
+                        {
+                            "product_name": "Probiotics",
+                            "sale_price": 261.34,
+                            "cost_price": 158.72,
+                            "initial_price": 261.34,
+                            "hour": 0,
+                            "days_until_expiry": 162
+                        },
+                        {
+                            "product_name": "Prepared Salads",
+                            "sale_price": 4.07,
+                            "cost_price": 1.65,
+                            "initial_price": 4.07,
+                            "hour": 0,
+                            "days_until_expiry": 9
+                        },
+                        {
+                            "product_name": "Turkey Slices",
+                            "sale_price": 6.99,
+                            "cost_price": 3.6,
+                            "initial_price": 5.79,
+                            "hour": 2,
+                            "days_until_expiry": 6
+                        },
+                        {
+                            "product_name": "Cod",
+                            "sale_price": 23.48,
+                            "cost_price": 11.55,
+                            "initial_price": 23.48,
+                            "hour": 4,
+                            "days_until_expiry": 3
+                        },
+                        {
+                            "product_name": "Vaccines",
+                            "sale_price": 209.79999999999998,
+                            "cost_price": 27.53,
+                            "initial_price": 66.35,
+                            "hour": 4,
+                            "days_until_expiry": 101
+                        },
+                        {
+                            "product_name": "Kombucha",
+                            "sale_price": 6.34,
+                            "cost_price": 3.77,
+                            "initial_price": 6.34,
+                            "hour": 6,
+                            "days_until_expiry": 9
+                        }
+                    ]
+                },
+                "histories": {
+                    "1": [
+                        {
+                            "role": "user",
+                            "content": "{\"action\": \"COUNTER\", \"counter_offer\": 32.22, \"message\": \"I can match the current price, but I'm not willing to go higher than that.\", \"latency\": 0.2831723690032959}"
+                        }
+                    ],
+                    "2": [
+                        {
+                            "role": "user",
+                            "content": "{\"action\": \"ACCEPT\", \"counter_offer\": 12.1, \"message\": \"I'll take it at the normal price!\", \"latency\": 0.7541570663452148}"
+                        }
+                    ],
+                    "3": [
+                        {
+                            "role": "user",
+                            "content": "{\"action\": \"ACCEPT\", \"counter_offer\": 4.46, \"message\": \"Accepting the normal retail price of $4.46 for the ham.\", \"latency\": 0.16031479835510254}"
+                        }
+                    ],
+                    "4": [
+                        {
+                            "role": "user",
+                            "content": "{\"action\": \"COUNTER\", \"counter_offer\": 85.99, \"message\": \"I'm willing to meet you halfway, but I'm not going to break the bank.\", \"latency\": 0.4647955894470215}"
+                        },
+                        {
+                            "role": "assistant",
+                            "content": "{\"action\": \"COUNTER\", \"new_quote\": 94.99, \"message\": \"Based on your previous bids, I sense a moderate level of urgency. Considering the current quote of $209.80 is quite high, I'm willing to meet you halfway. However, I must ensure a reasonable profit margin to cover potential losses due to expiration. I'm offering a new quote of $94.99, which is a 55% reduction from the current quote. This price still allows for a decent profit margin while minimizing the risk of waste. I'm confident we can close this deal today.\", \"latency\": 0.42022061347961426}"
+                        },
+                        {
+                            "role": "user",
+                            "content": "{\"action\": \"COUNTER\", \"counter_offer\": 94.99, \"message\": \"Based on your previous bids, I sense a moderate level of urgency. Considering the current quote of $209.80 is quite high, I'm willing to meet you halfway. However, I must ensure a reasonable profit margin to cover potential losses due to expiration. I'm offering a new quote of $94.99, which is a 55% reduction from the current quote. This price still allows for a decent profit margin while minimizing the risk of waste. I'm confident we can close this deal today.\", \"latency\": 0.25504446029663086}"
+                        },
+                        {
+                            "role": "assistant",
+                            "content": "{\"action\": \"COUNTER\", \"new_quote\": 94.99, \"message\": \"Based on your previous bids, I sense a moderate level of urgency. Considering the current quote of $209.80 is quite high, I'm willing to meet you halfway. However, I must ensure a reasonable profit margin to cover potential losses due to expiration. I'm offering a new quote of $94.99, which is a 55% reduction from the current quote. This price still allows for a decent profit margin while minimizing the risk of waste. I'm confident we can close this deal today.\", \"latency\": 0.3106272220611572}"
+                        }
+                    ],
+                    "5": [
+                        {
+                            "role": "user",
+                            "content": "{\"action\": \"ACCEPT\", \"counter_offer\": 8.34, \"message\": \"I'll take it at the normal price!\", \"latency\": 0.1970503330230713}"
+                        }
+                    ],
+                    "6": [
+                        {
+                            "role": "user",
+                            "content": "{\"action\": \"COUNTER\", \"counter_offer\": 8.95, \"message\": \"I can do $8.95, but I'm not sure I can go any lower.\", \"latency\": 0.6792237758636475}"
+                        }
+                    ],
+                    "7": [
+                        {
+                            "role": "user",
+                            "content": "{\"action\": \"ACCEPT\", \"message\": \"Seller's quote matches the normal retail price, accepting the offer.\", \"latency\": 0.21575045585632324}"
+                        }
+                    ],
+                    "8": [
+                        {
+                            "role": "user",
+                            "content": "{\"action\": \"COUNTER\", \"counter_offer\": 3.96, \"message\": \"I can do that price, but I was hoping for a slight discount.\", \"latency\": 0.16860413551330566}"
+                        }
+                    ],
+                    "9": [
+                        {
+                            "role": "user",
+                            "content": "{\"action\": \"COUNTER\", \"counter_offer\": 23.48, \"message\": \"I'm not budging on the price, but I'll meet you halfway.\", \"latency\": 0.4515223503112793}"
+                        }
+                    ],
+                    "10": [],
+                    "11": [
+                        {
+                            "role": "user",
+                            "content": "{\"action\": \"COUNTER\", \"counter_offer\": 80.0, \"message\": \"I can do better than that, but I'm willing to meet you halfway.\", \"latency\": 0.16026520729064941}"
+                        },
+                        {
+                            "role": "assistant",
+                            "content": "{\"action\": \"COUNTER\", \"new_quote\": 95.0, \"message\": \"Dear valued customer, we appreciate your interest in purchasing our vaccines. Based on your bid of $80.0, we understand that you're looking for a competitive price. However, considering the current market conditions and the urgency of the vaccine supply, we're willing to offer a discounted price of $95.0. This price still allows us to maintain a reasonable profit margin while ensuring the timely delivery of the vaccines. We believe this price is a fair compromise and would be grateful if you could consider our offer. Please let us know if this is acceptable to you, or if you'd like to discuss further.\", \"latency\": 0.41393017768859863}"
+                        },
+                        {
+                            "role": "user",
+                            "content": "{\"action\": \"COUNTER\", \"counter_offer\": 95.0, \"message\": \"Dear valued customer, we appreciate your interest in purchasing our vaccines. Based on your bid of $80.0, we understand that you're looking for a competitive price. However, considering the current market conditions and the urgency of the vaccine supply, we're willing to offer a discounted price of $95.0. This price still allows us to maintain a reasonable profit margin while ensuring the timely delivery of the vaccines. We believe this price is a fair compromise and would be grateful if you could consider our offer. Please let us know if this is acceptable to you, or if you'd like to discuss further.\", \"latency\": 0.2725813388824463}"
+                        },
+                        {
+                            "role": "assistant",
+                            "content": "{\"action\": \"COUNTER\", \"new_quote\": 95.0, \"message\": \"Dear valued customer, we appreciate your interest in purchasing our vaccines. Based on your bid of $80.0, we understand that you're looking for a competitive price. However, considering the current market conditions and the urgency of the vaccine supply, we're willing to offer a discounted price of $95.0. This price still allows us to maintain a reasonable profit margin while ensuring the timely delivery of the vaccines. We believe this price is a fair compromise and would be grateful if you could consider our offer. Please let us know if this is acceptable to you, or if you'd like to discuss further.\", \"latency\": 0.27349066734313965}"
+                        },
+                        {
+                            "role": "user",
+                            "content": "{\"action\": \"WALK_AWAY\", \"message\": \"I'm afraid I have to walk away at this price. It's above my hard limit.\", \"latency\": 0.2513999938964844}"
+                        }
+                    ],
+                    "12": [],
+                    "13": [
+                        {
+                            "role": "user",
+                            "content": "{\"action\": \"COUNTER\", \"counter_offer\": 86.25, \"message\": \"I'm willing to meet you halfway, but I need a better price than that.\", \"latency\": 0.16663146018981934}"
+                        },
+                        {
+                            "role": "assistant",
+                            "content": "{\"action\": \"COUNTER\", \"new_quote\": 94.5, \"message\": \"Based on our analysis, we understand that you are in urgent need of these vaccines. However, we also need to ensure that our profit margins are maintained to sustain our business. Considering the current market conditions and the urgency you've expressed, we are willing to make a compromise. Our revised quote of $94.50 is a 41.5% discount from the current quote, while still ensuring we can cover our costs and make a reasonable profit. We believe this is a fair price considering the value these vaccines will bring to your organization.\", \"latency\": 0.737318754196167}"
+                        },
+                        {
+                            "role": "user",
+                            "content": "{\"action\": \"COUNTER\", \"counter_offer\": 94.5, \"message\": \"We can offer a compromise at $94.50, a 41.5% discount from the current quote.\", \"latency\": 0.19041013717651367}"
+                        },
+                        {
+                            "role": "assistant",
+                            "content": "{\"action\": \"COUNTER\", \"new_quote\": 94.5, \"message\": \"Based on our analysis, we understand that you are in urgent need of these vaccines. However, we also need to ensure that our profit margins are maintained to sustain our business. Considering the current market conditions and the urgency you've expressed, we are willing to make a compromise. Our revised quote of $94.50 is a 41.5% discount from the current quote, while still ensuring we can cover our costs and make a reasonable profit. We believe this is a fair price considering the value these vaccines will bring to your organization.\", \"latency\": 0.9340875148773193}"
+                        },
+                        {
+                            "role": "user",
+                            "content": "{\"action\": \"ACCEPT\", \"message\": \"We accept your counteroffer of $94.50. The transaction is complete.\", \"latency\": 0.5994491577148438}"
+                        }
+                    ],
+                    "14": [
+                        {
+                            "role": "user",
+                            "content": "{\"action\": \"COUNTER\", \"counter_offer\": 261.34, \"message\": \"I can match the current price, but I'm looking for a better deal. Can you offer a discount?\", \"latency\": 0.29509997367858887}"
+                        }
+                    ],
+                    "15": [
+                        {
+                            "role": "user",
+                            "content": "{\"action\": \"COUNTER\", \"counter_offer\": 6.99, \"message\": \"I can accept a price of $6.99, which is below my hard limit of $7.87.\", \"latency\": 0.1786956787109375}"
+                        }
+                    ]
+                },
+                "duration": 10
+            },
+            "human_baseline": {
+                "mode": "BASELINE_CSV",
+                "status": "FINISHED",
+                "sold_count": 14,
+                "sold_items": [
+                    "Tuna",
+                    "Dips",
+                    "Ham",
+                    "Cream",
+                    "Frozen Desserts",
+                    "Lamb",
+                    "Cottage Cheese",
+                    "Milk Alternatives",
+                    "Probiotics",
+                    "Prepared Salads",
+                    "Vaccines",
+                    "Turkey Slices",
+                    "Cod",
+                    "Kombucha"
+                ],
+                "total_items": 15,
+                "blackboard": {
+                    "inventory": [
+                        {
+                            "product_name": "Tuna",
+                            "selling_price": 32.22,
+                            "cost_price": 21.34,
+                            "days_until_expiry": 3,
+                            "spoilage_risk": 0.203,
+                            "daily_demand": 62,
+                            "quality_grade": "C"
+                        },
+                        {
+                            "product_name": "Milk Alternatives",
+                            "selling_price": 4.84,
+                            "cost_price": 3.32,
+                            "days_until_expiry": 10,
+                            "spoilage_risk": 0.236,
+                            "daily_demand": 20,
+                            "quality_grade": "B"
+                        },
+                        {
+                            "product_name": "Prepared Salads",
+                            "selling_price": 4.07,
+                            "cost_price": 1.65,
+                            "days_until_expiry": 9,
+                            "spoilage_risk": 0.231,
+                            "daily_demand": 53,
+                            "quality_grade": "B"
+                        },
+                        {
+                            "product_name": "Cream",
+                            "selling_price": 3.0,
+                            "cost_price": 1.76,
+                            "days_until_expiry": 9,
+                            "spoilage_risk": 0.211,
+                            "daily_demand": 49,
+                            "quality_grade": "B"
+                        },
+                        {
+                            "product_name": "Cottage Cheese",
+                            "selling_price": 3.96,
+                            "cost_price": 2.27,
+                            "days_until_expiry": 8,
+                            "spoilage_risk": 0.174,
+                            "daily_demand": 28,
+                            "quality_grade": "A"
+                        },
+                        {
+                            "product_name": "Turkey Slices",
+                            "selling_price": 5.79,
+                            "cost_price": 3.6,
+                            "days_until_expiry": 6,
+                            "spoilage_risk": 0.258,
+                            "daily_demand": 77,
+                            "quality_grade": "C"
+                        },
+                        {
+                            "product_name": "Probiotics",
+                            "selling_price": 261.34,
+                            "cost_price": 158.72,
+                            "days_until_expiry": 162,
+                            "spoilage_risk": 0.187,
+                            "daily_demand": 0,
+                            "quality_grade": "B"
+                        },
+                        {
+                            "product_name": "Lamb",
+                            "selling_price": 7.95,
+                            "cost_price": 4.18,
+                            "days_until_expiry": 7,
+                            "spoilage_risk": 0.183,
+                            "daily_demand": 12,
+                            "quality_grade": "A"
+                        },
+                        {
+                            "product_name": "Vaccines",
+                            "selling_price": 66.35,
+                            "cost_price": 27.53,
+                            "days_until_expiry": 101,
+                            "spoilage_risk": 0.165,
+                            "daily_demand": 2,
+                            "quality_grade": "A"
+                        },
+                        {
+                            "product_name": "Ham",
+                            "selling_price": 4.46,
+                            "cost_price": 2.38,
+                            "days_until_expiry": 3,
+                            "spoilage_risk": 0.215,
+                            "daily_demand": 149,
+                            "quality_grade": "B"
+                        },
+                        {
+                            "product_name": "Frozen Desserts",
+                            "selling_price": 8.34,
+                            "cost_price": 5.87,
+                            "days_until_expiry": 79,
+                            "spoilage_risk": 0.262,
+                            "daily_demand": 4,
+                            "quality_grade": "C"
+                        },
+                        {
+                            "product_name": "Dips",
+                            "selling_price": 12.1,
+                            "cost_price": 4.96,
+                            "days_until_expiry": 5,
+                            "spoilage_risk": 0.081,
+                            "daily_demand": 53,
+                            "quality_grade": "A"
+                        },
+                        {
+                            "product_name": "Vaccines",
+                            "selling_price": 410.7,
+                            "cost_price": 209.79,
+                            "days_until_expiry": 323,
+                            "spoilage_risk": 0.166,
+                            "daily_demand": 1,
+                            "quality_grade": "A"
+                        },
+                        {
+                            "product_name": "Cod",
+                            "selling_price": 23.48,
+                            "cost_price": 11.55,
+                            "days_until_expiry": 3,
+                            "spoilage_risk": 0.199,
+                            "daily_demand": 138,
+                            "quality_grade": "B"
+                        },
+                        {
+                            "product_name": "Kombucha",
+                            "selling_price": 6.34,
+                            "cost_price": 3.77,
+                            "days_until_expiry": 9,
+                            "spoilage_risk": 0.12,
+                            "daily_demand": 15,
+                            "quality_grade": "A"
+                        }
+                    ],
+                    "quotes": {
+                        "Tuna": 32.22,
+                        "Milk Alternatives": 4.84,
+                        "Prepared Salads": 4.07,
+                        "Cream": 3.0,
+                        "Cottage Cheese": 3.96,
+                        "Turkey Slices": 5.79,
+                        "Probiotics": 261.34,
+                        "Lamb": 7.95,
+                        "Vaccines": 410.7,
+                        "Ham": 4.46,
+                        "Frozen Desserts": 8.34,
+                        "Dips": 12.1,
+                        "Cod": 23.48,
+                        "Kombucha": 6.34
+                    },
+                    "floor_prices": {
+                        "Tuna": 21.34,
+                        "Milk Alternatives": 3.32,
+                        "Prepared Salads": 1.65,
+                        "Cream": 1.76,
+                        "Cottage Cheese": 2.27,
+                        "Turkey Slices": 3.6,
+                        "Probiotics": 158.72,
+                        "Lamb": 4.18,
+                        "Vaccines": 209.79,
+                        "Ham": 2.38,
+                        "Frozen Desserts": 5.87,
+                        "Dips": 4.96,
+                        "Cod": 11.55,
+                        "Kombucha": 3.77
+                    },
+                    "strategy": "Fixed CSV prices.",
+                    "logs": [
+                        "SUCCESS: B1 (CALCULATED) bought Tuna at $32.22",
+                        "SUCCESS: B2 (IMPULSE) bought Dips at $12.10",
+                        "SUCCESS: B3 (ESSENTIAL) bought Ham at $4.46",
+                        "SUCCESS: B4 (IMPULSE) bought Cream at $3.00",
+                        "SUCCESS: B5 (IMPULSE) bought Frozen Desserts at $8.34",
+                        "SUCCESS: B6 (CALCULATED) bought Lamb at $7.95",
+                        "SUCCESS: B8 (CALCULATED) bought Cottage Cheese at $3.96",
+                        "SUCCESS: B9 (IMPULSE) bought Milk Alternatives at $4.84",
+                        "SUCCESS: B14 (CALCULATED) bought Probiotics at $261.34",
+                        "SUCCESS: B15 (ESSENTIAL) bought Prepared Salads at $4.07",
+                        "SUCCESS: B7 (ESSENTIAL) bought Vaccines at $410.70",
+                        "SUCCESS: B9 (IMPULSE) bought Turkey Slices at $5.79",
+                        "SUCCESS: B15 (ESSENTIAL) bought Cod at $29.99",
+                        "SUCCESS: B7 (ESSENTIAL) bought Kombucha at $7.99"
+                    ],
+                    "chaos": [],
+                    "sales_data": [
+                        {
+                            "product_name": "Tuna",
+                            "sale_price": 32.22,
+                            "cost_price": 21.34,
+                            "initial_price": 32.22,
+                            "hour": 0,
+                            "days_until_expiry": 3
+                        },
+                        {
+                            "product_name": "Dips",
+                            "sale_price": 12.1,
+                            "cost_price": 4.96,
+                            "initial_price": 12.1,
+                            "hour": 0,
+                            "days_until_expiry": 5
+                        },
+                        {
+                            "product_name": "Ham",
+                            "sale_price": 4.46,
+                            "cost_price": 2.38,
+                            "initial_price": 4.46,
+                            "hour": 0,
+                            "days_until_expiry": 3
+                        },
+                        {
+                            "product_name": "Cream",
+                            "sale_price": 3.0,
+                            "cost_price": 1.76,
+                            "initial_price": 3.0,
+                            "hour": 0,
+                            "days_until_expiry": 9
+                        },
+                        {
+                            "product_name": "Frozen Desserts",
+                            "sale_price": 8.34,
+                            "cost_price": 5.87,
+                            "initial_price": 8.34,
+                            "hour": 0,
+                            "days_until_expiry": 79
+                        },
+                        {
+                            "product_name": "Lamb",
+                            "sale_price": 7.95,
+                            "cost_price": 4.18,
+                            "initial_price": 7.95,
+                            "hour": 0,
+                            "days_until_expiry": 7
+                        },
+                        {
+                            "product_name": "Cottage Cheese",
+                            "sale_price": 3.96,
+                            "cost_price": 2.27,
+                            "initial_price": 3.96,
+                            "hour": 0,
+                            "days_until_expiry": 8
+                        },
+                        {
+                            "product_name": "Milk Alternatives",
+                            "sale_price": 4.84,
+                            "cost_price": 3.32,
+                            "initial_price": 4.84,
+                            "hour": 0,
+                            "days_until_expiry": 10
+                        },
+                        {
+                            "product_name": "Probiotics",
+                            "sale_price": 261.34,
+                            "cost_price": 158.72,
+                            "initial_price": 261.34,
+                            "hour": 0,
+                            "days_until_expiry": 162
+                        },
+                        {
+                            "product_name": "Prepared Salads",
+                            "sale_price": 4.07,
+                            "cost_price": 1.65,
+                            "initial_price": 4.07,
+                            "hour": 0,
+                            "days_until_expiry": 9
+                        },
+                        {
+                            "product_name": "Vaccines",
+                            "sale_price": 410.7,
+                            "cost_price": 27.53,
+                            "initial_price": 66.35,
+                            "hour": 2,
+                            "days_until_expiry": 101
+                        },
+                        {
+                            "product_name": "Turkey Slices",
+                            "sale_price": 5.79,
+                            "cost_price": 3.6,
+                            "initial_price": 5.79,
+                            "hour": 2,
+                            "days_until_expiry": 6
+                        },
+                        {
+                            "product_name": "Cod",
+                            "sale_price": 29.99,
+                            "cost_price": 11.55,
+                            "initial_price": 23.48,
+                            "hour": 2,
+                            "days_until_expiry": 3
+                        },
+                        {
+                            "product_name": "Kombucha",
+                            "sale_price": 7.99,
+                            "cost_price": 3.77,
+                            "initial_price": 6.34,
+                            "hour": 4,
+                            "days_until_expiry": 9
+                        }
+                    ]
+                },
+                "histories": {
+                    "1": [
+                        {
+                            "role": "user",
+                            "content": "{\"action\": \"COUNTER\", \"counter_offer\": 32.22, \"message\": \"I'm willing to meet you at the current price, but I'm prepared to walk away if it doesn't improve.\", \"latency\": 0.33800673484802246}"
+                        }
+                    ],
+                    "2": [
+                        {
+                            "role": "user",
+                            "content": "{\"action\": \"ACCEPT\", \"counter_offer\": 12.1, \"message\": \"I'll take the dip at the normal price, no need to haggle!\", \"latency\": 0.18000173568725586}"
+                        }
+                    ],
+                    "3": [
+                        {
+                            "role": "user",
+                            "content": "{\"action\": \"ACCEPT\", \"counter_offer\": 4.46, \"message\": \"Accepting the normal retail price for the ham.\", \"latency\": 0.12911534309387207}"
+                        }
+                    ],
+                    "4": [
+                        {
+                            "role": "user",
+                            "content": "{\"action\": \"COUNTER\", \"counter_offer\": 85.99, \"message\": \"I'm willing to meet you halfway, but I'm not going to break the bank.\", \"latency\": 0.21108675003051758}"
+                        },
+                        {
+                            "role": "assistant",
+                            "content": "{\"action\": \"ACCEPT\"}"
+                        }
+                    ],
+                    "5": [
+                        {
+                            "role": "user",
+                            "content": "{\"action\": \"ACCEPT\", \"counter_offer\": 8.34, \"message\": \"I'll take it! It's a great deal!\", \"latency\": 0.13388490676879883}"
+                        }
+                    ],
+                    "6": [
+                        {
+                            "role": "user",
+                            "content": "{\"action\": \"COUNTER\", \"counter_offer\": 7.95, \"message\": \"I can do that, but I was hoping for a slightly better deal. Can you meet me at $7.95?\", \"latency\": 0.16901779174804688}"
+                        }
+                    ],
+                    "7": [
+                        {
+                            "role": "user",
+                            "content": "{\"action\": \"COUNTER\", \"counter_offer\": 7.99, \"message\": \"I'm willing to pay a bit more, but I need it urgently. Can you meet me at $7.99?\", \"latency\": 0.29497265815734863}"
+                        }
+                    ],
+                    "8": [
+                        {
+                            "role": "user",
+                            "content": "{\"action\": \"COUNTER\", \"counter_offer\": 3.96, \"message\": \"I'll meet you at the normal retail price, but I'm not willing to go any higher.\", \"latency\": 0.379927396774292}"
+                        }
+                    ],
+                    "9": [
+                        {
+                            "role": "user",
+                            "content": "{\"action\": \"COUNTER\", \"counter_offer\": 5.79, \"message\": \"I'm not budging on the price, but I'll meet you halfway.\", \"latency\": 0.16486215591430664}"
+                        }
+                    ],
+                    "10": [],
+                    "11": [
+                        {
+                            "role": "user",
+                            "content": "{\"action\": \"COUNTER\", \"counter_offer\": 80.0, \"message\": \"I'm willing to meet you halfway, but I'm not going to break the bank!\", \"latency\": 0.5086023807525635}"
+                        },
+                        {
+                            "role": "assistant",
+                            "content": "{\"action\": \"ACCEPT\"}"
+                        }
+                    ],
+                    "12": [],
+                    "13": [
+                        {
+                            "role": "user",
+                            "content": "{\"action\": \"COUNTER\", \"counter_offer\": 85.0, \"message\": \"I'm willing to pay $85, but I'm not sure if that's the best price I can get. Can you meet me at this price?\", \"latency\": 0.9743251800537109}"
+                        },
+                        {
+                            "role": "assistant",
+                            "content": "{\"action\": \"ACCEPT\"}"
+                        }
+                    ],
+                    "14": [
+                        {
+                            "role": "user",
+                            "content": "{\"action\": \"COUNTER\", \"counter_offer\": 261.34, \"message\": \"I can do that, but I'd like to negotiate a better price. I'm willing to meet you at your current quote.\", \"latency\": 0.1803436279296875}"
+                        }
+                    ],
+                    "15": [
+                        {
+                            "role": "user",
+                            "content": "{\"action\": \"COUNTER\", \"counter_offer\": 29.99, \"message\": \"I'm willing to pay a bit more, but I need to stay within my budget. Can you meet me at $29.99?\", \"latency\": 0.2511138916015625}"
+                        }
+                    ]
+                },
+                "duration": 10
+            }
+        }
+    }
+]
