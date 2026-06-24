@@ -1,0 +1,1264 @@
+{
+    "experiment": "All Llama-8B (Debate)",
+    "metrics": {
+        "mas": {
+            "PCR": 1.2847978284266195,
+            "IV": 0.8181818181818182,
+            "EE": 0.5942427512269832,
+            "Total Profit": 522.58,
+            "Waste Loss": 181.14000000000001,
+            "Items Sold": 9
+        },
+        "human": {
+            "PCR": 8.740891183595307,
+            "IV": 1.0,
+            "EE": 1.0636116815761079,
+            "Total Profit": 784.5400000000001,
+            "Waste Loss": 173.41,
+            "Items Sold": 11
+        }
+    },
+    "raw": {
+        "mas": {
+            "mode": "MAS_DEBATE",
+            "status": "FINISHED",
+            "sold_count": 9,
+            "sold_items": [
+                "Tilapia",
+                "Sausages",
+                "Antibiotics",
+                "Eye Drops",
+                "Milk",
+                "Grapes",
+                "Yogurt",
+                "Croissants",
+                "Chicken"
+            ],
+            "total_items": 15,
+            "blackboard": {
+                "inventory": [
+                    {
+                        "product_name": "Milk",
+                        "selling_price": 10.96,
+                        "cost_price": 6.04,
+                        "days_until_expiry": 12,
+                        "spoilage_risk": 0.247,
+                        "daily_demand": 14,
+                        "quality_grade": "B"
+                    },
+                    {
+                        "product_name": "Cod",
+                        "selling_price": 11.6,
+                        "cost_price": 4.87,
+                        "days_until_expiry": 6,
+                        "spoilage_risk": 0.215,
+                        "daily_demand": 2,
+                        "quality_grade": "B"
+                    },
+                    {
+                        "product_name": "Lamb",
+                        "selling_price": 11.64,
+                        "cost_price": 5.09,
+                        "days_until_expiry": 6,
+                        "spoilage_risk": 0.144,
+                        "daily_demand": 61,
+                        "quality_grade": "B"
+                    },
+                    {
+                        "product_name": "Croissants",
+                        "selling_price": 12.1,
+                        "cost_price": 7.65,
+                        "days_until_expiry": 3,
+                        "spoilage_risk": 0.148,
+                        "daily_demand": 179,
+                        "quality_grade": "B"
+                    },
+                    {
+                        "product_name": "Antibiotics",
+                        "selling_price": 310.11,
+                        "cost_price": 125.0,
+                        "days_until_expiry": 498,
+                        "spoilage_risk": 0.211,
+                        "daily_demand": 0,
+                        "quality_grade": "A"
+                    },
+                    {
+                        "product_name": "Chicken",
+                        "selling_price": 18.84,
+                        "cost_price": 11.1,
+                        "days_until_expiry": 3,
+                        "spoilage_risk": 0.243,
+                        "daily_demand": 73,
+                        "quality_grade": "B"
+                    },
+                    {
+                        "product_name": "Frozen Desserts",
+                        "selling_price": 19.55,
+                        "cost_price": 11.36,
+                        "days_until_expiry": 223,
+                        "spoilage_risk": 0.192,
+                        "daily_demand": 1,
+                        "quality_grade": "B"
+                    },
+                    {
+                        "product_name": "Sausages",
+                        "selling_price": 10.64,
+                        "cost_price": 5.52,
+                        "days_until_expiry": 4,
+                        "spoilage_risk": 0.271,
+                        "daily_demand": 26,
+                        "quality_grade": "B"
+                    },
+                    {
+                        "product_name": "Yogurt",
+                        "selling_price": 3.1,
+                        "cost_price": 2.14,
+                        "days_until_expiry": 17,
+                        "spoilage_risk": 0.245,
+                        "daily_demand": 13,
+                        "quality_grade": "B"
+                    },
+                    {
+                        "product_name": "Eye Drops",
+                        "selling_price": 374.82,
+                        "cost_price": 168.56,
+                        "days_until_expiry": 634,
+                        "spoilage_risk": 0.204,
+                        "daily_demand": 1,
+                        "quality_grade": "B"
+                    },
+                    {
+                        "product_name": "Probiotics",
+                        "selling_price": 277.98,
+                        "cost_price": 156.96,
+                        "days_until_expiry": 520,
+                        "spoilage_risk": 0.196,
+                        "daily_demand": 2,
+                        "quality_grade": "B"
+                    },
+                    {
+                        "product_name": "Grapes",
+                        "selling_price": 3.7,
+                        "cost_price": 1.51,
+                        "days_until_expiry": 16,
+                        "spoilage_risk": 0.166,
+                        "daily_demand": 14,
+                        "quality_grade": "A"
+                    },
+                    {
+                        "product_name": "Bananas",
+                        "selling_price": 4.8,
+                        "cost_price": 2.86,
+                        "days_until_expiry": 14,
+                        "spoilage_risk": 0.227,
+                        "daily_demand": 8,
+                        "quality_grade": "B"
+                    },
+                    {
+                        "product_name": "Tilapia",
+                        "selling_price": 32.69,
+                        "cost_price": 22.61,
+                        "days_until_expiry": 3,
+                        "spoilage_risk": 0.226,
+                        "daily_demand": 50,
+                        "quality_grade": "B"
+                    },
+                    {
+                        "product_name": "Yogurt",
+                        "selling_price": 10.63,
+                        "cost_price": 7.31,
+                        "days_until_expiry": 21,
+                        "spoilage_risk": 0.124,
+                        "daily_demand": 16,
+                        "quality_grade": "A"
+                    }
+                ],
+                "quotes": {
+                    "Milk": 12.23,
+                    "Cod": 12.92,
+                    "Lamb": 12.99,
+                    "Croissants": 12.75,
+                    "Antibiotics": 310.11,
+                    "Chicken": 22.99,
+                    "Frozen Desserts": 19.55,
+                    "Sausages": 9.57,
+                    "Yogurt": 3.05,
+                    "Eye Drops": 374.82,
+                    "Probiotics": 277.98,
+                    "Grapes": 3.7,
+                    "Bananas": 4.8,
+                    "Tilapia": 29.41
+                },
+                "floor_prices": {
+                    "Milk": 7.09,
+                    "Cod": 4.45,
+                    "Lamb": 4.51,
+                    "Croissants": 7.65,
+                    "Antibiotics": 137.5,
+                    "Chicken": 9.78,
+                    "Frozen Desserts": 9.58,
+                    "Sausages": 4.88,
+                    "Yogurt": 2.89,
+                    "Eye Drops": 169.28,
+                    "Probiotics": 157.49,
+                    "Grapes": 1.61,
+                    "Bananas": 2.46,
+                    "Tilapia": 23.51
+                },
+                "strategy": "Normal operations. (Refined by Judge)",
+                "logs": [
+                    "HIVE: Analyzing market...",
+                    "HIVE: Formulating strategy...",
+                    "HIVE: Initiating Bull vs Bear Debate...",
+                    "HIVE: Judge synthesizing final strategy...",
+                    "HIVE: Engaging active buyers...",
+                    "ENGAGING: B1 (CALCULATED) for Eye Drops...",
+                    "ENGAGING: B2 (IMPULSE) for Yogurt...",
+                    "ENGAGING: B3 (ESSENTIAL) for Tilapia...",
+                    "SUCCESS: B3 (ESSENTIAL) bought Tilapia at $39.28",
+                    "ENGAGING: B4 (ESSENTIAL) for Antibiotics...",
+                    "ENGAGING: B5 (CALCULATED) for Probiotics...",
+                    "ENGAGING: B6 (CALCULATED) for Cod...",
+                    "ENGAGING: B7 (ESSENTIAL) for Sausages...",
+                    "SUCCESS: B7 (ESSENTIAL) bought Sausages at $12.83",
+                    "ENGAGING: B8 (IMPULSE) for Eye Drops...",
+                    "ENGAGING: B10 (CALCULATED) for Probiotics...",
+                    "ENGAGING: B11 (CALCULATED) for Yogurt...",
+                    "ENGAGING: B12 (ESSENTIAL) for Yogurt...",
+                    "ENGAGING: B13 (CALCULATED) for Croissants...",
+                    "ENGAGING: B14 (ESSENTIAL) for Eye Drops...",
+                    "ENGAGING: B15 (IMPULSE) for Milk...",
+                    "HIVE: Engaging active buyers...",
+                    "ENGAGING: B1 (CALCULATED) for Eye Drops...",
+                    "ENGAGING: B2 (IMPULSE) for Yogurt...",
+                    "COUNTER: B2 offered $11.50",
+                    "SELLER -> B2: Counter-offer $12.73",
+                    "ENGAGING: B3 (ESSENTIAL) for Milk...",
+                    "ENGAGING: B4 (ESSENTIAL) for Antibiotics...",
+                    "SUCCESS: B4 (ESSENTIAL) bought Antibiotics at $375.13",
+                    "ENGAGING: B5 (CALCULATED) for Probiotics...",
+                    "ENGAGING: B6 (CALCULATED) for Cod...",
+                    "ENGAGING: B7 (ESSENTIAL) for Milk...",
+                    "ENGAGING: B8 (IMPULSE) for Eye Drops...",
+                    "ENGAGING: B10 (CALCULATED) for Probiotics...",
+                    "ENGAGING: B11 (CALCULATED) for Yogurt...",
+                    "ENGAGING: B12 (ESSENTIAL) for Yogurt...",
+                    "COUNTER: B12 offered $7.00",
+                    "SELLER -> B12: Counter-offer $7.46",
+                    "ENGAGING: B13 (CALCULATED) for Croissants...",
+                    "ENGAGING: B14 (ESSENTIAL) for Eye Drops...",
+                    "COUNTER: B14 offered $390.00",
+                    "SUCCESS: B14 (ESSENTIAL) bought Eye Drops at $390.00",
+                    "ENGAGING: B15 (IMPULSE) for Milk...",
+                    "HIVE: Analyzing market...",
+                    "HIVE: Formulating strategy...",
+                    "HIVE: Initiating Bull vs Bear Debate...",
+                    "HIVE: Judge synthesizing final strategy...",
+                    "HIVE: Engaging active buyers...",
+                    "ENGAGING: B2 (IMPULSE) for Yogurt...",
+                    "ENGAGING: B3 (ESSENTIAL) for Milk...",
+                    "SUCCESS: B3 (ESSENTIAL) bought Milk at $12.23",
+                    "ENGAGING: B5 (CALCULATED) for Probiotics...",
+                    "ENGAGING: B6 (CALCULATED) for Cod...",
+                    "ENGAGING: B7 (ESSENTIAL) for Bananas...",
+                    "ENGAGING: B8 (IMPULSE) for Croissants...",
+                    "COUNTER: B8 offered $12.50",
+                    "SELLER -> B8: Counter-offer $12.75",
+                    "ENGAGING: B10 (CALCULATED) for Probiotics...",
+                    "ENGAGING: B11 (CALCULATED) for Yogurt...",
+                    "ENGAGING: B12 (ESSENTIAL) for Yogurt...",
+                    "ENGAGING: B13 (CALCULATED) for Croissants...",
+                    "ENGAGING: B14 (ESSENTIAL) for Grapes...",
+                    "SUCCESS: B14 (ESSENTIAL) bought Grapes at $3.70",
+                    "ENGAGING: B15 (IMPULSE) for Yogurt...",
+                    "HIVE: Engaging active buyers...",
+                    "ENGAGING: B2 (IMPULSE) for Yogurt...",
+                    "COUNTER: B2 offered $3.05",
+                    "SELLER -> B2: Counter-offer $3.05",
+                    "ENGAGING: B5 (CALCULATED) for Probiotics...",
+                    "ENGAGING: B6 (CALCULATED) for Cod...",
+                    "ENGAGING: B7 (ESSENTIAL) for Bananas...",
+                    "ENGAGING: B8 (IMPULSE) for Croissants...",
+                    "COUNTER: B8 offered $12.62",
+                    "SELLER -> B8: Counter-offer $12.75",
+                    "ENGAGING: B10 (CALCULATED) for Probiotics...",
+                    "ENGAGING: B11 (CALCULATED) for Yogurt...",
+                    "ENGAGING: B12 (ESSENTIAL) for Yogurt...",
+                    "SUCCESS: B12 (ESSENTIAL) bought Yogurt at $3.05",
+                    "ENGAGING: B13 (CALCULATED) for Croissants...",
+                    "COUNTER: B13 offered $13.50",
+                    "SUCCESS: B13 (CALCULATED) bought Croissants at $13.50",
+                    "ENGAGING: B15 (IMPULSE) for Bananas...",
+                    "HIVE: Analyzing market...",
+                    "HIVE: Formulating strategy...",
+                    "HIVE: Initiating Bull vs Bear Debate...",
+                    "HIVE: Judge synthesizing final strategy...",
+                    "HIVE: Engaging active buyers...",
+                    "ENGAGING: B2 (IMPULSE) for Chicken...",
+                    "SUCCESS: B2 (IMPULSE) bought Chicken at $22.99",
+                    "ENGAGING: B5 (CALCULATED) for Probiotics...",
+                    "ENGAGING: B6 (CALCULATED) for Cod...",
+                    "ENGAGING: B7 (ESSENTIAL) for Bananas...",
+                    "ENGAGING: B10 (CALCULATED) for Probiotics...",
+                    "ENGAGING: B11 (CALCULATED) for Lamb...",
+                    "ENGAGING: B13 (CALCULATED) for Cod...",
+                    "ENGAGING: B15 (IMPULSE) for Bananas..."
+                ],
+                "chaos": [],
+                "sales_data": [
+                    {
+                        "product_name": "Tilapia",
+                        "sale_price": 39.28,
+                        "cost_price": 22.61,
+                        "initial_price": 32.69,
+                        "hour": 0,
+                        "days_until_expiry": 3
+                    },
+                    {
+                        "product_name": "Sausages",
+                        "sale_price": 12.83,
+                        "cost_price": 5.52,
+                        "initial_price": 10.64,
+                        "hour": 0,
+                        "days_until_expiry": 4
+                    },
+                    {
+                        "product_name": "Antibiotics",
+                        "sale_price": 375.13,
+                        "cost_price": 125.0,
+                        "initial_price": 310.11,
+                        "hour": 2,
+                        "days_until_expiry": 498
+                    },
+                    {
+                        "product_name": "Eye Drops",
+                        "sale_price": 390.0,
+                        "cost_price": 168.56,
+                        "initial_price": 374.82,
+                        "hour": 2,
+                        "days_until_expiry": 634
+                    },
+                    {
+                        "product_name": "Milk",
+                        "sale_price": 12.23,
+                        "cost_price": 6.04,
+                        "initial_price": 10.96,
+                        "hour": 4,
+                        "days_until_expiry": 12
+                    },
+                    {
+                        "product_name": "Grapes",
+                        "sale_price": 3.7,
+                        "cost_price": 1.51,
+                        "initial_price": 3.7,
+                        "hour": 4,
+                        "days_until_expiry": 16
+                    },
+                    {
+                        "product_name": "Yogurt",
+                        "sale_price": 3.05,
+                        "cost_price": 2.14,
+                        "initial_price": 3.1,
+                        "hour": 6,
+                        "days_until_expiry": 17
+                    },
+                    {
+                        "product_name": "Croissants",
+                        "sale_price": 13.5,
+                        "cost_price": 7.65,
+                        "initial_price": 12.1,
+                        "hour": 6,
+                        "days_until_expiry": 3
+                    },
+                    {
+                        "product_name": "Chicken",
+                        "sale_price": 22.99,
+                        "cost_price": 11.1,
+                        "initial_price": 18.84,
+                        "hour": 8,
+                        "days_until_expiry": 3
+                    }
+                ]
+            },
+            "histories": {
+                "1": [
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WAIT\", \"message\": \"Current market quote is $378.01. Waiting for a better offer before making a decision.\", \"latency\": 0.8218338489532471}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WAIT\", \"message\": \"Still waiting for a more competitive offer. Desperation factor is 0.20, willing to wait for a better deal.\", \"latency\": 0.27829957008361816}"
+                    }
+                ],
+                "2": [
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WAIT\", \"message\": \"I'm not sure if I want to commit to buying at this price. Can you give me a minute to think?\", \"latency\": 0.28684449195861816}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"COUNTER\", \"counter_offer\": 11.5, \"message\": \"I can live with that price, but I'm not sure if it's the best I can get. Can you meet me in the middle?\", \"latency\": 0.8981258869171143}"
+                    },
+                    {
+                        "role": "assistant",
+                        "content": "{\"action\": \"WAIT\", \"message\": \"I completely understand, take all the time you need. I'm confident we can come to a mutually beneficial agreement.\", \"latency\": 0.37836670875549316}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WAIT\", \"message\": \"I completely understand, take all the time you need. I'm confident we can come to a mutually beneficial agreement.\", \"latency\": 0.22639107704162598}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"COUNTER\", \"counter_offer\": 3.05, \"message\": \"You know what, I think we're getting close. I can meet you at $3.05, but that's as low as I can go.\", \"latency\": 0.23349857330322266}"
+                    },
+                    {
+                        "role": "assistant",
+                        "content": "{\"action\": \"COUNTER\", \"new_quote\": 3.05, \"message\": \"I can see you're a serious buyer, let's meet you halfway. I can offer you the yogurt at $3.05, a fair price considering the market balance.\", \"latency\": 0.22140049934387207}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"ACCEPT\", \"counter_offer\": 3.05, \"message\": \"Deal!\", \"latency\": 0.3300304412841797}"
+                    }
+                ],
+                "3": [
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"ACCEPT\", \"message\": \"Accepting the current quote of $39.28 for the Tilapia as it meets our budget and we need it urgently.\", \"latency\": 0.5816900730133057}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WAIT\", \"message\": \"We are waiting for the milk quote, please provide the current price for the milk.\", \"latency\": 0.4831058979034424}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"ACCEPT\", \"message\": \"Accepting the current quote of $12.23 for the milk as it meets our budget and we need it urgently.\", \"latency\": 0.17928290367126465}"
+                    }
+                ],
+                "4": [
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WAIT\", \"message\": \"Waiting for a better quote before proceeding with the purchase.\", \"latency\": 0.8695805072784424}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"ACCEPT\", \"message\": \"Given the urgency of the situation, I'm willing to accept the current quote to secure the antibiotics.\", \"latency\": 0.1634676456451416}"
+                    }
+                ],
+                "5": [
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WAIT\", \"message\": \"Current market quote is $281.49. Waiting for a better offer before making a decision.\", \"latency\": 0.2605020999908447}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WAIT\", \"message\": \"Still waiting for a more competitive offer. Desperation factor: 0.20\", \"latency\": 0.24733972549438477}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WAIT\", \"message\": \"Still waiting for a more competitive offer. Current market quote is $281.49. Desperation factor: 0.20\", \"latency\": 0.4848036766052246}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WAIT\", \"message\": \"Still waiting for a more competitive offer. Current market quote is $281.49. Desperation factor: 0.20\", \"latency\": 0.16169524192810059}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WAIT\", \"message\": \"Still waiting for a more competitive offer. Current market quote is $281.49. Desperation factor: 0.20\", \"latency\": 0.46247005462646484}"
+                    }
+                ],
+                "6": [
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WAIT\", \"message\": \"Current market quote is $14.22. Waiting for a better offer before making a decision.\", \"latency\": 0.22600030899047852}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WAIT\", \"message\": \"Still waiting for a better offer. Desperation factor is 0.20, willing to wait for a more favorable price.\", \"latency\": 0.8023033142089844}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WAIT\", \"message\": \"Still waiting for a better offer. Current market quote is $14.22, willing to wait for a more favorable price. Desperation factor is 0.20.\", \"latency\": 0.46042418479919434}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WAIT\", \"message\": \"Still waiting for a better offer. Current market quote is $14.22, willing to wait for a more favorable price. Desperation factor is 0.20.\", \"latency\": 0.17256951332092285}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WAIT\", \"message\": \"Still waiting for a better offer. Current market quote is $14.22, willing to wait for a more favorable price. Desperation factor is 0.20.\", \"latency\": 0.2855842113494873}"
+                    }
+                ],
+                "7": [
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"ACCEPT\", \"message\": \"I accept the current quote of $12.83 for the sausages as it meets my immediate needs.\", \"latency\": 0.614508867263794}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WAIT\", \"message\": \"I'm waiting for the milk, but I'd like to confirm the quantity and any additional costs before proceeding.\", \"latency\": 0.2451629638671875}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WAIT\", \"message\": \"I'm waiting for the milk quantity and any additional costs. Please proceed with the details.\", \"latency\": 0.28864574432373047}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WAIT\", \"message\": \"I'm still waiting for the milk quantity and any additional costs. Please provide the details so I can proceed with the purchase.\", \"latency\": 0.4933595657348633}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WAIT\", \"message\": \"I'm still waiting for the milk quantity and any additional costs. Please provide the details so I can proceed with the purchase. My current target is milk, and I'm willing to pay a premium to secure it.\", \"latency\": 0.2219069004058838}"
+                    }
+                ],
+                "8": [
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WAIT\", \"message\": \"I'd like to see if I can get a better price, but I really need these eye drops. Can you give me a minute to think?\", \"latency\": 0.15942859649658203}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WAIT\", \"message\": \"Okay, I'll wait. But don't take too long, I'm really in a bind here.\", \"latency\": 0.154005765914917}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"COUNTER\", \"counter_offer\": 12.5, \"message\": \"Alright, I'll give you $12.50 for the eye drops. That's the best I can do.\", \"latency\": 0.15929198265075684}"
+                    },
+                    {
+                        "role": "assistant",
+                        "content": "{\"action\": \"COUNTER\", \"new_quote\": 12.75, \"message\": \"I can see you're in a bit of a rush, but I'm afraid I have to balance my prices to stay competitive. I can give you a slightly better deal, but I'm not willing to go much lower than that.\", \"latency\": 0.23815107345581055}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"COUNTER\", \"counter_offer\": 12.62, \"message\": \"I can see you're in a bit of a rush, but I'm afraid I have to balance my prices to stay competitive. I can give you a slightly better deal, but I'm not willing to go much lower than that.\", \"latency\": 0.4013979434967041}"
+                    },
+                    {
+                        "role": "assistant",
+                        "content": "{\"action\": \"COUNTER\", \"new_quote\": 12.75, \"message\": \"I can see you're in a bit of a rush, but I'm afraid I have to balance my prices to stay competitive. I can give you a slightly better deal, but I'm not willing to go much lower than that.\", \"latency\": 0.2861025333404541}"
+                    }
+                ],
+                "9": [],
+                "10": [
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WAIT\", \"message\": \"Waiting for a better price, current market quote is $281.49, which is below my target price. Desperation Factor: 0.00\", \"latency\": 0.8394663333892822}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WAIT\", \"message\": \"Still waiting for a better price, current market quote is $281.49, which is below my target price. Desperation Factor: 0.00\", \"latency\": 0.25443530082702637}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WAIT\", \"message\": \"Still waiting for a better price, current market quote is $281.49, which is below my target price. Desperation Factor: 0.00\", \"latency\": 0.19416165351867676}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WAIT\", \"message\": \"Still waiting for a better price, current market quote is $281.49, which is below my target price. Desperation Factor: 0.00\", \"latency\": 0.3521237373352051}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WAIT\", \"message\": \"Still waiting for a better price, current market quote is $281.49, which is below my target price. Desperation Factor: 0.00\", \"latency\": 0.242110013961792}"
+                    }
+                ],
+                "11": [
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WAIT\", \"message\": \"Current market quote is $12.73. Waiting for a better offer.\", \"latency\": 0.1924598217010498}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WAIT\", \"message\": \"Still waiting for a better offer. Current market quote is $12.73. Desperation factor: 0.20\", \"latency\": 0.16832852363586426}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WAIT\", \"message\": \"Still waiting for a better offer. Current market quote is $12.73. Desperation factor: 0.20\", \"latency\": 0.26763486862182617}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WAIT\", \"message\": \"Still waiting for a better offer. Current market quote is $12.73. Desperation factor: 0.20\", \"latency\": 0.14684271812438965}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WAIT\", \"message\": \"Still waiting for a better offer. Current market quote is $12.73. Desperation factor: 0.20\", \"latency\": 0.17870450019836426}"
+                    }
+                ],
+                "12": [
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WAIT\", \"message\": \"I'm willing to wait for a better quote, but I need this urgently. Please try to meet my budget of $6.74.\", \"latency\": 0.3171854019165039}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"COUNTER\", \"counter_offer\": 7.0, \"message\": \"I'm willing to pay a bit more, but I really need this item. Can you meet me at $7.00?\", \"latency\": 0.15524601936340332}"
+                    },
+                    {
+                        "role": "assistant",
+                        "content": "{\"action\": \"COUNTER\", \"new_quote\": 7.0, \"message\": \"I can do $7.00, which is the lowest I can go without losing money on this deal. I'm willing to work with you, but I need to make a profit.\", \"latency\": 0.28099632263183594}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WAIT\", \"message\": \"I can do $7.00, which is the lowest I can go without losing money on this deal. I'm willing to work with you, but I need to make a profit.\", \"latency\": 0.6649832725524902}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"ACCEPT\", \"message\": \"I'm glad we could come to an agreement. I'll take the yogurt at $7.00. Thank you for your understanding and flexibility.\", \"latency\": 0.5169961452484131}"
+                    }
+                ],
+                "13": [
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WAIT\", \"message\": \"Current market quote is $14.62. Waiting for a better offer before making a decision.\", \"latency\": 0.14275503158569336}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WAIT\", \"message\": \"Still waiting for a better offer. Current market quote is $14.62. Desperation factor is 0.20, willing to wait for a fair deal.\", \"latency\": 0.2886683940887451}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WAIT\", \"message\": \"Market quote remains at $14.62. Still waiting for a better offer. Desperation factor is 0.20, willing to wait for a fair deal.\", \"latency\": 0.25792527198791504}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"COUNTER\", \"counter_offer\": 13.5, \"message\": \"I'm willing to pay $13.50 for the croissants, which is a 7.5% discount from the current market quote. Waiting for a response.\", \"latency\": 0.31355905532836914}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WAIT\", \"message\": \"Counteroffer accepted. Waiting for the seller to confirm the deal.\", \"latency\": 0.3621525764465332}"
+                    }
+                ],
+                "14": [
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WAIT\", \"message\": \"I'd like to wait for a better offer before making a decision. Current market quote is $378.01.\", \"latency\": 0.6495590209960938}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"COUNTER\", \"counter_offer\": 390.0, \"message\": \"I'm willing to pay a bit more, but I'd like to get a better deal than the current market quote. I'm offering $390.00 for the Eye Drops.\", \"latency\": 0.5017900466918945}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"ACCEPT\", \"message\": \"I'm willing to accept your counteroffer of $390.00. I really need the grapes and I'm not willing to wait any longer.\", \"latency\": 0.4551517963409424}"
+                    }
+                ],
+                "15": [
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WAIT\", \"message\": \"Hmmm, $13.14 seems like a good price, but I want to see what else is out there.\", \"latency\": 0.5140781402587891}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WAIT\", \"message\": \"I'm not in a rush, let me browse some other options...\", \"latency\": 0.14098286628723145}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WAIT\", \"message\": \"I'm just browsing, don't mind me...\", \"latency\": 0.3039419651031494}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WAIT\", \"message\": \"Still browsing...\", \"latency\": 0.1612410545349121}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WAIT\", \"message\": \"Just a few more minutes, I'm almost done...\", \"latency\": 0.19869422912597656}"
+                    }
+                ]
+            },
+            "duration": 10
+        },
+        "human": {
+            "mode": "BASELINE",
+            "status": "FINISHED",
+            "sold_count": 11,
+            "sold_items": [
+                "Tilapia",
+                "Antibiotics",
+                "Sausages",
+                "Eye Drops",
+                "Yogurt",
+                "Chicken",
+                "Cod",
+                "Milk",
+                "Croissants",
+                "Grapes",
+                "Bananas"
+            ],
+            "total_items": 15,
+            "blackboard": {
+                "inventory": [
+                    {
+                        "product_name": "Milk",
+                        "selling_price": 10.96,
+                        "cost_price": 6.04,
+                        "days_until_expiry": 12,
+                        "spoilage_risk": 0.247,
+                        "daily_demand": 14,
+                        "quality_grade": "B"
+                    },
+                    {
+                        "product_name": "Cod",
+                        "selling_price": 11.6,
+                        "cost_price": 4.87,
+                        "days_until_expiry": 6,
+                        "spoilage_risk": 0.215,
+                        "daily_demand": 2,
+                        "quality_grade": "B"
+                    },
+                    {
+                        "product_name": "Lamb",
+                        "selling_price": 11.64,
+                        "cost_price": 5.09,
+                        "days_until_expiry": 6,
+                        "spoilage_risk": 0.144,
+                        "daily_demand": 61,
+                        "quality_grade": "B"
+                    },
+                    {
+                        "product_name": "Croissants",
+                        "selling_price": 12.1,
+                        "cost_price": 7.65,
+                        "days_until_expiry": 3,
+                        "spoilage_risk": 0.148,
+                        "daily_demand": 179,
+                        "quality_grade": "B"
+                    },
+                    {
+                        "product_name": "Antibiotics",
+                        "selling_price": 310.11,
+                        "cost_price": 125.0,
+                        "days_until_expiry": 498,
+                        "spoilage_risk": 0.211,
+                        "daily_demand": 0,
+                        "quality_grade": "A"
+                    },
+                    {
+                        "product_name": "Chicken",
+                        "selling_price": 18.84,
+                        "cost_price": 11.1,
+                        "days_until_expiry": 3,
+                        "spoilage_risk": 0.243,
+                        "daily_demand": 73,
+                        "quality_grade": "B"
+                    },
+                    {
+                        "product_name": "Frozen Desserts",
+                        "selling_price": 19.55,
+                        "cost_price": 11.36,
+                        "days_until_expiry": 223,
+                        "spoilage_risk": 0.192,
+                        "daily_demand": 1,
+                        "quality_grade": "B"
+                    },
+                    {
+                        "product_name": "Sausages",
+                        "selling_price": 10.64,
+                        "cost_price": 5.52,
+                        "days_until_expiry": 4,
+                        "spoilage_risk": 0.271,
+                        "daily_demand": 26,
+                        "quality_grade": "B"
+                    },
+                    {
+                        "product_name": "Yogurt",
+                        "selling_price": 3.1,
+                        "cost_price": 2.14,
+                        "days_until_expiry": 17,
+                        "spoilage_risk": 0.245,
+                        "daily_demand": 13,
+                        "quality_grade": "B"
+                    },
+                    {
+                        "product_name": "Eye Drops",
+                        "selling_price": 374.82,
+                        "cost_price": 168.56,
+                        "days_until_expiry": 634,
+                        "spoilage_risk": 0.204,
+                        "daily_demand": 1,
+                        "quality_grade": "B"
+                    },
+                    {
+                        "product_name": "Probiotics",
+                        "selling_price": 277.98,
+                        "cost_price": 156.96,
+                        "days_until_expiry": 520,
+                        "spoilage_risk": 0.196,
+                        "daily_demand": 2,
+                        "quality_grade": "B"
+                    },
+                    {
+                        "product_name": "Grapes",
+                        "selling_price": 3.7,
+                        "cost_price": 1.51,
+                        "days_until_expiry": 16,
+                        "spoilage_risk": 0.166,
+                        "daily_demand": 14,
+                        "quality_grade": "A"
+                    },
+                    {
+                        "product_name": "Bananas",
+                        "selling_price": 4.8,
+                        "cost_price": 2.86,
+                        "days_until_expiry": 14,
+                        "spoilage_risk": 0.227,
+                        "daily_demand": 8,
+                        "quality_grade": "B"
+                    },
+                    {
+                        "product_name": "Tilapia",
+                        "selling_price": 32.69,
+                        "cost_price": 22.61,
+                        "days_until_expiry": 3,
+                        "spoilage_risk": 0.226,
+                        "daily_demand": 50,
+                        "quality_grade": "B"
+                    },
+                    {
+                        "product_name": "Yogurt",
+                        "selling_price": 10.63,
+                        "cost_price": 7.31,
+                        "days_until_expiry": 21,
+                        "spoilage_risk": 0.124,
+                        "daily_demand": 16,
+                        "quality_grade": "A"
+                    }
+                ],
+                "quotes": {
+                    "Milk": 10.96,
+                    "Cod": 11.6,
+                    "Lamb": 11.64,
+                    "Croissants": 12.1,
+                    "Antibiotics": 310.11,
+                    "Chicken": 18.84,
+                    "Frozen Desserts": 19.55,
+                    "Sausages": 10.64,
+                    "Yogurt": 10.63,
+                    "Eye Drops": 374.82,
+                    "Probiotics": 277.98,
+                    "Grapes": 3.7,
+                    "Bananas": 4.8,
+                    "Tilapia": 32.69
+                },
+                "floor_prices": {
+                    "Milk": 6.04,
+                    "Cod": 4.87,
+                    "Lamb": 5.09,
+                    "Croissants": 7.65,
+                    "Antibiotics": 125.0,
+                    "Chicken": 11.1,
+                    "Frozen Desserts": 11.36,
+                    "Sausages": 5.52,
+                    "Yogurt": 7.31,
+                    "Eye Drops": 168.56,
+                    "Probiotics": 156.96,
+                    "Grapes": 1.51,
+                    "Bananas": 2.86,
+                    "Tilapia": 22.61
+                },
+                "strategy": "Human intuition mode.",
+                "logs": [
+                    "HIVE: Engaging active buyers...",
+                    "ENGAGING: B1 (CALCULATED) for Eye Drops...",
+                    "ENGAGING: B2 (IMPULSE) for Yogurt...",
+                    "ENGAGING: B3 (ESSENTIAL) for Tilapia...",
+                    "SUCCESS: B3 (ESSENTIAL) bought Tilapia at $32.69",
+                    "ENGAGING: B4 (ESSENTIAL) for Antibiotics...",
+                    "SUCCESS: B4 (ESSENTIAL) bought Antibiotics at $310.11",
+                    "ENGAGING: B5 (CALCULATED) for Probiotics...",
+                    "ENGAGING: B6 (CALCULATED) for Cod...",
+                    "ENGAGING: B7 (ESSENTIAL) for Sausages...",
+                    "SUCCESS: B7 (ESSENTIAL) bought Sausages at $10.64",
+                    "ENGAGING: B8 (IMPULSE) for Eye Drops...",
+                    "ENGAGING: B10 (CALCULATED) for Probiotics...",
+                    "ENGAGING: B11 (CALCULATED) for Yogurt...",
+                    "ENGAGING: B12 (ESSENTIAL) for Yogurt...",
+                    "ENGAGING: B13 (CALCULATED) for Croissants...",
+                    "ENGAGING: B14 (ESSENTIAL) for Eye Drops...",
+                    "SUCCESS: B14 (ESSENTIAL) bought Eye Drops at $374.82",
+                    "ENGAGING: B15 (IMPULSE) for Milk...",
+                    "HIVE: Engaging active buyers...",
+                    "ENGAGING: B2 (IMPULSE) for Yogurt...",
+                    "COUNTER: B2 offered $9.50",
+                    "SUCCESS: B2 (IMPULSE) bought Yogurt at $9.50",
+                    "ENGAGING: B3 (ESSENTIAL) for Milk...",
+                    "ENGAGING: B5 (CALCULATED) for Probiotics...",
+                    "ENGAGING: B6 (CALCULATED) for Cod...",
+                    "ENGAGING: B7 (ESSENTIAL) for Milk...",
+                    "ENGAGING: B8 (IMPULSE) for Croissants...",
+                    "ENGAGING: B10 (CALCULATED) for Probiotics...",
+                    "ENGAGING: B11 (CALCULATED) for Lamb...",
+                    "ENGAGING: B13 (CALCULATED) for Croissants...",
+                    "ENGAGING: B14 (ESSENTIAL) for Grapes...",
+                    "ENGAGING: B15 (IMPULSE) for Milk...",
+                    "HIVE: Engaging active buyers...",
+                    "ENGAGING: B2 (IMPULSE) for Chicken...",
+                    "SUCCESS: B2 (IMPULSE) bought Chicken at $18.84",
+                    "ENGAGING: B3 (ESSENTIAL) for Milk...",
+                    "ENGAGING: B5 (CALCULATED) for Probiotics...",
+                    "ENGAGING: B6 (CALCULATED) for Cod...",
+                    "COUNTER: B6 offered $10.80",
+                    "SUCCESS: B6 (CALCULATED) bought Cod at $10.80",
+                    "ENGAGING: B7 (ESSENTIAL) for Milk...",
+                    "ENGAGING: B8 (IMPULSE) for Croissants...",
+                    "ENGAGING: B10 (CALCULATED) for Probiotics...",
+                    "ENGAGING: B11 (CALCULATED) for Lamb...",
+                    "ENGAGING: B13 (CALCULATED) for Croissants...",
+                    "ENGAGING: B14 (ESSENTIAL) for Grapes...",
+                    "ENGAGING: B15 (IMPULSE) for Milk...",
+                    "HIVE: Engaging active buyers...",
+                    "ENGAGING: B3 (ESSENTIAL) for Milk...",
+                    "ENGAGING: B5 (CALCULATED) for Probiotics...",
+                    "ENGAGING: B6 (CALCULATED) for Grapes...",
+                    "ENGAGING: B7 (ESSENTIAL) for Milk...",
+                    "COUNTER: B7 offered $11.50",
+                    "SUCCESS: B7 (ESSENTIAL) bought Milk at $11.50",
+                    "ENGAGING: B8 (IMPULSE) for Croissants...",
+                    "COUNTER: B8 offered $350.00",
+                    "SUCCESS: B8 (IMPULSE) bought Croissants at $350.00",
+                    "ENGAGING: B10 (CALCULATED) for Probiotics...",
+                    "ENGAGING: B11 (CALCULATED) for Lamb...",
+                    "ENGAGING: B14 (ESSENTIAL) for Grapes...",
+                    "COUNTER: B14 offered $4.00",
+                    "SUCCESS: B14 (ESSENTIAL) bought Grapes at $4.00",
+                    "ENGAGING: B15 (IMPULSE) for Bananas...",
+                    "HIVE: Engaging active buyers...",
+                    "ENGAGING: B5 (CALCULATED) for Probiotics...",
+                    "ENGAGING: B7 (ESSENTIAL) for Bananas...",
+                    "ENGAGING: B10 (CALCULATED) for Probiotics...",
+                    "ENGAGING: B11 (CALCULATED) for Lamb...",
+                    "ENGAGING: B15 (IMPULSE) for Bananas...",
+                    "COUNTER: B15 offered $9.50",
+                    "SUCCESS: B15 (IMPULSE) bought Bananas at $9.50"
+                ],
+                "chaos": [
+                    {
+                        "event": "DECEPTIVE_BIDDING",
+                        "impact_magnitude": 8,
+                        "message": "A group of buyers has formed a cartel, collectively lowering their bids on high-demand products such as Lamb and Croissants. This coordinated effort aims to drive down prices and increase market share. The cartel's influence is expected to be most pronounced on the following products: Lamb, Croissants, and Frozen Desserts.",
+                        "latency": 0.4587101936340332
+                    }
+                ],
+                "sales_data": [
+                    {
+                        "product_name": "Tilapia",
+                        "sale_price": 32.69,
+                        "cost_price": 22.61,
+                        "initial_price": 32.69,
+                        "hour": 0,
+                        "days_until_expiry": 3
+                    },
+                    {
+                        "product_name": "Antibiotics",
+                        "sale_price": 310.11,
+                        "cost_price": 125.0,
+                        "initial_price": 310.11,
+                        "hour": 0,
+                        "days_until_expiry": 498
+                    },
+                    {
+                        "product_name": "Sausages",
+                        "sale_price": 10.64,
+                        "cost_price": 5.52,
+                        "initial_price": 10.64,
+                        "hour": 0,
+                        "days_until_expiry": 4
+                    },
+                    {
+                        "product_name": "Eye Drops",
+                        "sale_price": 374.82,
+                        "cost_price": 168.56,
+                        "initial_price": 374.82,
+                        "hour": 0,
+                        "days_until_expiry": 634
+                    },
+                    {
+                        "product_name": "Yogurt",
+                        "sale_price": 9.5,
+                        "cost_price": 2.14,
+                        "initial_price": 3.1,
+                        "hour": 2,
+                        "days_until_expiry": 17
+                    },
+                    {
+                        "product_name": "Chicken",
+                        "sale_price": 18.84,
+                        "cost_price": 11.1,
+                        "initial_price": 18.84,
+                        "hour": 4,
+                        "days_until_expiry": 3
+                    },
+                    {
+                        "product_name": "Cod",
+                        "sale_price": 10.8,
+                        "cost_price": 4.87,
+                        "initial_price": 11.6,
+                        "hour": 4,
+                        "days_until_expiry": 6
+                    },
+                    {
+                        "product_name": "Milk",
+                        "sale_price": 11.5,
+                        "cost_price": 6.04,
+                        "initial_price": 10.96,
+                        "hour": 6,
+                        "days_until_expiry": 12
+                    },
+                    {
+                        "product_name": "Croissants",
+                        "sale_price": 350.0,
+                        "cost_price": 7.65,
+                        "initial_price": 12.1,
+                        "hour": 6,
+                        "days_until_expiry": 3
+                    },
+                    {
+                        "product_name": "Grapes",
+                        "sale_price": 4.0,
+                        "cost_price": 1.51,
+                        "initial_price": 3.7,
+                        "hour": 6,
+                        "days_until_expiry": 16
+                    },
+                    {
+                        "product_name": "Bananas",
+                        "sale_price": 9.5,
+                        "cost_price": 2.86,
+                        "initial_price": 4.8,
+                        "hour": 8,
+                        "days_until_expiry": 14
+                    }
+                ]
+            },
+            "histories": {
+                "1": [
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WAIT\", \"message\": \"Current market quote is $374.82, waiting for a better offer before proceeding with the purchase.\", \"latency\": 0.2271122932434082}"
+                    }
+                ],
+                "2": [
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WAIT\", \"message\": \"Let me think for a moment... I really need this yogurt, but I'm not sure if I want to pay $10.63. Can I get a better price?\", \"latency\": 0.27863073348999023}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"COUNTER\", \"counter_offer\": 9.5, \"message\": \"I'm willing to pay $9.50, but I really need this yogurt. Can you meet me in the middle?\", \"latency\": 0.1506490707397461}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"ACCEPT\", \"message\": \"Deal! I'll take it for $9.50. You're a lifesaver!\", \"latency\": 0.4615297317504883}"
+                    }
+                ],
+                "3": [
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"ACCEPT\", \"message\": \"Accepting the current quote of $32.69 for Tilapia as it meets the urgent requirement.\", \"latency\": 0.1518266201019287}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WAIT\", \"message\": \"I'm waiting for the milk quote, please provide the price for milk.\", \"latency\": 0.9443814754486084}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WAIT\", \"message\": \"Still waiting for the milk quote, please provide the price for milk.\", \"latency\": 0.9409043788909912}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WAIT\", \"message\": \"Still waiting for the milk quote, please provide the price for milk.\", \"latency\": 0.25664377212524414}"
+                    }
+                ],
+                "4": [
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"ACCEPT\", \"message\": \"I accept the current market quote of $310.11 for the Antibiotics. Please proceed with the transaction.\", \"latency\": 0.16920137405395508}"
+                    }
+                ],
+                "5": [
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WAIT\", \"message\": \"Current market quote is $277.98. Waiting for a better offer before making a decision.\", \"latency\": 0.18558740615844727}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WAIT\", \"message\": \"Still waiting for a more competitive offer. Desperation factor at 0.20, willing to wait for a better deal.\", \"latency\": 0.34384989738464355}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WAIT\", \"message\": \"Desperation factor at 0.20, still waiting for a more competitive offer. Current market quote is $277.98.\", \"latency\": 0.44566774368286133}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WAIT\", \"message\": \"Desperation factor at 0.20, still waiting for a more competitive offer. Current market quote is $277.98. Willing to wait for a better deal.\", \"latency\": 0.3077735900878906}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WAIT\", \"message\": \"Desperation factor at 0.20, still waiting for a more competitive offer. Current market quote is $277.98. Willing to wait for a better deal.\", \"latency\": 0.19117140769958496}"
+                    }
+                ],
+                "6": [
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WAIT\", \"message\": \"Current market quote is $11.60. Waiting for a better offer.\", \"latency\": 0.5783262252807617}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WAIT\", \"message\": \"Still waiting for a more competitive price. Desperation factor: 0.20\", \"latency\": 0.25832486152648926}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"COUNTER\", \"counter_offer\": 10.8, \"message\": \"I'm willing to pay up to $10.80 for the Cod. This is a 7% discount from the current market quote.\", \"latency\": 0.1766340732574463}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WAIT\", \"message\": \"Considering the counteroffer. Desperation factor: 0.25\", \"latency\": 0.18208098411560059}"
+                    }
+                ],
+                "7": [
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"ACCEPT\", \"message\": \"I'll accept the current quote of $10.64 for the sausages. Please proceed with the sale.\", \"latency\": 0.15073418617248535}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WAIT\", \"message\": \"I'm interested in the milk, but I'd like to confirm the price. Can you hold the quote for a moment while I check my budget?\", \"latency\": 0.17402005195617676}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WAIT\", \"message\": \"I'll hold the quote for now. Please confirm your budget and we can proceed with the sale.\", \"latency\": 0.4368278980255127}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"COUNTER\", \"counter_offer\": 11.5, \"message\": \"I'd like to make a counteroffer of $11.50 for the milk. I'm willing to pay a bit more to secure the item, but I'd like to stay within my budget.\", \"latency\": 0.3019249439239502}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WAIT\", \"message\": \"I'm still interested in the bananas, but I'd like to confirm the price. Can you hold the quote for a moment while I check my budget?\", \"latency\": 0.1745281219482422}"
+                    }
+                ],
+                "8": [
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WAIT\", \"message\": \"Let me think for a moment... I really need these eye drops, but $374.82 is a bit steep. I'll wait to see if the price drops or if I can find a better deal elsewhere.\", \"latency\": 0.26642894744873047}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WAIT\", \"message\": \"I'm not sure if I'm willing to pay that much, but I really need these eye drops. I'll wait for a bit longer to see what happens.\", \"latency\": 0.25340819358825684}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WAIT\", \"message\": \"I'm getting a bit anxious, the desperation factor is creeping up... I really don't want to leave empty-handed. Let's see if the seller will budge.\", \"latency\": 0.3194389343261719}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"COUNTER\", \"counter_offer\": 350.0, \"message\": \"I'll give you $350, that's my final offer. I really need these eye drops, and I'm willing to pay a bit more to avoid leaving empty-handed, but I'm not going to break the bank.\", \"latency\": 0.5370540618896484}"
+                    }
+                ],
+                "9": [],
+                "10": [
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WAIT\", \"message\": \"Current market quote is $277.98. Waiting for a better offer before making a decision.\", \"latency\": 0.1549358367919922}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WAIT\", \"message\": \"Still waiting for a better offer. Desperation Factor: 0.20. Willing to wait for a more favorable price.\", \"latency\": 0.155303955078125}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WAIT\", \"message\": \"Still waiting for a better offer. Current market quote is $277.98. Desperation Factor: 0.20. Willing to wait for a more favorable price.\", \"latency\": 0.36977314949035645}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WAIT\", \"message\": \"Still waiting for a better offer. Current market quote is $277.98. Desperation Factor: 0.20. Willing to wait for a more favorable price.\", \"latency\": 0.15346002578735352}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WAIT\", \"message\": \"Still waiting for a better offer. Current market quote is $277.98. Desperation Factor: 0.20. Willing to wait for a more favorable price.\", \"latency\": 0.5408103466033936}"
+                    }
+                ],
+                "11": [
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WAIT\", \"message\": \"Current market quote is $10.63. Waiting for a better offer.\", \"latency\": 0.36569762229919434}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WAIT\", \"message\": \"Still waiting for a better offer. Current market quote is $10.63.\", \"latency\": 0.12159848213195801}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WAIT\", \"message\": \"Still waiting for a better offer. Current market quote is $10.63. Desperation factor is 0.40, will not accept a price above market value.\", \"latency\": 0.19012165069580078}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WAIT\", \"message\": \"Still waiting for a better offer. Current market quote is $10.63. Desperation factor is 0.40, will not accept a price above market value.\", \"latency\": 0.3185608386993408}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WAIT\", \"message\": \"Still waiting for a better offer. Current market quote is $10.63. Desperation factor is 0.40, will not accept a price above market value.\", \"latency\": 0.3195655345916748}"
+                    }
+                ],
+                "12": [
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WAIT\", \"message\": \"I'm willing to wait for a better quote, but I need this item urgently.\", \"latency\": 0.14313197135925293}"
+                    }
+                ],
+                "13": [
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WAIT\", \"message\": \"Current market quote is $12.10. Waiting for a better offer before making a decision.\", \"latency\": 0.24127459526062012}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WAIT\", \"message\": \"Still waiting for a better offer. Desperation factor is 0.20, willing to wait for a more favorable price.\", \"latency\": 0.15274906158447266}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WAIT\", \"message\": \"Still waiting for a better offer. Current market quote is $12.10. Desperation factor is 0.20, willing to wait for a more favorable price.\", \"latency\": 0.1690676212310791}"
+                    }
+                ],
+                "14": [
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"ACCEPT\", \"message\": \"Accepting the current market quote of $374.82 for Eye Drops as it meets our urgent needs.\", \"latency\": 0.18444585800170898}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WAIT\", \"message\": \"We're currently waiting for the Grapes quote to be updated. Please provide the latest price.\", \"latency\": 0.27224230766296387}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WAIT\", \"message\": \"The current market quote for Grapes is $3.70. We're waiting for an update.\", \"latency\": 0.4772944450378418}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"COUNTER\", \"counter_offer\": 4.0, \"message\": \"Considering our desperation factor of 0.60, we're willing to pay a premium for the Grapes. Our counter offer is $4.00.\", \"latency\": 0.29016685485839844}"
+                    }
+                ],
+                "15": [
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WAIT\", \"message\": \"Hmmm, $10.96 seems a bit steep for milk. I'll wait and see if the price drops.\", \"latency\": 0.30307507514953613}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WAIT\", \"message\": \"I'm not in a rush, but I do need milk. Let's see if the price comes down a bit.\", \"latency\": 0.31551241874694824}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WAIT\", \"message\": \"I'm still waiting, but my desperation factor is creeping up... $10.96 is still a bit too high for my taste.\", \"latency\": 0.4908602237701416}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WAIT\", \"message\": \"I'm not giving up yet... I'll wait a bit longer to see if the price drops, but my desperation factor is now at 0.65. It's getting harder to walk away.\", \"latency\": 0.2630171775817871}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"COUNTER\", \"counter_offer\": 9.5, \"message\": \"Alright, I'll meet you halfway at $9.50. That's the best I'm willing to pay for now.\", \"latency\": 0.18054652214050293}"
+                    }
+                ]
+            },
+            "duration": 10
+        }
+    }
+}

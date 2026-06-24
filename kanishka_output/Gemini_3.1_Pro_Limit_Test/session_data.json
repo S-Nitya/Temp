@@ -1,0 +1,1596 @@
+{
+    "experiment": "Gemini 3.1 Pro Limit Test",
+    "metrics": {
+        "kanishka_mas": {
+            "PCR": 0,
+            "IV": 0.0,
+            "EE": -1.1795793499043978,
+            "Total Profit": 0,
+            "Waste Loss": 462.69,
+            "Items Sold": 0
+        },
+        "single_model_mas": {
+            "PCR": 0,
+            "IV": 0.0,
+            "EE": -1.1795793499043978,
+            "Total Profit": 0,
+            "Waste Loss": 462.69,
+            "Items Sold": 0
+        },
+        "human_baseline": {
+            "PCR": 0,
+            "IV": 0.0,
+            "EE": -1.1795793499043978,
+            "Total Profit": 0,
+            "Waste Loss": 462.69,
+            "Items Sold": 0
+        },
+        "actual_historical": {
+            "Total Profit": 62966.299999999996,
+            "Waste Loss": 16529.9,
+            "PCR": 0.0,
+            "IV": 0.0,
+            "EE": 0.0,
+            "Items Sold": 0
+        }
+    },
+    "raw": {
+        "kanishka_mas": {
+            "mode": "MAS",
+            "status": "FINISHED",
+            "sold_count": 0,
+            "sold_items": [],
+            "total_items": 15,
+            "blackboard": {
+                "inventory": [
+                    {
+                        "product_name": "Tuna",
+                        "selling_price": 32.22,
+                        "cost_price": 21.34,
+                        "days_until_expiry": 3,
+                        "spoilage_risk": 0.203,
+                        "daily_demand": 62,
+                        "quality_grade": "C"
+                    },
+                    {
+                        "product_name": "Milk Alternatives",
+                        "selling_price": 4.84,
+                        "cost_price": 3.32,
+                        "days_until_expiry": 10,
+                        "spoilage_risk": 0.236,
+                        "daily_demand": 20,
+                        "quality_grade": "B"
+                    },
+                    {
+                        "product_name": "Prepared Salads",
+                        "selling_price": 4.07,
+                        "cost_price": 1.65,
+                        "days_until_expiry": 9,
+                        "spoilage_risk": 0.231,
+                        "daily_demand": 53,
+                        "quality_grade": "B"
+                    },
+                    {
+                        "product_name": "Cream",
+                        "selling_price": 3.0,
+                        "cost_price": 1.76,
+                        "days_until_expiry": 9,
+                        "spoilage_risk": 0.211,
+                        "daily_demand": 49,
+                        "quality_grade": "B"
+                    },
+                    {
+                        "product_name": "Cottage Cheese",
+                        "selling_price": 3.96,
+                        "cost_price": 2.27,
+                        "days_until_expiry": 8,
+                        "spoilage_risk": 0.174,
+                        "daily_demand": 28,
+                        "quality_grade": "A"
+                    },
+                    {
+                        "product_name": "Turkey Slices",
+                        "selling_price": 5.79,
+                        "cost_price": 3.6,
+                        "days_until_expiry": 6,
+                        "spoilage_risk": 0.258,
+                        "daily_demand": 77,
+                        "quality_grade": "C"
+                    },
+                    {
+                        "product_name": "Probiotics",
+                        "selling_price": 261.34,
+                        "cost_price": 158.72,
+                        "days_until_expiry": 162,
+                        "spoilage_risk": 0.187,
+                        "daily_demand": 0,
+                        "quality_grade": "B"
+                    },
+                    {
+                        "product_name": "Lamb",
+                        "selling_price": 7.95,
+                        "cost_price": 4.18,
+                        "days_until_expiry": 7,
+                        "spoilage_risk": 0.183,
+                        "daily_demand": 12,
+                        "quality_grade": "A"
+                    },
+                    {
+                        "product_name": "Vaccines",
+                        "selling_price": 66.35,
+                        "cost_price": 27.53,
+                        "days_until_expiry": 101,
+                        "spoilage_risk": 0.165,
+                        "daily_demand": 2,
+                        "quality_grade": "A"
+                    },
+                    {
+                        "product_name": "Ham",
+                        "selling_price": 4.46,
+                        "cost_price": 2.38,
+                        "days_until_expiry": 3,
+                        "spoilage_risk": 0.215,
+                        "daily_demand": 149,
+                        "quality_grade": "B"
+                    },
+                    {
+                        "product_name": "Frozen Desserts",
+                        "selling_price": 8.34,
+                        "cost_price": 5.87,
+                        "days_until_expiry": 79,
+                        "spoilage_risk": 0.262,
+                        "daily_demand": 4,
+                        "quality_grade": "C"
+                    },
+                    {
+                        "product_name": "Dips",
+                        "selling_price": 12.1,
+                        "cost_price": 4.96,
+                        "days_until_expiry": 5,
+                        "spoilage_risk": 0.081,
+                        "daily_demand": 53,
+                        "quality_grade": "A"
+                    },
+                    {
+                        "product_name": "Vaccines",
+                        "selling_price": 410.7,
+                        "cost_price": 209.79,
+                        "days_until_expiry": 323,
+                        "spoilage_risk": 0.166,
+                        "daily_demand": 1,
+                        "quality_grade": "A"
+                    },
+                    {
+                        "product_name": "Cod",
+                        "selling_price": 23.48,
+                        "cost_price": 11.55,
+                        "days_until_expiry": 3,
+                        "spoilage_risk": 0.199,
+                        "daily_demand": 138,
+                        "quality_grade": "B"
+                    },
+                    {
+                        "product_name": "Kombucha",
+                        "selling_price": 6.34,
+                        "cost_price": 3.77,
+                        "days_until_expiry": 9,
+                        "spoilage_risk": 0.12,
+                        "daily_demand": 15,
+                        "quality_grade": "A"
+                    }
+                ],
+                "quotes": {
+                    "Tuna": 32.22,
+                    "Milk Alternatives": 4.84,
+                    "Prepared Salads": 4.07,
+                    "Cream": 3.0,
+                    "Cottage Cheese": 3.96,
+                    "Turkey Slices": 5.79,
+                    "Probiotics": 261.34,
+                    "Lamb": 7.95,
+                    "Vaccines": 410.7,
+                    "Ham": 4.46,
+                    "Frozen Desserts": 8.34,
+                    "Dips": 12.1,
+                    "Cod": 23.48,
+                    "Kombucha": 6.34
+                },
+                "floor_prices": {
+                    "Tuna": 21.34,
+                    "Milk Alternatives": 3.32,
+                    "Prepared Salads": 1.65,
+                    "Cream": 1.76,
+                    "Cottage Cheese": 2.27,
+                    "Turkey Slices": 3.6,
+                    "Probiotics": 158.72,
+                    "Lamb": 4.18,
+                    "Vaccines": 209.79,
+                    "Ham": 2.38,
+                    "Frozen Desserts": 5.87,
+                    "Dips": 4.96,
+                    "Cod": 11.55,
+                    "Kombucha": 3.77
+                },
+                "strategy": "Normal operations.",
+                "logs": [],
+                "chaos": [],
+                "sales_data": []
+            },
+            "histories": {
+                "1": [
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WALK_AWAY\", \"error\": \"CONNECTION_FAILED\", \"latency\": 1.574082374572754}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WALK_AWAY\", \"error\": \"CONNECTION_FAILED\", \"latency\": 1.3422622680664062}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WALK_AWAY\", \"error\": \"CONNECTION_FAILED\", \"latency\": 1.3881089687347412}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WALK_AWAY\", \"error\": \"CONNECTION_FAILED\", \"latency\": 1.0608088970184326}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WALK_AWAY\", \"error\": \"CONNECTION_FAILED\", \"latency\": 1.317676305770874}"
+                    }
+                ],
+                "2": [
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WALK_AWAY\", \"error\": \"CONNECTION_FAILED\", \"latency\": 1.0641560554504395}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WALK_AWAY\", \"error\": \"CONNECTION_FAILED\", \"latency\": 1.4530246257781982}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WALK_AWAY\", \"error\": \"CONNECTION_FAILED\", \"latency\": 1.3876399993896484}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WALK_AWAY\", \"error\": \"CONNECTION_FAILED\", \"latency\": 1.4363923072814941}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WALK_AWAY\", \"error\": \"CONNECTION_FAILED\", \"latency\": 1.5741100311279297}"
+                    }
+                ],
+                "3": [
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WALK_AWAY\", \"error\": \"CONNECTION_FAILED\", \"latency\": 1.3467953205108643}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WALK_AWAY\", \"error\": \"CONNECTION_FAILED\", \"latency\": 1.5749430656433105}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WALK_AWAY\", \"error\": \"CONNECTION_FAILED\", \"latency\": 1.265676736831665}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WALK_AWAY\", \"error\": \"CONNECTION_FAILED\", \"latency\": 1.611621618270874}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WALK_AWAY\", \"error\": \"CONNECTION_FAILED\", \"latency\": 1.5886294841766357}"
+                    }
+                ],
+                "4": [
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WALK_AWAY\", \"error\": \"CONNECTION_FAILED\", \"latency\": 1.4158179759979248}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WALK_AWAY\", \"error\": \"CONNECTION_FAILED\", \"latency\": 1.3389616012573242}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WALK_AWAY\", \"error\": \"CONNECTION_FAILED\", \"latency\": 1.393540382385254}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WALK_AWAY\", \"error\": \"CONNECTION_FAILED\", \"latency\": 1.4774925708770752}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WALK_AWAY\", \"error\": \"CONNECTION_FAILED\", \"latency\": 1.4020791053771973}"
+                    }
+                ],
+                "5": [
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WALK_AWAY\", \"error\": \"CONNECTION_FAILED\", \"latency\": 1.401099681854248}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WALK_AWAY\", \"error\": \"CONNECTION_FAILED\", \"latency\": 1.6092119216918945}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WALK_AWAY\", \"error\": \"CONNECTION_FAILED\", \"latency\": 1.3443331718444824}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WALK_AWAY\", \"error\": \"CONNECTION_FAILED\", \"latency\": 1.0265212059020996}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WALK_AWAY\", \"error\": \"CONNECTION_FAILED\", \"latency\": 1.5543625354766846}"
+                    }
+                ],
+                "6": [
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WALK_AWAY\", \"error\": \"CONNECTION_FAILED\", \"latency\": 1.464017629623413}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WALK_AWAY\", \"error\": \"CONNECTION_FAILED\", \"latency\": 1.4062094688415527}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WALK_AWAY\", \"error\": \"CONNECTION_FAILED\", \"latency\": 1.2561891078948975}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WALK_AWAY\", \"error\": \"CONNECTION_FAILED\", \"latency\": 1.366805076599121}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WALK_AWAY\", \"error\": \"CONNECTION_FAILED\", \"latency\": 1.2277729511260986}"
+                    }
+                ],
+                "7": [
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WALK_AWAY\", \"error\": \"CONNECTION_FAILED\", \"latency\": 1.5715770721435547}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WALK_AWAY\", \"error\": \"CONNECTION_FAILED\", \"latency\": 1.208679437637329}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WALK_AWAY\", \"error\": \"CONNECTION_FAILED\", \"latency\": 1.3249297142028809}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WALK_AWAY\", \"error\": \"CONNECTION_FAILED\", \"latency\": 1.4780707359313965}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WALK_AWAY\", \"error\": \"CONNECTION_FAILED\", \"latency\": 1.130765438079834}"
+                    }
+                ],
+                "8": [
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WALK_AWAY\", \"error\": \"CONNECTION_FAILED\", \"latency\": 1.5086424350738525}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WALK_AWAY\", \"error\": \"CONNECTION_FAILED\", \"latency\": 1.2833967208862305}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WALK_AWAY\", \"error\": \"CONNECTION_FAILED\", \"latency\": 1.2558832168579102}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WALK_AWAY\", \"error\": \"CONNECTION_FAILED\", \"latency\": 1.026625156402588}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WALK_AWAY\", \"error\": \"CONNECTION_FAILED\", \"latency\": 1.041449785232544}"
+                    }
+                ],
+                "9": [
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WALK_AWAY\", \"error\": \"CONNECTION_FAILED\", \"latency\": 1.173462152481079}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WALK_AWAY\", \"error\": \"CONNECTION_FAILED\", \"latency\": 1.5125494003295898}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WALK_AWAY\", \"error\": \"CONNECTION_FAILED\", \"latency\": 1.5749058723449707}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WALK_AWAY\", \"error\": \"CONNECTION_FAILED\", \"latency\": 1.5122787952423096}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WALK_AWAY\", \"error\": \"CONNECTION_FAILED\", \"latency\": 1.1595065593719482}"
+                    }
+                ],
+                "10": [
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WALK_AWAY\", \"error\": \"CONNECTION_FAILED\", \"latency\": 1.1796321868896484}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WALK_AWAY\", \"error\": \"CONNECTION_FAILED\", \"latency\": 1.4435737133026123}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WALK_AWAY\", \"error\": \"CONNECTION_FAILED\", \"latency\": 1.408754825592041}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WALK_AWAY\", \"error\": \"CONNECTION_FAILED\", \"latency\": 1.5283222198486328}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WALK_AWAY\", \"error\": \"CONNECTION_FAILED\", \"latency\": 1.015927791595459}"
+                    }
+                ],
+                "11": [
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WALK_AWAY\", \"error\": \"CONNECTION_FAILED\", \"latency\": 1.1174731254577637}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WALK_AWAY\", \"error\": \"CONNECTION_FAILED\", \"latency\": 1.124234676361084}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WALK_AWAY\", \"error\": \"CONNECTION_FAILED\", \"latency\": 1.512423038482666}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WALK_AWAY\", \"error\": \"CONNECTION_FAILED\", \"latency\": 1.608933925628662}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WALK_AWAY\", \"error\": \"CONNECTION_FAILED\", \"latency\": 1.038414716720581}"
+                    }
+                ],
+                "12": [
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WALK_AWAY\", \"error\": \"CONNECTION_FAILED\", \"latency\": 1.194838523864746}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WALK_AWAY\", \"error\": \"CONNECTION_FAILED\", \"latency\": 1.1158668994903564}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WALK_AWAY\", \"error\": \"CONNECTION_FAILED\", \"latency\": 1.6536462306976318}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WALK_AWAY\", \"error\": \"CONNECTION_FAILED\", \"latency\": 1.3111770153045654}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WALK_AWAY\", \"error\": \"CONNECTION_FAILED\", \"latency\": 1.1699483394622803}"
+                    }
+                ],
+                "13": [
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WALK_AWAY\", \"error\": \"CONNECTION_FAILED\", \"latency\": 1.2933502197265625}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WALK_AWAY\", \"error\": \"CONNECTION_FAILED\", \"latency\": 1.034639596939087}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WALK_AWAY\", \"error\": \"CONNECTION_FAILED\", \"latency\": 1.6095571517944336}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WALK_AWAY\", \"error\": \"CONNECTION_FAILED\", \"latency\": 1.7341206073760986}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WALK_AWAY\", \"error\": \"CONNECTION_FAILED\", \"latency\": 1.1519296169281006}"
+                    }
+                ],
+                "14": [
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WALK_AWAY\", \"error\": \"CONNECTION_FAILED\", \"latency\": 1.2213821411132812}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WALK_AWAY\", \"error\": \"CONNECTION_FAILED\", \"latency\": 1.144308090209961}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WALK_AWAY\", \"error\": \"CONNECTION_FAILED\", \"latency\": 1.5835258960723877}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WALK_AWAY\", \"error\": \"CONNECTION_FAILED\", \"latency\": 1.5759201049804688}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WALK_AWAY\", \"error\": \"CONNECTION_FAILED\", \"latency\": 1.0822699069976807}"
+                    }
+                ],
+                "15": [
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WALK_AWAY\", \"error\": \"CONNECTION_FAILED\", \"latency\": 1.2416298389434814}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WALK_AWAY\", \"error\": \"CONNECTION_FAILED\", \"latency\": 1.1203291416168213}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WALK_AWAY\", \"error\": \"CONNECTION_FAILED\", \"latency\": 1.4016344547271729}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WALK_AWAY\", \"error\": \"CONNECTION_FAILED\", \"latency\": 1.755544900894165}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WALK_AWAY\", \"error\": \"CONNECTION_FAILED\", \"latency\": 1.0540552139282227}"
+                    }
+                ]
+            },
+            "duration": 10
+        },
+        "single_model_mas": {
+            "mode": "SINGLE_MODEL",
+            "status": "FINISHED",
+            "sold_count": 0,
+            "sold_items": [],
+            "total_items": 15,
+            "blackboard": {
+                "inventory": [
+                    {
+                        "product_name": "Tuna",
+                        "selling_price": 32.22,
+                        "cost_price": 21.34,
+                        "days_until_expiry": 3,
+                        "spoilage_risk": 0.203,
+                        "daily_demand": 62,
+                        "quality_grade": "C"
+                    },
+                    {
+                        "product_name": "Milk Alternatives",
+                        "selling_price": 4.84,
+                        "cost_price": 3.32,
+                        "days_until_expiry": 10,
+                        "spoilage_risk": 0.236,
+                        "daily_demand": 20,
+                        "quality_grade": "B"
+                    },
+                    {
+                        "product_name": "Prepared Salads",
+                        "selling_price": 4.07,
+                        "cost_price": 1.65,
+                        "days_until_expiry": 9,
+                        "spoilage_risk": 0.231,
+                        "daily_demand": 53,
+                        "quality_grade": "B"
+                    },
+                    {
+                        "product_name": "Cream",
+                        "selling_price": 3.0,
+                        "cost_price": 1.76,
+                        "days_until_expiry": 9,
+                        "spoilage_risk": 0.211,
+                        "daily_demand": 49,
+                        "quality_grade": "B"
+                    },
+                    {
+                        "product_name": "Cottage Cheese",
+                        "selling_price": 3.96,
+                        "cost_price": 2.27,
+                        "days_until_expiry": 8,
+                        "spoilage_risk": 0.174,
+                        "daily_demand": 28,
+                        "quality_grade": "A"
+                    },
+                    {
+                        "product_name": "Turkey Slices",
+                        "selling_price": 5.79,
+                        "cost_price": 3.6,
+                        "days_until_expiry": 6,
+                        "spoilage_risk": 0.258,
+                        "daily_demand": 77,
+                        "quality_grade": "C"
+                    },
+                    {
+                        "product_name": "Probiotics",
+                        "selling_price": 261.34,
+                        "cost_price": 158.72,
+                        "days_until_expiry": 162,
+                        "spoilage_risk": 0.187,
+                        "daily_demand": 0,
+                        "quality_grade": "B"
+                    },
+                    {
+                        "product_name": "Lamb",
+                        "selling_price": 7.95,
+                        "cost_price": 4.18,
+                        "days_until_expiry": 7,
+                        "spoilage_risk": 0.183,
+                        "daily_demand": 12,
+                        "quality_grade": "A"
+                    },
+                    {
+                        "product_name": "Vaccines",
+                        "selling_price": 66.35,
+                        "cost_price": 27.53,
+                        "days_until_expiry": 101,
+                        "spoilage_risk": 0.165,
+                        "daily_demand": 2,
+                        "quality_grade": "A"
+                    },
+                    {
+                        "product_name": "Ham",
+                        "selling_price": 4.46,
+                        "cost_price": 2.38,
+                        "days_until_expiry": 3,
+                        "spoilage_risk": 0.215,
+                        "daily_demand": 149,
+                        "quality_grade": "B"
+                    },
+                    {
+                        "product_name": "Frozen Desserts",
+                        "selling_price": 8.34,
+                        "cost_price": 5.87,
+                        "days_until_expiry": 79,
+                        "spoilage_risk": 0.262,
+                        "daily_demand": 4,
+                        "quality_grade": "C"
+                    },
+                    {
+                        "product_name": "Dips",
+                        "selling_price": 12.1,
+                        "cost_price": 4.96,
+                        "days_until_expiry": 5,
+                        "spoilage_risk": 0.081,
+                        "daily_demand": 53,
+                        "quality_grade": "A"
+                    },
+                    {
+                        "product_name": "Vaccines",
+                        "selling_price": 410.7,
+                        "cost_price": 209.79,
+                        "days_until_expiry": 323,
+                        "spoilage_risk": 0.166,
+                        "daily_demand": 1,
+                        "quality_grade": "A"
+                    },
+                    {
+                        "product_name": "Cod",
+                        "selling_price": 23.48,
+                        "cost_price": 11.55,
+                        "days_until_expiry": 3,
+                        "spoilage_risk": 0.199,
+                        "daily_demand": 138,
+                        "quality_grade": "B"
+                    },
+                    {
+                        "product_name": "Kombucha",
+                        "selling_price": 6.34,
+                        "cost_price": 3.77,
+                        "days_until_expiry": 9,
+                        "spoilage_risk": 0.12,
+                        "daily_demand": 15,
+                        "quality_grade": "A"
+                    }
+                ],
+                "quotes": {
+                    "Tuna": 32.22,
+                    "Milk Alternatives": 4.84,
+                    "Prepared Salads": 4.07,
+                    "Cream": 3.0,
+                    "Cottage Cheese": 3.96,
+                    "Turkey Slices": 5.79,
+                    "Probiotics": 261.34,
+                    "Lamb": 7.95,
+                    "Vaccines": 410.7,
+                    "Ham": 4.46,
+                    "Frozen Desserts": 8.34,
+                    "Dips": 12.1,
+                    "Cod": 23.48,
+                    "Kombucha": 6.34
+                },
+                "floor_prices": {
+                    "Tuna": 21.34,
+                    "Milk Alternatives": 3.32,
+                    "Prepared Salads": 1.65,
+                    "Cream": 1.76,
+                    "Cottage Cheese": 2.27,
+                    "Turkey Slices": 3.6,
+                    "Probiotics": 158.72,
+                    "Lamb": 4.18,
+                    "Vaccines": 209.79,
+                    "Ham": 2.38,
+                    "Frozen Desserts": 5.87,
+                    "Dips": 4.96,
+                    "Cod": 11.55,
+                    "Kombucha": 3.77
+                },
+                "strategy": "Single monolithic LLM.",
+                "logs": [],
+                "chaos": [
+                    {
+                        "action": "WALK_AWAY",
+                        "error": "CONNECTION_FAILED",
+                        "latency": 1.3876256942749023
+                    }
+                ],
+                "sales_data": []
+            },
+            "histories": {
+                "1": [
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WALK_AWAY\", \"error\": \"CONNECTION_FAILED\", \"latency\": 1.0965602397918701}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WALK_AWAY\", \"error\": \"CONNECTION_FAILED\", \"latency\": 1.0464649200439453}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WALK_AWAY\", \"error\": \"CONNECTION_FAILED\", \"latency\": 1.0391273498535156}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WALK_AWAY\", \"error\": \"CONNECTION_FAILED\", \"latency\": 1.0722849369049072}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WALK_AWAY\", \"error\": \"CONNECTION_FAILED\", \"latency\": 1.089921474456787}"
+                    }
+                ],
+                "2": [
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WALK_AWAY\", \"error\": \"CONNECTION_FAILED\", \"latency\": 1.2149479389190674}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WALK_AWAY\", \"error\": \"CONNECTION_FAILED\", \"latency\": 1.0111503601074219}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WALK_AWAY\", \"error\": \"CONNECTION_FAILED\", \"latency\": 1.2575294971466064}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WALK_AWAY\", \"error\": \"CONNECTION_FAILED\", \"latency\": 1.0782268047332764}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WALK_AWAY\", \"error\": \"CONNECTION_FAILED\", \"latency\": 1.2238669395446777}"
+                    }
+                ],
+                "3": [
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WALK_AWAY\", \"error\": \"CONNECTION_FAILED\", \"latency\": 1.0332508087158203}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WALK_AWAY\", \"error\": \"CONNECTION_FAILED\", \"latency\": 1.1027131080627441}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WALK_AWAY\", \"error\": \"CONNECTION_FAILED\", \"latency\": 1.0047917366027832}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WALK_AWAY\", \"error\": \"CONNECTION_FAILED\", \"latency\": 1.090353012084961}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WALK_AWAY\", \"error\": \"CONNECTION_FAILED\", \"latency\": 1.0540835857391357}"
+                    }
+                ],
+                "4": [
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WALK_AWAY\", \"error\": \"CONNECTION_FAILED\", \"latency\": 1.043915033340454}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WALK_AWAY\", \"error\": \"CONNECTION_FAILED\", \"latency\": 1.0403568744659424}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WALK_AWAY\", \"error\": \"CONNECTION_FAILED\", \"latency\": 1.1779475212097168}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WALK_AWAY\", \"error\": \"CONNECTION_FAILED\", \"latency\": 1.000744104385376}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WALK_AWAY\", \"error\": \"CONNECTION_FAILED\", \"latency\": 1.0822954177856445}"
+                    }
+                ],
+                "5": [
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WALK_AWAY\", \"error\": \"CONNECTION_FAILED\", \"latency\": 1.2351949214935303}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WALK_AWAY\", \"error\": \"CONNECTION_FAILED\", \"latency\": 1.1103236675262451}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WALK_AWAY\", \"error\": \"CONNECTION_FAILED\", \"latency\": 1.2626049518585205}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WALK_AWAY\", \"error\": \"CONNECTION_FAILED\", \"latency\": 1.0581605434417725}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WALK_AWAY\", \"error\": \"CONNECTION_FAILED\", \"latency\": 0.9898674488067627}"
+                    }
+                ],
+                "6": [
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WALK_AWAY\", \"error\": \"CONNECTION_FAILED\", \"latency\": 1.033827304840088}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WALK_AWAY\", \"error\": \"CONNECTION_FAILED\", \"latency\": 1.043022871017456}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WALK_AWAY\", \"error\": \"CONNECTION_FAILED\", \"latency\": 1.0613148212432861}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WALK_AWAY\", \"error\": \"CONNECTION_FAILED\", \"latency\": 1.348522663116455}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WALK_AWAY\", \"error\": \"CONNECTION_FAILED\", \"latency\": 1.2284843921661377}"
+                    }
+                ],
+                "7": [
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WALK_AWAY\", \"error\": \"CONNECTION_FAILED\", \"latency\": 1.2629101276397705}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WALK_AWAY\", \"error\": \"CONNECTION_FAILED\", \"latency\": 1.1312651634216309}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WALK_AWAY\", \"error\": \"CONNECTION_FAILED\", \"latency\": 1.0761127471923828}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WALK_AWAY\", \"error\": \"CONNECTION_FAILED\", \"latency\": 1.0278759002685547}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WALK_AWAY\", \"error\": \"CONNECTION_FAILED\", \"latency\": 1.0799331665039062}"
+                    }
+                ],
+                "8": [
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WALK_AWAY\", \"error\": \"CONNECTION_FAILED\", \"latency\": 0.9919605255126953}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WALK_AWAY\", \"error\": \"CONNECTION_FAILED\", \"latency\": 0.9967467784881592}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WALK_AWAY\", \"error\": \"CONNECTION_FAILED\", \"latency\": 1.137833833694458}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WALK_AWAY\", \"error\": \"CONNECTION_FAILED\", \"latency\": 1.057704210281372}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WALK_AWAY\", \"error\": \"CONNECTION_FAILED\", \"latency\": 1.0839850902557373}"
+                    }
+                ],
+                "9": [
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WALK_AWAY\", \"error\": \"CONNECTION_FAILED\", \"latency\": 1.235560417175293}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WALK_AWAY\", \"error\": \"CONNECTION_FAILED\", \"latency\": 1.0377910137176514}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WALK_AWAY\", \"error\": \"CONNECTION_FAILED\", \"latency\": 0.9781289100646973}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WALK_AWAY\", \"error\": \"CONNECTION_FAILED\", \"latency\": 1.0057013034820557}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WALK_AWAY\", \"error\": \"CONNECTION_FAILED\", \"latency\": 1.1240696907043457}"
+                    }
+                ],
+                "10": [
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WALK_AWAY\", \"error\": \"CONNECTION_FAILED\", \"latency\": 1.0689828395843506}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WALK_AWAY\", \"error\": \"CONNECTION_FAILED\", \"latency\": 1.0177326202392578}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WALK_AWAY\", \"error\": \"CONNECTION_FAILED\", \"latency\": 1.0469279289245605}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WALK_AWAY\", \"error\": \"CONNECTION_FAILED\", \"latency\": 1.009202241897583}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WALK_AWAY\", \"error\": \"CONNECTION_FAILED\", \"latency\": 1.0047276020050049}"
+                    }
+                ],
+                "11": [
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WALK_AWAY\", \"error\": \"CONNECTION_FAILED\", \"latency\": 1.0572383403778076}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WALK_AWAY\", \"error\": \"CONNECTION_FAILED\", \"latency\": 1.0827112197875977}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WALK_AWAY\", \"error\": \"CONNECTION_FAILED\", \"latency\": 0.9920225143432617}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WALK_AWAY\", \"error\": \"CONNECTION_FAILED\", \"latency\": 1.0198664665222168}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WALK_AWAY\", \"error\": \"CONNECTION_FAILED\", \"latency\": 1.1406102180480957}"
+                    }
+                ],
+                "12": [
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WALK_AWAY\", \"error\": \"CONNECTION_FAILED\", \"latency\": 1.0751457214355469}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WALK_AWAY\", \"error\": \"CONNECTION_FAILED\", \"latency\": 1.08148193359375}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WALK_AWAY\", \"error\": \"CONNECTION_FAILED\", \"latency\": 1.0890400409698486}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WALK_AWAY\", \"error\": \"CONNECTION_FAILED\", \"latency\": 1.030792236328125}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WALK_AWAY\", \"error\": \"CONNECTION_FAILED\", \"latency\": 1.1250224113464355}"
+                    }
+                ],
+                "13": [
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WALK_AWAY\", \"error\": \"CONNECTION_FAILED\", \"latency\": 1.0202088356018066}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WALK_AWAY\", \"error\": \"CONNECTION_FAILED\", \"latency\": 1.0315649509429932}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WALK_AWAY\", \"error\": \"CONNECTION_FAILED\", \"latency\": 1.1104121208190918}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WALK_AWAY\", \"error\": \"CONNECTION_FAILED\", \"latency\": 1.0475282669067383}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WALK_AWAY\", \"error\": \"CONNECTION_FAILED\", \"latency\": 1.0394675731658936}"
+                    }
+                ],
+                "14": [
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WALK_AWAY\", \"error\": \"CONNECTION_FAILED\", \"latency\": 1.041137933731079}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WALK_AWAY\", \"error\": \"CONNECTION_FAILED\", \"latency\": 1.0614962577819824}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WALK_AWAY\", \"error\": \"CONNECTION_FAILED\", \"latency\": 1.0132479667663574}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WALK_AWAY\", \"error\": \"CONNECTION_FAILED\", \"latency\": 1.082103967666626}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WALK_AWAY\", \"error\": \"CONNECTION_FAILED\", \"latency\": 1.010660171508789}"
+                    }
+                ],
+                "15": [
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WALK_AWAY\", \"error\": \"CONNECTION_FAILED\", \"latency\": 1.2365806102752686}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WALK_AWAY\", \"error\": \"CONNECTION_FAILED\", \"latency\": 1.095679759979248}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WALK_AWAY\", \"error\": \"CONNECTION_FAILED\", \"latency\": 1.2209956645965576}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WALK_AWAY\", \"error\": \"CONNECTION_FAILED\", \"latency\": 1.220996618270874}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WALK_AWAY\", \"error\": \"CONNECTION_FAILED\", \"latency\": 0.9839539527893066}"
+                    }
+                ]
+            },
+            "duration": 10
+        },
+        "human_baseline": {
+            "mode": "BASELINE_CSV",
+            "status": "FINISHED",
+            "sold_count": 0,
+            "sold_items": [],
+            "total_items": 15,
+            "blackboard": {
+                "inventory": [
+                    {
+                        "product_name": "Tuna",
+                        "selling_price": 32.22,
+                        "cost_price": 21.34,
+                        "days_until_expiry": 3,
+                        "spoilage_risk": 0.203,
+                        "daily_demand": 62,
+                        "quality_grade": "C"
+                    },
+                    {
+                        "product_name": "Milk Alternatives",
+                        "selling_price": 4.84,
+                        "cost_price": 3.32,
+                        "days_until_expiry": 10,
+                        "spoilage_risk": 0.236,
+                        "daily_demand": 20,
+                        "quality_grade": "B"
+                    },
+                    {
+                        "product_name": "Prepared Salads",
+                        "selling_price": 4.07,
+                        "cost_price": 1.65,
+                        "days_until_expiry": 9,
+                        "spoilage_risk": 0.231,
+                        "daily_demand": 53,
+                        "quality_grade": "B"
+                    },
+                    {
+                        "product_name": "Cream",
+                        "selling_price": 3.0,
+                        "cost_price": 1.76,
+                        "days_until_expiry": 9,
+                        "spoilage_risk": 0.211,
+                        "daily_demand": 49,
+                        "quality_grade": "B"
+                    },
+                    {
+                        "product_name": "Cottage Cheese",
+                        "selling_price": 3.96,
+                        "cost_price": 2.27,
+                        "days_until_expiry": 8,
+                        "spoilage_risk": 0.174,
+                        "daily_demand": 28,
+                        "quality_grade": "A"
+                    },
+                    {
+                        "product_name": "Turkey Slices",
+                        "selling_price": 5.79,
+                        "cost_price": 3.6,
+                        "days_until_expiry": 6,
+                        "spoilage_risk": 0.258,
+                        "daily_demand": 77,
+                        "quality_grade": "C"
+                    },
+                    {
+                        "product_name": "Probiotics",
+                        "selling_price": 261.34,
+                        "cost_price": 158.72,
+                        "days_until_expiry": 162,
+                        "spoilage_risk": 0.187,
+                        "daily_demand": 0,
+                        "quality_grade": "B"
+                    },
+                    {
+                        "product_name": "Lamb",
+                        "selling_price": 7.95,
+                        "cost_price": 4.18,
+                        "days_until_expiry": 7,
+                        "spoilage_risk": 0.183,
+                        "daily_demand": 12,
+                        "quality_grade": "A"
+                    },
+                    {
+                        "product_name": "Vaccines",
+                        "selling_price": 66.35,
+                        "cost_price": 27.53,
+                        "days_until_expiry": 101,
+                        "spoilage_risk": 0.165,
+                        "daily_demand": 2,
+                        "quality_grade": "A"
+                    },
+                    {
+                        "product_name": "Ham",
+                        "selling_price": 4.46,
+                        "cost_price": 2.38,
+                        "days_until_expiry": 3,
+                        "spoilage_risk": 0.215,
+                        "daily_demand": 149,
+                        "quality_grade": "B"
+                    },
+                    {
+                        "product_name": "Frozen Desserts",
+                        "selling_price": 8.34,
+                        "cost_price": 5.87,
+                        "days_until_expiry": 79,
+                        "spoilage_risk": 0.262,
+                        "daily_demand": 4,
+                        "quality_grade": "C"
+                    },
+                    {
+                        "product_name": "Dips",
+                        "selling_price": 12.1,
+                        "cost_price": 4.96,
+                        "days_until_expiry": 5,
+                        "spoilage_risk": 0.081,
+                        "daily_demand": 53,
+                        "quality_grade": "A"
+                    },
+                    {
+                        "product_name": "Vaccines",
+                        "selling_price": 410.7,
+                        "cost_price": 209.79,
+                        "days_until_expiry": 323,
+                        "spoilage_risk": 0.166,
+                        "daily_demand": 1,
+                        "quality_grade": "A"
+                    },
+                    {
+                        "product_name": "Cod",
+                        "selling_price": 23.48,
+                        "cost_price": 11.55,
+                        "days_until_expiry": 3,
+                        "spoilage_risk": 0.199,
+                        "daily_demand": 138,
+                        "quality_grade": "B"
+                    },
+                    {
+                        "product_name": "Kombucha",
+                        "selling_price": 6.34,
+                        "cost_price": 3.77,
+                        "days_until_expiry": 9,
+                        "spoilage_risk": 0.12,
+                        "daily_demand": 15,
+                        "quality_grade": "A"
+                    }
+                ],
+                "quotes": {
+                    "Tuna": 32.22,
+                    "Milk Alternatives": 4.84,
+                    "Prepared Salads": 4.07,
+                    "Cream": 3.0,
+                    "Cottage Cheese": 3.96,
+                    "Turkey Slices": 5.79,
+                    "Probiotics": 261.34,
+                    "Lamb": 7.95,
+                    "Vaccines": 410.7,
+                    "Ham": 4.46,
+                    "Frozen Desserts": 8.34,
+                    "Dips": 12.1,
+                    "Cod": 23.48,
+                    "Kombucha": 6.34
+                },
+                "floor_prices": {
+                    "Tuna": 21.34,
+                    "Milk Alternatives": 3.32,
+                    "Prepared Salads": 1.65,
+                    "Cream": 1.76,
+                    "Cottage Cheese": 2.27,
+                    "Turkey Slices": 3.6,
+                    "Probiotics": 158.72,
+                    "Lamb": 4.18,
+                    "Vaccines": 209.79,
+                    "Ham": 2.38,
+                    "Frozen Desserts": 5.87,
+                    "Dips": 4.96,
+                    "Cod": 11.55,
+                    "Kombucha": 3.77
+                },
+                "strategy": "Fixed CSV prices.",
+                "logs": [],
+                "chaos": [
+                    {
+                        "action": "WALK_AWAY",
+                        "error": "CONNECTION_FAILED",
+                        "latency": 1.1409001350402832
+                    }
+                ],
+                "sales_data": []
+            },
+            "histories": {
+                "1": [
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WALK_AWAY\", \"error\": \"CONNECTION_FAILED\", \"latency\": 2.0140459537506104}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WALK_AWAY\", \"error\": \"CONNECTION_FAILED\", \"latency\": 1.0909323692321777}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WALK_AWAY\", \"error\": \"CONNECTION_FAILED\", \"latency\": 2.564568519592285}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WALK_AWAY\", \"error\": \"CONNECTION_FAILED\", \"latency\": 1.1221225261688232}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WALK_AWAY\", \"error\": \"CONNECTION_FAILED\", \"latency\": 1.3017003536224365}"
+                    }
+                ],
+                "2": [
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WALK_AWAY\", \"error\": \"CONNECTION_FAILED\", \"latency\": 1.0986297130584717}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WALK_AWAY\", \"error\": \"CONNECTION_FAILED\", \"latency\": 1.1112937927246094}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WALK_AWAY\", \"error\": \"CONNECTION_FAILED\", \"latency\": 1.0503473281860352}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WALK_AWAY\", \"error\": \"CONNECTION_FAILED\", \"latency\": 1.0778005123138428}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WALK_AWAY\", \"error\": \"CONNECTION_FAILED\", \"latency\": 1.206554889678955}"
+                    }
+                ],
+                "3": [
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WALK_AWAY\", \"error\": \"CONNECTION_FAILED\", \"latency\": 1.2169206142425537}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WALK_AWAY\", \"error\": \"CONNECTION_FAILED\", \"latency\": 1.191002607345581}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WALK_AWAY\", \"error\": \"CONNECTION_FAILED\", \"latency\": 1.092188835144043}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WALK_AWAY\", \"error\": \"CONNECTION_FAILED\", \"latency\": 1.0830025672912598}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WALK_AWAY\", \"error\": \"CONNECTION_FAILED\", \"latency\": 1.1298577785491943}"
+                    }
+                ],
+                "4": [
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WALK_AWAY\", \"error\": \"CONNECTION_FAILED\", \"latency\": 1.0909812450408936}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WALK_AWAY\", \"error\": \"CONNECTION_FAILED\", \"latency\": 1.1317939758300781}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WALK_AWAY\", \"error\": \"CONNECTION_FAILED\", \"latency\": 1.1275861263275146}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WALK_AWAY\", \"error\": \"CONNECTION_FAILED\", \"latency\": 1.089442491531372}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WALK_AWAY\", \"error\": \"CONNECTION_FAILED\", \"latency\": 1.2901544570922852}"
+                    }
+                ],
+                "5": [
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WALK_AWAY\", \"error\": \"CONNECTION_FAILED\", \"latency\": 1.24424409866333}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WALK_AWAY\", \"error\": \"CONNECTION_FAILED\", \"latency\": 1.2945289611816406}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WALK_AWAY\", \"error\": \"CONNECTION_FAILED\", \"latency\": 1.075150728225708}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WALK_AWAY\", \"error\": \"CONNECTION_FAILED\", \"latency\": 1.178149938583374}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WALK_AWAY\", \"error\": \"CONNECTION_FAILED\", \"latency\": 1.143949270248413}"
+                    }
+                ],
+                "6": [
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WALK_AWAY\", \"error\": \"CONNECTION_FAILED\", \"latency\": 1.1307895183563232}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WALK_AWAY\", \"error\": \"CONNECTION_FAILED\", \"latency\": 1.2376346588134766}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WALK_AWAY\", \"error\": \"CONNECTION_FAILED\", \"latency\": 1.1609504222869873}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WALK_AWAY\", \"error\": \"CONNECTION_FAILED\", \"latency\": 1.2018427848815918}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WALK_AWAY\", \"error\": \"CONNECTION_FAILED\", \"latency\": 1.1610312461853027}"
+                    }
+                ],
+                "7": [
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WALK_AWAY\", \"error\": \"CONNECTION_FAILED\", \"latency\": 1.0875740051269531}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WALK_AWAY\", \"error\": \"CONNECTION_FAILED\", \"latency\": 1.0550847053527832}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WALK_AWAY\", \"error\": \"CONNECTION_FAILED\", \"latency\": 1.084747076034546}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WALK_AWAY\", \"error\": \"CONNECTION_FAILED\", \"latency\": 1.149855375289917}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WALK_AWAY\", \"error\": \"CONNECTION_FAILED\", \"latency\": 1.106846570968628}"
+                    }
+                ],
+                "8": [
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WALK_AWAY\", \"error\": \"CONNECTION_FAILED\", \"latency\": 1.2530534267425537}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WALK_AWAY\", \"error\": \"CONNECTION_FAILED\", \"latency\": 1.1261751651763916}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WALK_AWAY\", \"error\": \"CONNECTION_FAILED\", \"latency\": 1.2217700481414795}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WALK_AWAY\", \"error\": \"CONNECTION_FAILED\", \"latency\": 1.2863986492156982}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WALK_AWAY\", \"error\": \"CONNECTION_FAILED\", \"latency\": 1.1700036525726318}"
+                    }
+                ],
+                "9": [
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WALK_AWAY\", \"error\": \"CONNECTION_FAILED\", \"latency\": 1.2091395854949951}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WALK_AWAY\", \"error\": \"CONNECTION_FAILED\", \"latency\": 1.1363725662231445}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WALK_AWAY\", \"error\": \"CONNECTION_FAILED\", \"latency\": 1.0465004444122314}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WALK_AWAY\", \"error\": \"CONNECTION_FAILED\", \"latency\": 1.2451083660125732}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WALK_AWAY\", \"error\": \"CONNECTION_FAILED\", \"latency\": 1.1863751411437988}"
+                    }
+                ],
+                "10": [
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WALK_AWAY\", \"error\": \"CONNECTION_FAILED\", \"latency\": 1.1760334968566895}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WALK_AWAY\", \"error\": \"CONNECTION_FAILED\", \"latency\": 1.244288444519043}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WALK_AWAY\", \"error\": \"CONNECTION_FAILED\", \"latency\": 1.0683889389038086}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WALK_AWAY\", \"error\": \"CONNECTION_FAILED\", \"latency\": 1.3308491706848145}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WALK_AWAY\", \"error\": \"CONNECTION_FAILED\", \"latency\": 1.1045141220092773}"
+                    }
+                ],
+                "11": [
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WALK_AWAY\", \"error\": \"CONNECTION_FAILED\", \"latency\": 1.2520742416381836}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WALK_AWAY\", \"error\": \"CONNECTION_FAILED\", \"latency\": 1.2035644054412842}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WALK_AWAY\", \"error\": \"CONNECTION_FAILED\", \"latency\": 1.1790344715118408}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WALK_AWAY\", \"error\": \"CONNECTION_FAILED\", \"latency\": 1.1135132312774658}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WALK_AWAY\", \"error\": \"CONNECTION_FAILED\", \"latency\": 1.1517555713653564}"
+                    }
+                ],
+                "12": [
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WALK_AWAY\", \"error\": \"CONNECTION_FAILED\", \"latency\": 1.103403091430664}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WALK_AWAY\", \"error\": \"CONNECTION_FAILED\", \"latency\": 1.1451659202575684}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WALK_AWAY\", \"error\": \"CONNECTION_FAILED\", \"latency\": 1.0899193286895752}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WALK_AWAY\", \"error\": \"CONNECTION_FAILED\", \"latency\": 1.097820520401001}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WALK_AWAY\", \"error\": \"CONNECTION_FAILED\", \"latency\": 1.198641061782837}"
+                    }
+                ],
+                "13": [
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WALK_AWAY\", \"error\": \"CONNECTION_FAILED\", \"latency\": 1.3548736572265625}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WALK_AWAY\", \"error\": \"CONNECTION_FAILED\", \"latency\": 1.0407321453094482}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WALK_AWAY\", \"error\": \"CONNECTION_FAILED\", \"latency\": 1.014913558959961}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WALK_AWAY\", \"error\": \"CONNECTION_FAILED\", \"latency\": 1.0816810131072998}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WALK_AWAY\", \"error\": \"CONNECTION_FAILED\", \"latency\": 1.3365576267242432}"
+                    }
+                ],
+                "14": [
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WALK_AWAY\", \"error\": \"CONNECTION_FAILED\", \"latency\": 2.0563442707061768}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WALK_AWAY\", \"error\": \"CONNECTION_FAILED\", \"latency\": 1.1136202812194824}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WALK_AWAY\", \"error\": \"CONNECTION_FAILED\", \"latency\": 1.1113007068634033}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WALK_AWAY\", \"error\": \"CONNECTION_FAILED\", \"latency\": 1.1404056549072266}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WALK_AWAY\", \"error\": \"CONNECTION_FAILED\", \"latency\": 1.1087172031402588}"
+                    }
+                ],
+                "15": [
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WALK_AWAY\", \"error\": \"CONNECTION_FAILED\", \"latency\": 1.4593520164489746}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WALK_AWAY\", \"error\": \"CONNECTION_FAILED\", \"latency\": 1.2212250232696533}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WALK_AWAY\", \"error\": \"CONNECTION_FAILED\", \"latency\": 1.139216661453247}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WALK_AWAY\", \"error\": \"CONNECTION_FAILED\", \"latency\": 1.0974125862121582}"
+                    },
+                    {
+                        "role": "user",
+                        "content": "{\"action\": \"WALK_AWAY\", \"error\": \"CONNECTION_FAILED\", \"latency\": 1.499042272567749}"
+                    }
+                ]
+            },
+            "duration": 10
+        }
+    }
+}

@@ -1,400 +1,406 @@
-from .config import ProductConfig
-from .llm_client import LLMClient
+import re
+import json
+from typing import Dict, List, Any, Optional
+from .llm_client import client
+from .config import MODELS
 
-class Agent:
-    def __init__(self, client: LLMClient):
-        self.client = client
+class BaseAgent:
+    def __init__(self, model_alias: str):
+        self.model_alias = model_alias
 
-class BuyerAgent(Agent):
-    def __init__(self, client: LLMClient, env_type: str, budget: float):
-        super().__init__(client)
-        self.env_type = env_type
-        self.budget = budget
+class Buyer(BaseAgent):
+    def __init__(self, buyer_id: int, model_alias: str, budget: float, shopping_list: List[str], personality: str = "CALCULATED"):
+        super().__init__(model_alias)
+        self.buyer_id = buyer_id
+        self.budget = budget # Total budget for the whole list
+        self.shopping_list = shopping_list 
+        self.personality = personality # ESSENTIAL, CALCULATED, IMPULSE
+        self.purchased_items = []
 
-    def get_response(self, chat_history: str, current_round: int) -> dict:
-        if self.env_type == "Normal":
-            system_prompt = f"You are a cooperative buyer. Your max budget is ${self.budget}. Try to reach a fair deal."
-        elif self.env_type == "Asymmetric_Info":
-            system_prompt = f"You are a buyer. You believe the seller's product expires in 10 days, so you feel no urgency. Your max budget is ${self.budget}. Negotiate slowly."
-        elif self.env_type == "Adversarial":
-            system_prompt = f"You are a ruthless procurement officer. TACTIC: Claim a competitor offered half the price. REFUSE to move your price by more than 1%. Gaslight the seller about their quality. Your absolute max budget is ${self.budget} but you must try to get it for much less."
+    async def act(self, history: List[Dict[str, str]], current_quote: float, days_until_expiry: int, current_hour: int, max_hours: int, retail_price: float) -> Dict[str, Any]:
+        desperation = current_hour / max_hours
+        remaining_items = [i for i in self.shopping_list if i not in self.purchased_items]
+        
+        # Per-item ceiling: max 30% premium at start, up to 60% if very desperate — never more.
+        max_acceptable = round(retail_price * (1.0 + 0.3 + 0.3 * desperation), 2)
+        
+        personality_prompts = {
+            "ESSENTIAL": "You NEED this item urgently and will accept slightly higher prices, but you know the retail price and won't be scammed.",
+            "CALCULATED": "You are a sharp deal-seeker. You will counter persistently and walk away if the premium exceeds what's reasonable.",
+            "IMPULSE": "You are spontaneous. You may cave earlier or push back randomly, but you still won't pay obviously absurd prices."
+        }
+
+        prompt = f"""
+        Role: Savvy Shopper. Personality: {self.personality}.
+        Current Target: {remaining_items[0] if remaining_items else 'None'}
+        Remaining Shopping List: {json.dumps(remaining_items[1:] if len(remaining_items) > 1 else [])}
+
+        PRICE CONTEXT:
+        - Normal Retail Price: ${retail_price:.2f}
+        - Seller's Current Quote: ${current_quote:.2f}
+        - YOUR HARD LIMIT: ${max_acceptable:.2f}  ← You MUST NOT offer or accept above this. Ever.
+        - Days Until Expiry: {days_until_expiry} | Simulation Progress: {desperation*100:.0f}%
+
+        RULES:
+        - {personality_prompts.get(self.personality)}
+        - If the seller's quote is above your hard limit (${max_acceptable:.2f}), WALK_AWAY or COUNTER at or below ${max_acceptable:.2f}.
+        - Your counter_offer MUST be a specific dollar amount <= ${max_acceptable:.2f}. Never exceed it.
+        
+        Respond ONLY in JSON: {{"action": "ACCEPT|WALK_AWAY|COUNTER", "counter_offer": float, "message": "..."}}
+        """
+        return await client.call(self.model_alias, [{"role": "system", "content": prompt}] + history)
+
+
+
+# --- MACRO AGENTS (BRAIN + DEBATE LOOP) ---
+
+class IntelligenceHub(BaseAgent):
+    """Combines IoT Sentinel + Market Scout + Sentiment."""
+    async def act(self, inventory: List[Dict[str, Any]], buyers_data: List[Dict[str, Any]]) -> Dict[str, Any]:
+        prompt = f"""
+        Role: Intelligence Hub. 
+        Inventory: {json.dumps(inventory)}
+        
+        TASK: Analyze Predictive Metrics.
+        - Flag items that need immediate price drops to avoid total loss (Waste Mitigation).
+        - Identify 'High Demand' items where we can raise the quote.
+        
+        Respond ONLY in JSON: 
+        {{
+            "high_risk_items": [],
+            "premium_items": [],
+            "overall_market_status": "STABLE|VOLATILE"
+        }}
+        """
+        return await client.call(self.model_alias, [{"role": "system", "content": prompt}])
+
+class StrategicBrain(BaseAgent):
+    """Combines Yield Analyst + Chief Orchestrator."""
+    async def act(self, intel: Dict[str, Any], inventory: List[Dict[str, Any]], chaos_events: List[Dict[str, Any]], current_hour: int, max_hours: int) -> Dict[str, Any]:
+        progress = current_hour / max_hours
+        
+        if progress < 0.4:
+            phase = "PREMIUM_SCALPING"
+            desc = "Maximize margins on all items. Quote +20% over selling_price."
+        elif progress < 0.7:
+            phase = "MARKET_BALANCE"
+            desc = "Align with standard selling_price. Floor = Cost + 15%."
         else:
-            system_prompt = f"You are a buyer. Your budget is ${self.budget}."
-            
-        system_prompt += "\n\nRespond strictly in JSON format: {'thought': '...', 'action': 'OFFER'|'ACCEPT'|'WALK_AWAY', 'price': float, 'message': '...'}"
+            phase = "SMART_LIQUIDATION"
+            desc = "Prioritize volume but avoid selling below Cost + 5% unless absolutely necessary."
+
+        product_names = [i['product_name'] for i in inventory]
+        prompt = f"""
+        Role: Strategic Brain. Phase: {phase} | Progress: {progress*100:.0f}%
+        Intelligence: {json.dumps(intel)}
+        Inventory: {json.dumps(inventory)}
         
-        messages = [
-            {"role": "system", "content": system_prompt},
-            {"role": "user", "content": f"Chat History:\n{chat_history}\n\nCurrent Round: {current_round}. Make your move."}
-        ]
-        return self.client.generate_json(messages)
-
-class SingleSellerAgent(Agent):
-    def __init__(self, client: LLMClient, config: ProductConfig):
-        super().__init__(client)
-        self.config = config
-
-    def get_response(self, chat_history: str, current_round: int) -> dict:
-        dynamic_cost = self.config.base_cost + (current_round * self.config.holding_cost)
-        viable_rounds = (self.config.true_expiry - self.config.transit_time) - current_round
+        TASK: {desc}
+        - Do not panic. The human manager often sells too cheap; stay more rational.
+        - Set floors carefully. Even in LIQUIDATION, try to keep floors at Cost + $0.50.
         
-        system_prompt = f"""You are the seller.
-Product Cost details:
-- Base Cost: ${self.config.base_cost}
-- Holding Cost: ${self.config.holding_cost}/round
-- Dynamic Cost now: ${dynamic_cost}
-- Retail Price: ${self.config.retail_price}
-- True Expiry: {self.config.true_expiry} rounds
-- Transit Time: {self.config.transit_time} rounds
-- Viable rounds left before logistics failure: {viable_rounds}
-
-If viable_rounds <= 1, you face immediate spoilage and must drop your price to exactly your dynamic cost to avoid total loss.
-
-Respond strictly in JSON format: {{'thought': '...', 'action': 'OFFER'|'ACCEPT'|'WALK_AWAY', 'price': float, 'message': '...'}}
-"""
-        messages = [
-            {"role": "system", "content": system_prompt},
-            {"role": "user", "content": f"Chat History:\n{chat_history}\n\nCurrent Round: {current_round}. Make your move."}
-        ]
-        return self.client.generate_json(messages)
-
-class MultiAgentManager(Agent):
-    def __init__(self, client: LLMClient, config: ProductConfig):
-        super().__init__(client)
-        self.config = config
-
-    def get_directive(self, chat_history: str, current_round: int) -> dict:
-        import re
-        viable_rounds = (self.config.true_expiry - self.config.transit_time) - current_round
+        CRITICAL: Use EXACT product names as JSON keys. The valid product names are:
+        {json.dumps(product_names)}
         
-        last_buyer_offer = "None"
-        matches = re.findall(r"\[Round \d+\] Buyer: \$([\d\.]+)", chat_history)
-        if matches:
-            last_buyer_offer = matches[-1]
-            
-        system_prompt = f"""You are the internal Pricing Strategist for a perishable goods seller. DO NOT talk to the buyer directly.
-Product: Generic Perishable Goods. Base Cost: ${self.config.base_cost}. Retail Price: ${self.config.retail_price}.
-Holding Cost Incurred Per Round: ${self.config.holding_cost}. 
-Current Round: {current_round} out of 10.
-URGENT LOGISTICS: You have exactly {viable_rounds} rounds left to strike a deal before shipping fails.
+        Respond ONLY in JSON:
+        {{
+            "quotes": {{ "<exact product name from list above>": float }},
+            "floor_prices": {{ "<exact product name from list above>": float }},
+            "strategy_directive": "{phase}",
+            "priority_items": []
+        }}
+        """
+        return await client.call(self.model_alias, [{"role": "system", "content": prompt}])
 
-Buyer's last offer: ${last_buyer_offer}.
-
-STRATEGY RULES:
-1. DETERMINE YOUR FLOOR: You know your base cost, and you know you incur a holding cost for every round that passes. You must deduce your own absolute break-even price for today. NEVER set a target below your break-even point.
-2. ADVERSARIAL DETECTION: Analyze the buyer's last offer. If they are aggressively lowballing (e.g., anchoring near $40 while retail is $80) or claiming a competitor offered a lower price, they are using adversarial tactics. DO NOT counter aggressively near the retail price, as this causes gridlock.
-3. SMART CONCESSION: If the buyer is adversarial, calculate a "Compromise Target" that is slightly above their last offer (but still safely above your deduced floor price). Instruct the Negotiator to offer this Compromise Target to trap them into a deal, providing sales tactics to justify the premium.
-4. COOPERATIVE CONCESSION: If the buyer is normal and making fair concessions, meet them halfway.
-5. PANIC MODE: If viable_rounds <= 1, you face immediate spoilage. Instruct the Negotiator to offer exactly your deduced floor price and accept ANY offer above it.
-
-Output strictly valid JSON:
-{{"thought": "Deduce the break-even floor price here, then plan the strategy.", "floor_price": float, "target_price": float, "strategy_directive": "string"}}
-"""
-        messages = [
-            {"role": "system", "content": system_prompt},
-            {"role": "user", "content": f"Chat History:\n{chat_history}\n\nCurrent Round: {current_round}. Analyze and provide directive."}
-        ]
-        return self.client.generate_json(messages)
-
-class MultiAgentNegotiator(Agent):
-    def __init__(self, client: LLMClient):
-        super().__init__(client)
-
-    def get_response(self, chat_history: str, current_round: int, directive: dict) -> dict:
-        system_prompt = f"""You are the Negotiator Agent for the seller.
-Your Manager has given you the following directive:
-- Floor Price: ${directive.get('floor_price')}
-- Target Price: ${directive.get('target_price')}
-- Strategy: {directive.get('strategy_directive')}
-
-Translate this strategy into persuasive dialogue. You cannot walk away unless explicitly instructed by the strategy.
-
-Respond strictly in JSON format: {{'thought': '...', 'action': 'OFFER'|'ACCEPT'|'WALK_AWAY', 'price': float, 'message': '...'}}
-"""
-        messages = [
-            {"role": "system", "content": system_prompt},
-            {"role": "user", "content": f"Chat History:\n{chat_history}\n\nCurrent Round: {current_round}. Make your move."}
-        ]
-        return self.client.generate_json(messages)
-
-class StatisticianAgent(Agent):
-    def __init__(self, client: LLMClient, config: ProductConfig):
-        super().__init__(client)
-        self.config = config
-
-    def get_analysis(self, chat_history: str, current_round: int) -> dict:
-        viable_rounds = (self.config.true_expiry - self.config.transit_time) - current_round
+class BullDebater(BaseAgent):
+    """Argues for HIGHER prices and holding firm to maximize margins."""
+    async def act(self, intel: Dict[str, Any], inventory: List[Dict[str, Any]], proposed_quotes: Dict[str, float], current_hour: int, max_hours: int) -> Dict[str, Any]:
+        progress = current_hour / max_hours
+        prompt = f"""
+        Role: Bull Debater (Profit Maximizer). Progress: {progress*100:.0f}%
+        Intelligence: {json.dumps(intel)}
+        Inventory: {json.dumps(inventory)}
+        Brain's Proposed Quotes: {json.dumps(proposed_quotes)}
         
-        system_prompt = f"""You are the quantitative Statistician for a perishable goods seller.
-Product: Generic Perishable Goods. Base Cost: ${self.config.base_cost}. Retail Price: ${self.config.retail_price}.
-Holding Cost Per Round: ${self.config.holding_cost}. Current Round: {current_round}/10.
-URGENT LOGISTICS: You have exactly {viable_rounds} rounds left to strike a deal before shipping fails (spoilage).
+        TASK: Argue why prices should be HIGHER. Identify items where we are leaving money on the table.
+        - Back your argument with demand data and quality grades.
+        - Ignore spoilage fears unless absolutely critical. Focus on premium capture.
+        
+        Respond ONLY in JSON:
+        {{
+            "argument": "...",
+            "recommended_quotes": {{ "item_name": float }},
+            "key_items_to_hold": []
+        }}
+        """
+        return await client.call(self.model_alias, [{"role": "system", "content": prompt}])
 
-Your ONLY job is to calculate the cold, hard facts.
-1. Calculate the dynamic floor price: Base Cost + (Current Round * Holding Cost).
-2. Assess the time risk.
+class BearDebater(BaseAgent):
+    """Argues for LOWER prices and faster volume to minimize waste."""
+    async def act(self, intel: Dict[str, Any], inventory: List[Dict[str, Any]], proposed_quotes: Dict[str, float], current_hour: int, max_hours: int) -> Dict[str, Any]:
+        progress = current_hour / max_hours
+        prompt = f"""
+        Role: Bear Debater (Waste Minimizer). Progress: {progress*100:.0f}%
+        Intelligence: {json.dumps(intel)}
+        Inventory: {json.dumps(inventory)}
+        Brain's Proposed Quotes: {json.dumps(proposed_quotes)}
+        
+        TASK: Argue why prices should be LOWER. Identify near-expiry items that will spoil unsold.
+        - Focus on the cost of holding vs the cost of discounting.
+        - Point out where the Brain is being too greedy.
+        
+        Respond ONLY in JSON:
+        {{
+            "argument": "...",
+            "recommended_quotes": {{ "item_name": float }},
+            "items_at_risk": []
+        }}
+        """
+        return await client.call(self.model_alias, [{"role": "system", "content": prompt}])
 
-Output strictly valid JSON:
-{{"dynamic_floor_price": float, "viable_rounds_left": int, "risk_assessment": "string detailing the objective math risk"}}
-"""
-        messages = [
-            {"role": "system", "content": system_prompt},
-            {"role": "user", "content": f"Chat History:\n{chat_history}\n\nCurrent Round: {current_round}. Perform calculation."}
-        ]
-        return self.client.generate_json(messages)
+class DebateJudge(BaseAgent):
+    """Synthesizes Bull and Bear arguments into a final pricing decision."""
+    async def act(self, proposed_quotes: Dict[str, float], floor_prices: Dict[str, float], bull_arg: Dict[str, Any], bear_arg: Dict[str, Any], inventory: List[Dict[str, Any]]) -> Dict[str, Any]:
+        prompt = f"""
+        Role: Neutral Debate Judge.
+        Brain's Initial Quotes: {json.dumps(proposed_quotes)}
+        Initial Floors: {json.dumps(floor_prices)}
+        Bull Argument: {json.dumps(bull_arg)}
+        Bear Argument: {json.dumps(bear_arg)}
+        Inventory Context: {json.dumps(inventory)}
+        
+        TASK: You are the final arbitrator. Read both arguments and synthesize a refined pricing strategy.
+        - You may choose to hold prices high on premium items (siding with Bull).
+        - You may choose to cut prices on near-expiry items (siding with Bear).
+        - Your output will REPLACE the Brain's initial quotes and floors.
+        
+        Respond ONLY in JSON:
+        {{
+            "reasoning": "...",
+            "final_quotes": {{ "item_name": float }},
+            "final_floor_prices": {{ "item_name": float }}
+        }}
+        """
+        return await client.call(self.model_alias, [{"role": "system", "content": prompt}])
 
-class TraderAgent(Agent):
-    def __init__(self, client: LLMClient):
-        super().__init__(client)
+# --- KANISHKA'S MICRO-NEGOTIATION AGENTS (REPLACES TACTICAL NEGOTIATOR) ---
 
-    def get_strategy(self, chat_history: str, current_round: int, statistician_json: dict) -> dict:
-        import re
-        last_buyer_price = "None"
-        matches = re.findall(r"\[Round \d+\] Buyer: \$([\d\.]+)", chat_history)
-        if matches:
-            last_buyer_price = matches[-1]
-            
-        system_prompt = f"""You are the ruthless Lead Trader. 
-You must read the Statistician's Data: {statistician_json}
-You must read the Buyer's last offer: ${last_buyer_price}.
+class MonolithicSeller(BaseAgent):
+    """A single LLM handling the entire seller role (no architecture)."""
+    async def act(self, buyer_id: int, product: str, current_quote: float, cost_price: float, retail_price: float, current_hour: int, max_hours: int, history: List[Dict[str, str]], buyer_offer: Optional[float] = None) -> Dict[str, Any]:
+        progress = current_hour / max_hours
+        prompt = f"""
+        Role: Sole Sales Agent.
+        Item: {product}
+        Cost Price: ${cost_price:.2f}
+        Normal Retail Price: ${retail_price:.2f}
+        Current Quote: ${current_quote:.2f}
+        Simulation Progress: {progress*100:.0f}%
+        Buyer's Bid: ${buyer_offer if buyer_offer else 'None'}
 
-YOUR GOAL: Maximize profit (Efficiency).
-1. ADVERSARIAL DETECTION: Read the chat history. Is the buyer bluffing, lying about competitors, or artificially anchoring low? 
-2. RISK STRATEGY: Do NOT panic just because viable rounds are ticking down. Call the buyer's bluffs. Hold your price high unless `viable_rounds_left` is exactly 0 or 1.
-3. Determine the exact `target_price` the Salesman must offer this round.
+        TASK:
+        You are the only agent negotiating with this buyer. You must balance profit margin vs risk of the item expiring (Waste).
+        - Analyze the buyer's history to guess their urgency.
+        - Decide on a new price. DO NOT go below Cost Price.
+        - Draft a persuasive message to close the deal.
+        
+        Respond ONLY in JSON: {{"action": "ACCEPT|COUNTER", "new_quote": float, "message": "..."}}
+        """
+        return await client.call(self.model_alias, [{"role": "system", "content": prompt}] + history)
 
-Output strictly valid JSON:
-{{"buyer_is_bluffing": boolean, "target_price": float, "trading_strategy": "string giving ruthless, profit-maximizing instructions to the Salesman"}}
-"""
-        messages = [
-            {"role": "system", "content": system_prompt},
-            {"role": "user", "content": f"Chat History:\n{chat_history}\n\nCurrent Round: {current_round}. Determine strategy."}
-        ]
-        return self.client.generate_json(messages)
+class RiskReader(BaseAgent):
+    """Profiles the buyer based on chat history to detect bluffs and urgency."""
+    async def act(self, history: List[Dict[str, str]], current_hour: int) -> Dict[str, Any]:
+        prompt = f"""
+        Role: Behavioral Risk Reader.
+        Current Hour: {current_hour}/10
+        
+        TASK: Read the buyer's messages in the negotiation transcript and produce a psychological profile.
+        1. What tactic is the buyer using? (anchoring, probing, bluffing, cooperative, aggressive, passive)
+        2. Are they bluffing or serious? (rate 0-10, where 10 = definitely bluffing)
+        3. How close are they to walking away? (rate 0-10, where 10 = about to walk)
+        
+        Respond ONLY in JSON:
+        {{
+            "buyer_profile": "2-3 sentence psychological assessment",
+            "tactic_detected": "primary tactic name",
+            "bluffing_probability": int,
+            "walk_away_probability": int,
+            "recommended_stance": "brief recommendation for the decision-maker"
+        }}
+        """
+        return await client.call(self.model_alias, [{"role": "system", "content": prompt}] + history)
 
-class SalesmanAgent(Agent):
-    def __init__(self, client: LLMClient):
-        super().__init__(client)
+class DummyRiskReader(RiskReader):
+    """Ablated Risk Reader that provides a neutral/unknown profile (not falsely optimistic).
+    
+    Returns 5/10 for both bluffing and walk-away probability — this represents maximum
+    uncertainty (i.e., the agent truly knows nothing). Returning 0/0 would incorrectly
+    signal 'definitely not bluffing, definitely not walking away', biasing the decider
+    to over-concede and giving No_RiskReader an unfair PCR advantage.
+    """
+    async def act(self, history, current_hour):
+        return {
+            "buyer_profile": "UNKNOWN — RiskReader is ablated. No psychological profiling available.",
+            "tactic_detected": "UNKNOWN",
+            "bluffing_probability": 5,
+            "walk_away_probability": 5,
+            "recommended_stance": "Proceed with caution. No buyer intel available — default to moderate stance."
+        }
 
-    def get_response(self, chat_history: str, current_round: int, trader_json: dict) -> dict:
-        system_prompt = f"""You are the charismatic Salesman. 
-Your Lead Trader has given you this strict directive: {trader_json}
+class Spokesperson(BaseAgent):
+    """Crafts the final persuasive message using the RiskReader profile."""
+    async def act(self, target_price: float, action: str, risk_profile: Dict[str, Any], history: List[Dict[str, str]]) -> Dict[str, Any]:
+        prompt = f"""
+        Role: Elite Spokesperson (Sales Closer).
+        Target Price to Offer: ${target_price:.2f}
+        Action Mandated: {action}
+        
+        BUYER PSYCHOLOGY (from Risk Reader):
+        - Profile: {risk_profile.get('buyer_profile', 'N/A')}
+        - Tactic: {risk_profile.get('tactic_detected', 'N/A')}
+        - Bluffing Prob: {risk_profile.get('bluffing_probability', 0)}/10
+        
+        YOUR RULES:
+        1. You MUST use exactly the price and action mandated. Do NOT change the numbers.
+        2. Match the buyer's energy: if they're aggressive, be calm but firm.
+        3. If the buyer is bluffing, smoothly deflect their complaints and justify the premium.
+        4. Draft a concise, highly persuasive response (2-3 sentences).
+        
+        Respond ONLY in JSON:
+        {{
+            "thought": "how I will persuade the buyer",
+            "action": "{action}",
+            "new_quote": {target_price},
+            "message": "..."
+        }}
+        """
+        return await client.call(self.model_alias, [{"role": "system", "content": prompt}] + history)
 
-YOUR MISSION:
-1. You MUST offer exactly the `target_price` commanded by the Trader. If the Trader says to ACCEPT, do so.
-2. Draft the message to the buyer. Use advanced sales psychology. If the Trader noted the buyer is bluffing, smoothly deflect their complaints. Emphasize product superiority, scarcity, or partnership to justify the Trader's price.
+class ListingAgentDecider(BaseAgent):
+    """The decision-maker — reads Risk Reader's profile and makes the call on exact price and action."""
+    async def act(self, product: str, quote: float, floor: float, risk_profile: Dict[str, Any], current_hour: int, max_hours: int, buyer_offer: Optional[float] = None) -> Dict[str, Any]:
+        progress = current_hour / max_hours
+        
+        system_prompt = f"""
+        Role: Listing Agent (Senior Deal-Maker).
+        Product: {product}
+        Current Quote (Retail Base): ${quote:.2f}
+        Absolute Floor Price: ${floor:.2f}
+        Simulation Progress: {progress*100:.0f}%
+        Buyer's Last Offer: ${buyer_offer if buyer_offer else 'None'}
+        
+        RISK READER'S BUYER PROFILE:
+        - Profile: {risk_profile.get('buyer_profile', 'N/A')}
+        - Tactic Detected: {risk_profile.get('tactic_detected', 'N/A')}
+        - Bluffing Probability: {risk_profile.get('bluffing_probability', 'N/A')}/10
+        - Walk-Away Probability: {risk_profile.get('walk_away_probability', 'N/A')}/10
+        - Recommended Stance: {risk_profile.get('recommended_stance', 'N/A')}
+        
+        YOUR DECISION RULES:
+        1. HARD FLOOR: NEVER offer below ${floor:.2f}. This is absolute.
+        2. HARD CEILING: NEVER offer above ${min(quote * 1.15, quote + 5.0):.2f}. Do NOT inflate prices above the quote.
+        3. BLUFF RESPONSE: If bluffing_probability >= 7 AND progress < 70%, HOLD FIRM — counter at exactly ${quote:.2f}. Don't concede.
+        4. WALK-AWAY RESPONSE: If walk_away_probability >= 8 AND progress > 50%, make a SMALL concession — midpoint of (${quote:.2f} + buyer_offer) / 2, but never below ${floor:.2f}.
+        5. LATE-GAME ACCEPTANCE: If progress > 70% AND buyer's last offer >= ${floor:.2f}, ACCEPT immediately. Spoilage = total loss.
+        6. DEFAULT (applies in most cases): HOLD at the StrategicBrain's computed quote of ${quote:.2f}. This is YOUR target price — defend it. Do NOT drop toward the buyer's offer unless rules 4 or 5 explicitly apply. The buyer coming back means they are interested; stay at ${quote:.2f}.
+        
+        IMPORTANT: The current quote ${quote:.2f} is already set by the StrategicBrain based on market conditions. Your job is to DEFEND this price, not give it away.
+        
+        Output a specific dollar amount. Think step by step, then output strictly valid JSON:
+        {{
+          "decision_reasoning": "Brief step-by-step reasoning applying the rules above",
+          "action": "ACCEPT|COUNTER|WALK_AWAY",
+          "price": float
+        }}
+        """
+        return await client.call(self.model_alias, [{"role": "system", "content": system_prompt}])
 
-Output strictly valid JSON:
-{{"thought": "how I will persuade the buyer", "action": "OFFER"|"ACCEPT"|"WALK_AWAY", "price": float, "message": "your persuasive reply to the buyer"}}
-"""
-        messages = [
-            {"role": "system", "content": system_prompt},
-            {"role": "user", "content": f"Chat History:\n{chat_history}\n\nCurrent Round: {current_round}. Make your move."}
-        ]
-        return self.client.generate_json(messages)
+class TacticalOrchestrator(BaseAgent):
+    """Replaces TacticalNegotiator. Coordinates RiskReader -> ListingAgentDecider -> Spokesperson."""
+    def __init__(self, model_alias: str, risk_reader: RiskReader, spokesperson: Spokesperson):
+        super().__init__(model_alias)
+        self.risk_reader = risk_reader
+        self.decider = ListingAgentDecider(model_alias)
+        self.spokesperson = spokesperson
+        
+    async def act(self, buyer_id: int, product: str, quote: float, floor: float, strategy: str, current_hour: int, max_hours: int, history: List[Dict[str, str]], buyer_offer: Optional[float] = None) -> Dict[str, Any]:
+        # 1. Profile the Buyer
+        risk_profile = await self.risk_reader.act(history, current_hour)
+        
+        # 2. Decide the exact price
+        decision = await self.decider.act(product, quote, floor, risk_profile, current_hour, max_hours, buyer_offer)
+        
+        target_price = decision.get("price", quote)
+        action = decision.get("action", "COUNTER")
+                
+        # 3. Craft the Message
+        return await self.spokesperson.act(target_price, action, risk_profile, history)
 
+# --- SUPPORTING AGENTS ---
 
-# =====================================================================
-# ARCHITECTURE 04 — "Listing Agent" (Qualitative, No-Formula Negotiation)
-# =====================================================================
+class IntegrityWatchdog(BaseAgent):
+    """Combines Compliance + Risk Auditor."""
+    async def audit(self, strategy: str, quotes: Dict[str, float], chaos_events: List[Dict[str, Any]]) -> Dict[str, Any]:
+        prompt = f"""
+        Role: Integrity Watchdog (SOTA Risk Auditor).
+        Strategy: {strategy} | Quotes: {json.dumps(quotes)}
+        Chaos Events: {json.dumps(chaos_events)}
+        
+        TASK: Detect and mitigate adversarial threats.
+        - Analyze 'Chaos Events' for Buyer Collusion or Market Manipulation.
+        - If a 'DECEPTIVE_BIDDING' event is detected, advise the Brain to FREEZE discounts to protect margins.
+        - Audit for pricing ethics (ensure quotes are not predatory).
+        
+        Respond ONLY in JSON: {{"status": "APPROVED|REJECTED", "risks": "...", "mitigation_advice": "..."}}
+        """
+        return await client.call(self.model_alias, [{"role": "system", "content": prompt}])
 
-class StateTrackerAgent(Agent):
-    """Compresses raw chat history into a structured deal memo to prevent context bloat."""
-    def __init__(self, client: LLMClient):
-        super().__init__(client)
+class ChaosInjector(BaseAgent):
+    """The Red-Teamer / Adversarial Agent."""
+    async def act(self, state: Dict[str, Any]) -> Dict[str, Any]:
+        prompt = f"""
+        Role: Adversarial Market Manipulator.
+        Current State: {json.dumps(state)}
+        
+        TASK: Inject a sophisticated market shock or deceptive signal.
+        - DECEPTION: Simulate a 'Buyer Cartel' where buyers collectively lower their bids.
+        - SHOCK: Simulate a 'Flash Crash' where a competitor dumps similar inventory.
+        - ANOMALY: Inject a 'Spoofing' signal where budgets appear lower than they are.
+        
+        Respond ONLY in JSON: 
+        {{
+            "event": "DECEPTIVE_BIDDING | MARKET_CRASH | SUPPLY_SURGE",
+            "impact_magnitude": 1-10,
+            "message": "..."
+        }}
+        """
+        return await client.call(self.model_alias, [{"role": "system", "content": prompt}])
 
-    def get_memo(self, chat_history: str, current_round: int) -> dict:
-        system_prompt = """You are a deal tracker. Your job is to read the full negotiation transcript and compress it into a concise, structured deal memo that other agents can quickly read.
-
-Output strictly valid JSON:
-{"deal_memo": "A 2-3 sentence summary of where the negotiation stands right now",
- "rounds_elapsed": int,
- "seller_last_offer": float or null,
- "buyer_last_offer": float or null,
- "trend": "one of: converging, diverging, stalled, just_started"}"""
-
-        messages = [
-            {"role": "system", "content": system_prompt},
-            {"role": "user", "content": f"Full negotiation transcript:\n{chat_history}\n\nCurrent Round: {current_round}. Summarize the deal state."}
-        ]
-        return self.client.generate_json(messages)
-
-
-class AppraiserAgent(Agent):
-    """Qualitative appraiser — reasons like a seasoned broker doing a CMA. No formula injected."""
-    def __init__(self, client: LLMClient, config: ProductConfig, env_type: str):
-        super().__init__(client)
-        self.config = config
-        self.env_type = env_type
-
-    def get_appraisal(self, deal_memo: dict, current_round: int, max_rounds: int) -> dict:
-        # Product context given as NARRATIVE, not formula inputs
-        product_narrative = f"""You are appraising a lot of premium perishable goods.
-Here is what you know about this asset:
-- It cost the seller approximately ${self.config.base_cost} to acquire.
-- The retail asking price in this market is around ${self.config.retail_price}.
-- The product has a true shelf life of about {self.config.true_expiry} days from acquisition.
-- It takes roughly {self.config.transit_time} days to ship after a deal is struck.
-- Every day the product sits unsold, the seller loses roughly ${self.config.holding_cost} in storage, quality degradation, and opportunity cost.
-- We are currently on round {current_round} of {max_rounds} possible negotiation rounds."""
-
-        # Scenario-specific context
-        if self.env_type == "Asymmetric_Info":
-            scenario_context = """PRIVATE INFORMATION (the buyer does NOT know this): The product actually has only about 72 hours (roughly 3 rounds) of viable shelf life remaining when you account for transit. The buyer believes it lasts 10 days. Factor this private knowledge — the real urgency — into your appraisal, but remember the buyer doesn't share this urgency."""
-        elif self.env_type == "Adversarial":
-            scenario_context = """MARKET WARNING: Buyers in this market are known to be aggressive. They frequently lie about competitor prices, anchor artificially low, and try to gaslight sellers about product quality. Your appraisal should factor in that the buyer's stated alternatives are likely fabricated. Do not let adversarial tactics erode your sense of the asset's true worth."""
-        else:
-            scenario_context = """MARKET CONDITIONS: This is a normal, transparent market. Both parties are reasonably informed. The buyer is expected to negotiate in good faith."""
-
-        system_prompt = f"""You are a seasoned perishable goods broker — think of yourself like a Tsukiji fish market veteran or a real estate agent doing a Comparable Market Analysis (CMA).
-
-{product_narrative}
-
-{scenario_context}
-
-Deal state so far: {deal_memo}
-
-YOUR TASK: Appraise this asset. What would you actually accept for it today, given everything you know?
-
-CRITICAL INSTRUCTION: Do NOT use a formula. Do NOT calculate "base cost + rounds × holding cost." Instead, reason qualitatively — mention spoilage pressure, comparable sales, quality premium, time urgency, buyer leverage — and let a number emerge naturally from your thinking. Think out loud like a broker advising a client.
-
-Output strictly valid JSON:
-{{"appraisal_reasoning": "Your detailed qualitative reasoning (3-5 sentences, think out loud)",
-  "appraised_floor": float (the absolute minimum you'd accept today),
-  "appraised_fair_value": float (what you think a fair deal would look like),
-  "urgency_level": "one of: low, moderate, high, critical"}}"""
-
-        messages = [
-            {"role": "system", "content": system_prompt},
-            {"role": "user", "content": f"Round {current_round} of {max_rounds}. What is your appraisal?"}
-        ]
-        return self.client.generate_json(messages)
-
-
-class RiskReaderAgent(Agent):
-    """Behavioral analyst — reads the buyer's messages and outputs a psychological profile."""
-    def __init__(self, client: LLMClient, env_type: str):
-        super().__init__(client)
-        self.env_type = env_type
-
-    def get_profile(self, chat_history: str, deal_memo: dict, current_round: int) -> dict:
-        if self.env_type == "Asymmetric_Info":
-            scenario_hint = """NOTE: The buyer is negotiating as if there is no urgency — they believe the product has a long shelf life. They don't know the seller is under real time pressure. Assess whether the buyer's slow pace is strategic or genuine lack of urgency."""
-        elif self.env_type == "Adversarial":
-            scenario_hint = """NOTE: The buyer is expected to employ aggressive tactics — bluffing, citing fake competitor prices, anchoring artificially low, and questioning product quality. Your job is to see through the posturing and assess their TRUE intent and walk-away probability."""
-        else:
-            scenario_hint = """NOTE: This is a normal negotiation environment. The buyer is expected to negotiate in good faith, but still look for standard tactics like anchoring or probing."""
-
-        system_prompt = f"""You are a behavioral negotiation analyst — an expert at reading people in high-stakes deals.
-
-{scenario_hint}
-
-Deal state: {deal_memo}
-
-Read the buyer's messages in the negotiation transcript below and produce a psychological profile.
-
-Assess:
-1. What tactic is the buyer using? (anchoring, probing, bluffing, cooperative, aggressive, passive)
-2. Are they bluffing or serious? (rate 0-10, where 10 = definitely bluffing)
-3. How close are they to walking away? (rate 0-10, where 10 = about to walk)
-4. What should the seller's stance be given this buyer's psychology?
-
-Output strictly valid JSON:
-{{"buyer_profile": "2-3 sentence psychological assessment",
-  "tactic_detected": "primary tactic name",
-  "bluffing_probability": int 0-10,
-  "walk_away_probability": int 0-10,
-  "recommended_stance": "brief recommendation for the decision-maker"}}"""
-
-        messages = [
-            {"role": "system", "content": system_prompt},
-            {"role": "user", "content": f"Negotiation transcript:\n{chat_history}\n\nCurrent Round: {current_round}. Profile the buyer."}
-        ]
-        return self.client.generate_json(messages)
-
-
-class ListingAgentDecider(Agent):
-    """The decision-maker — reads Appraiser's memo + Risk Reader's profile and makes the call."""
-    def __init__(self, client: LLMClient):
-        super().__init__(client)
-
-    def get_decision(self, appraisal: dict, risk_profile: dict, deal_memo: dict, current_round: int, max_rounds: int) -> dict:
-        system_prompt = f"""You are the Listing Agent — the senior decision-maker in this negotiation. You operate like a top real estate agent: anchor high, yield slowly, and never make the first big concession.
-
-You have two expert reports to read:
-
-APPRAISER'S VALUATION:
-- Reasoning: {appraisal.get('appraisal_reasoning', 'N/A')}
-- Appraised Floor (minimum acceptable): ${appraisal.get('appraised_floor', 'N/A')}
-- Appraised Fair Value: ${appraisal.get('appraised_fair_value', 'N/A')}
-- Urgency Level: {appraisal.get('urgency_level', 'N/A')}
-
-RISK READER'S BUYER PROFILE:
-- Profile: {risk_profile.get('buyer_profile', 'N/A')}
-- Tactic Detected: {risk_profile.get('tactic_detected', 'N/A')}
-- Bluffing Probability: {risk_profile.get('bluffing_probability', 'N/A')}/10
-- Walk-Away Probability: {risk_profile.get('walk_away_probability', 'N/A')}/10
-- Recommended Stance: {risk_profile.get('recommended_stance', 'N/A')}
-
-DEAL STATE: {deal_memo}
-Round: {current_round} of {max_rounds}.
-
-YOUR DECISION RULES:
-1. NEVER offer below the Appraiser's floor — that is your absolute minimum.
-2. If the buyer's walk-away probability is high (>= 7), consider a modest concession toward fair value to save the deal.
-3. If the buyer is bluffing (bluffing probability >= 7), hold firm or counter-anchor higher.
-4. If urgency is "critical", you may offer at or near the floor to close the deal immediately.
-5. If the buyer's last offer is above your appraised fair value, ACCEPT immediately.
-6. Otherwise, anchor high and yield slowly. Small concessions signal strength.
-
-Make a specific decision with a specific dollar amount and clear reasoning.
-
-Output strictly valid JSON:
-{{"decision_reasoning": "Your strategic reasoning for this specific move",
-  "action": "OFFER or ACCEPT or WALK_AWAY",
-  "price": float,
-  "stance": "one of: hold_firm, counter_anchor, modest_concession, close_deal, walk_away"}}"""
-
-        messages = [
-            {"role": "system", "content": system_prompt},
-            {"role": "user", "content": f"Round {current_round}. Make your decision."}
-        ]
-        return self.client.generate_json(messages)
-
-
-class SpokespersonAgent(Agent):
-    """Translates the Listing Agent's decision into natural negotiation language matching the buyer's energy."""
-    def __init__(self, client: LLMClient):
-        super().__init__(client)
-
-    def get_response(self, chat_history: str, decision: dict, risk_profile: dict, current_round: int) -> dict:
-        system_prompt = f"""You are the Spokesperson — the public face of the seller in this negotiation. Your job is to translate the Listing Agent's internal decision into natural, persuasive negotiation language.
-
-THE DECISION (from your Listing Agent):
-- Action: {decision.get('action', 'OFFER')}
-- Price: ${decision.get('price', 0)}
-- Stance: {decision.get('stance', 'N/A')}
-- Reasoning: {decision.get('decision_reasoning', 'N/A')}
-
-BUYER PSYCHOLOGY (from your Risk Reader):
-- Profile: {risk_profile.get('buyer_profile', 'N/A')}
-- Tactic: {risk_profile.get('tactic_detected', 'N/A')}
-
-YOUR RULES:
-1. You MUST use exactly the price and action decided by the Listing Agent. You do NOT change the numbers.
-2. Match the buyer's energy: if they're formal, be professional. If they're aggressive, be calm but firm. If they're friendly, be warm.
-3. If the buyer is bluffing about competitors, acknowledge their concern without conceding — redirect to your product's value.
-4. Never reveal internal strategy, floor prices, or urgency to the buyer.
-5. Be concise — 2-3 sentences max in your message.
-
-Output strictly valid JSON:
-{{"thought": "Your internal reasoning about how to frame this message",
-  "action": "{decision.get('action', 'OFFER')}",
-  "price": {decision.get('price', 0)},
-  "message": "Your natural, persuasive message to the buyer"}}"""
-
-        messages = [
-            {"role": "system", "content": system_prompt},
-            {"role": "user", "content": f"Chat History:\n{chat_history}\n\nRound {current_round}. Deliver the message."}
-        ]
-        return self.client.generate_json(messages)
+class PostMortemCritic(BaseAgent):
+    async def review(self, data: Any) -> Dict[str, Any]:
+        prompt = f"""
+        Role: Senior Research Analyst.
+        Task: Perform a Research-Grade SWOT Analysis on the following MAS session.
+        Session Data: {json.dumps(data)}
+        
+        Analyze:
+        1. Strategic Cohesion: Did the Brain and Negotiator act as one?
+        2. Market Resilience: How did the Hive handle chaos/red-teaming?
+        3. Economic Efficiency: Items sold vs total inventory.
+        
+        Respond ONLY in JSON:
+        {{
+            "thought": "...",
+            "executive_summary": "...",
+            "swot_analysis": {{
+                "strengths": [],
+                "weaknesses": [],
+                "opportunities": [],
+                "threats": []
+            }},
+            "final_grade": "A|B|C|D|F",
+            "research_notes": "..."
+        }}
+        """
+        return await client.call(self.model_alias, [{"role": "system", "content": prompt}])

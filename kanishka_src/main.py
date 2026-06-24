@@ -90,15 +90,15 @@ async def main_async():
     # 2. Experiment Configurations
     EXPERIMENTS = [
         {
-            "name": "Full Llama-70B Dominance",
-            "model_map": {k: "Llama-70B-GR" for k in HIVE_CONFIG.keys()},
-            "buyer_model": "Llama-70B-NV"
-        },
-        {
-            "name": "Llama-8B Lightweight Efficiency",
-            "model_map": {k: "Llama-8B-GR" for k in HIVE_CONFIG.keys()},
-            "buyer_model": "Llama-8B-GR"
+            "name": "Gemini 3.1 Pro Limit Test",
+            "model_map": {k: "Gemini-3.1-Pro" for k in HIVE_CONFIG.keys()},
+            "buyer_model": "Gemini-3.1-Pro"
         }
+        # {
+        #     "name": "Full Llama-70B Dominance",
+        #     "model_map": {k: "Llama-70B-GR" for k in HIVE_CONFIG.keys()},
+        #     "buyer_model": "Llama-70B-NV"
+        # }
     ]
 
     all_results = []
@@ -133,7 +133,11 @@ async def main_async():
         env_mas.buyers = make_buyers(config['buyer_model'])
         env_mas.histories = {b['id']: [] for b in shared_buyers_config}
         env_mas.buyer_targets = {b['id']: None for b in shared_buyers_config}
-        res_mas = await env_mas.run()
+        res_mas = None
+        async for checkpoint in env_mas.run():
+            res_mas = checkpoint
+            with open(os.path.join(exp_output_dir, "checkpoint_mas.json"), "w") as f:
+                json.dump(checkpoint, f, indent=4)
         metrics_mas = calculate_metrics(res_mas)
 
         # ── B. Single-Model MAS (Pure LLM, no architecture) ──────────────────────
@@ -143,7 +147,11 @@ async def main_async():
         env_single.buyers = make_buyers(config['buyer_model'])
         env_single.histories = {b['id']: [] for b in shared_buyers_config}
         env_single.buyer_targets = {b['id']: None for b in shared_buyers_config}
-        res_single = await env_single.run()
+        res_single = None
+        async for checkpoint in env_single.run():
+            res_single = checkpoint
+            with open(os.path.join(exp_output_dir, "checkpoint_single.json"), "w") as f:
+                json.dump(checkpoint, f, indent=4)
         metrics_single = calculate_metrics(res_single)
 
         # ── C. Human Baseline (Static CSV Price) ─────────────────────────────────
@@ -153,7 +161,11 @@ async def main_async():
         env_human.buyers = make_buyers(config['buyer_model'])
         env_human.histories = {b['id']: [] for b in shared_buyers_config}
         env_human.buyer_targets = {b['id']: None for b in shared_buyers_config}
-        res_human = await env_human.run()
+        res_human = None
+        async for checkpoint in env_human.run():
+            res_human = checkpoint
+            with open(os.path.join(exp_output_dir, "checkpoint_human.json"), "w") as f:
+                json.dump(checkpoint, f, indent=4)
         metrics_human = calculate_metrics(res_human)
 
         # ── Display + Save ────────────────────────────────────────────────────────

@@ -1,97 +1,175 @@
-import os
-import sys
+import httpx
+import asyncio
 import time
 import json
 import re
-from openai import OpenAI, RateLimitError, APITimeoutError, APIConnectionError, InternalServerError
-from tenacity import retry, wait_exponential, stop_after_attempt, retry_if_exception_type
-from dotenv import load_dotenv
-
-load_dotenv()
-
-class JSONDecodeErrorCustom(Exception):
-    pass
-
-def log(msg):
-    print(msg, flush=True)
+import random
+import os
+from typing import Dict, List, Any, Optional
+from google import genai
+from .config import NVIDIA_API_KEYS, NVIDIA_BASE_URL, GROQ_API_KEYS, GROQ_BASE_URL, MODELS
 
 class LLMClient:
-    def __init__(self):
-        self.provider = os.getenv("LLM_PROVIDER", "openrouter").lower()
-        
-        if self.provider == "nvidia":
-            api_key = os.getenv("NVIDIA_API_KEY")
-            base_url = "https://integrate.api.nvidia.com/v1"
-            self.default_model = "meta/llama-3.3-70b-instruct"
-        elif self.provider == "groq":
-            api_key = os.getenv("GROQ_API_KEY")
-            base_url = "https://api.groq.com/openai/v1"
-            self.default_model = "llama-3.3-70b-versatile"
-        else: # default to openrouter
-            api_key = os.getenv("OPENROUTER_API_KEY")
-            base_url = "https://openrouter.ai/api/v1"
-            self.default_model = "qwen/qwen-2.5-72b-instruct"
-            
-        self.client = OpenAI(
-            base_url=base_url,
-            api_key=api_key
-        )
-        self.total_tokens_used = 0
-        self.total_latency_seconds = 0.0
+    def __init__(self, max_concurrent: int = 4):
+        self.providers = {
+            "nvidia": {"keys": NVIDIA_API_KEYS, "url": NVIDIA_BASE_URL, "index": 0},
+            "groq": {"keys": GROQ_API_KEYS, "url": GROQ_BASE_URL, "index": 0}
+        }
+        self.json_failures = 0
+        self.total_calls = 0
+        self.status_logs = []
+        self.semaphore = asyncio.Semaphore(max_concurrent)
+        self._http_client = None
 
-    def reset_metrics(self):
-        self.total_tokens_used = 0
-        self.total_latency_seconds = 0.0
+    async def get_http_client(self):
+        if self._http_client is None or self._http_client.is_closed:
+            self._http_client = httpx.AsyncClient(timeout=60.0)
+        return self._http_client
 
-    @retry(
-        wait=wait_exponential(multiplier=2, min=5, max=300),
-        stop=stop_after_attempt(15),
-        retry=retry_if_exception_type((RateLimitError, APITimeoutError, APIConnectionError, InternalServerError, JSONDecodeErrorCustom))
-    )
-    def generate_json(self, messages, model=None):
-        model_to_use = model or self.default_model
-        
-        # Mandatory sleep to prevent rate limits
-        time.sleep(2.0)
-        
-        start_time = time.time()
-        
+    def _log_status(self, msg: str):
+        self.status_logs.append(f"[LLM] {msg}")
+        if len(self.status_logs) > 20: self.status_logs.pop(0)
+
+    def _get_next_key(self, provider_name: str) -> Optional[str]:
+        p = self.providers.get(provider_name)
+        if not p or not p["keys"]: return None
+        key = p["keys"][p["index"]]
+        p["index"] = (p["index"] + 1) % len(p["keys"])
+        return key
+
+    def safe_parse_json(self, response: str) -> Optional[Dict[str, Any]]:
+        if not response: return None
+        response = re.sub(r'<thought>.*?</thought>', '', response, flags=re.DOTALL)
+        response = re.sub(r'```json\s*(.*?)\s*```', r'\1', response, flags=re.DOTALL)
         try:
-            response = self.client.chat.completions.create(
-                model=model_to_use,
-                messages=messages,
-                temperature=0.7,
-                response_format={"type": "json_object"},
-                timeout=60.0
-            )
-        except RateLimitError as e:
-            # Parse retry-after from error message if available
-            err_msg = str(e)
-            log(f"  [RATE LIMITED] Waiting for cooldown... ({err_msg[:80]})")
-            time.sleep(30)  # Extra 30s cooldown on top of tenacity backoff
-            raise e
-        except Exception as e:
-            log(f"  [API ERROR] {str(e)[:100]}")
-            raise e
-            
-        latency = time.time() - start_time
-        self.total_latency_seconds += latency
-        
-        if response.usage:
-            self.total_tokens_used += response.usage.total_tokens
-            
-        content = response.choices[0].message.content
-        return self._parse_json(content)
-
-    def _parse_json(self, text: str) -> dict:
-        try:
-            return json.loads(text)
+            return json.loads(response.strip())
         except json.JSONDecodeError:
-            # Fallback regex extraction to handle markdown wrappers like ```json ... ```
-            match = re.search(r'\{.*\}', text, re.DOTALL)
+            match = re.search(r'\{.*\}', response, re.DOTALL)
             if match:
                 try:
-                    return json.loads(match.group(0))
-                except json.JSONDecodeError as e:
-                    raise JSONDecodeErrorCustom(f"Failed to parse extracted JSON: {e}")
-            raise JSONDecodeErrorCustom("No JSON object found in response.")
+                    return json.loads(match.group())
+                except: pass
+        self.json_failures += 1
+        return None
+
+    async def call(self, model_alias: str, messages: List[Dict[str, str]], temperature: float = 0.2, retries: int = 3) -> Dict[str, Any]:
+        """Semaphore-protected entry point with hard 90s total timeout guard."""
+        async with self.semaphore:
+            try:
+                return await asyncio.wait_for(
+                    self._internal_call(model_alias, messages, temperature, retries),
+                    timeout=90.0
+                )
+            except asyncio.TimeoutError:
+                self._log_status(f"HARD TIMEOUT (90s) on {model_alias} — returning WALK_AWAY")
+                return {"action": "WALK_AWAY", "error": "HARD_TIMEOUT"}
+
+    async def _internal_call(self, model_alias: str, messages: List[Dict[str, str]], temperature: float = 0.2, retries: int = 5, is_retry: bool = False) -> Dict[str, Any]:
+        """Actual call logic, can be called recursively without re-acquiring semaphore."""
+        model_info = MODELS.get(model_alias)
+        if not model_info:
+            return {"action": "WALK_AWAY", "error": f"Model {model_alias} not found"}
+            
+        provider_name = model_info["provider"]
+        
+        if provider_name == "google":
+            def _call_gemini():
+                gemini_client = genai.Client(api_key=os.getenv("GEMINI_API_KEY"))
+                prompt = "\n".join(f"[{m['role'].upper()}]: {m['content']}" for m in messages)
+                response = gemini_client.models.generate_content(
+                    model=model_info["id"],
+                    contents=prompt
+                )
+                return response.text
+            
+            start_time = time.time()
+            try:
+                content = await asyncio.wait_for(asyncio.to_thread(_call_gemini), timeout=30.0)
+                latency = time.time() - start_time
+                parsed = self.safe_parse_json(content)
+                if parsed:
+                    parsed["latency"] = latency
+                    return parsed
+                if not is_retry and retries > 0:
+                    self._log_status("JSON parse failed, retrying...")
+                    correction_messages = messages + [
+                        {"role": "assistant", "content": content},
+                        {"role": "user", "content": "Your previous response was not valid JSON. Please re-output ONLY the JSON block."}
+                    ]
+                    return await self._internal_call(model_alias, correction_messages, temperature=0.1, retries=retries-1, is_retry=True)
+                return {"action": "ERROR", "error": "JSON_PARSE_FAILED", "raw": content, "latency": latency}
+            except Exception as e:
+                if retries > 0:
+                    self._log_status(f"Conn Error: {provider_name} ({str(e)[:20]}...)")
+                    await asyncio.sleep(3)
+                    return await self._internal_call(model_alias, messages, temperature, retries - 1)
+                return {"action": "WALK_AWAY", "error": "CONNECTION_FAILED", "latency": time.time() - start_time}
+
+        api_key = self._get_next_key(provider_name)
+        provider_config = self.providers.get(provider_name)
+        
+        if not api_key:
+            return {"action": "WALK_AWAY", "error": f"No API Key for {provider_name}"}
+        
+        self.total_calls += 1
+        headers = {"Authorization": f"Bearer {api_key}", "Content-Type": "application/json"}
+        payload = {
+            "model": model_info["id"],
+            "messages": messages,
+            "temperature": temperature,
+            "max_tokens": 1024,
+            "stream": False
+        }
+
+        start_time = time.time()
+        try:
+            async with httpx.AsyncClient(timeout=30.0) as http_client:
+                response = await http_client.post(provider_config["url"], headers=headers, json=payload)
+            latency = time.time() - start_time
+            
+            if response.status_code == 200:
+                content = response.json()['choices'][0]['message']['content'].strip()
+                parsed = self.safe_parse_json(content)
+                
+                if parsed: 
+                    parsed["latency"] = latency
+                    return parsed
+                
+                if not is_retry and retries > 0:
+                    self._log_status("JSON parse failed, retrying...")
+                    correction_messages = messages + [
+                        {"role": "assistant", "content": content},
+                        {"role": "user", "content": "Your previous response was not valid JSON. Please re-output ONLY the JSON block."}
+                    ]
+                    return await self._internal_call(model_alias, correction_messages, temperature=0.1, retries=retries-1, is_retry=True)
+                
+                return {"action": "ERROR", "error": "JSON_PARSE_FAILED", "raw": content, "latency": latency}
+            
+            elif response.status_code == 429:
+                num_keys = len(self.providers[provider_name]["keys"])
+                wait_time = 12 + random.uniform(2, 5)
+                
+                if num_keys > 1 and retries > 0:
+                    self._log_status(f"Rate limited. Switching key (Retries left: {retries})...")
+                    await asyncio.sleep(3) # Slightly longer delay
+                    return await self._internal_call(model_alias, messages, temperature, retries - 1)
+                else:
+                    self._log_status(f"Rate limited. Waiting {wait_time:.1f}s...")
+                    await asyncio.sleep(wait_time)
+                    if retries > 0:
+                        return await self._internal_call(model_alias, messages, temperature, retries - 1)
+            
+            else:
+                err_msg = response.text[:100]
+                self._log_status(f"Error {response.status_code} on {model_info['id']} ({provider_name}): {err_msg}")
+                
+        except Exception as e:
+            if retries > 0:
+                self._log_status(f"Conn Error: {provider_name} ({str(e)[:20]}...)")
+                await asyncio.sleep(3)
+                return await self._internal_call(model_alias, messages, temperature, retries - 1)
+        
+        return {"action": "WALK_AWAY", "error": "CONNECTION_FAILED", "latency": time.time() - start_time}
+
+# Singleton instance
+client = LLMClient()

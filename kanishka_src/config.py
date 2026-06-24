@@ -1,21 +1,40 @@
-from pydantic import BaseModel, Field
-from typing import Literal, Optional
+import os
+from dotenv import load_dotenv
 
-class ProductConfig(BaseModel):
-    base_cost: float = Field(default=20.0, description="Base manufacturing/acquisition cost")
-    retail_price: float = Field(default=80.0, description="Initial retail asking price")
-    true_expiry: int = Field(default=10, description="True expiry in days/rounds")
-    transit_time: int = Field(default=2, description="Transit time in days/rounds")
-    holding_cost: float = Field(default=2.0, description="Holding cost per day/round")
+load_dotenv()
 
-class AgentResponse(BaseModel):
-    thought: str = Field(description="Internal reasoning of the agent")
-    action: Literal['OFFER', 'ACCEPT', 'WALK_AWAY'] = Field(description="Action taken by the agent")
-    price: float = Field(description="The price offered or accepted")
-    message: str = Field(description="The spoken message to the other party")
-    manager_directive: Optional[str] = Field(default=None, description="Internal directive for multi-agent setups")
+# --- API SETTINGS ---
+NVIDIA_API_KEYS = [os.getenv("NVIDIA_API_KEY"), os.getenv("NVIDIA_API_KEY_2")]
+NVIDIA_API_KEYS = [k for k in NVIDIA_API_KEYS if k] # Filter out None
+NVIDIA_BASE_URL = "https://integrate.api.nvidia.com/v1/chat/completions"
 
-class ManagerDirective(BaseModel):
-    floor_price: float = Field(description="Absolute lowest acceptable price")
-    target_price: float = Field(description="Desired target price")
-    strategy_directive: str = Field(description="Instructions for the negotiator")
+GROQ_API_KEYS = [os.getenv("GROQ_API_KEY"), os.getenv("GROQ_API_KEY_2")]
+GROQ_API_KEYS = [k for k in GROQ_API_KEYS if k] # Filter out None
+GROQ_BASE_URL = "https://api.groq.com/openai/v1/chat/completions"
+
+# --- MODEL MAPPING ---
+MODELS = {
+    "Llama-70B-NV": {"id": "meta/llama-3.3-70b-instruct", "provider": "nvidia"},
+    "Llama-70B-GR": {"id": "llama-3.3-70b-versatile", "provider": "groq"},
+    "Mixtral-8x7B-GR": {"id": "mixtral-8x7b-32768", "provider": "groq"},
+    "Llama-8B-GR": {"id": "llama-3.1-8b-instant", "provider": "groq"},
+    "Gemini-2.5-Flash": {"id": "gemini-2.5-flash", "provider": "google"},
+    "Gemini-3.5-Flash": {"id": "gemini-3.5-flash", "provider": "google"},
+    "Gemini-3.1-Pro": {"id": "gemini-3.1-pro-preview", "provider": "google"}
+}
+
+# --- THE CONSOLIDATED HIVE (6 AGENTS) ---
+HIVE_CONFIG = {
+    "intelligence_hub": "Llama-8B-GR",
+    "strategic_brain": "Llama-70B-NV",
+    "tactical_negotiator": "Llama-8B-GR",
+    "integrity_watchdog": "Llama-8B-GR",
+    "chaos_injector": "Llama-70B-NV", # Switched to Llama-70B
+    "critic": "Llama-8B-GR"
+}
+
+# --- SIMULATION PARAMETERS ---
+N_BUYERS = 15
+MAX_HOURS = 10
+SIM_CLOCK_TICK = 2
+GLOBAL_SEED = 42
