@@ -1,0 +1,5 @@
+Condition,Total Profit,Waste Loss,True Net Profit,NetPAU,Waste/Profit Ratio,SPI
+Full_MAS,137.43,103.92,33.51,2.23,0.76,1.31
+No_RiskReader,119.63,120.24,-0.61,-0.04,1.01,0.99
+LinearDecay_Baseline,155.99,272.83,-116.84,-7.79,1.75,0.57
+No_StrategicBrain,91.02,290.07,-199.05,-13.27,3.19,0.31
