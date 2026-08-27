@@ -1,0 +1,11 @@
+Trial,Condition,PCR,Total Profit,Waste Loss,True Net Profit,Items Sold,Persuasion Events
+1,Full_MAS,1.1527,95.24,13.78,81.46,14,0
+1,LinearDecay_Baseline,1.1458,102.18,0.0,102.18,15,0
+2,Full_MAS,1.2063,85.89,33.87,52.02,11,0
+2,LinearDecay_Baseline,1.1877,106.41,0.0,106.41,15,0
+3,Full_MAS,1.1376,85.29,16.96,68.33,12,0
+3,LinearDecay_Baseline,1.1921,106.99,0.0,106.99,15,0
+4,Full_MAS,1.0933,96.07,1.73,94.34,14,0
+4,LinearDecay_Baseline,1.1887,107.42,0.0,107.42,15,0
+5,Full_MAS,1.0957,89.28,13.78,75.5,14,0
+5,LinearDecay_Baseline,1.2532,110.08,0.0,110.08,15,0

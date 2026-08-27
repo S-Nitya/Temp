@@ -22,13 +22,13 @@ MODELS = {
     "Mixtral-8x7B-GR": {"id": "mixtral-8x7b-32768",       "provider": "groq"},
 }
 
-# --- NEURIPS ARCHITECTURE CONFIG ---
+# --- FINAL ARCHITECTURE CONFIG ---
 # StrategicBrain uses 70B for autonomous strategy discovery
 # Micro-negotiation agents use 8B for speed/cost
-NEURIPS_CONFIG = {
-    "strategic_brain":    "Llama-70B-NV",
-    "tactical_negotiator": "Llama-8B-NV",
-    "chaos_injector":     "Llama-70B-NV",
+FINAL_CONFIG = {
+    "strategic_brain":    "Llama-70B-GR",
+    "tactical_negotiator": "Llama-70B-GR",
+    "chaos_injector":     "Llama-70B-GR",
 }
 
 # --- SIMULATION PARAMETERS ---
@@ -37,12 +37,16 @@ MAX_HOURS    = 10
 SIM_CLOCK_TICK = 2
 GLOBAL_SEED  = 42
 
-# --- PERSUASION MULTIPLIERS (fixed, defensible OR math) ---
-# Applied to buyer's base max_acceptable ceiling when seller uses specific tactics
-# Source: Cialdini's Influence principles adapted to perishable goods context
-TACTIC_MULTIPLIERS = {
-    "scarcity":          1.08,  # "only 2 left", "expires tomorrow" → 8% ceiling expansion
-    "quality_assurance": 1.05,  # "premium grade", "certified organic" → 5% ceiling expansion
-    "partnership":       1.03,  # "loyalty deal", "returning customer" → 3% ceiling expansion
-    "none":              1.00,  # No or generic message → no expansion
+# --- TEMPERATURE SETTINGS (Adversarial Differentiation) ---
+# Buyer uses higher temperature for behavioral stubbornness and realistic negotiation friction
+# Seller agents use lower temperature for rational, strategic consistency
+BUYER_TEMPERATURE = 0.7
+SELLER_TEMPERATURE = 0.2
+
+# --- BUYER UTILITY PERSONAS ---
+# U = alpha * ln(V - P) - beta * max(0, T_deadline - T_current)
+PERSONA_PROFILES = {
+    "ESSENTIAL":  {"alpha": 0.8, "beta": 1.5, "desc": "High urgency procurement. Needs item critically for operations; accepts moderate price premium to secure supply before deadline."},
+    "CALCULATED": {"alpha": 1.8, "beta": 0.4, "desc": "Ruthless margin maximizer. Price-sensitive, counters aggressively, walks away rather than overpaying."},
+    "IMPULSE":    {"alpha": 1.2, "beta": 0.9, "desc": "Opportunistic buyer. Spontaneous but bounded by firm corporate budget limits."},
 }

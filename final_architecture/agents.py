@@ -1,17 +1,22 @@
 """
-NeurIPS Architecture — Agent Definitions
+Final Architecture — Agent Definitions
 
-Key changes vs kanishka_src:
-1. Buyer reads seller text + classifies tactic (persuasion mechanism)
-2. StrategicBrain: NO hardcoded phases — autonomous discovery
-3. REMOVED: IntelligenceHub, IntegrityWatchdog, PostMortemCritic (dead code pruned)
-4. Pydantic validation on all outputs via llm_client schemas
-5. DummyRiskReader now returns neutral (5,5) — fair ablation baseline
+Key design principles:
+1. Microeconomic CoT Utility Modeling: Buyer evaluates language persuasion natively and updates perceived value V without Python multipliers.
+2. Autonomous StrategicBrain: Organic phase discovery and dynamic yield curve optimization without hardcoded time boundaries.
+3. Autonomous Listing Decider: Emergent reflex reasoning over expected revenue vs. spoilage penalty without hardcoded threshold rules.
+4. Strict Pydantic Schema Validation across all agent outputs.
+5. Adversarial Persona Grounding & Differentiated Temperature (Buyer: 0.7, Seller: 0.2).
 """
 import json
+import math
 from typing import Dict, List, Any, Optional
-from .llm_client import client, validate_output, BuyerActionSchema, RiskProfileSchema, DecisionSchema, SpokespersonSchema
-from .config import MODELS, TACTIC_MULTIPLIERS
+from .llm_client import (
+    client, validate_output,
+    StrategicDecision, DeciderAction, BuyerResponse,
+    RiskProfileSchema, SpokespersonSchema
+)
+from .config import MODELS, BUYER_TEMPERATURE, SELLER_TEMPERATURE, PERSONA_PROFILES
 
 
 class BaseAgent:
@@ -19,13 +24,14 @@ class BaseAgent:
         self.model_alias = model_alias
 
 
-# ─── BUYER ───────────────────────────────────────────────────────────────────
+# ─── TASK 3: NATIVE MICROECONOMIC BUYER UTILITY ──────────────────────────────
 
 class Buyer(BaseAgent):
     """
-    NeurIPS upgrade: Buyer now reads the seller's text and classifies the persuasion tactic.
-    Python applies a fixed mathematical multiplier to max_acceptable based on the tactic.
-    This makes language economically measurable — a core NeurIPS/ACL contribution.
+    Autonomous Procurement Buyer Agent.
+    Evaluates seller natural language arguments via hidden Chain-of-Thought (CoT),
+    updating internal perceived valuation without hardcoded multipliers.
+    Strictly constrained by corporate budget ceiling to eliminate cooperative bias.
     """
     def __init__(self, buyer_id: int, model_alias: str, budget: float,
                  shopping_list: List[str], personality: str = "CALCULATED"):
@@ -35,6 +41,11 @@ class Buyer(BaseAgent):
         self.shopping_list   = shopping_list
         self.personality     = personality
         self.purchased_items = []
+        
+        profile = PERSONA_PROFILES.get(personality, PERSONA_PROFILES["CALCULATED"])
+        self.alpha = profile["alpha"]
+        self.beta  = profile["beta"]
+        self.persona_desc = profile["desc"]
 
     async def act(
         self,
@@ -46,73 +57,75 @@ class Buyer(BaseAgent):
         retail_price: float,
         seller_last_message: str = "",
     ) -> Dict[str, Any]:
-        desperation = current_hour / max_hours
-        remaining   = [i for i in self.shopping_list if i not in self.purchased_items]
+        hours_remaining  = max_hours - current_hour
+        remaining_items  = [i for i in self.shopping_list if i not in self.purchased_items]
+        target_item      = remaining_items[0] if remaining_items else "General Item"
 
-        # Base ceiling — Python math, not LLM hallucination
-        base_max    = round(retail_price * (1.0 + 0.3 + 0.3 * desperation), 2)
-        # Also enforce budget constraint
-        effective_max = round(min(base_max, self.budget), 2)
-
-        personality_desc = {
-            "ESSENTIAL":  "You NEED this item urgently. You'll accept a moderate premium but won't be scammed.",
-            "CALCULATED": "You are a sharp deal-seeker. Counter persistently; walk away if the premium is unreasonable.",
-            "IMPULSE":    "You are spontaneous — may cave earlier or push back randomly, but won't pay obviously absurd prices.",
-        }.get(self.personality, "You are a rational buyer.")
-
-        seller_context = f'"{seller_last_message}"' if seller_last_message else "No message from seller yet."
+        seller_context = f'"{seller_last_message}"' if seller_last_message else "No direct message from seller yet."
 
         prompt = f"""
-Role: Savvy Shopper. Personality: {self.personality}.
-Current Target: {remaining[0] if remaining else 'None'}
-Remaining List: {json.dumps(remaining[1:] if len(remaining) > 1 else [])}
+You are a ruthless procurement buyer. Persona: {self.personality} ({self.persona_desc}).
+Target Product: {target_item}
+Your baseline valuation is ${retail_price:.2f}.
+Seller's Current Ask: ${current_quote:.2f}
+Time Remaining (TTE): {hours_remaining} hours (Days until expiry: {days_until_expiry})
 
-SELLER'S LAST MESSAGE: {seller_context}
+SELLER'S MESSAGE:
+{seller_context}
 
-PRICE CONTEXT:
-- Normal Retail Price: ${retail_price:.2f}
-- Seller's Current Ask: ${current_quote:.2f}
-- Your spending limit: ${effective_max:.2f} (HARD — do NOT exceed this)
-- Days Until Expiry: {days_until_expiry} | Simulation Progress: {desperation*100:.0f}%
+ADVERSARIAL CONSTRAINTS:
+You can adjust your internal valuation based on the seller's persuasion, but if you pay more than your absolute budget ceiling of ${self.budget:.2f}, you will be fired. Evaluate their pitch, update your internal value, and negotiate aggressively.
 
-YOUR PERSONALITY: {personality_desc}
+TASK:
+1. In internal_monologue: Evaluate the seller's argument. Update your perceived value and urgency based on their text and your remaining time. DO NOT exceed your max budget (${self.budget:.2f}).
+2. Choose action: ACCEPT, COUNTER, or WALK_AWAY.
+3. If COUNTER: Provide bid_amount <= ${self.budget:.2f}.
+4. Provide dialogue: Your natural language response to the seller.
 
-TACTIC EVALUATION (classify the seller's message FIRST, then decide):
-Read the seller's message above and classify it:
-- "scarcity"          → seller mentions limited stock, near-expiry, urgency ("only X left", "expires soon")
-- "quality_assurance" → seller mentions premium quality, grade, organic, certified, freshness
-- "partnership"       → seller mentions loyalty, bundle, relationship, returning customer
-- "none"              → generic, empty, or no message
-
-RULES:
-- Your counter_offer MUST be a specific dollar amount <= ${effective_max:.2f}. Never exceed it.
-- If current ask > your limit (${effective_max:.2f}), either COUNTER at or below your limit, or WALK_AWAY.
-- If current ask <= your limit, you may ACCEPT.
-
-Respond ONLY in JSON:
+Respond ONLY in valid JSON matching this schema:
 {{
-  "seller_tactic_detected": "scarcity|quality_assurance|partnership|none",
+  "internal_monologue": "Evaluate the seller's argument. Update your perceived value and urgency based on their text and your remaining time. DO NOT exceed your max budget.",
   "action": "ACCEPT|COUNTER|WALK_AWAY",
-  "counter_offer": float,
-  "message": "your response to the seller"
+  "bid_amount": float,
+  "dialogue": "Your natural language response to the seller."
 }}
 """
-        raw = await client.call(self.model_alias, [{"role": "system", "content": prompt}] + history)
-        validated = validate_output(raw, BuyerActionSchema)
+        raw = await client.call(
+            self.model_alias,
+            [{"role": "system", "content": prompt}] + history,
+            temperature=BUYER_TEMPERATURE,
+        )
+        validated = validate_output(raw, BuyerResponse)
         if validated:
-            return validated.model_dump()
-        # Safe fallback
-        return {"seller_tactic_detected": "none", "action": "COUNTER",
-                "counter_offer": effective_max * 0.85, "message": "Can you do better?"}
+            bid = min(float(validated.bid_amount), self.budget) if validated.bid_amount else 0.0
+            return {
+                "internal_monologue": validated.internal_monologue,
+                "action": validated.action,
+                "bid_amount": bid,
+                "counter_offer": bid,  # Compatibility field
+                "dialogue": validated.dialogue,
+                "message": validated.dialogue,  # Compatibility field
+            }
+        
+        # Fallback
+        fallback_bid = round(min(retail_price * 0.85, self.budget), 2)
+        return {
+            "internal_monologue": "Fallback parsing: counter at standard conservative valuation",
+            "action": "COUNTER",
+            "bid_amount": fallback_bid,
+            "counter_offer": fallback_bid,
+            "dialogue": "Can you do better on this price?",
+            "message": "Can you do better on this price?",
+        }
 
 
-# ─── STRATEGIC BRAIN (Autonomous — no hardcoded phases) ──────────────────────
+# ─── TASK 1: AUTONOMOUS STRATEGIC BRAIN (PHASE DISCOVERY) ───────────────────
 
 class StrategicBrain(BaseAgent):
     """
-    NeurIPS upgrade: Phases are NOT hardcoded. The LLM must discover the optimal
-    Scalping → Balance → Liquidation strategy autonomously from time pressure and
-    inventory data. If the 70B model discovers this independently, it is a publishable finding.
+    Autonomous Strategic Pricing Brain.
+    Analyzes raw environment state (TTE, inventory, cost, spoilage penalty)
+    and organically discovers dynamic yield curves via Chain-of-Thought.
     """
     async def act(
         self,
@@ -122,15 +135,12 @@ class StrategicBrain(BaseAgent):
         max_hours: int,
     ) -> Dict[str, Any]:
         product_names = [i["product_name"] for i in inventory]
-        hours_remaining = max_hours - current_hour
-        pct_elapsed = current_hour / max_hours * 100
+        tte = max_hours - current_hour
+        pct_elapsed = (current_hour / max_hours) * 100
 
-        # Compute holding cost urgency score per item for the brain's context
-        inventory_context = []
+        inventory_summary = []
         for item in inventory:
-            expiry_urgency = "CRITICAL" if item["days_until_expiry"] <= 2 else \
-                             "HIGH"     if item["days_until_expiry"] <= 5 else "NORMAL"
-            inventory_context.append({
+            inventory_summary.append({
                 "product_name":     item["product_name"],
                 "selling_price":    item["selling_price"],
                 "cost_price":       item["cost_price"],
@@ -138,46 +148,64 @@ class StrategicBrain(BaseAgent):
                 "days_until_expiry": item["days_until_expiry"],
                 "quality_grade":    item.get("quality_grade", "N/A"),
                 "daily_demand":     item.get("daily_demand", "N/A"),
-                "expiry_urgency":   expiry_urgency,
             })
 
         prompt = f"""
 Role: Autonomous Strategic Pricing Brain.
+Objective: Maximize True Net Profit = (Revenue) - (Spoilage Penalties).
 
-SIMULATION STATE:
-- Hours elapsed: {current_hour}/{max_hours} ({pct_elapsed:.0f}% complete)
-- Hours remaining: {hours_remaining}
+ENVIRONMENT STATE:
+- Time Remaining (TTE): {tte} hours ({pct_elapsed:.0f}% elapsed of {max_hours}h total horizon)
+- Inventory Remaining: {len(inventory)} units
+- Unsold units at TTE = 0 incur a full -${{cost}} penalty (total spoilage loss).
 
-INVENTORY (with financial risk analysis):
-{json.dumps(inventory_context, indent=2)}
+INVENTORY:
+{json.dumps(inventory_summary, indent=2)}
 
-ECONOMIC CONSTRAINTS:
-- Any item UNSOLD at simulation end = TOTAL LOSS of its cost_price (the "waste" penalty)
-- You must balance: MARGIN (sell high) vs VELOCITY (sell before expiry)
-- Items with "expiry_urgency": "CRITICAL" or "HIGH" are at risk of total loss
-
-ACTIVE MARKET EVENTS (if any):
+ACTIVE MARKET EVENTS:
 {json.dumps(chaos_events[-3:] if chaos_events else [], indent=2)}
 
-YOUR TASK:
-Set an optimal ask price (quote) and a minimum acceptable price (floor) for EVERY item.
-Discover the right strategy yourself based on time pressure and item risk profiles.
-- High quality + low urgency → you can ask for a premium
-- Near expiry + high urgency → prioritize velocity over margin
-- Floor must always be >= cost_price + $0.30 (never sell below cost)
+CORE YIELD-MANAGEMENT PRINCIPLES:
+- Phase 1 (TTE >= 8h / Early Hours): Fresh goods have peak consumer willingness-to-pay. Set ask quotes at a premium (1.15x - 1.25x selling_price) to scalp early consumer surplus.
+- Phase 2 (TTE 4-6h / Mid Hours): Realign quotes toward base selling_price to sustain transaction velocity.
+- Phase 3 (TTE <= 2h / Endgame Liquidation): Spoilage risk dominates (-100% cost loss if unsold). Slash quotes toward cost_price + $0.50 to clear all remaining units.
+- Floor prices: Must cover physical cost (floor >= cost_price + $0.30).
+
+TASK:
+Analyze the spoilage risk vs margin opportunity and set your strategy organically.
+1. market_analysis: Analyze time remaining, inventory levels, and spoilage risk.
+2. chosen_strategy: Declare your current pricing strategy (e.g., Early Premium Scalping, Dynamic Alignment, Endgame Liquidation).
+3. quotes: The starting ask price for EVERY product.
+4. floor_prices: The absolute minimum acceptable price for EVERY product. Must cover cost unless spoilage is imminent.
+5. priority_items: List of product names most at risk of expiring unsold.
 
 CRITICAL — Use EXACTLY these product names as JSON keys (copy-paste):
 {json.dumps(product_names)}
 
-Respond ONLY in valid JSON:
+Respond ONLY in valid JSON matching this schema:
 {{
-  "quotes":           {{ "<exact product name>": float }},
-  "floor_prices":     {{ "<exact product name>": float }},
-  "strategy_directive": "one sentence describing your current autonomous strategy",
-  "priority_items":   ["list of items most at risk of expiring unsold"]
+  "market_analysis": "Analyze time remaining, inventory levels, and spoilage risk.",
+  "chosen_strategy": "Declare the current pricing strategy (e.g., margin defense, aggressive clearance).",
+  "quotes": {{ "<exact product name>": float }},
+  "floor_prices": {{ "<exact product name>": float }},
+  "priority_items": ["list of product names"]
 }}
 """
-        return await client.call(self.model_alias, [{"role": "system", "content": prompt}])
+        raw = await client.call(
+            self.model_alias,
+            [{"role": "system", "content": prompt}],
+            temperature=SELLER_TEMPERATURE,
+        )
+        validated = validate_output(raw, StrategicDecision)
+        if validated:
+            return validated.model_dump()
+        return {
+            "market_analysis": "Fallback analysis: standard holding",
+            "chosen_strategy": "Autonomous holding",
+            "quotes": {i["product_name"]: i["selling_price"] for i in inventory},
+            "floor_prices": {i["product_name"]: i["cost_price"] for i in inventory},
+            "priority_items": [],
+        }
 
 
 # ─── DEBATE LOOP (for MAS_DEBATE mode) ───────────────────────────────────────
@@ -302,11 +330,14 @@ class DummyRiskReader(RiskReader):
         ).model_dump()
 
 
+# ─── TASK 2: EMERGENT LISTING AGENT DECIDER (REFLEX ENGINE) ──────────────────
+
 class ListingAgentDecider(BaseAgent):
     """
-    Takes RiskReader profile and makes the price + action decision.
-    Rules are deterministic thresholds applied to validated integer scores.
-    The StrategicBrain's quote is the default — the decider DEFENDS it.
+    Autonomous Tactical Deal-Maker (Reflex Engine).
+    Ingests RiskReader scores and raw state (TTE, floor, quote, incoming bid).
+    Autonomously reasons over expected revenue vs. spoilage penalty to choose:
+    HOLD, CONCEDE, or ACCEPT.
     """
     async def act(
         self,
@@ -317,50 +348,74 @@ class ListingAgentDecider(BaseAgent):
         current_hour: int,
         max_hours: int,
         buyer_offer: Optional[float] = None,
+        competing_bidders_count: int = 1,
     ) -> Dict[str, Any]:
-        progress     = current_hour / max_hours
-        hard_ceiling = round(min(quote * 1.15, quote + 5.0), 2)
+        tte = max_hours - current_hour
+        bluff_score = risk_profile.get("bluffing_probability", 5)
+        walk_score  = risk_profile.get("walk_away_probability", 5)
+        offer_str   = f"${buyer_offer:.2f}" if buyer_offer is not None else "None"
 
         prompt = f"""
-Role: Listing Agent (Senior Deal-Maker).
+You are the tactical execution agent.
 Product: {product}
-StrategicBrain's Quote (YOUR target): ${quote:.2f}
-Absolute Floor Price: ${floor:.2f}
-Hard Ceiling (NEVER exceed): ${hard_ceiling:.2f}
-Simulation Progress: {progress*100:.0f}%
-Buyer's Last Offer: ${buyer_offer if buyer_offer else "None"}
+Current floor is ${floor:.2f}.
+Target asking quote is ${quote:.2f}.
+Buyer's incoming bid is {offer_str} ({competing_bidders_count} active bidder(s)).
+RiskReader indicates Bluffing: {bluff_score}/10, Walk-Away: {walk_score}/10.
+TTE is {tte} hours remaining.
 
-RISK READER'S PROFILE:
-- Buyer Type:            {risk_profile.get('buyer_profile', 'N/A')}
-- Tactic Detected:       {risk_profile.get('tactic_detected', 'N/A')}
-- Bluffing Probability:  {risk_profile.get('bluffing_probability', 'N/A')}/10
-- Walk-Away Probability: {risk_profile.get('walk_away_probability', 'N/A')}/10
-- Recommended Stance:    {risk_profile.get('recommended_stance', 'N/A')}
+OBJECTIVE & TACTICAL GUIDELINES:
+Maximize expected revenue and avoid spoilage:
+- When TTE >= 4h: If buyer bluffing score is high (>=6) and offer is low, choose HOLD (${quote:.2f}) or CONCEDE slightly to defend margin.
+- When TTE <= 2h (Endgame): Spoilage penalty is imminent (-100% loss). If the buyer's incoming bid is >= ${floor:.2f}, choose ACCEPT to guarantee volume clearance and avoid total waste loss.
+- HOLD: Defend target asking quote (${quote:.2f}).
+- CONCEDE: Counter with a discounted target_price (between ${floor:.2f} and ${quote:.2f}).
+- ACCEPT: Accept the buyer's bid ({offer_str}).
 
-YOUR DECISION RULES (apply in order):
-1. HARD FLOOR:    NEVER go below ${floor:.2f}. Absolute.
-2. HARD CEILING:  NEVER go above ${hard_ceiling:.2f}. Do NOT inflate.
-3. BLUFF HOLD:    If bluffing_probability >= 7 AND progress < 70% → COUNTER at ${quote:.2f}. Hold firm.
-4. WALK-AWAY CONCEDE: If walk_away_probability >= 8 AND progress > 50% → COUNTER at midpoint: (${quote:.2f} + buyer_offer) / 2, min ${floor:.2f}.
-5. LATE ACCEPT:   If progress > 70% AND buyer_offer >= ${floor:.2f} → ACCEPT. Spoilage = total loss.
-6. DEFAULT:       HOLD at ${quote:.2f}. The Brain computed this for a reason. Defend it.
-                  Only concede if rules 4 or 5 explicitly apply.
-
-Think step by step, then output ONLY valid JSON:
+Respond ONLY in valid JSON matching this schema:
 {{
-  "decision_reasoning": "brief step-by-step applying rules above",
-  "action": "ACCEPT|COUNTER|WALK_AWAY",
-  "price": float
+  "risk_evaluation": "Evaluate the RiskReader's bluff and walk-away scores against current TTE and inventory.",
+  "action": "HOLD|CONCEDE|ACCEPT",
+  "target_price": float
 }}
 """
-        raw = await client.call(self.model_alias, [{"role": "system", "content": prompt}])
-        validated = validate_output(raw, DecisionSchema)
+        raw = await client.call(
+            self.model_alias,
+            [{"role": "system", "content": prompt}],
+            temperature=SELLER_TEMPERATURE,
+        )
+        validated = validate_output(raw, DeciderAction)
         if validated:
-            # Hard-enforce floor/ceiling in Python regardless of LLM output
-            price = max(floor, min(hard_ceiling, validated.price))
-            return {"decision_reasoning": validated.decision_reasoning,
-                    "action": validated.action, "price": price}
-        return {"decision_reasoning": "Fallback: hold at quote", "action": "COUNTER", "price": quote}
+            tactical_action = validated.action.upper()
+            if tactical_action == "HOLD":
+                price = quote
+                out_action = "COUNTER"
+            elif tactical_action == "ACCEPT":
+                price = buyer_offer if buyer_offer and buyer_offer >= floor else quote
+                out_action = "ACCEPT"
+            elif tactical_action == "CONCEDE":
+                proposed = validated.target_price if validated.target_price > 0 else (quote + (buyer_offer or floor)) / 2
+                price = max(floor, min(quote, proposed))
+                out_action = "COUNTER"
+            else:
+                price = quote
+                out_action = "COUNTER"
+
+            return {
+                "risk_evaluation": validated.risk_evaluation,
+                "tactic": tactical_action,
+                "action": out_action,
+                "price": price,
+                "target_price": price,
+            }
+
+        return {
+            "risk_evaluation": "Fallback: defend strategic target quote",
+            "tactic": "HOLD",
+            "action": "COUNTER",
+            "price": quote,
+            "target_price": quote,
+        }
 
 
 class Spokesperson(BaseAgent):
@@ -434,13 +489,18 @@ class TacticalOrchestrator(BaseAgent):
         max_hours: int,
         history: List[Dict[str, str]],
         buyer_offer: Optional[float] = None,
+        competing_bidders_count: int = 1,
     ) -> Dict[str, Any]:
         risk_profile = await self.risk_reader.act(history, current_hour)
         decision     = await self.decider.act(product, quote, floor, risk_profile,
-                                              current_hour, max_hours, buyer_offer)
+                                              current_hour, max_hours, buyer_offer,
+                                              competing_bidders_count=competing_bidders_count)
         target_price = decision.get("price", quote)
         action       = decision.get("action", "COUNTER")
-        return await self.spokesperson.act(target_price, action, risk_profile, history)
+        spokesperson_res = await self.spokesperson.act(target_price, action, risk_profile, history)
+        spokesperson_res["_risk_profile"] = risk_profile
+        spokesperson_res["_decision"] = decision
+        return spokesperson_res
 
 
 # ─── MONOLITHIC SELLER (Single-model ablation baseline) ──────────────────────

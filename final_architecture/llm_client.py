@@ -13,34 +13,56 @@ import re
 import random
 import os
 from typing import Dict, List, Any, Optional, Type, TypeVar
-from pydantic import BaseModel, field_validator, model_validator
+from pydantic import BaseModel, Field, field_validator, model_validator
 from .config import NVIDIA_API_KEYS, NVIDIA_BASE_URL, GROQ_API_KEYS, GROQ_BASE_URL, MODELS
 
 T = TypeVar("T", bound=BaseModel)
 
 # ─── Pydantic Schemas ────────────────────────────────────────────────────────
 
-class BuyerActionSchema(BaseModel):
-    seller_tactic_detected: str = "none"
-    action: str = "COUNTER"
-    counter_offer: Optional[float] = None
-    message: str = ""
+class StrategicDecision(BaseModel):
+    market_analysis: str = Field(default="", description="Analyze time remaining, inventory levels, and spoilage risk.")
+    chosen_strategy: str = Field(default="", description="Declare the current pricing strategy (e.g., margin defense, aggressive clearance).")
+    quotes: Dict[str, float] = Field(default_factory=dict, description="The starting ask price per product.")
+    floor_prices: Dict[str, float] = Field(default_factory=dict, description="The absolute minimum acceptable price per product.")
+    priority_items: List[str] = Field(default_factory=list, description="Items most at risk of expiring unsold.")
+
+
+class DeciderAction(BaseModel):
+    risk_evaluation: str = Field(default="", description="Evaluate the RiskReader's bluff and walk-away scores against current TTE and inventory.")
+    action: str = Field(default="HOLD", description="The chosen tactical action (HOLD, CONCEDE, ACCEPT).")
+    target_price: float = Field(default=0.0, description="The price to counter with, if applicable.")
 
     @field_validator("action")
     @classmethod
     def validate_action(cls, v):
-        return v if v in ("ACCEPT", "COUNTER", "WALK_AWAY") else "COUNTER"
+        v_upper = str(v).upper().strip()
+        return v_upper if v_upper in ("HOLD", "CONCEDE", "ACCEPT") else "HOLD"
 
-    @field_validator("seller_tactic_detected")
-    @classmethod
-    def validate_tactic(cls, v):
-        return v if v in ("scarcity", "quality_assurance", "partnership", "none") else "none"
-
-    @field_validator("counter_offer", mode="before")
+    @field_validator("target_price", mode="before")
     @classmethod
     def coerce_float(cls, v):
         try: return float(v)
-        except: return None
+        except: return 0.0
+
+
+class BuyerResponse(BaseModel):
+    internal_monologue: str = Field(default="", description="Evaluate the seller's argument. Update your perceived value and urgency based on their text and your remaining time. DO NOT exceed your max budget.")
+    action: str = Field(default="COUNTER", description="ACCEPT, COUNTER, WALK_AWAY")
+    bid_amount: float = Field(default=0.0, description="Your counter-offer, or 0 if walking away.")
+    dialogue: str = Field(default="", description="Your natural language response to the seller.")
+
+    @field_validator("action")
+    @classmethod
+    def validate_action(cls, v):
+        v_upper = str(v).upper().strip()
+        return v_upper if v_upper in ("ACCEPT", "COUNTER", "WALK_AWAY") else "COUNTER"
+
+    @field_validator("bid_amount", mode="before")
+    @classmethod
+    def coerce_float(cls, v):
+        try: return float(v)
+        except: return 0.0
 
 
 class RiskProfileSchema(BaseModel):
@@ -55,23 +77,6 @@ class RiskProfileSchema(BaseModel):
     def clamp(cls, v):
         try: return max(0, min(10, int(v)))
         except: return 5
-
-
-class DecisionSchema(BaseModel):
-    decision_reasoning: str = ""
-    action: str = "COUNTER"
-    price: float = 0.0
-
-    @field_validator("action")
-    @classmethod
-    def validate_action(cls, v):
-        return v if v in ("ACCEPT", "COUNTER", "WALK_AWAY") else "COUNTER"
-
-    @field_validator("price", mode="before")
-    @classmethod
-    def coerce_float(cls, v):
-        try: return float(v)
-        except: return 0.0
 
 
 class SpokespersonSchema(BaseModel):
@@ -90,6 +95,11 @@ class SpokespersonSchema(BaseModel):
     def coerce_float(cls, v):
         try: return float(v)
         except: return 0.0
+
+
+# Backward compatibility aliases
+BuyerActionSchema = BuyerResponse
+DecisionSchema = DeciderAction
 
 
 # ─── LLM Client ──────────────────────────────────────────────────────────────

@@ -1,0 +1,4 @@
+Comparison,Delta_PCR,Welch_p_PCR,Wilcoxon_p_PCR,Cohen_d_PCR,Delta_Profit,Welch_p_Profit,Cohen_d_Profit
+Full_MAS vs LinearDecay_Baseline,-0.15775000000000006,1.0,1.0,0.0,-29.720000000000013,1.0,0.0
+Full_MAS vs No_RiskReader,-0.010950000000000237,1.0,1.0,0.0,51.55999999999999,1.0,0.0
+Full_MAS vs No_StrategicBrain,0.005149999999999766,1.0,1.0,0.0,-43.500000000000014,1.0,0.0
