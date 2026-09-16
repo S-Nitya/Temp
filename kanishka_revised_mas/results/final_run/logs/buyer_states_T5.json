@@ -1,0 +1,158 @@
+{
+  "trial_id": 5,
+  "trial_seed": 542,
+  "catalog_hash": "b49a8fd50c2f8e7ee50eaec073056318bf306e5765c2b4b3fb51eaadc5469996",
+  "buyer_state_hash": "5c8db9305a8f646e2ed349352d2bf1cd50dd85fa7056c4084af5dd479f793e46",
+  "buyer_states": {
+    "strawberries_1": {
+      "buyer_id": "B_542_strawberries_1",
+      "target_item_id": "strawberries_1",
+      "product_name": "Strawberries",
+      "budget_ceiling": 4.84,
+      "private_valuation": 5.09,
+      "urgency": "HIGH",
+      "price_sensitivity": "HIGH",
+      "persona": "QUALITY_SEEKER"
+    },
+    "fresh_fish_2": {
+      "buyer_id": "B_542_fresh_fish_2",
+      "target_item_id": "fresh_fish_2",
+      "product_name": "Fresh Fish",
+      "budget_ceiling": 11.13,
+      "private_valuation": 11.72,
+      "urgency": "MODERATE",
+      "price_sensitivity": "HIGH",
+      "persona": "BARGAIN_HUNTER"
+    },
+    "spinach_3": {
+      "buyer_id": "B_542_spinach_3",
+      "target_item_id": "spinach_3",
+      "product_name": "Spinach",
+      "budget_ceiling": 4.59,
+      "private_valuation": 4.79,
+      "urgency": "LOW",
+      "price_sensitivity": "HIGH",
+      "persona": "BARGAIN_HUNTER"
+    },
+    "fresh_chicken_4": {
+      "buyer_id": "B_542_fresh_chicken_4",
+      "target_item_id": "fresh_chicken_4",
+      "product_name": "Fresh Chicken",
+      "budget_ceiling": 9.03,
+      "private_valuation": 9.5,
+      "urgency": "LOW",
+      "price_sensitivity": "HIGH",
+      "persona": "QUALITY_SEEKER"
+    },
+    "mushrooms_5": {
+      "buyer_id": "B_542_mushrooms_5",
+      "target_item_id": "mushrooms_5",
+      "product_name": "Mushrooms",
+      "budget_ceiling": 5.3,
+      "private_valuation": 5.02,
+      "urgency": "MODERATE",
+      "price_sensitivity": "LOW",
+      "persona": "QUALITY_SEEKER"
+    },
+    "fresh_bread_6": {
+      "buyer_id": "B_542_fresh_bread_6",
+      "target_item_id": "fresh_bread_6",
+      "product_name": "Fresh Bread",
+      "budget_ceiling": 4.99,
+      "private_valuation": 4.47,
+      "urgency": "HIGH",
+      "price_sensitivity": "LOW",
+      "persona": "QUALITY_SEEKER"
+    },
+    "tomatoes_7": {
+      "buyer_id": "B_542_tomatoes_7",
+      "target_item_id": "tomatoes_7",
+      "product_name": "Tomatoes",
+      "budget_ceiling": 4.63,
+      "private_valuation": 3.86,
+      "urgency": "HIGH",
+      "price_sensitivity": "HIGH",
+      "persona": "QUALITY_SEEKER"
+    },
+    "ground_beef_8": {
+      "buyer_id": "B_542_ground_beef_8",
+      "target_item_id": "ground_beef_8",
+      "product_name": "Ground Beef",
+      "budget_ceiling": 12.37,
+      "private_valuation": 8.99,
+      "urgency": "HIGH",
+      "price_sensitivity": "HIGH",
+      "persona": "BARGAIN_HUNTER"
+    },
+    "yogurt_9": {
+      "buyer_id": "B_542_yogurt_9",
+      "target_item_id": "yogurt_9",
+      "product_name": "Yogurt",
+      "budget_ceiling": 4.37,
+      "private_valuation": 4.6,
+      "urgency": "HIGH",
+      "price_sensitivity": "MODERATE",
+      "persona": "QUALITY_SEEKER"
+    },
+    "soft_cheese_10": {
+      "buyer_id": "B_542_soft_cheese_10",
+      "target_item_id": "soft_cheese_10",
+      "product_name": "Soft Cheese",
+      "budget_ceiling": 7.82,
+      "private_valuation": 6.98,
+      "urgency": "HIGH",
+      "price_sensitivity": "HIGH",
+      "persona": "PRAGMATIC_SHOPPER"
+    },
+    "premium_beef_11": {
+      "buyer_id": "B_542_premium_beef_11",
+      "target_item_id": "premium_beef_11",
+      "product_name": "Premium Beef",
+      "budget_ceiling": 15.98,
+      "private_valuation": 13.93,
+      "urgency": "MODERATE",
+      "price_sensitivity": "MODERATE",
+      "persona": "PRAGMATIC_SHOPPER"
+    },
+    "fresh_juice_12": {
+      "buyer_id": "B_542_fresh_juice_12",
+      "target_item_id": "fresh_juice_12",
+      "product_name": "Fresh Juice",
+      "budget_ceiling": 5.12,
+      "private_valuation": 5.39,
+      "urgency": "LOW",
+      "price_sensitivity": "HIGH",
+      "persona": "QUALITY_SEEKER"
+    },
+    "apples_13": {
+      "buyer_id": "B_542_apples_13",
+      "target_item_id": "apples_13",
+      "product_name": "Apples",
+      "budget_ceiling": 4.76,
+      "private_valuation": 3.72,
+      "urgency": "LOW",
+      "price_sensitivity": "LOW",
+      "persona": "QUALITY_SEEKER"
+    },
+    "carrots_14": {
+      "buyer_id": "B_542_carrots_14",
+      "target_item_id": "carrots_14",
+      "product_name": "Carrots",
+      "budget_ceiling": 3.64,
+      "private_valuation": 2.93,
+      "urgency": "LOW",
+      "price_sensitivity": "LOW",
+      "persona": "BARGAIN_HUNTER"
+    },
+    "hard_cheese_15": {
+      "buyer_id": "B_542_hard_cheese_15",
+      "target_item_id": "hard_cheese_15",
+      "product_name": "Hard Cheese",
+      "budget_ceiling": 10.08,
+      "private_valuation": 8.29,
+      "urgency": "LOW",
+      "price_sensitivity": "HIGH",
+      "persona": "BARGAIN_HUNTER"
+    }
+  }
+}

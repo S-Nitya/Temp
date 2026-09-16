@@ -1,0 +1,1071 @@
+{
+  "condition": "LinearDecay_Baseline",
+  "trial_id": 1,
+  "final_metrics": {
+    "pcr": 0.9859,
+    "total_profit": 92.37,
+    "waste_loss": 0,
+    "true_net_profit": 92.37,
+    "items_sold": 15,
+    "instant_clears": 10,
+    "negotiated_sales": 5,
+    "instant_clear_rate": 0.6667,
+    "negotiated_sale_rate": 0.3333,
+    "pcr_list": [
+      1.6103,
+      1.183,
+      1.0799,
+      1.197,
+      1.1047,
+      1.1057,
+      1.0168,
+      0.9746,
+      0.9761,
+      0.8548,
+      0.894,
+      0.6204,
+      0.8701,
+      0.6562,
+      0.6454
+    ],
+    "persuasion_events": 0,
+    "iv": 1.6667,
+    "ee": 1.051
+  },
+  "PCR": 0.9859,
+  "Total Profit": 92.37,
+  "Waste Loss": 0,
+  "True Net Profit": 92.37,
+  "Items Sold": 15,
+  "Instant Clears": 10,
+  "Negotiated Sales": 5,
+  "Instant Clear Rate": 0.6667,
+  "Negotiated Sale Rate": 0.3333,
+  "pcr_list": [
+    1.6103,
+    1.183,
+    1.0799,
+    1.197,
+    1.1047,
+    1.1057,
+    1.0168,
+    0.9746,
+    0.9761,
+    0.8548,
+    0.894,
+    0.6204,
+    0.8701,
+    0.6562,
+    0.6454
+  ],
+  "sales_data": [
+    {
+      "item_id": "Tilapia_2",
+      "product_name": "Tilapia",
+      "sale_price": 26.42,
+      "cost_price": 14.81,
+      "initial_price": 22.02,
+      "hour": 0,
+      "days_until_expiry": 3,
+      "clearance_type": "NEGOTIATED"
+    },
+    {
+      "item_id": "Cod_3",
+      "product_name": "Cod",
+      "sale_price": 44.04,
+      "cost_price": 23.16,
+      "initial_price": 40.81,
+      "hour": 2,
+      "days_until_expiry": 6,
+      "clearance_type": "INSTANT_CLEAR"
+    },
+    {
+      "item_id": "Dips_5",
+      "product_name": "Dips",
+      "sale_price": 11.63,
+      "cost_price": 4.6,
+      "initial_price": 11.11,
+      "hour": 2,
+      "days_until_expiry": 4,
+      "clearance_type": "NEGOTIATED"
+    },
+    {
+      "item_id": "Shrimp_6",
+      "product_name": "Shrimp",
+      "sale_price": 22.47,
+      "cost_price": 12.08,
+      "initial_price": 20.76,
+      "hour": 2,
+      "days_until_expiry": 2,
+      "clearance_type": "NEGOTIATED"
+    },
+    {
+      "item_id": "Bagels_9",
+      "product_name": "Bagels",
+      "sale_price": 3.35,
+      "cost_price": 1.45,
+      "initial_price": 3.17,
+      "hour": 2,
+      "days_until_expiry": 3,
+      "clearance_type": "INSTANT_CLEAR"
+    },
+    {
+      "item_id": "Ham_15",
+      "product_name": "Ham",
+      "sale_price": 13.2,
+      "cost_price": 5.77,
+      "initial_price": 12.49,
+      "hour": 2,
+      "days_until_expiry": 6,
+      "clearance_type": "NEGOTIATED"
+    },
+    {
+      "item_id": "Beef_4",
+      "product_name": "Beef",
+      "sale_price": 7.46,
+      "cost_price": 5.04,
+      "initial_price": 7.42,
+      "hour": 4,
+      "days_until_expiry": 5,
+      "clearance_type": "NEGOTIATED"
+    },
+    {
+      "item_id": "Tomatoes_8",
+      "product_name": "Tomatoes",
+      "sale_price": 5.47,
+      "cost_price": 3.55,
+      "initial_price": 5.52,
+      "hour": 4,
+      "days_until_expiry": 10,
+      "clearance_type": "INSTANT_CLEAR"
+    },
+    {
+      "item_id": "Beef_11",
+      "product_name": "Beef",
+      "sale_price": 21.14,
+      "cost_price": 13.78,
+      "initial_price": 21.32,
+      "hour": 4,
+      "days_until_expiry": 2,
+      "clearance_type": "INSTANT_CLEAR"
+    },
+    {
+      "item_id": "Bread_13",
+      "product_name": "Bread",
+      "sale_price": 11.05,
+      "cost_price": 5.87,
+      "initial_price": 11.93,
+      "hour": 4,
+      "days_until_expiry": 3,
+      "clearance_type": "INSTANT_CLEAR"
+    },
+    {
+      "item_id": "Sausages_14",
+      "product_name": "Sausages",
+      "sale_price": 17.7,
+      "cost_price": 10.28,
+      "initial_price": 18.58,
+      "hour": 4,
+      "days_until_expiry": 3,
+      "clearance_type": "INSTANT_CLEAR"
+    },
+    {
+      "item_id": "Kombucha_1",
+      "product_name": "Kombucha",
+      "sale_price": 2.58,
+      "cost_price": 1.73,
+      "initial_price": 3.1,
+      "hour": 6,
+      "days_until_expiry": 12,
+      "clearance_type": "INSTANT_CLEAR"
+    },
+    {
+      "item_id": "Dips_7",
+      "product_name": "Dips",
+      "sale_price": 6.78,
+      "cost_price": 5.44,
+      "initial_price": 6.98,
+      "hour": 6,
+      "days_until_expiry": 9,
+      "clearance_type": "INSTANT_CLEAR"
+    },
+    {
+      "item_id": "Lettuce_10",
+      "product_name": "Lettuce",
+      "sale_price": 6.54,
+      "cost_price": 4.65,
+      "initial_price": 7.53,
+      "hour": 6,
+      "days_until_expiry": 13,
+      "clearance_type": "INSTANT_CLEAR"
+    },
+    {
+      "item_id": "Ground Beef_12",
+      "product_name": "Ground Beef",
+      "sale_price": 15.79,
+      "cost_price": 11.04,
+      "initial_price": 18.4,
+      "hour": 6,
+      "days_until_expiry": 7,
+      "clearance_type": "INSTANT_CLEAR"
+    }
+  ],
+  "price_trajectory": [
+    {
+      "hour": 0.0,
+      "item": "Kombucha",
+      "item_id": "Kombucha_1",
+      "price": 3.72,
+      "is_sold": false
+    },
+    {
+      "hour": 0.0,
+      "item": "Tilapia",
+      "item_id": "Tilapia_2",
+      "price": 26.42,
+      "is_sold": true
+    },
+    {
+      "hour": 0.0,
+      "item": "Cod",
+      "item_id": "Cod_3",
+      "price": 48.97,
+      "is_sold": false
+    },
+    {
+      "hour": 0.0,
+      "item": "Beef",
+      "item_id": "Beef_4",
+      "price": 8.9,
+      "is_sold": false
+    },
+    {
+      "hour": 0.0,
+      "item": "Dips",
+      "item_id": "Dips_5",
+      "price": 13.33,
+      "is_sold": false
+    },
+    {
+      "hour": 0.0,
+      "item": "Shrimp",
+      "item_id": "Shrimp_6",
+      "price": 24.91,
+      "is_sold": false
+    },
+    {
+      "hour": 0.0,
+      "item": "Dips",
+      "item_id": "Dips_7",
+      "price": 8.38,
+      "is_sold": false
+    },
+    {
+      "hour": 0.0,
+      "item": "Tomatoes",
+      "item_id": "Tomatoes_8",
+      "price": 6.62,
+      "is_sold": false
+    },
+    {
+      "hour": 0.0,
+      "item": "Bagels",
+      "item_id": "Bagels_9",
+      "price": 3.8,
+      "is_sold": false
+    },
+    {
+      "hour": 0.0,
+      "item": "Lettuce",
+      "item_id": "Lettuce_10",
+      "price": 9.04,
+      "is_sold": false
+    },
+    {
+      "hour": 0.0,
+      "item": "Beef",
+      "item_id": "Beef_11",
+      "price": 25.58,
+      "is_sold": false
+    },
+    {
+      "hour": 0.0,
+      "item": "Ground Beef",
+      "item_id": "Ground Beef_12",
+      "price": 22.08,
+      "is_sold": false
+    },
+    {
+      "hour": 0.0,
+      "item": "Bread",
+      "item_id": "Bread_13",
+      "price": 14.32,
+      "is_sold": false
+    },
+    {
+      "hour": 0.0,
+      "item": "Sausages",
+      "item_id": "Sausages_14",
+      "price": 22.3,
+      "is_sold": false
+    },
+    {
+      "hour": 0.0,
+      "item": "Ham",
+      "item_id": "Ham_15",
+      "price": 14.99,
+      "is_sold": false
+    },
+    {
+      "hour": 2.0,
+      "item": "Kombucha",
+      "item_id": "Kombucha_1",
+      "price": 3.34,
+      "is_sold": false
+    },
+    {
+      "hour": 2.0,
+      "item": "Tilapia",
+      "item_id": "Tilapia_2",
+      "price": 26.42,
+      "is_sold": true
+    },
+    {
+      "hour": 2.0,
+      "item": "Cod",
+      "item_id": "Cod_3",
+      "price": 44.04,
+      "is_sold": true
+    },
+    {
+      "hour": 2.0,
+      "item": "Beef",
+      "item_id": "Beef_4",
+      "price": 8.18,
+      "is_sold": false
+    },
+    {
+      "hour": 2.0,
+      "item": "Dips",
+      "item_id": "Dips_5",
+      "price": 11.63,
+      "is_sold": true
+    },
+    {
+      "hour": 2.0,
+      "item": "Shrimp",
+      "item_id": "Shrimp_6",
+      "price": 22.47,
+      "is_sold": true
+    },
+    {
+      "hour": 2.0,
+      "item": "Dips",
+      "item_id": "Dips_7",
+      "price": 7.84,
+      "is_sold": false
+    },
+    {
+      "hour": 2.0,
+      "item": "Tomatoes",
+      "item_id": "Tomatoes_8",
+      "price": 6.04,
+      "is_sold": false
+    },
+    {
+      "hour": 2.0,
+      "item": "Bagels",
+      "item_id": "Bagels_9",
+      "price": 3.35,
+      "is_sold": true
+    },
+    {
+      "hour": 2.0,
+      "item": "Lettuce",
+      "item_id": "Lettuce_10",
+      "price": 8.21,
+      "is_sold": false
+    },
+    {
+      "hour": 2.0,
+      "item": "Beef",
+      "item_id": "Beef_11",
+      "price": 23.36,
+      "is_sold": false
+    },
+    {
+      "hour": 2.0,
+      "item": "Ground Beef",
+      "item_id": "Ground Beef_12",
+      "price": 19.98,
+      "is_sold": false
+    },
+    {
+      "hour": 2.0,
+      "item": "Bread",
+      "item_id": "Bread_13",
+      "price": 12.69,
+      "is_sold": false
+    },
+    {
+      "hour": 2.0,
+      "item": "Sausages",
+      "item_id": "Sausages_14",
+      "price": 20.0,
+      "is_sold": false
+    },
+    {
+      "hour": 2.0,
+      "item": "Ham",
+      "item_id": "Ham_15",
+      "price": 13.2,
+      "is_sold": true
+    },
+    {
+      "hour": 4.0,
+      "item": "Kombucha",
+      "item_id": "Kombucha_1",
+      "price": 2.96,
+      "is_sold": false
+    },
+    {
+      "hour": 4.0,
+      "item": "Tilapia",
+      "item_id": "Tilapia_2",
+      "price": 26.42,
+      "is_sold": true
+    },
+    {
+      "hour": 4.0,
+      "item": "Cod",
+      "item_id": "Cod_3",
+      "price": 44.04,
+      "is_sold": true
+    },
+    {
+      "hour": 4.0,
+      "item": "Beef",
+      "item_id": "Beef_4",
+      "price": 7.46,
+      "is_sold": true
+    },
+    {
+      "hour": 4.0,
+      "item": "Dips",
+      "item_id": "Dips_5",
+      "price": 11.63,
+      "is_sold": true
+    },
+    {
+      "hour": 4.0,
+      "item": "Shrimp",
+      "item_id": "Shrimp_6",
+      "price": 22.47,
+      "is_sold": true
+    },
+    {
+      "hour": 4.0,
+      "item": "Dips",
+      "item_id": "Dips_7",
+      "price": 7.31,
+      "is_sold": false
+    },
+    {
+      "hour": 4.0,
+      "item": "Tomatoes",
+      "item_id": "Tomatoes_8",
+      "price": 5.47,
+      "is_sold": true
+    },
+    {
+      "hour": 4.0,
+      "item": "Bagels",
+      "item_id": "Bagels_9",
+      "price": 3.35,
+      "is_sold": true
+    },
+    {
+      "hour": 4.0,
+      "item": "Lettuce",
+      "item_id": "Lettuce_10",
+      "price": 7.37,
+      "is_sold": false
+    },
+    {
+      "hour": 4.0,
+      "item": "Beef",
+      "item_id": "Beef_11",
+      "price": 21.14,
+      "is_sold": true
+    },
+    {
+      "hour": 4.0,
+      "item": "Ground Beef",
+      "item_id": "Ground Beef_12",
+      "price": 17.88,
+      "is_sold": false
+    },
+    {
+      "hour": 4.0,
+      "item": "Bread",
+      "item_id": "Bread_13",
+      "price": 11.05,
+      "is_sold": true
+    },
+    {
+      "hour": 4.0,
+      "item": "Sausages",
+      "item_id": "Sausages_14",
+      "price": 17.7,
+      "is_sold": true
+    },
+    {
+      "hour": 4.0,
+      "item": "Ham",
+      "item_id": "Ham_15",
+      "price": 13.2,
+      "is_sold": true
+    },
+    {
+      "hour": 6.0,
+      "item": "Kombucha",
+      "item_id": "Kombucha_1",
+      "price": 2.58,
+      "is_sold": true
+    },
+    {
+      "hour": 6.0,
+      "item": "Tilapia",
+      "item_id": "Tilapia_2",
+      "price": 26.42,
+      "is_sold": true
+    },
+    {
+      "hour": 6.0,
+      "item": "Cod",
+      "item_id": "Cod_3",
+      "price": 44.04,
+      "is_sold": true
+    },
+    {
+      "hour": 6.0,
+      "item": "Beef",
+      "item_id": "Beef_4",
+      "price": 7.46,
+      "is_sold": true
+    },
+    {
+      "hour": 6.0,
+      "item": "Dips",
+      "item_id": "Dips_5",
+      "price": 11.63,
+      "is_sold": true
+    },
+    {
+      "hour": 6.0,
+      "item": "Shrimp",
+      "item_id": "Shrimp_6",
+      "price": 22.47,
+      "is_sold": true
+    },
+    {
+      "hour": 6.0,
+      "item": "Dips",
+      "item_id": "Dips_7",
+      "price": 6.78,
+      "is_sold": true
+    },
+    {
+      "hour": 6.0,
+      "item": "Tomatoes",
+      "item_id": "Tomatoes_8",
+      "price": 5.47,
+      "is_sold": true
+    },
+    {
+      "hour": 6.0,
+      "item": "Bagels",
+      "item_id": "Bagels_9",
+      "price": 3.35,
+      "is_sold": true
+    },
+    {
+      "hour": 6.0,
+      "item": "Lettuce",
+      "item_id": "Lettuce_10",
+      "price": 6.54,
+      "is_sold": true
+    },
+    {
+      "hour": 6.0,
+      "item": "Beef",
+      "item_id": "Beef_11",
+      "price": 21.14,
+      "is_sold": true
+    },
+    {
+      "hour": 6.0,
+      "item": "Ground Beef",
+      "item_id": "Ground Beef_12",
+      "price": 15.79,
+      "is_sold": true
+    },
+    {
+      "hour": 6.0,
+      "item": "Bread",
+      "item_id": "Bread_13",
+      "price": 11.05,
+      "is_sold": true
+    },
+    {
+      "hour": 6.0,
+      "item": "Sausages",
+      "item_id": "Sausages_14",
+      "price": 17.7,
+      "is_sold": true
+    },
+    {
+      "hour": 6.0,
+      "item": "Ham",
+      "item_id": "Ham_15",
+      "price": 13.2,
+      "is_sold": true
+    }
+  ],
+  "inventory_trajectory": [
+    {
+      "hour": 0.0,
+      "pct_unsold": 0.9333,
+      "unsold_count": 14
+    },
+    {
+      "hour": 2.0,
+      "pct_unsold": 0.6,
+      "unsold_count": 9
+    },
+    {
+      "hour": 4.0,
+      "pct_unsold": 0.2667,
+      "unsold_count": 4
+    },
+    {
+      "hour": 6.0,
+      "pct_unsold": 0.0,
+      "unsold_count": 0
+    }
+  ],
+  "negotiation_log": [
+    {
+      "hour": 0.0,
+      "item": "Tilapia",
+      "item_id": "Tilapia_2",
+      "buyer_id": "B_0_Tilapia_2",
+      "round": 2,
+      "clearance_type": "NEGOTIATED",
+      "decider": {},
+      "buyer_response": {
+        "action": "ACCEPT",
+        "bid_amount": 26.42
+      }
+    },
+    {
+      "hour": 0.0,
+      "item": "Bread",
+      "item_id": "Bread_13",
+      "buyer_id": "B_0_Bread_13",
+      "round": 3,
+      "clearance_type": "WALK_AWAY",
+      "decider": {},
+      "buyer_response": {
+        "action": "WALK_AWAY",
+        "bid_amount": 0.0
+      }
+    },
+    {
+      "hour": 2.0,
+      "item": "Cod",
+      "item_id": "Cod_3",
+      "buyer_id": "B_2_Cod_3",
+      "round": 1,
+      "clearance_type": "INSTANT_CLEAR",
+      "decider": {
+        "action": "ACCEPT",
+        "target_price": 44.04
+      },
+      "buyer_response": {
+        "action": "ACCEPT",
+        "bid_amount": 44.04
+      }
+    },
+    {
+      "hour": 2.0,
+      "item": "Dips",
+      "item_id": "Dips_5",
+      "buyer_id": "B_2_Dips_5",
+      "round": 2,
+      "clearance_type": "NEGOTIATED",
+      "decider": {},
+      "buyer_response": {
+        "action": "ACCEPT",
+        "bid_amount": 11.63
+      }
+    },
+    {
+      "hour": 2.0,
+      "item": "Shrimp",
+      "item_id": "Shrimp_6",
+      "buyer_id": "B_2_Shrimp_6",
+      "round": 2,
+      "clearance_type": "NEGOTIATED",
+      "decider": {},
+      "buyer_response": {
+        "action": "ACCEPT",
+        "bid_amount": 22.47
+      }
+    },
+    {
+      "hour": 2.0,
+      "item": "Bagels",
+      "item_id": "Bagels_9",
+      "buyer_id": "B_2_Bagels_9",
+      "round": 1,
+      "clearance_type": "INSTANT_CLEAR",
+      "decider": {
+        "action": "ACCEPT",
+        "target_price": 3.35
+      },
+      "buyer_response": {
+        "action": "ACCEPT",
+        "bid_amount": 3.35
+      }
+    },
+    {
+      "hour": 2.0,
+      "item": "Beef",
+      "item_id": "Beef_11",
+      "buyer_id": "B_2_Beef_11",
+      "round": 3,
+      "clearance_type": "WALK_AWAY",
+      "decider": {},
+      "buyer_response": {
+        "action": "WALK_AWAY",
+        "bid_amount": 0.0
+      }
+    },
+    {
+      "hour": 2.0,
+      "item": "Bread",
+      "item_id": "Bread_13",
+      "buyer_id": "B_2_Bread_13",
+      "round": 3,
+      "clearance_type": "WALK_AWAY",
+      "decider": {},
+      "buyer_response": {
+        "action": "WALK_AWAY",
+        "bid_amount": 0.0
+      }
+    },
+    {
+      "hour": 2.0,
+      "item": "Ham",
+      "item_id": "Ham_15",
+      "buyer_id": "B_2_Ham_15",
+      "round": 3,
+      "clearance_type": "NEGOTIATED",
+      "decider": {},
+      "buyer_response": {
+        "action": "ACCEPT",
+        "bid_amount": 13.2
+      }
+    },
+    {
+      "hour": 4.0,
+      "item": "Beef",
+      "item_id": "Beef_4",
+      "buyer_id": "B_4_Beef_4",
+      "round": 3,
+      "clearance_type": "NEGOTIATED",
+      "decider": {},
+      "buyer_response": {
+        "action": "ACCEPT",
+        "bid_amount": 7.46
+      }
+    },
+    {
+      "hour": 4.0,
+      "item": "Tomatoes",
+      "item_id": "Tomatoes_8",
+      "buyer_id": "B_4_Tomatoes_8",
+      "round": 1,
+      "clearance_type": "INSTANT_CLEAR",
+      "decider": {
+        "action": "ACCEPT",
+        "target_price": 5.47
+      },
+      "buyer_response": {
+        "action": "ACCEPT",
+        "bid_amount": 5.47
+      }
+    },
+    {
+      "hour": 4.0,
+      "item": "Lettuce",
+      "item_id": "Lettuce_10",
+      "buyer_id": "B_4_Lettuce_10",
+      "round": 3,
+      "clearance_type": "WALK_AWAY",
+      "decider": {},
+      "buyer_response": {
+        "action": "WALK_AWAY",
+        "bid_amount": 0.0
+      }
+    },
+    {
+      "hour": 4.0,
+      "item": "Beef",
+      "item_id": "Beef_11",
+      "buyer_id": "B_4_Beef_11",
+      "round": 1,
+      "clearance_type": "INSTANT_CLEAR",
+      "decider": {
+        "action": "ACCEPT",
+        "target_price": 21.14
+      },
+      "buyer_response": {
+        "action": "ACCEPT",
+        "bid_amount": 21.14
+      }
+    },
+    {
+      "hour": 4.0,
+      "item": "Ground Beef",
+      "item_id": "Ground Beef_12",
+      "buyer_id": "B_4_Ground Beef_12",
+      "round": 3,
+      "clearance_type": "WALK_AWAY",
+      "decider": {},
+      "buyer_response": {
+        "action": "WALK_AWAY",
+        "bid_amount": 0.0
+      }
+    },
+    {
+      "hour": 4.0,
+      "item": "Bread",
+      "item_id": "Bread_13",
+      "buyer_id": "B_4_Bread_13",
+      "round": 1,
+      "clearance_type": "INSTANT_CLEAR",
+      "decider": {
+        "action": "ACCEPT",
+        "target_price": 11.05
+      },
+      "buyer_response": {
+        "action": "ACCEPT",
+        "bid_amount": 11.05
+      }
+    },
+    {
+      "hour": 4.0,
+      "item": "Sausages",
+      "item_id": "Sausages_14",
+      "buyer_id": "B_4_Sausages_14",
+      "round": 1,
+      "clearance_type": "INSTANT_CLEAR",
+      "decider": {
+        "action": "ACCEPT",
+        "target_price": 17.7
+      },
+      "buyer_response": {
+        "action": "ACCEPT",
+        "bid_amount": 17.7
+      }
+    },
+    {
+      "hour": 6.0,
+      "item": "Kombucha",
+      "item_id": "Kombucha_1",
+      "buyer_id": "B_6_Kombucha_1",
+      "round": 1,
+      "clearance_type": "INSTANT_CLEAR",
+      "decider": {
+        "action": "ACCEPT",
+        "target_price": 2.58
+      },
+      "buyer_response": {
+        "action": "ACCEPT",
+        "bid_amount": 2.58
+      }
+    },
+    {
+      "hour": 6.0,
+      "item": "Dips",
+      "item_id": "Dips_7",
+      "buyer_id": "B_6_Dips_7",
+      "round": 1,
+      "clearance_type": "INSTANT_CLEAR",
+      "decider": {
+        "action": "ACCEPT",
+        "target_price": 6.78
+      },
+      "buyer_response": {
+        "action": "ACCEPT",
+        "bid_amount": 6.78
+      }
+    },
+    {
+      "hour": 6.0,
+      "item": "Lettuce",
+      "item_id": "Lettuce_10",
+      "buyer_id": "B_6_Lettuce_10",
+      "round": 1,
+      "clearance_type": "INSTANT_CLEAR",
+      "decider": {
+        "action": "ACCEPT",
+        "target_price": 6.54
+      },
+      "buyer_response": {
+        "action": "ACCEPT",
+        "bid_amount": 6.54
+      }
+    },
+    {
+      "hour": 6.0,
+      "item": "Ground Beef",
+      "item_id": "Ground Beef_12",
+      "buyer_id": "B_6_Ground Beef_12",
+      "round": 1,
+      "clearance_type": "INSTANT_CLEAR",
+      "decider": {
+        "action": "ACCEPT",
+        "target_price": 15.79
+      },
+      "buyer_response": {
+        "action": "ACCEPT",
+        "bid_amount": 15.79
+      }
+    }
+  ],
+  "item_outcomes": {
+    "Tilapia_2": {
+      "item": "Tilapia",
+      "item_id": "Tilapia_2",
+      "outcome": "SOLD",
+      "final_price": 26.42,
+      "hour": 0,
+      "clearance_type": "NEGOTIATED"
+    },
+    "Cod_3": {
+      "item": "Cod",
+      "item_id": "Cod_3",
+      "outcome": "SOLD",
+      "final_price": 44.04,
+      "hour": 2,
+      "clearance_type": "INSTANT_CLEAR"
+    },
+    "Dips_5": {
+      "item": "Dips",
+      "item_id": "Dips_5",
+      "outcome": "SOLD",
+      "final_price": 11.63,
+      "hour": 2,
+      "clearance_type": "NEGOTIATED"
+    },
+    "Shrimp_6": {
+      "item": "Shrimp",
+      "item_id": "Shrimp_6",
+      "outcome": "SOLD",
+      "final_price": 22.47,
+      "hour": 2,
+      "clearance_type": "NEGOTIATED"
+    },
+    "Bagels_9": {
+      "item": "Bagels",
+      "item_id": "Bagels_9",
+      "outcome": "SOLD",
+      "final_price": 3.35,
+      "hour": 2,
+      "clearance_type": "INSTANT_CLEAR"
+    },
+    "Ham_15": {
+      "item": "Ham",
+      "item_id": "Ham_15",
+      "outcome": "SOLD",
+      "final_price": 13.2,
+      "hour": 2,
+      "clearance_type": "NEGOTIATED"
+    },
+    "Beef_4": {
+      "item": "Beef",
+      "item_id": "Beef_4",
+      "outcome": "SOLD",
+      "final_price": 7.46,
+      "hour": 4,
+      "clearance_type": "NEGOTIATED"
+    },
+    "Tomatoes_8": {
+      "item": "Tomatoes",
+      "item_id": "Tomatoes_8",
+      "outcome": "SOLD",
+      "final_price": 5.47,
+      "hour": 4,
+      "clearance_type": "INSTANT_CLEAR"
+    },
+    "Beef_11": {
+      "item": "Beef",
+      "item_id": "Beef_11",
+      "outcome": "SOLD",
+      "final_price": 21.14,
+      "hour": 4,
+      "clearance_type": "INSTANT_CLEAR"
+    },
+    "Bread_13": {
+      "item": "Bread",
+      "item_id": "Bread_13",
+      "outcome": "SOLD",
+      "final_price": 11.05,
+      "hour": 4,
+      "clearance_type": "INSTANT_CLEAR"
+    },
+    "Sausages_14": {
+      "item": "Sausages",
+      "item_id": "Sausages_14",
+      "outcome": "SOLD",
+      "final_price": 17.7,
+      "hour": 4,
+      "clearance_type": "INSTANT_CLEAR"
+    },
+    "Kombucha_1": {
+      "item": "Kombucha",
+      "item_id": "Kombucha_1",
+      "outcome": "SOLD",
+      "final_price": 2.58,
+      "hour": 6,
+      "clearance_type": "INSTANT_CLEAR"
+    },
+    "Dips_7": {
+      "item": "Dips",
+      "item_id": "Dips_7",
+      "outcome": "SOLD",
+      "final_price": 6.78,
+      "hour": 6,
+      "clearance_type": "INSTANT_CLEAR"
+    },
+    "Lettuce_10": {
+      "item": "Lettuce",
+      "item_id": "Lettuce_10",
+      "outcome": "SOLD",
+      "final_price": 6.54,
+      "hour": 6,
+      "clearance_type": "INSTANT_CLEAR"
+    },
+    "Ground Beef_12": {
+      "item": "Ground Beef",
+      "item_id": "Ground Beef_12",
+      "outcome": "SOLD",
+      "final_price": 15.79,
+      "hour": 6,
+      "clearance_type": "INSTANT_CLEAR"
+    }
+  }
+}

@@ -1,0 +1,4 @@
+Expiry Regime,MAS Clearance,MAS Net Profit,MAS Spoilage,MAS PCR,LinearDecay Clearance,LinearDecay Net Profit,LinearDecay Spoilage,LinearDecay PCR
+Critical (12-36h),18/25 (72.0%),$0.70,$5.80,0.7228,16/25 (64.0%),$3.46,$4.80,0.8747
+Medium (48-120h),17/25 (68.0%),$1.32,$5.90,0.8319,19/25 (76.0%),$4.23,$3.00,0.7029
+Low (144-336h),13/25 (52.0%),$-1.79,$9.30,0.9248,16/25 (64.0%),$-3.07,$9.60,0.7282

@@ -1,0 +1,13 @@
+Metric,MAS (Mean ± Std),LinearDecay (Mean ± Std)
+True Net Profit ($),$0.23 ± $33.54,$4.61 ± $27.77
+Gross Profit ($),$21.23 ± $13.01,$22.01 ± $13.64
+Spoilage Loss ($),$21.00 ± $20.54,$17.40 ± $14.21
+Profit Capture Ratio (PCR),0.7777 ± 0.0732,0.6915 ± 0.2096
+Clearance Rate (%),64.0%,68.0%
+Avg Sale Price / Retail,0.9079,0.8643
+Instant Clear Rate (%),50.7%,28.0%
+Negotiated Sale Rate (%),13.3%,40.0%
+Walk Away Rate (%),36.0%,32.0%
+Total Tokens / Trial,"67,837 ± 11,527","7,658 ± 2,774"
+Tokens / Sold Item (Trial Ratio),15004.1 ± 16777.5,757.4 ± 34.4
+Profit / 1000 Total Tokens ($),$-0.0899 ± $0.5744,$-0.5962 ± $3.3456

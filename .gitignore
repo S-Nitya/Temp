@@ -15,6 +15,11 @@ env/
 
 # Environment variables
 .env
+.env.*
+*.env
+
+# Logs
+*.log
 
 # IDE
 .vscode/

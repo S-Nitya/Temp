@@ -1,0 +1,31 @@
+condition,item_id,product_name,category,cost_price,retail_reference,expiry_hours,expiry_regime,final_status,sale_price,spoilage_loss,item_profit,pcr,final_simulated_time_h,remaining_shelf_life_h,total_sessions,total_exchanges,total_tokens
+MAS,strawberries_1,Strawberries,Produce,$3.00,$5.00,12.0,Critical,SOLD,$3.65,$0.00,$0.65,0.325,0.0,12.0,1,1,7033
+MAS,fresh_fish_2,Fresh Fish,Seafood,$7.00,$11.00,18.0,Critical,SOLD,$9.50,$0.00,$2.50,0.625,0.0,18.0,1,0,4442
+MAS,spinach_3,Spinach,Produce,$2.00,$4.00,24.0,Critical,SOLD,$3.70,$0.00,$1.70,0.85,0.0,24.0,1,0,4785
+MAS,fresh_chicken_4,Fresh Chicken,Meat,$5.00,$8.00,30.0,Critical,SOLD,$6.50,$0.00,$1.50,0.5,0.0,30.0,1,1,7151
+MAS,mushrooms_5,Mushrooms,Produce,$3.00,$5.00,36.0,Critical,SOLD,$4.70,$0.00,$1.70,0.85,0.0,36.0,1,0,4323
+MAS,fresh_bread_6,Fresh Bread,Bakery,$2.00,$4.00,48.0,Medium,SOLD,$3.85,$0.00,$1.85,0.925,0.0,48.0,1,0,6338
+MAS,tomatoes_7,Tomatoes,Produce,$2.50,$4.50,60.0,Medium,SOLD,$3.45,$0.00,$0.95,0.475,0.0,60.0,1,1,8331
+MAS,ground_beef_8,Ground Beef,Meat,$6.00,$10.00,72.0,Medium,SOLD,$8.25,$0.00,$2.25,0.5625,0.0,72.0,1,0,6219
+MAS,yogurt_9,Yogurt,Dairy,$2.50,$4.50,96.0,Medium,SOLD,$4.10,$0.00,$1.60,0.8,0.0,96.0,1,0,4245
+MAS,soft_cheese_10,Soft Cheese,Dairy,$4.00,$7.00,120.0,Medium,SOLD,$5.91,$0.00,$1.91,0.6367,0.0,120.0,1,1,8975
+MAS,premium_beef_11,Premium Beef,Meat,$9.00,$15.00,144.0,Low,SOLD,$14.32,$0.00,$5.32,0.8867,0.0,144.0,1,1,7184
+MAS,fresh_juice_12,Fresh Juice,Beverages,$2.50,$4.50,168.0,Low,SOLD,$4.25,$0.00,$1.75,0.875,0.0,168.0,1,0,4075
+MAS,apples_13,Apples,Produce,$2.00,$4.00,192.0,Low,SOLD,$2.94,$0.00,$0.94,0.47,0.0,192.0,1,1,7456
+MAS,carrots_14,Carrots,Produce,$1.50,$3.00,240.0,Low,SOLD,$2.80,$0.00,$1.30,0.8667,0.0,240.0,1,1,6912
+MAS,hard_cheese_15,Hard Cheese,Dairy,$5.00,$9.00,336.0,Low,SOLD,$8.90,$0.00,$3.90,0.975,0.0,336.0,1,0,4592
+LinearDecay,strawberries_1,Strawberries,Produce,$3.00,$5.00,12.0,Critical,SOLD,$3.60,$0.00,$0.60,0.3,2.0,10.0,2,4,7388
+LinearDecay,fresh_fish_2,Fresh Fish,Seafood,$7.00,$11.00,18.0,Critical,SOLD,$9.67,$0.00,$2.67,0.6675,0.0,18.0,1,1,1595
+LinearDecay,spinach_3,Spinach,Produce,$2.00,$4.00,24.0,Critical,SOLD,$4.00,$0.00,$2.00,1.0,0.0,24.0,1,0,663
+LinearDecay,fresh_chicken_4,Fresh Chicken,Meat,$5.00,$8.00,30.0,Critical,SOLD,$5.50,$0.00,$0.50,0.1667,0.0,30.0,1,3,3250
+LinearDecay,mushrooms_5,Mushrooms,Produce,$3.00,$5.00,36.0,Critical,SOLD,$5.00,$0.00,$2.00,1.0,0.0,36.0,1,0,661
+LinearDecay,fresh_bread_6,Fresh Bread,Bakery,$2.00,$4.00,48.0,Medium,SOLD,$4.00,$0.00,$2.00,1.0,0.0,48.0,1,0,683
+LinearDecay,tomatoes_7,Tomatoes,Produce,$2.50,$4.50,60.0,Medium,SOLD,$3.40,$0.00,$0.90,0.45,0.0,60.0,1,2,1631
+LinearDecay,ground_beef_8,Ground Beef,Meat,$6.00,$10.00,72.0,Medium,SOLD,$10.00,$0.00,$4.00,1.0,0.0,72.0,1,0,682
+LinearDecay,yogurt_9,Yogurt,Dairy,$2.50,$4.50,96.0,Medium,SOLD,$4.50,$0.00,$2.00,1.0,0.0,96.0,1,0,690
+LinearDecay,soft_cheese_10,Soft Cheese,Dairy,$4.00,$7.00,120.0,Medium,SOLD,$5.90,$0.00,$1.90,0.6333,0.0,120.0,1,2,1925
+LinearDecay,premium_beef_11,Premium Beef,Meat,$9.00,$15.00,144.0,Low,SOLD,$14.32,$0.00,$5.32,0.8867,0.0,144.0,1,1,796
+LinearDecay,fresh_juice_12,Fresh Juice,Beverages,$2.50,$4.50,168.0,Low,SOLD,$4.50,$0.00,$2.00,1.0,0.0,168.0,1,0,675
+LinearDecay,apples_13,Apples,Produce,$2.00,$4.00,192.0,Low,SOLD,$2.90,$0.00,$0.90,0.45,0.0,192.0,1,2,2059
+LinearDecay,carrots_14,Carrots,Produce,$1.50,$3.00,240.0,Low,SOLD,$2.80,$0.00,$1.30,0.8667,0.0,240.0,1,1,827
+LinearDecay,hard_cheese_15,Hard Cheese,Dairy,$5.00,$9.00,336.0,Low,SOLD,$9.00,$0.00,$4.00,1.0,0.0,336.0,1,0,704

@@ -63,28 +63,37 @@ class Buyer(BaseAgent):
 
         seller_context = f'"{seller_last_message}"' if seller_last_message else "No direct message from seller yet."
 
+        history_summary = ""
+        if history:
+            history_summary = "PRIOR ROUNDS FOR THIS ITEM:\n" + "\n".join(
+                f"- Hour {h.get('hour', 0)}: Seller asked ${h.get('seller_price', 0):.2f}, you chose {h.get('buyer_action')} (bid: ${h.get('bid', 0):.2f})"
+                for h in history if isinstance(h, dict)
+            ) + "\n"
+
         prompt = f"""
 You are a ruthless procurement buyer. Persona: {self.personality} ({self.persona_desc}).
 Target Product: {target_item}
 Your baseline valuation is ${retail_price:.2f}.
-Seller's Current Ask: ${current_quote:.2f}
+CURRENT SELLER ASK (HOUR {current_hour}/{max_hours}): ${current_quote:.2f}
 Time Remaining (TTE): {hours_remaining} hours (Days until expiry: {days_until_expiry})
 
 SELLER'S MESSAGE:
 {seller_context}
 
+{history_summary}
 ADVERSARIAL CONSTRAINTS:
-You can adjust your internal valuation based on the seller's persuasion, but if you pay more than your absolute budget ceiling of ${self.budget:.2f}, you will be fired. Evaluate their pitch, update your internal value, and negotiate aggressively.
+You can adjust your internal valuation based on the seller's persuasion, but if you pay more than your absolute budget ceiling of ${self.budget:.2f}, you will be fired.
+If the seller has discounted their price since prior rounds or if time is running out, you may rationally re-engage (COUNTER or ACCEPT) even if you walked away from an earlier higher price.
 
 TASK:
-1. In internal_monologue: Evaluate the seller's argument. Update your perceived value and urgency based on their text and your remaining time. DO NOT exceed your max budget (${self.budget:.2f}).
+1. In internal_monologue: Evaluate the seller's current ask (${current_quote:.2f}) against your valuation (${retail_price:.2f}), budget ceiling (${self.budget:.2f}), and remaining time ({hours_remaining}h).
 2. Choose action: ACCEPT, COUNTER, or WALK_AWAY.
 3. If COUNTER: Provide bid_amount <= ${self.budget:.2f}.
 4. Provide dialogue: Your natural language response to the seller.
 
 Respond ONLY in valid JSON matching this schema:
 {{
-  "internal_monologue": "Evaluate the seller's argument. Update your perceived value and urgency based on their text and your remaining time. DO NOT exceed your max budget.",
+  "internal_monologue": "Evaluate current price vs valuation and time remaining.",
   "action": "ACCEPT|COUNTER|WALK_AWAY",
   "bid_amount": float,
   "dialogue": "Your natural language response to the seller."
@@ -92,9 +101,20 @@ Respond ONLY in valid JSON matching this schema:
 """
         raw = await client.call(
             self.model_alias,
-            [{"role": "system", "content": prompt}] + history,
+            [{"role": "system", "content": prompt}],
             temperature=BUYER_TEMPERATURE,
         )
+        if isinstance(raw, dict) and raw.get("action") == "API_ERROR":
+            return {
+                "internal_monologue": f"API_ERROR: {raw.get('error', 'CONNECTION_FAILED')}",
+                "action": "API_ERROR",
+                "bid_amount": 0.0,
+                "counter_offer": 0.0,
+                "dialogue": "",
+                "message": "",
+                "error": raw.get("error", "API_ERROR"),
+            }
+
         validated = validate_output(raw, BuyerResponse)
         if validated:
             bid = min(float(validated.bid_amount), self.budget) if validated.bid_amount else 0.0

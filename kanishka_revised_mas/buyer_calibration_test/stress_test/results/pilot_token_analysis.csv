@@ -1,0 +1,3 @@
+Condition,Total Tokens,Seller Tokens,Buyer Tokens,Tokens / Sold Item,"Profit / 1,000 Total Tokens ($)","Profit / 1,000 Seller Tokens ($)"
+Hierarchical MAS,89704,77388,12316,6407.4,$0.3195,$0.3703
+LinearDecay Baseline,16300,0,16300,1164.3,$1.9436,NA (Deterministic Policy)

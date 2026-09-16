@@ -33,7 +33,16 @@ os.makedirs(CHECKPOINT_DIR, exist_ok=True)
 SUMMARY_CSV = os.path.join("final_output", "ablation", "ablation_results.csv")
 
 
-def save_checkpoint(trial: int, condition: str, metrics: Dict, price_traj: List = None, inv_traj: List = None, neg_log: List = None, item_outcomes: Dict = None):
+def save_checkpoint(
+    trial: int,
+    condition: str,
+    metrics: Dict,
+    price_traj: List = None,
+    inv_traj: List = None,
+    neg_log: List = None,
+    item_outcomes: Dict = None,
+    sales_data: List = None,
+):
     path = os.path.join(CHECKPOINT_DIR, f"metrics_{condition}_T{trial}.json")
     payload = {
         "condition": condition,
@@ -44,6 +53,11 @@ def save_checkpoint(trial: int, condition: str, metrics: Dict, price_traj: List 
             "waste_loss": metrics.get("Waste Loss", 0.0),
             "true_net_profit": metrics.get("True Net Profit", 0.0),
             "items_sold": metrics.get("Items Sold", 0),
+            "instant_clears": metrics.get("Instant Clears", 0),
+            "negotiated_sales": metrics.get("Negotiated Sales", 0),
+            "instant_clear_rate": metrics.get("Instant Clear Rate", 0.0),
+            "negotiated_sale_rate": metrics.get("Negotiated Sale Rate", 0.0),
+            "pcr_list": metrics.get("pcr_list", []),
             "persuasion_events": metrics.get("Persuasion Events", 0),
             "iv": metrics.get("IV", 0.0),
             "ee": metrics.get("EE", 0.0),
@@ -53,9 +67,12 @@ def save_checkpoint(trial: int, condition: str, metrics: Dict, price_traj: List 
         "Waste Loss": metrics.get("Waste Loss", 0.0),
         "True Net Profit": metrics.get("True Net Profit", 0.0),
         "Items Sold": metrics.get("Items Sold", 0),
-        "Persuasion Events": metrics.get("Persuasion Events", 0),
-        "IV": metrics.get("IV", 0.0),
-        "EE": metrics.get("EE", 0.0),
+        "Instant Clears": metrics.get("Instant Clears", 0),
+        "Negotiated Sales": metrics.get("Negotiated Sales", 0),
+        "Instant Clear Rate": metrics.get("Instant Clear Rate", 0.0),
+        "Negotiated Sale Rate": metrics.get("Negotiated Sale Rate", 0.0),
+        "pcr_list": metrics.get("pcr_list", []),
+        "sales_data": sales_data or [],
         "price_trajectory": price_traj or [],
         "inventory_trajectory": inv_traj or [],
         "negotiation_log": neg_log or [],
@@ -73,7 +90,7 @@ def load_checkpoint(trial: int, condition: str) -> Dict | None:
     return None
 
 
-def calculate_metrics(results: Dict) -> Dict[str, float]:
+def calculate_metrics(results: Dict) -> Dict[str, Any]:
     sales     = results["blackboard"]["sales_data"]
     inventory = results["blackboard"]["inventory"]
     duration  = results["duration"]
@@ -82,13 +99,26 @@ def calculate_metrics(results: Dict) -> Dict[str, float]:
     sold_ids     = {s.get("item_id", s["product_name"]) for s in sales}
     waste_loss   = sum(i["cost_price"] for i in inventory if i.get("item_id", i["product_name"]) not in sold_ids)
 
-    # PCR: average per-item profit capture ratio
+    # PCR: per-item profit capture ratio (actual realized margin / base retail potential margin)
     pcr_list = []
+    instant_count = 0
+    negotiated_count = 0
+
     for s in sales:
-        potential = s["initial_price"] - s["cost_price"]
-        actual    = s["sale_price"]    - s["cost_price"]
-        pcr_list.append(max(0.0, actual / potential) if potential > 0 else 1.0)
-    avg_pcr = sum(pcr_list) / len(pcr_list) if pcr_list else 0.0
+        potential = s["initial_price"] - s["cost_price"]  # retail - cost
+        actual    = s["sale_price"]    - s["cost_price"]  # realized - cost
+        ratio     = round(actual / potential, 4) if potential > 0 else 0.0
+        pcr_list.append(ratio)
+
+        if s.get("clearance_type") == "INSTANT_CLEAR":
+            instant_count += 1
+        else:
+            negotiated_count += 1
+
+    avg_pcr = round(sum(pcr_list) / len(pcr_list), 4) if pcr_list else 0.0
+    total_sales = len(sales)
+    instant_rate = round(instant_count / total_sales, 4) if total_sales > 0 else 0.0
+    negotiated_rate = round(negotiated_count / total_sales, 4) if total_sales > 0 else 0.0
 
     iv = len(sales) / (duration + 1)
     total_potential = sum(i["selling_price"] - i["cost_price"] for i in inventory)
@@ -96,21 +126,48 @@ def calculate_metrics(results: Dict) -> Dict[str, float]:
     ee = (total_profit - waste_loss) / total_potential if total_potential > 0 else 0.0
 
     return {
-        "PCR":             round(avg_pcr, 4),
-        "IV":              round(iv, 4),
-        "EE":              round(ee, 4),
-        "Total Profit":    round(total_profit, 2),
-        "Waste Loss":      round(waste_loss, 2),
-        "True Net Profit": round(true_net_profit, 2),
-        "Items Sold":      len(sales),
-        "Persuasion Events": len(results["blackboard"].get("persuasion_events", [])),
+        "PCR":                  avg_pcr,
+        "IV":                   round(iv, 4),
+        "EE":                   round(ee, 4),
+        "Total Profit":         round(total_profit, 2),
+        "Waste Loss":           round(waste_loss, 2),
+        "True Net Profit":      round(true_net_profit, 2),
+        "Items Sold":           len(sales),
+        "Instant Clears":       instant_count,
+        "Negotiated Sales":     negotiated_count,
+        "Instant Clear Rate":   instant_rate,
+        "Negotiated Sale Rate": negotiated_rate,
+        "pcr_list":             pcr_list,
+        "Persuasion Events":    len(results["blackboard"].get("persuasion_events", [])),
+        "API Errors":           results["blackboard"].get("api_errors", 0),
     }
+
+
+def generate_trial_buyer_sequence(inventory: List[Dict], seed: int) -> Dict[int, Dict[str, Dict]]:
+    """Pre-generate identical sequence of single-buyer encounters across periods for fair comparison."""
+    rng = random.Random(seed)
+    personalities = ["ESSENTIAL", "CALCULATED", "IMPULSE"]
+    sequence = {}
+    for period in [0, 2, 4, 6, 8]:
+        sequence[period] = {}
+        for item in inventory:
+            item_id = item["item_id"]
+            retail = item["selling_price"]
+            pers = rng.choice(personalities)
+            budget = round(retail * rng.uniform(0.90, 1.25), 2)
+            sequence[period][item_id] = {
+                "buyer_id": f"B_{period}_{item_id}",
+                "personality": pers,
+                "budget": budget,
+                "target_item_id": item_id,
+            }
+    return sequence
 
 
 async def run_condition(
     condition_name: str,
     inventory: List[Dict],
-    shared_buyers_cfg: List[Dict],
+    trial_buyer_sequence: Dict[int, Dict[str, Dict]],
     mode: str,
     model_map: Dict,
     buyer_model: str,
@@ -126,13 +183,6 @@ async def run_condition(
         buyer_model=buyer_model,
     )
 
-    # Override buyer pool with shared config for scientific fairness
-    from .agents import Buyer
-    env.buyers = [Buyer(b["id"], buyer_model, b["budget"], b["list"], b["personality"])
-                  for b in shared_buyers_cfg]
-    env.histories      = {b["id"]: [] for b in shared_buyers_cfg}
-    env.buyer_targets  = {b["id"]: None for b in shared_buyers_cfg}
-
     # Apply ablations
     if ablation_type == "no_risk_reader":
         dummy_rr     = DummyRiskReader(model_map.get("tactical_negotiator", "Llama-8B-GR"))
@@ -144,7 +194,7 @@ async def run_condition(
         env.brain = DummyStrategicBrain(model_map.get("strategic_brain", "Llama-70B-GR"))
 
     result = None
-    async for checkpoint in env.run():
+    async for checkpoint in env.run(trial_buyer_sequence):
         result = checkpoint
 
     metrics = calculate_metrics(result)
@@ -152,7 +202,8 @@ async def run_condition(
     inv_traj = result["blackboard"].get("inventory_trajectory", [])
     neg_log = result["blackboard"].get("negotiation_log", [])
     item_outcomes = result["blackboard"].get("item_outcomes", {})
-    return metrics, price_traj, inv_traj, neg_log, item_outcomes
+    sales_data = result["blackboard"].get("sales_data", [])
+    return metrics, price_traj, inv_traj, neg_log, item_outcomes, sales_data
 
 
 async def run_ablation(n_trials: int = 5):
@@ -175,21 +226,10 @@ async def run_ablation(n_trials: int = 5):
     for idx, item in enumerate(inventory):
         item["item_id"] = f"{item['product_name']}_{idx+1}"
 
-    # ── Shared buyer pool for fairness ────────────────────────────────────────
-    random.seed(GLOBAL_SEED)
-    personalities = ["ESSENTIAL", "CALCULATED", "IMPULSE"]
-    shared_buyers_cfg = []
-    for i in range(1, N_BUYERS + 1):
-        sl      = random.sample([item["item_id"] for item in inventory], k=random.randint(2, 3))
-        pers    = random.choice(personalities)
-        total_v = sum(next(it["selling_price"] for it in inventory if it["item_id"] == n) for n in sl)
-        budget  = total_v * random.uniform(0.9, 1.2)
-        shared_buyers_cfg.append({"id": i, "budget": budget, "list": sl, "personality": pers})
-
     model_map    = FINAL_CONFIG
-    buyer_model  = "Llama-8B-NV"
+    buyer_model  = "Llama-8B-GR"
 
-    # ── 4 Full Benchmark Conditions ──────────────────────────────────────────
+    # ── 4 Full Benchmark Conditions ───────────────────────────────────────────
     conditions = [
         ("Full_MAS",            "MAS",          "full"),
         ("No_RiskReader",       "MAS",          "no_risk_reader"),
@@ -203,6 +243,9 @@ async def run_ablation(n_trials: int = 5):
         print(f"\n{'='*50}", flush=True)
         print(f"TRIAL {trial}/{n_trials}", flush=True)
 
+        # Pre-generate identical buyer sequence for this trial
+        trial_buyer_seq = generate_trial_buyer_sequence(inventory, GLOBAL_SEED + trial)
+
         for condition_name, mode, ablation_type in conditions:
             # Check checkpoint
             cached = load_checkpoint(trial, condition_name)
@@ -212,22 +255,27 @@ async def run_ablation(n_trials: int = 5):
                 metrics = cached
             else:
                 print(f"  [{condition_name}] Running...", flush=True)
-                metrics, p_traj, i_traj, neg_log, item_outcomes = await run_condition(
-                    condition_name, inventory, shared_buyers_cfg,
+                metrics, p_traj, i_traj, neg_log, item_outcomes, sales_data = await run_condition(
+                    condition_name, inventory, trial_buyer_seq,
                     mode, model_map, buyer_model, trial, ablation_type,
                 )
-                save_checkpoint(trial, condition_name, metrics, p_traj, i_traj, neg_log, item_outcomes)
-                print(f"  [DONE] {condition_name} T{trial}: PCR={metrics['PCR']:.4f} | Profit=${metrics['Total Profit']:.2f} | Waste=${metrics['Waste Loss']:.2f}", flush=True)
+                save_checkpoint(trial, condition_name, metrics, p_traj, i_traj, neg_log, item_outcomes, sales_data)
+                print(f"  [DONE] {condition_name} T{trial}: PCR={metrics['PCR']:.4f} | Profit=${metrics['Total Profit']:.2f} | Waste=${metrics['Waste Loss']:.2f} | Sold={metrics['Items Sold']}/15 (Instant={metrics['Instant Clears']}, Neg={metrics['Negotiated Sales']})", flush=True)
 
             all_rows.append({
-                "Trial":             trial,
-                "Condition":         condition_name,
-                "PCR":               metrics.get("PCR", metrics.get("final_metrics", {}).get("pcr", 0.0)),
-                "Total Profit":      metrics.get("Total Profit", metrics.get("final_metrics", {}).get("total_profit", 0.0)),
-                "Waste Loss":        metrics.get("Waste Loss", metrics.get("final_metrics", {}).get("waste_loss", 0.0)),
-                "True Net Profit":   metrics.get("True Net Profit", metrics.get("final_metrics", {}).get("true_net_profit", 0.0)),
-                "Items Sold":        metrics.get("Items Sold", metrics.get("final_metrics", {}).get("items_sold", 0)),
-                "Persuasion Events": metrics.get("Persuasion Events", metrics.get("final_metrics", {}).get("persuasion_events", 0)),
+                "Trial":                trial,
+                "Condition":            condition_name,
+                "PCR":                  metrics.get("PCR", metrics.get("final_metrics", {}).get("pcr", 0.0)),
+                "Total Profit":         metrics.get("Total Profit", metrics.get("final_metrics", {}).get("total_profit", 0.0)),
+                "Waste Loss":           metrics.get("Waste Loss", metrics.get("final_metrics", {}).get("waste_loss", 0.0)),
+                "True Net Profit":      metrics.get("True Net Profit", metrics.get("final_metrics", {}).get("true_net_profit", 0.0)),
+                "Items Sold":           metrics.get("Items Sold", metrics.get("final_metrics", {}).get("items_sold", 0)),
+                "Instant Clears":       metrics.get("Instant Clears", metrics.get("final_metrics", {}).get("instant_clears", 0)),
+                "Negotiated Sales":     metrics.get("Negotiated Sales", metrics.get("final_metrics", {}).get("negotiated_sales", 0)),
+                "Instant Clear Rate":   metrics.get("Instant Clear Rate", metrics.get("final_metrics", {}).get("instant_clear_rate", 0.0)),
+                "Negotiated Sale Rate": metrics.get("Negotiated Sale Rate", metrics.get("final_metrics", {}).get("negotiated_sale_rate", 0.0)),
+                "Persuasion Events":    metrics.get("Persuasion Events", metrics.get("final_metrics", {}).get("persuasion_events", 0)),
+                "API Errors":           metrics.get("API Errors", metrics.get("final_metrics", {}).get("api_errors", 0)),
             })
 
     # ── Save results ──────────────────────────────────────────────────────────
@@ -239,7 +287,7 @@ async def run_ablation(n_trials: int = 5):
     print(f"\n{'='*60}", flush=True)
     print("ABLATION STUDY SUMMARY", flush=True)
     print(f"{'='*60}", flush=True)
-    summary = df_out.groupby("Condition")[["PCR", "Total Profit", "Waste Loss", "Items Sold", "Persuasion Events"]].agg(["mean", "std"])
+    summary = df_out.groupby("Condition")[["PCR", "Total Profit", "Waste Loss", "Items Sold", "Instant Clears", "Negotiated Sales", "Instant Clear Rate", "Negotiated Sale Rate", "API Errors"]].agg(["mean", "std"])
     print(summary.to_string(), flush=True)
     print(f"\nResults saved to: {SUMMARY_CSV}", flush=True)
 

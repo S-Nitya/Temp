@@ -15,16 +15,14 @@ GROQ_BASE_URL = "https://api.groq.com/openai/v1/chat/completions"
 # --- MODEL MAPPING ---
 # Open-weight models only — required for NeurIPS reproducibility
 MODELS = {
-    "Llama-70B-NV": {"id": "meta/llama-3.3-70b-instruct", "provider": "nvidia"},
-    "Llama-8B-NV":  {"id": "meta/llama-3.1-8b-instruct",  "provider": "nvidia"},
-    "Llama-70B-GR": {"id": "llama-3.3-70b-versatile",     "provider": "groq"},
-    "Llama-8B-GR":  {"id": "llama-3.1-8b-instant",        "provider": "groq"},
-    "Mixtral-8x7B-GR": {"id": "mixtral-8x7b-32768",       "provider": "groq"},
+    "Llama-70B-NV": {"id": "openai/gpt-oss-120b", "provider": "groq"},
+    "Llama-8B-NV":  {"id": "openai/gpt-oss-20b",  "provider": "groq"},
+    "Llama-70B-GR": {"id": "openai/gpt-oss-120b", "provider": "groq"},
+    "Llama-8B-GR":  {"id": "openai/gpt-oss-20b",  "provider": "groq"},
+    "Mixtral-8x7B-GR": {"id": "openai/gpt-oss-20b", "provider": "groq"},
 }
 
 # --- FINAL ARCHITECTURE CONFIG ---
-# StrategicBrain uses 70B for autonomous strategy discovery
-# Micro-negotiation agents use 8B for speed/cost
 FINAL_CONFIG = {
     "strategic_brain":    "Llama-70B-GR",
     "tactical_negotiator": "Llama-70B-GR",

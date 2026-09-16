@@ -1,0 +1,148 @@
+"""
+Fixed 15-item perishable product catalog for the Minimal Perishability Benchmark.
+"""
+from typing import List, Dict, Any
+
+FIXED_CATALOG: List[Dict[str, Any]] = [
+    {
+        "item_id": "strawberries_1",
+        "product_name": "Strawberries",
+        "category": "Produce",
+        "cost_price": 3.00,
+        "retail_reference": 5.00,
+        "starting_remaining_hours": 12,
+        "expiry_regime": "Critical",
+    },
+    {
+        "item_id": "fresh_fish_2",
+        "product_name": "Fresh Fish",
+        "category": "Seafood",
+        "cost_price": 7.00,
+        "retail_reference": 11.00,
+        "starting_remaining_hours": 18,
+        "expiry_regime": "Critical",
+    },
+    {
+        "item_id": "spinach_3",
+        "product_name": "Spinach",
+        "category": "Produce",
+        "cost_price": 2.00,
+        "retail_reference": 4.00,
+        "starting_remaining_hours": 24,
+        "expiry_regime": "Critical",
+    },
+    {
+        "item_id": "fresh_chicken_4",
+        "product_name": "Fresh Chicken",
+        "category": "Meat",
+        "cost_price": 5.00,
+        "retail_reference": 8.00,
+        "starting_remaining_hours": 30,
+        "expiry_regime": "Critical",
+    },
+    {
+        "item_id": "mushrooms_5",
+        "product_name": "Mushrooms",
+        "category": "Produce",
+        "cost_price": 3.00,
+        "retail_reference": 5.00,
+        "starting_remaining_hours": 36,
+        "expiry_regime": "Critical",
+    },
+    {
+        "item_id": "fresh_bread_6",
+        "product_name": "Fresh Bread",
+        "category": "Bakery",
+        "cost_price": 2.00,
+        "retail_reference": 4.00,
+        "starting_remaining_hours": 48,
+        "expiry_regime": "Medium",
+    },
+    {
+        "item_id": "tomatoes_7",
+        "product_name": "Tomatoes",
+        "category": "Produce",
+        "cost_price": 2.50,
+        "retail_reference": 4.50,
+        "starting_remaining_hours": 60,
+        "expiry_regime": "Medium",
+    },
+    {
+        "item_id": "ground_beef_8",
+        "product_name": "Ground Beef",
+        "category": "Meat",
+        "cost_price": 6.00,
+        "retail_reference": 10.00,
+        "starting_remaining_hours": 72,
+        "expiry_regime": "Medium",
+    },
+    {
+        "item_id": "yogurt_9",
+        "product_name": "Yogurt",
+        "category": "Dairy",
+        "cost_price": 2.50,
+        "retail_reference": 4.50,
+        "starting_remaining_hours": 96,
+        "expiry_regime": "Medium",
+    },
+    {
+        "item_id": "soft_cheese_10",
+        "product_name": "Soft Cheese",
+        "category": "Dairy",
+        "cost_price": 4.00,
+        "retail_reference": 7.00,
+        "starting_remaining_hours": 120,
+        "expiry_regime": "Medium",
+    },
+    {
+        "item_id": "premium_beef_11",
+        "product_name": "Premium Beef",
+        "category": "Meat",
+        "cost_price": 9.00,
+        "retail_reference": 15.00,
+        "starting_remaining_hours": 144,
+        "expiry_regime": "Low",
+    },
+    {
+        "item_id": "fresh_juice_12",
+        "product_name": "Fresh Juice",
+        "category": "Beverages",
+        "cost_price": 2.50,
+        "retail_reference": 4.50,
+        "starting_remaining_hours": 168,
+        "expiry_regime": "Low",
+    },
+    {
+        "item_id": "apples_13",
+        "product_name": "Apples",
+        "category": "Produce",
+        "cost_price": 2.00,
+        "retail_reference": 4.00,
+        "starting_remaining_hours": 192,
+        "expiry_regime": "Low",
+    },
+    {
+        "item_id": "carrots_14",
+        "product_name": "Carrots",
+        "category": "Produce",
+        "cost_price": 1.50,
+        "retail_reference": 3.00,
+        "starting_remaining_hours": 240,
+        "expiry_regime": "Low",
+    },
+    {
+        "item_id": "hard_cheese_15",
+        "product_name": "Hard Cheese",
+        "category": "Dairy",
+        "cost_price": 5.00,
+        "retail_reference": 9.00,
+        "starting_remaining_hours": 336,
+        "expiry_regime": "Low",
+    },
+]
+
+
+def get_fixed_catalog() -> List[Dict[str, Any]]:
+    """Return a deep copy of the fixed 15-item catalog."""
+    import copy
+    return copy.deepcopy(FIXED_CATALOG)

@@ -60,6 +60,7 @@ def load_checkpoints(checkpoint_dir: Path) -> pd.DataFrame:
             waste = metrics.get("waste_loss", metrics.get("Waste Loss", 0.0))
             true_net = metrics.get("true_net_profit", metrics.get("True Net Profit", profit - waste))
             items_sold = metrics.get("items_sold", metrics.get("Items Sold", 0))
+            api_errors = metrics.get("api_errors", metrics.get("API Errors", 0))
 
             rows.append({
                 "condition": condition,
@@ -69,6 +70,7 @@ def load_checkpoints(checkpoint_dir: Path) -> pd.DataFrame:
                 "waste_loss": float(waste),
                 "true_net_profit": float(true_net),
                 "items_sold": int(items_sold),
+                "api_errors": int(api_errors),
             })
         except Exception as e:
             print(f"  [WARN] Skipping malformed {fp.name}: {e}", file=sys.stderr)
@@ -131,6 +133,7 @@ def run_statistical_analysis(df: pd.DataFrame, out_dir: Path, ref_condition: str
             "Profit_95_CI": f"[{profit_ci[0]:.1f}, {profit_ci[1]:.1f}]",
             "Waste_Mean": np.mean(waste_vals),
             "Items_Sold_Mean": np.mean(sold_vals),
+            "API_Errors_Total": int(np.sum(sub["api_errors"].values)) if "api_errors" in sub else 0,
         })
 
     summary_df = pd.DataFrame(summary_rows)

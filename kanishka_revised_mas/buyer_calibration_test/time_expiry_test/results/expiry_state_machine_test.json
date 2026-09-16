@@ -1,0 +1,377 @@
+{
+  "catalog_hash": "b49a8fd50c2f8e7ee50eaec073056318bf306e5765c2b4b3fb51eaadc5469996",
+  "synthetic_expiry_scenario": {
+    "tested_item": "Strawberries",
+    "cost_price": 3.0,
+    "retail_reference": 5.0,
+    "expiry_hours": 12.0,
+    "steps": [
+      {
+        "step_name": "T_MINUS_1_HOUR",
+        "description": "Item simulated at 1 hour before expiry",
+        "current_simulated_time": 11.0,
+        "expiry_timestamp": 12.0,
+        "remaining_shelf_life": 1.0,
+        "final_status": "IN_PROGRESS",
+        "spoilage_loss": 0.0,
+        "item_profit": 0.0,
+        "assertion_passed": true
+      },
+      {
+        "step_name": "AT_EXPIRY",
+        "description": "Item simulated at exact expiry hour",
+        "current_simulated_time": 12.0,
+        "expiry_timestamp": 12.0,
+        "remaining_shelf_life": 0.0,
+        "final_status": "EXPIRED",
+        "spoilage_loss": 3.0,
+        "item_profit": -3.0,
+        "assertion_passed": true
+      },
+      {
+        "step_name": "POST_EXPIRY",
+        "description": "Item simulated at 1 hour post-expiry",
+        "current_simulated_time": 13.0,
+        "expiry_timestamp": 12.0,
+        "remaining_shelf_life": 0.0,
+        "final_status": "EXPIRED",
+        "spoilage_loss": 3.0,
+        "item_profit": -3.0,
+        "assertion_passed": true
+      }
+    ]
+  },
+  "separation_of_concepts": [
+    {
+      "concept": "ROUND_LIMIT_DOES_NOT_CAUSE_EXPIRY",
+      "description": "3 exchanges reach round limit, remaining shelf life = 15.0h",
+      "exchanges": 3,
+      "simulated_time": 3.0,
+      "expiry_time": 18.0,
+      "final_status": "MAX_ROUNDS_UNRESOLVED",
+      "spoilage_loss": 0.0,
+      "passed": true
+    },
+    {
+      "concept": "PHYSICAL_TIME_CAUSES_EXPIRY",
+      "description": "Simulated time reaches 18.0h while unsold",
+      "exchanges": 18,
+      "simulated_time": 18.0,
+      "expiry_time": 18.0,
+      "final_status": "EXPIRED",
+      "spoilage_loss": 7.0,
+      "passed": true
+    },
+    {
+      "concept": "SOLD_ITEM_NEVER_SPOILS",
+      "description": "Item sold at 11.5h (0.5h before expiry) for $4.50",
+      "simulated_time": 11.5,
+      "expiry_time": 12.0,
+      "final_status": "SOLD",
+      "spoilage_loss": 0.0,
+      "item_profit": 1.5,
+      "passed": true
+    },
+    {
+      "concept": "WALK_AWAY_BEFORE_EXPIRY_DOES_NOT_SPOIL",
+      "description": "Buyer walks away at round 0 (1.0h elapsed on 30.0h item)",
+      "simulated_time": 1.0,
+      "expiry_time": 30.0,
+      "final_status": "BUYER_WALK_AWAY",
+      "spoilage_loss": 0.0,
+      "passed": true
+    }
+  ],
+  "trace_samples_for_primary_items": {
+    "strawberries_1": {
+      "product_name": "Strawberries",
+      "expiry_hours": 12.0,
+      "total_epochs_to_expiry": 4,
+      "total_exchanges_to_expiry": 12,
+      "first_3_steps": [
+        {
+          "epoch": 1,
+          "exchange": 1,
+          "simulated_time": 1.0,
+          "remaining_shelf_life": 11.0,
+          "expiry_timestamp": 12.0,
+          "state": "UNRESOLVED_EXCHANGE"
+        },
+        {
+          "epoch": 1,
+          "exchange": 2,
+          "simulated_time": 2.0,
+          "remaining_shelf_life": 10.0,
+          "expiry_timestamp": 12.0,
+          "state": "UNRESOLVED_EXCHANGE"
+        },
+        {
+          "epoch": 1,
+          "exchange": 3,
+          "simulated_time": 3.0,
+          "remaining_shelf_life": 9.0,
+          "expiry_timestamp": 12.0,
+          "state": "UNRESOLVED_EXCHANGE"
+        }
+      ],
+      "last_3_steps": [
+        {
+          "epoch": 4,
+          "exchange": 1,
+          "simulated_time": 10.0,
+          "remaining_shelf_life": 2.0,
+          "expiry_timestamp": 12.0,
+          "state": "UNRESOLVED_EXCHANGE"
+        },
+        {
+          "epoch": 4,
+          "exchange": 2,
+          "simulated_time": 11.0,
+          "remaining_shelf_life": 1.0,
+          "expiry_timestamp": 12.0,
+          "state": "UNRESOLVED_EXCHANGE"
+        },
+        {
+          "epoch": 4,
+          "exchange": 3,
+          "simulated_time": 12.0,
+          "remaining_shelf_life": 0.0,
+          "expiry_timestamp": 12.0,
+          "state": "EXPIRED"
+        }
+      ]
+    },
+    "fresh_fish_2": {
+      "product_name": "Fresh Fish",
+      "expiry_hours": 18.0,
+      "total_epochs_to_expiry": 6,
+      "total_exchanges_to_expiry": 18,
+      "first_3_steps": [
+        {
+          "epoch": 1,
+          "exchange": 1,
+          "simulated_time": 1.0,
+          "remaining_shelf_life": 17.0,
+          "expiry_timestamp": 18.0,
+          "state": "UNRESOLVED_EXCHANGE"
+        },
+        {
+          "epoch": 1,
+          "exchange": 2,
+          "simulated_time": 2.0,
+          "remaining_shelf_life": 16.0,
+          "expiry_timestamp": 18.0,
+          "state": "UNRESOLVED_EXCHANGE"
+        },
+        {
+          "epoch": 1,
+          "exchange": 3,
+          "simulated_time": 3.0,
+          "remaining_shelf_life": 15.0,
+          "expiry_timestamp": 18.0,
+          "state": "UNRESOLVED_EXCHANGE"
+        }
+      ],
+      "last_3_steps": [
+        {
+          "epoch": 6,
+          "exchange": 1,
+          "simulated_time": 16.0,
+          "remaining_shelf_life": 2.0,
+          "expiry_timestamp": 18.0,
+          "state": "UNRESOLVED_EXCHANGE"
+        },
+        {
+          "epoch": 6,
+          "exchange": 2,
+          "simulated_time": 17.0,
+          "remaining_shelf_life": 1.0,
+          "expiry_timestamp": 18.0,
+          "state": "UNRESOLVED_EXCHANGE"
+        },
+        {
+          "epoch": 6,
+          "exchange": 3,
+          "simulated_time": 18.0,
+          "remaining_shelf_life": 0.0,
+          "expiry_timestamp": 18.0,
+          "state": "EXPIRED"
+        }
+      ]
+    },
+    "spinach_3": {
+      "product_name": "Spinach",
+      "expiry_hours": 24.0,
+      "total_epochs_to_expiry": 8,
+      "total_exchanges_to_expiry": 24,
+      "first_3_steps": [
+        {
+          "epoch": 1,
+          "exchange": 1,
+          "simulated_time": 1.0,
+          "remaining_shelf_life": 23.0,
+          "expiry_timestamp": 24.0,
+          "state": "UNRESOLVED_EXCHANGE"
+        },
+        {
+          "epoch": 1,
+          "exchange": 2,
+          "simulated_time": 2.0,
+          "remaining_shelf_life": 22.0,
+          "expiry_timestamp": 24.0,
+          "state": "UNRESOLVED_EXCHANGE"
+        },
+        {
+          "epoch": 1,
+          "exchange": 3,
+          "simulated_time": 3.0,
+          "remaining_shelf_life": 21.0,
+          "expiry_timestamp": 24.0,
+          "state": "UNRESOLVED_EXCHANGE"
+        }
+      ],
+      "last_3_steps": [
+        {
+          "epoch": 8,
+          "exchange": 1,
+          "simulated_time": 22.0,
+          "remaining_shelf_life": 2.0,
+          "expiry_timestamp": 24.0,
+          "state": "UNRESOLVED_EXCHANGE"
+        },
+        {
+          "epoch": 8,
+          "exchange": 2,
+          "simulated_time": 23.0,
+          "remaining_shelf_life": 1.0,
+          "expiry_timestamp": 24.0,
+          "state": "UNRESOLVED_EXCHANGE"
+        },
+        {
+          "epoch": 8,
+          "exchange": 3,
+          "simulated_time": 24.0,
+          "remaining_shelf_life": 0.0,
+          "expiry_timestamp": 24.0,
+          "state": "EXPIRED"
+        }
+      ]
+    },
+    "fresh_chicken_4": {
+      "product_name": "Fresh Chicken",
+      "expiry_hours": 30.0,
+      "total_epochs_to_expiry": 10,
+      "total_exchanges_to_expiry": 30,
+      "first_3_steps": [
+        {
+          "epoch": 1,
+          "exchange": 1,
+          "simulated_time": 1.0,
+          "remaining_shelf_life": 29.0,
+          "expiry_timestamp": 30.0,
+          "state": "UNRESOLVED_EXCHANGE"
+        },
+        {
+          "epoch": 1,
+          "exchange": 2,
+          "simulated_time": 2.0,
+          "remaining_shelf_life": 28.0,
+          "expiry_timestamp": 30.0,
+          "state": "UNRESOLVED_EXCHANGE"
+        },
+        {
+          "epoch": 1,
+          "exchange": 3,
+          "simulated_time": 3.0,
+          "remaining_shelf_life": 27.0,
+          "expiry_timestamp": 30.0,
+          "state": "UNRESOLVED_EXCHANGE"
+        }
+      ],
+      "last_3_steps": [
+        {
+          "epoch": 10,
+          "exchange": 1,
+          "simulated_time": 28.0,
+          "remaining_shelf_life": 2.0,
+          "expiry_timestamp": 30.0,
+          "state": "UNRESOLVED_EXCHANGE"
+        },
+        {
+          "epoch": 10,
+          "exchange": 2,
+          "simulated_time": 29.0,
+          "remaining_shelf_life": 1.0,
+          "expiry_timestamp": 30.0,
+          "state": "UNRESOLVED_EXCHANGE"
+        },
+        {
+          "epoch": 10,
+          "exchange": 3,
+          "simulated_time": 30.0,
+          "remaining_shelf_life": 0.0,
+          "expiry_timestamp": 30.0,
+          "state": "EXPIRED"
+        }
+      ]
+    },
+    "hard_cheese_15": {
+      "product_name": "Hard Cheese",
+      "expiry_hours": 336.0,
+      "total_epochs_to_expiry": 112,
+      "total_exchanges_to_expiry": 336,
+      "first_3_steps": [
+        {
+          "epoch": 1,
+          "exchange": 1,
+          "simulated_time": 1.0,
+          "remaining_shelf_life": 335.0,
+          "expiry_timestamp": 336.0,
+          "state": "UNRESOLVED_EXCHANGE"
+        },
+        {
+          "epoch": 1,
+          "exchange": 2,
+          "simulated_time": 2.0,
+          "remaining_shelf_life": 334.0,
+          "expiry_timestamp": 336.0,
+          "state": "UNRESOLVED_EXCHANGE"
+        },
+        {
+          "epoch": 1,
+          "exchange": 3,
+          "simulated_time": 3.0,
+          "remaining_shelf_life": 333.0,
+          "expiry_timestamp": 336.0,
+          "state": "UNRESOLVED_EXCHANGE"
+        }
+      ],
+      "last_3_steps": [
+        {
+          "epoch": 112,
+          "exchange": 1,
+          "simulated_time": 334.0,
+          "remaining_shelf_life": 2.0,
+          "expiry_timestamp": 336.0,
+          "state": "UNRESOLVED_EXCHANGE"
+        },
+        {
+          "epoch": 112,
+          "exchange": 2,
+          "simulated_time": 335.0,
+          "remaining_shelf_life": 1.0,
+          "expiry_timestamp": 336.0,
+          "state": "UNRESOLVED_EXCHANGE"
+        },
+        {
+          "epoch": 112,
+          "exchange": 3,
+          "simulated_time": 336.0,
+          "remaining_shelf_life": 0.0,
+          "expiry_timestamp": 336.0,
+          "state": "EXPIRED"
+        }
+      ]
+    }
+  }
+}

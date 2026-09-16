@@ -1,0 +1,4 @@
+Expiry Regime,MAS Clearance,MAS Net Profit,MAS Gross Profit,MAS Spoilage,MAS PCR,MAS Sale Price / Retail,MAS Negotiation Rate,MAS Tokens / Trial,LinearDecay Clearance,LinearDecay Net Profit,LinearDecay Gross Profit,LinearDecay Spoilage,LinearDecay PCR,LinearDecay Sale Price / Retail,LinearDecay Negotiation Rate,LinearDecay Tokens / Trial
+Critical (12-36h),25/25 (100.0%),$10.22,$10.22,$0.00,0.7913,0.9145,8.0% (2/25),"27,628",25/25 (100.0%),$12.01,$12.01,$0.00,0.9219,0.9672,48.0% (12/25),"3,755"
+Medium (48-120h),25/25 (100.0%),$10.76,$10.76,$0.00,0.8329,0.9261,24.0% (6/25),"27,203",25/25 (100.0%),$12.07,$12.07,$0.00,0.9269,0.9674,40.0% (10/25),"4,238"
+Low (144-336h),25/25 (100.0%),$13.30,$13.30,$0.00,0.8621,0.9367,44.0% (11/25),"30,083",24/25 (96.0%),$13.53,$13.53,$0.00,0.8924,0.9504,48.0% (12/25),"3,798"

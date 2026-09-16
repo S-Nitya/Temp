@@ -121,13 +121,14 @@ def validate_output(data: Optional[Dict], schema_class: Type[T]) -> Optional[T]:
 
 
 class LLMClient:
-    def __init__(self, max_concurrent: int = 4):
+    def __init__(self, max_concurrent: int = 2):
         self.providers = {
             "nvidia": {"keys": NVIDIA_API_KEYS, "url": NVIDIA_BASE_URL, "index": 0},
             "groq":   {"keys": GROQ_API_KEYS,   "url": GROQ_BASE_URL,   "index": 0},
         }
         self.json_failures = 0
         self.total_calls   = 0
+        self.api_errors    = 0
         self.status_logs   = []
         self.semaphore     = asyncio.Semaphore(max_concurrent)
 
@@ -166,37 +167,41 @@ class LLMClient:
         model_alias: str,
         messages: List[Dict[str, str]],
         temperature: float = 0.2,
-        retries: int = 3,
+        retries: int = 4,
     ) -> Dict[str, Any]:
         """Semaphore-protected entry with hard 90s timeout."""
         async with self.semaphore:
             try:
-                return await asyncio.wait_for(
+                res = await asyncio.wait_for(
                     self._internal_call(model_alias, messages, temperature, retries),
                     timeout=90.0,
                 )
+                if isinstance(res, dict) and res.get("action") == "API_ERROR":
+                    self.api_errors += 1
+                return res
             except asyncio.TimeoutError:
                 self._log(f"HARD TIMEOUT (90s) on {model_alias}")
-                return {"action": "WALK_AWAY", "error": "HARD_TIMEOUT"}
+                self.api_errors += 1
+                return {"action": "API_ERROR", "error": "HARD_TIMEOUT"}
 
     async def _internal_call(
         self,
         model_alias: str,
         messages: List[Dict[str, str]],
         temperature: float = 0.2,
-        retries: int = 3,
+        retries: int = 4,
         is_retry: bool = False,
     ) -> Dict[str, Any]:
         model_info = MODELS.get(model_alias)
         if not model_info:
-            return {"action": "WALK_AWAY", "error": f"Model {model_alias} not found"}
+            return {"action": "API_ERROR", "error": f"Model {model_alias} not found"}
 
         provider_name = model_info["provider"]
         api_key       = self._get_next_key(provider_name)
         provider_cfg  = self.providers.get(provider_name)
 
         if not api_key:
-            return {"action": "WALK_AWAY", "error": f"No API key for {provider_name}"}
+            return {"action": "API_ERROR", "error": f"No API key for {provider_name}"}
 
         self.total_calls += 1
         headers = {"Authorization": f"Bearer {api_key}", "Content-Type": "application/json"}
@@ -210,7 +215,7 @@ class LLMClient:
 
         start = time.time()
         try:
-            async with httpx.AsyncClient(timeout=30.0) as http:
+            async with httpx.AsyncClient(timeout=35.0) as http:
                 resp = await http.post(provider_cfg["url"], headers=headers, json=payload)
             latency = time.time() - start
 
@@ -228,30 +233,36 @@ class LLMClient:
                         {"role": "user", "content": "Your response was not valid JSON. Re-output ONLY the JSON object, nothing else."},
                     ]
                     return await self._internal_call(model_alias, correction, 0.1, retries - 1, is_retry=True)
-                return {"action": "ERROR", "error": "JSON_PARSE_FAILED", "raw": content[:200], "latency": latency}
+                return {"action": "API_ERROR", "error": "JSON_PARSE_FAILED", "raw": content[:200], "latency": latency}
 
             elif resp.status_code == 429:
-                wait = 10 + random.uniform(2, 5)
+                attempt = 4 - retries
+                wait = min(45.0, (2 ** attempt) * 4.0 + random.uniform(2.0, 5.0))
                 if len(self.providers[provider_name]["keys"]) > 1 and retries > 0:
-                    self._log(f"Rate limited — rotating key (retries left: {retries})")
-                    await asyncio.sleep(3)
+                    self._log(f"Rate limited (429) — rotating key (retries left: {retries})")
+                    await asyncio.sleep(wait / 2.0)
                     return await self._internal_call(model_alias, messages, temperature, retries - 1)
                 else:
-                    self._log(f"Rate limited — waiting {wait:.1f}s")
+                    self._log(f"Rate limited (429) — exponential backoff waiting {wait:.1f}s (retries left: {retries})")
                     await asyncio.sleep(wait)
                     if retries > 0:
                         return await self._internal_call(model_alias, messages, temperature, retries - 1)
 
             else:
                 self._log(f"HTTP {resp.status_code} on {model_alias}: {resp.text[:80]}")
+                if retries > 0:
+                    await asyncio.sleep(3.0)
+                    return await self._internal_call(model_alias, messages, temperature, retries - 1)
 
         except Exception as e:
+            attempt = 4 - retries
+            wait = min(30.0, (2 ** attempt) * 3.0 + random.uniform(1.0, 3.0))
             if retries > 0:
-                self._log(f"Connection error ({str(e)[:30]}) — retrying")
-                await asyncio.sleep(3)
+                self._log(f"Connection error ({str(e)[:40]}) — waiting {wait:.1f}s, retries left: {retries}")
+                await asyncio.sleep(wait)
                 return await self._internal_call(model_alias, messages, temperature, retries - 1)
 
-        return {"action": "WALK_AWAY", "error": "CONNECTION_FAILED", "latency": time.time() - start}
+        return {"action": "API_ERROR", "error": "CONNECTION_FAILED", "latency": time.time() - start}
 
 
 # Singleton

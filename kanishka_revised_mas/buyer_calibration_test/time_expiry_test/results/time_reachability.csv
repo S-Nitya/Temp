@@ -1,0 +1,16 @@
+item_id,product_name,category,cost_price,retail_reference,expiry_hours,expiry_regime,time_advance_per_exchange_h,max_exchanges_per_epoch,time_advance_per_full_epoch_h,epochs_required_for_expiry,exchanges_required_for_expiry,permitted_epochs_in_benchmark,max_simulated_time_in_benchmark_h,min_remaining_shelf_life_in_benchmark_h,reachable_in_current_benchmark
+strawberries_1,Strawberries,Produce,$3.00,$5.00,12.0,Critical,1.0,3,3.0,4,12,1,3.0,9.0,NO
+fresh_fish_2,Fresh Fish,Seafood,$7.00,$11.00,18.0,Critical,1.0,3,3.0,6,18,1,3.0,15.0,NO
+spinach_3,Spinach,Produce,$2.00,$4.00,24.0,Critical,1.0,3,3.0,8,24,1,3.0,21.0,NO
+fresh_chicken_4,Fresh Chicken,Meat,$5.00,$8.00,30.0,Critical,1.0,3,3.0,10,30,1,3.0,27.0,NO
+mushrooms_5,Mushrooms,Produce,$3.00,$5.00,36.0,Critical,1.0,3,3.0,12,36,1,3.0,33.0,NO
+fresh_bread_6,Fresh Bread,Bakery,$2.00,$4.00,48.0,Medium,1.0,3,3.0,16,48,1,3.0,45.0,NO
+tomatoes_7,Tomatoes,Produce,$2.50,$4.50,60.0,Medium,1.0,3,3.0,20,60,1,3.0,57.0,NO
+ground_beef_8,Ground Beef,Meat,$6.00,$10.00,72.0,Medium,1.0,3,3.0,24,72,1,3.0,69.0,NO
+yogurt_9,Yogurt,Dairy,$2.50,$4.50,96.0,Medium,1.0,3,3.0,32,96,1,3.0,93.0,NO
+soft_cheese_10,Soft Cheese,Dairy,$4.00,$7.00,120.0,Medium,1.0,3,3.0,40,120,1,3.0,117.0,NO
+premium_beef_11,Premium Beef,Meat,$9.00,$15.00,144.0,Low,1.0,3,3.0,48,144,1,3.0,141.0,NO
+fresh_juice_12,Fresh Juice,Beverages,$2.50,$4.50,168.0,Low,1.0,3,3.0,56,168,1,3.0,165.0,NO
+apples_13,Apples,Produce,$2.00,$4.00,192.0,Low,1.0,3,3.0,64,192,1,3.0,189.0,NO
+carrots_14,Carrots,Produce,$1.50,$3.00,240.0,Low,1.0,3,3.0,80,240,1,3.0,237.0,NO
+hard_cheese_15,Hard Cheese,Dairy,$5.00,$9.00,336.0,Low,1.0,3,3.0,112,336,1,3.0,333.0,NO

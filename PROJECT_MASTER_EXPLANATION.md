@@ -163,12 +163,17 @@ No_StrategicBrain (Abl)   0.9862 ± 0.013 (98.6%)        $127.74 ± $18.83     $
 
 # 6. Strategic Positioning, Competitive Matrix & Limitations
 
-> 📖 **Full Positioning & SOTA Comparison**: See [`docs/PAPER_POSITIONING_AND_LIMITATIONS.md`](file:///c:/Kanishka/2026%20Projects/Perishable_Agentic_AI/docs/PAPER_POSITIONING_AND_LIMITATIONS.md) for the detailed comparative analysis against *PrefBench*, *Cattle Trade*, and *EvoEmo*, plus the formal drop-in **Discussion & Limitations** draft.
+> 📖 **Full Positioning & SOTA Comparison**: See [`docs/PAPER_POSITIONING_AND_LIMITATIONS.md`](docs/PAPER_POSITIONING_AND_LIMITATIONS.md) for the detailed comparative analysis against *PrefBench*, *Cattle Trade*, and *EvoEmo*, plus the formal drop-in **Discussion & Limitations** draft.
 
-### Key Competitive Takeaways:
-* **Real & Defensible Novelty**: Hard perishability ($100\%$ terminal loss) + concurrent double auction + 4-tier hierarchical seller MAS decomposition.
-* **Deep Diagnostic Strength**: Causal tri-factor (catalog artifact, scale-specific instruction-following failure, pricing anchor bypass).
-* **Controlled Scope Framing**: Focuses as an in-depth mechanistic case study ($N=30$, Llama-3.1-8B/70B, controlled market variance).
+---
+
+## VII. Progress Checklist & Next Milestones
+
+- [x] Initial full ablation run (5 trials each for MAS, LinearDecay, No_RiskReader, No_StrategicBrain).
+- [x] Statistical hypothesis testing (`scipy.stats`) and significance tables computed.
+- [x] Publication-quality visualization frontier (True Net Profit vs. Computation Cost, Boxplots) generated.
+- [x] Empirical metrics audit confirming exact Net Utility calculation.
+- [x] Strategic positioning, competitive breakdown, and limitations document drafted ([`docs/PAPER_POSITIONING_AND_LIMITATIONS.md`](docs/PAPER_POSITIONING_AND_LIMITATIONS.md)).
 
 ---
 
@@ -179,7 +184,7 @@ No_StrategicBrain (Abl)   0.9862 ± 0.013 (98.6%)        $127.74 ± $18.83     $
 - [x] Concurrent multi-buyer double auction engine implemented.
 - [x] Pydantic schemas enforcing pure Chain-of-Thought structured validation.
 - [x] Statistically verified ablation drops on all agent roles.
-- [x] Strategic positioning, competitive breakdown, and limitations document drafted ([`docs/PAPER_POSITIONING_AND_LIMITATIONS.md`](file:///c:/Kanishka/2026%20Projects/Perishable_Agentic_AI/docs/PAPER_POSITIONING_AND_LIMITATIONS.md)).
+- [x] Strategic positioning, competitive breakdown, and limitations document drafted ([`docs/PAPER_POSITIONING_AND_LIMITATIONS.md`](docs/PAPER_POSITIONING_AND_LIMITATIONS.md)).
 - [ ] Complete full $N=30$ trial benchmark suite for publication-grade error bars.
 - [ ] Generate publication-ready vector plots (Matplotlib/Seaborn) for PCR, Net Yield, and Survival Curves.
 

@@ -1,0 +1,16 @@
+item_id,product_name,cost_price,retail_reference,expiry_hours,expiry_regime,private_valuation,valuation_to_retail,budget_ceiling,budget_to_retail,urgency,price_sensitivity,persona
+strawberries_1,Strawberries,$3.00,$5.00,12.0,Critical,$4.06,0.8120,$3.65,0.7300,MODERATE,HIGH,CAUTIOUS_CONSERVATIVE
+fresh_fish_2,Fresh Fish,$7.00,$11.00,18.0,Critical,$9.93,0.9027,$11.66,1.0600,LOW,HIGH,PRAGMATIC_SHOPPER
+spinach_3,Spinach,$2.00,$4.00,24.0,Critical,$4.86,1.2150,$5.08,1.2700,HIGH,LOW,QUALITY_SEEKER
+fresh_chicken_4,Fresh Chicken,$5.00,$8.00,30.0,Critical,$5.80,0.7250,$6.51,0.8137,MODERATE,HIGH,CAUTIOUS_CONSERVATIVE
+mushrooms_5,Mushrooms,$3.00,$5.00,36.0,Critical,$5.15,1.0300,$5.49,1.0980,LOW,MODERATE,PRAGMATIC_SHOPPER
+fresh_bread_6,Fresh Bread,$2.00,$4.00,48.0,Medium,$4.59,1.1475,$4.62,1.1550,HIGH,LOW,QUALITY_SEEKER
+tomatoes_7,Tomatoes,$2.50,$4.50,60.0,Medium,$3.73,0.8289,$3.45,0.7667,LOW,HIGH,BARGAIN_HUNTER
+ground_beef_8,Ground Beef,$6.00,$10.00,72.0,Medium,$10.30,1.0300,$10.19,1.0190,HIGH,HIGH,PRAGMATIC_SHOPPER
+yogurt_9,Yogurt,$2.50,$4.50,96.0,Medium,$5.37,1.1933,$5.40,1.2000,HIGH,LOW,QUALITY_SEEKER
+soft_cheese_10,Soft Cheese,$4.00,$7.00,120.0,Medium,$5.94,0.8486,$5.91,0.8443,MODERATE,HIGH,BARGAIN_HUNTER
+premium_beef_11,Premium Beef,$9.00,$15.00,144.0,Low,$15.23,1.0153,$14.32,0.9547,HIGH,HIGH,PRAGMATIC_SHOPPER
+fresh_juice_12,Fresh Juice,$2.50,$4.50,168.0,Low,$5.56,1.2356,$5.10,1.1333,LOW,MODERATE,QUALITY_SEEKER
+apples_13,Apples,$2.00,$4.00,192.0,Low,$3.10,0.7750,$2.94,0.7350,HIGH,HIGH,BARGAIN_HUNTER
+carrots_14,Carrots,$1.50,$3.00,240.0,Low,$3.05,1.0167,$2.82,0.9400,HIGH,HIGH,PRAGMATIC_SHOPPER
+hard_cheese_15,Hard Cheese,$5.00,$9.00,336.0,Low,$10.10,1.1222,$10.96,1.2178,HIGH,LOW,PRAGMATIC_SHOPPER
