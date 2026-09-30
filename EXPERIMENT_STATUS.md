@@ -18,7 +18,7 @@ This repository contains three clearly distinguished tracks of empirical work:
 [1. FINAL BENCHMARK]               [2. CALIBRATION & DIAGNOSTICS]            [3. LEGACY RESULTS]
 - 5 MAS vs 5 LinearDecay Trials    - Isolated Buyer Calibration              - Deprecated N=5 Ablation
 - 75 Transactions / Condition      - Paired Stress Test (Seed 999)           - Mixed Legacy Catalogs
-- Seeds: 142, 242, 342, 442, 542   - Time Reachability Diagnostics           - Archived in legacy_results/
+- Seeds: 142, 242, 342, 442, 542   - Time Reachability Diagnostics           - Archived in archive/legacy_results/
 - Frozen in results/               - Perishability Pilot (2h intervals)      - Strictly READ-ONLY
 ```
 
@@ -59,7 +59,7 @@ All calibration and diagnostic scripts, data, and reports are strictly confined 
 
 ## 4. Track 3: Legacy Results (Archived)
 
-- **Location**: [`legacy_results/`](legacy_results/)
+- **Location**: [`archive/legacy_results/`](archive/legacy_results/)
 - **Description**: Contains historical results from early multi-model and ablation studies (Full MAS, No RiskReader, No StrategicBrain, LinearDecay).
 - **Status**: **DEPRECATED / ARCHIVED AS LEGACY**. These files are preserved for historical record-keeping and provenance but are **not** part of the active production benchmark.
 
