@@ -137,11 +137,11 @@ The finalized environment was verified against an 8-test deterministic audit sui
 
 ```
 Perishable_Agentic_AI/
-├── kanishka_revised_mas/                 # Production benchmark implementation
+├── kanishka_revised_mas/                 # Production benchmark implementation (Authoritative)
 │   ├── catalog.py                       # Fixed 15-product perishable catalog & SHA-256
 │   ├── buyer.py                         # Calibrated autonomous buyer agent
-│   ├── mas_agents.py                    # 7-agent hierarchical seller architecture
-│   ├── environment.py                   # Repaired market environment with true clock
+│   ├── mas_agents.py                    # Hierarchical seller architecture
+│   ├── environment.py                   # Market environment with true clock
 │   ├── linear_decay.py                  # Deterministic LinearDecay benchmark policy
 │   ├── runner.py                        # Benchmark trial execution engine
 │   ├── test_environment_audit.py       # 8-test deterministic validation suite
@@ -160,10 +160,11 @@ Perishable_Agentic_AI/
 │       ├── stress_test/                 # 1 MAS vs 1 LinearDecay paired stress test
 │       ├── time_expiry_test/            # Clock reachability & state machine tests
 │       └── perishability_pilot/         # Real-time multi-interval perishability pilot
-├── legacy_results/                      # Archived historical ablation benchmark
+├── results/                             # Root copy of final benchmark reports & CSVs
 ├── docs/                                # Positioning, related work, and limitations drafts
-├── results/                             # Root copy of final benchmark reports
+├── archive/                             # Archived legacy architectures, early runs, and obsolete data
 ├── EXPERIMENT_STATUS.md                 # Formal declaration of experimental freeze
+├── PROJECT_MASTER_EXPLANATION.md        # Comprehensive technical breakdown of breakthrough
 ├── REPRODUCIBILITY.md                   # Step-by-step reproduction instructions
 └── README.md                            # Main project overview (this document)
 ```
